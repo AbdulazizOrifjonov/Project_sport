@@ -1,0 +1,262 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  ChevronRight,
+  Smartphone,
+  Laptop,
+  FileText,
+  Printer,
+  Armchair,
+  Tv,
+  Server,
+  Package,
+  ArrowRight,
+  PhoneCall
+} from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
+import api from '../../services/api';
+
+const iconMap = {
+  Smartphone: <Smartphone className="w-5 h-5" />,
+  Laptop: <Laptop className="w-5 h-5" />,
+  FileText: <FileText className="w-5 h-5" />,
+  Printer: <Printer className="w-5 h-5" />,
+  Armchair: <Armchair className="w-5 h-5" />,
+  Tv: <Tv className="w-5 h-5" />,
+  Server: <Server className="w-5 h-5" />,
+  Package: <Package className="w-5 h-5" />
+};
+
+export default function CategoryDrawer({ isOpen, onClose }) {
+  const navigate = useNavigate();
+  const { t } = useLanguage();
+  const [categories, setCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [previewProducts, setPreviewProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(false);
+
+  // Keyboard Escape listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Lock body scroll and fetch categories on open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      api
+        .get('/categories')
+        .then((res) => {
+          if (res.data.success && res.data.categories.length > 0) {
+            setCategories(res.data.categories);
+            if (!activeCategory) {
+              setActiveCategory(res.data.categories[0]);
+            }
+          }
+        })
+        .catch(() => {});
+
+      return () => {
+        document.body.style.overflow = originalOverflow || 'unset';
+      };
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
+  // Fetch preview products when activeCategory changes
+  useEffect(() => {
+    if (activeCategory && isOpen) {
+      setLoadingProducts(true);
+      api
+        .get(`/products?categorySlug=${activeCategory.slug}&limit=8`)
+        .then((res) => {
+          if (res.data.success) {
+            setPreviewProducts(res.data.products || []);
+          }
+        })
+        .catch(() => {})
+        .finally(() => setLoadingProducts(false));
+    }
+  }, [activeCategory, isOpen]);
+
+  const handleCategoryClick = (slug) => {
+    onClose();
+    navigate(`/shop/${slug}`);
+  };
+
+  const handleProductClick = (slug) => {
+    onClose();
+    navigate(`/product/${slug}`);
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-x-0 bottom-0 z-40 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
+      style={{
+        top: 'var(--nsb-header-height, 140px)',
+        height: 'calc(100dvh - var(--nsb-header-height, 140px))'
+      }}
+      onClick={onClose}
+    >
+      {/* Full-Width Mega-Menu Container directly under original navbar */}
+      <div
+        className="w-full h-full bg-white dark:bg-[#0b0f19] border-t border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col overflow-hidden animate-catalog-enter"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex-1 max-w-[1820px] w-full mx-auto flex overflow-hidden">
+          {/* Left Categories Sidebar: w-64 sm:w-72 lg:w-80 */}
+          <div className="w-56 sm:w-72 lg:w-80 shrink-0 border-r border-slate-200 dark:border-slate-800 overflow-y-auto py-3 px-2 sm:px-3 bg-slate-50/70 dark:bg-[#080c14]/80 space-y-1">
+            {categories.map((cat) => {
+              const isSelected = activeCategory?._id === cat._id;
+              return (
+                <button
+                  key={cat._id}
+                  onMouseEnter={() => setActiveCategory(cat)}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 sm:px-3.5 sm:py-3 rounded-xl text-left text-xs sm:text-sm transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-white dark:bg-slate-800/90 text-slate-950 dark:text-white shadow-xs border border-slate-200 dark:border-slate-700 font-bold'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50 font-medium'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5 sm:gap-3 truncate">
+                    <span
+                      className={
+                        isSelected
+                          ? 'text-slate-950 dark:text-white font-bold'
+                          : 'text-slate-400 dark:text-slate-500'
+                      }
+                    >
+                      {iconMap[cat.icon] || <FileText className="w-4 h-4 sm:w-5 sm:h-5" />}
+                    </span>
+                    <span className="truncate">{t(`cat.${cat.slug}`, cat.name)}</span>
+                  </div>
+                  <ChevronRight
+                    className={`w-4 h-4 shrink-0 transition-transform ${
+                      isSelected
+                        ? 'text-slate-950 dark:text-white translate-x-0.5'
+                        : 'text-slate-300 dark:text-slate-600'
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Content Area: Stretches across all remaining screen width */}
+          <div className="flex-1 min-w-0 overflow-y-auto p-5 sm:p-7 lg:p-8 flex flex-col justify-between bg-white dark:bg-[#000000]">
+            {activeCategory ? (
+              <div className="space-y-6">
+                {/* Category Header Row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
+                  <div className="min-w-0">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight truncate">
+                      {t(`cat.${activeCategory.slug}`, activeCategory.name)}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+                      {t('drawer.categoryBanner')}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleCategoryClick(activeCategory.slug)}
+                    className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
+                  >
+                    {t('drawer.viewAll')} <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Subcategories Tags */}
+                {activeCategory.subcategories && activeCategory.subcategories.length > 0 && (
+                  <div>
+                    <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-2.5">
+                      {t('drawer.subcategories')}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {activeCategory.subcategories.map((sub, i) => (
+                        <button
+                          key={i}
+                          onClick={() => handleCategoryClick(activeCategory.slug)}
+                          className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700/60"
+                        >
+                          {sub}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Wide Top Products Preview Grid (2 to 6 columns) */}
+                <div>
+                  <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-3">
+                    {t('drawer.popularItems')}
+                  </h4>
+                  {loadingProducts ? (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5">
+                      {[...Array(6)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="h-44 rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse"
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5">
+                      {previewProducts.map((p) => (
+                        <div
+                          key={p._id}
+                          onClick={() => handleProductClick(p.slug)}
+                          className="group p-2.5 sm:p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-white transition-all cursor-pointer bg-slate-50/60 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md"
+                        >
+                          <div className="w-full aspect-square rounded-lg bg-white dark:bg-slate-900 overflow-hidden mb-2 sm:mb-2.5 border border-slate-100 dark:border-slate-800">
+                            <img
+                              src={
+                                p.images?.[0] ||
+                                'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=300&auto=format&fit=crop&q=80'
+                              }
+                              alt={p.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            />
+                          </div>
+                          <h5 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-slate-950 dark:group-hover:text-white transition-colors">
+                            {p.title}
+                          </h5>
+                          <p className="text-xs font-black text-slate-950 dark:text-white mt-1">
+                            {(p.price || 0).toLocaleString('ru-RU')} so‘m
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-full text-slate-400 text-sm">
+                {t('drawer.selectCategory')}
+              </div>
+            )}
+
+            {/* Bottom Support Banner */}
+            <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-2">
+                <PhoneCall className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                <span>
+                  {t('drawer.consultation')}: <strong>+998 (95) 155-45-00</strong>
+                </span>
+              </div>
+              <span>{t('drawer.monSat')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
