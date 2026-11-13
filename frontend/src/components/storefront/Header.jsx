@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Search,
   ShoppingCart,
@@ -17,7 +17,10 @@ import {
   Truck,
   Sun,
   Moon,
-  ShieldCheck
+  ShieldCheck,
+  Package,
+  Printer,
+  Armchair
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -35,6 +38,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const { lang, setLang, t } = useLanguage();
   const { theme, toggleTheme, isDark } = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -43,6 +47,22 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const searchRef = useRef(null);
   const mobileSearchRef = useRef(null);
   const headerRef = useRef(null);
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow || '';
+      };
+    }
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const updateHeaderHeight = () => {
@@ -103,8 +123,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50 bg-white dark:bg-black border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200">
-      {/* Top Utility Contact Bar */}
-      <div className="bg-slate-50 dark:bg-black border-b border-slate-200/80 dark:border-slate-800 text-[12px] py-1.5 text-slate-700 dark:text-slate-300 transition-colors duration-200">
+      {/* Top Utility Contact Bar - Hidden on mobile to keep header clean and spacious */}
+      <div className="hidden md:block bg-slate-50 dark:bg-black border-b border-slate-200/80 dark:border-slate-800 text-[12px] py-1.5 text-slate-700 dark:text-slate-300 transition-colors duration-200">
         <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Demo Admin Panel Quick Button */}
@@ -189,11 +209,11 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-15 md:h-18">
           {/* Mobile hamburger */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden h-10 w-10 flex items-center justify-center -ml-1 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer shrink-0"
+            onClick={() => setMobileMenuOpen(true)}
+            className="md:hidden h-10 w-10 flex items-center justify-center -ml-1 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer shrink-0"
             aria-label="Menyu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <Menu className="w-5 h-5" />
           </button>
 
           {/* Brand Logo & Catalog Button */}
@@ -354,30 +374,41 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           </div>
 
           {/* Mobile Right Quick Action Icons (Visible only on < md) */}
-          <div className="flex md:hidden items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex md:hidden items-center gap-1.5 shrink-0">
+            {/* Admin Demo quick pill */}
+            <Link
+              to="/admin"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold text-[11px] shadow-2xs border border-slate-900 dark:border-white shrink-0 active:scale-95 transition-transform"
+              title="Admin Panel Demo"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
+              <span>Admin</span>
+            </Link>
+
+            {/* Theme switch quick button */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center border border-slate-200 dark:border-slate-700 active:scale-95 transition-all shadow-2xs cursor-pointer"
+              aria-label="Rejimni almashtirish"
+              title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-400 fill-amber-400/20" />
+              ) : (
+                <Moon className="w-4 h-4 text-slate-700 fill-slate-700/20" />
+              )}
+            </button>
+
             {/* Phone quick call */}
             <a
               href="tel:+998951554500"
               className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center border border-slate-200 dark:border-slate-700 active:scale-95 transition-all shadow-2xs"
               aria-label="Telefon qilish"
-              title="Qo‘ng‘iroq qilish"
+              title="Qo‘ng‘iroq qilish: +998 (95) 155-45-00"
             >
               <Phone className="w-4 h-4" />
             </a>
-
-            {/* Mobile Savat with live badge */}
-            <Link
-              to="/cart"
-              className="relative h-9 px-3 bg-slate-950 dark:bg-white text-white dark:text-slate-950 active:bg-slate-800 dark:active:bg-slate-100 rounded-xl flex items-center gap-1.5 shadow-xs active:scale-95 transition-all border border-slate-900 dark:border-white"
-              aria-label="Savat"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              {cartCount > 0 ? (
-                <span className="text-xs font-black">{cartCount}</span>
-              ) : (
-                <span className="text-[11px] font-bold">{t('header.cart')}</span>
-              )}
-            </Link>
           </div>
         </div>
       </div>
@@ -485,126 +516,282 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Slide-over Drawer Modal */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-black border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
-          {/* Mobile Admin Demo Link */}
-          <Link
-            to="/admin"
+        <div className="fixed inset-0 z-[100] md:hidden flex" role="dialog" aria-modal="true">
+          {/* Backdrop blur overlay */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold text-xs shadow-xs border border-slate-900 dark:border-white"
-          >
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
-              <ShieldCheck className="w-4 h-4 text-emerald-400 dark:text-emerald-600" />
-              <span>Admin Panel (Demo)</span>
-            </span>
-            <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase bg-emerald-500/20 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800">
-              Kirish →
-            </span>
-          </Link>
+            aria-hidden="true"
+          />
 
-          {/* Mobile Theme Switcher */}
-          <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Rejim / Режим:</span>
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-extrabold cursor-pointer ${
-                isDark
-                  ? 'bg-slate-800 border-indigo-500/50 text-indigo-300'
-                  : 'bg-amber-50 border-amber-300 text-amber-800'
-              }`}
-            >
-              {isDark ? (
-                <>
-                  <Moon className="w-4 h-4 text-indigo-400 fill-indigo-400" />
-                  <span>🌙 Tun (Tungi)</span>
-                </>
-              ) : (
-                <>
-                  <Sun className="w-4 h-4 text-amber-500 fill-amber-500" />
-                  <span>☀️ Kun (Kunduzgi)</span>
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Language Switcher */}
-          <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Til / Язык / Language:</span>
-            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700 text-xs font-bold">
-              {['uz', 'ru', 'en'].map((l) => (
-                <button
-                  key={l}
-                  type="button"
-                  onClick={() => setLang(l)}
-                  className={`px-2.5 py-1 rounded uppercase cursor-pointer ${
-                    lang === l ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold' : 'text-slate-700 dark:text-slate-300'
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
+          {/* Drawer panel sliding from left */}
+          <div className="relative w-[85%] max-w-sm h-full bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white shadow-2xl flex flex-col z-10 overflow-hidden">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800 shrink-0">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-2.5"
+              >
+                <div className="w-9 h-9 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center p-1 shadow-xs">
+                  <img
+                    src="/logo.png"
+                    alt="NEXT NOUT"
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                </div>
+                <div>
+                  <div className="font-extrabold text-[15px] tracking-tight text-slate-950 dark:text-white">
+                    NEXT NOUT
+                  </div>
+                  <div className="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
+                    Notebook Store
+                  </div>
+                </div>
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                aria-label="Yopish"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
-          </div>
 
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onToggleCatalog();
-            }}
-            className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold text-xs"
-          >
-            <span className="flex items-center gap-2">
-              <LayoutGrid className="w-4 h-4" /> {t('header.catalog', 'Katalog')}
-            </span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            {/* Drawer Scrollable Content */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {/* Admin Panel Demo Banner */}
+              <Link
+                to="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold text-xs shadow-md border border-slate-900 dark:border-white active:scale-98 transition-all group"
+              >
+                <span className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 dark:text-emerald-600" />
+                  <span>Admin Panel (Demo)</span>
+                </span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase bg-emerald-500/20 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800">
+                  Kirish →
+                </span>
+              </Link>
 
-          <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
-            <Link
-              to="/shop?tag=sale"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 font-bold border border-red-200 dark:border-red-900/60"
-            >
-              🔥 {t('nav.deals', 'Aksiyalar')}
-            </Link>
-            <Link
-              to="/shop?tag=bestseller"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
-            >
-              ⭐ {t('nav.popular', 'Ommabop')}
-            </Link>
-            <Link
-              to="/shop/apple"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
-            >
-              🍎 {t('nav.apple', 'Apple MacBook')}
-            </Link>
-            <Link
-              to="/shop/kompyuternaya-tehnika"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
-            >
-              💻 {t('nav.computers', 'Noutbuklar')}
-            </Link>
-            <Link
-              to="/account"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
-            >
-              👤 {t('header.login', 'Kirish')}
-            </Link>
-            <Link
-              to="/delivery"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
-            >
-              🚚 {t('nav.delivery', 'Yetkazib berish')}
-            </Link>
+              {/* Quick Settings: Theme & Language */}
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-3">
+                {/* Theme switch */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    Rejim / Тема:
+                  </span>
+                  <div className="h-8 inline-flex items-center p-0.5 rounded-lg bg-slate-200/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                    <button
+                      type="button"
+                      onClick={() => isDark && toggleTheme()}
+                      className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-xs cursor-pointer transition-all ${
+                        !isDark
+                          ? 'bg-white text-amber-600 font-black shadow-xs'
+                          : 'text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium'
+                      }`}
+                    >
+                      <Sun className="w-3.5 h-3.5" />
+                      <span>Kun</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => !isDark && toggleTheme()}
+                      className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-xs cursor-pointer transition-all ${
+                        isDark
+                          ? 'bg-slate-900 text-indigo-400 font-black shadow-xs'
+                          : 'text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium'
+                      }`}
+                    >
+                      <Moon className="w-3.5 h-3.5" />
+                      <span>Tun</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Language switch */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    Til / Язык:
+                  </span>
+                  <div className="h-8 inline-flex items-center p-0.5 rounded-lg bg-slate-200/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                    {['uz', 'ru', 'en'].map((l) => (
+                      <button
+                        key={l}
+                        type="button"
+                        onClick={() => setLang(l)}
+                        className={`h-full px-2.5 flex items-center justify-center rounded-md text-xs uppercase cursor-pointer transition-all ${
+                          lang === l
+                            ? 'bg-white dark:bg-slate-900 text-slate-950 dark:text-white font-black shadow-xs'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold'
+                        }`}
+                      >
+                        {l}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Catalog Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onToggleCatalog();
+                }}
+                className="w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-bold text-xs border border-slate-200 dark:border-slate-800 transition-all cursor-pointer shadow-xs"
+              >
+                <span className="flex items-center gap-2.5">
+                  <LayoutGrid className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+                  <span className="text-slate-900 dark:text-white">Katalog (Barcha toifalar)</span>
+                </span>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </button>
+
+              {/* Category & Section Links */}
+              <div className="space-y-1">
+                <div className="px-1 text-[11px] uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500">
+                  Bo‘limlar va toifalar
+                </div>
+                <div className="grid grid-cols-1 gap-1 pt-1">
+                  <Link
+                    to="/shop?tag=sale"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-red-600 dark:text-red-400 bg-red-50/70 dark:bg-red-950/30 border border-red-200/80 dark:border-red-900/50"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Flame className="w-4 h-4" />
+                      <span>{t('nav.deals', 'Aksiyalar va Chegirmalar')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 opacity-70" />
+                  </Link>
+
+                  <Link
+                    to="/shop?tag=bestseller"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Star className="w-4 h-4 text-amber-500" />
+                      <span>{t('nav.popular', 'Ommabop mahsulotlar')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/apple"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="text-base leading-none">🍎</span>
+                      <span>{t('nav.apple', 'Apple MacBook & iPad')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/kompyuternaya-tehnika"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Monitor className="w-4 h-4 text-slate-500" />
+                      <span>{t('nav.computers', 'Kompyuterlar & Noutbuklar')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/orgtehnika"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Printer className="w-4 h-4 text-slate-500" />
+                      <span>Orgtexnika & Printerlar</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/kanctovary"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Package className="w-4 h-4 text-slate-500" />
+                      <span>Kantselyariya tovarlari</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/ofisnaya-mebel"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Armchair className="w-4 h-4 text-slate-500" />
+                      <span>Ofis mebellari & Kreslolar</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/compare"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <GitCompare className="w-4 h-4 text-slate-500" />
+                      <span>{t('header.compare', 'Mahsulotlarni taqqoslash')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/delivery"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Truck className="w-4 h-4 text-slate-500" />
+                      <span>{t('nav.delivery', 'Yetkazib berish va to‘lov')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Contact & Store Info */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2.5 pb-6">
+                <a
+                  href="tel:+998951554500"
+                  className="flex items-center gap-2.5 text-xs font-bold text-slate-900 dark:text-white"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 flex items-center justify-center text-slate-700 dark:text-slate-300">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div>+998 (95) 155-45-00</div>
+                    <div className="text-[10px] text-slate-500 font-normal">Har kuni 09:00 - 20:00</div>
+                  </div>
+                </a>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 pl-1">
+                  📍 Buxoro shahri, M.Iqbol ko‘chasi, 26-uy
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -11,7 +11,9 @@ import {
   Server,
   Package,
   ArrowRight,
-  PhoneCall
+  PhoneCall,
+  LayoutGrid,
+  X
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
@@ -102,8 +104,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
     <div
       className="fixed inset-x-0 bottom-0 z-40 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
       style={{
-        top: 'var(--nsb-header-height, 140px)',
-        height: 'calc(100dvh - var(--nsb-header-height, 140px))'
+        top: 'var(--nsb-header-height, 136px)',
+        height: 'calc(100dvh - var(--nsb-header-height, 136px))'
       }}
       onClick={onClose}
     >
@@ -112,28 +114,66 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         className="w-full h-full bg-white dark:bg-[#0b0f19] border-t border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col overflow-hidden animate-catalog-enter"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Header for Category Drawer */}
+        <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-black shrink-0">
+          <div className="flex items-center gap-2 font-black text-sm text-slate-950 dark:text-white">
+            <LayoutGrid className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+            <span>{t('header.catalog', 'Barcha toifalar')}</span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1 rounded-lg text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white cursor-pointer"
+            aria-label="Yopish"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
         <div className="flex-1 max-w-[1820px] w-full mx-auto flex overflow-hidden">
-          {/* Left Categories Sidebar: w-64 sm:w-72 lg:w-80 */}
-          <div className="w-56 sm:w-72 lg:w-80 shrink-0 border-r border-slate-200 dark:border-slate-800 overflow-y-auto py-3 px-2 sm:px-3 bg-slate-50/70 dark:bg-[#080c14]/80 space-y-1">
+          {/* Categories List: Full width on mobile (< md), Left sidebar on desktop (md+) */}
+          <div className="w-full md:w-72 lg:w-80 shrink-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800 overflow-y-auto py-3 px-3 sm:px-3 bg-white md:bg-slate-50/70 dark:bg-black md:dark:bg-[#080c14]/80 space-y-1 pb-24 md:pb-3">
+            {/* Mobile All Products shortcut */}
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                navigate('/shop');
+              }}
+              className="w-full md:hidden flex items-center justify-between px-3.5 py-3 rounded-xl text-left text-xs font-bold bg-slate-950 dark:bg-white text-white dark:text-slate-950 mb-2 shadow-xs cursor-pointer"
+            >
+              <div className="flex items-center gap-2.5">
+                <LayoutGrid className="w-4 h-4" />
+                <span>Barcha mahsulotlar (Katalog)</span>
+              </div>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
             {categories.map((cat) => {
               const isSelected = activeCategory?._id === cat._id;
               return (
                 <button
                   key={cat._id}
                   onMouseEnter={() => setActiveCategory(cat)}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 sm:px-3.5 sm:py-3 rounded-xl text-left text-xs sm:text-sm transition-all cursor-pointer ${
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      handleCategoryClick(cat.slug);
+                    } else {
+                      setActiveCategory(cat);
+                    }
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-3 sm:px-3.5 sm:py-3 rounded-xl text-left text-xs sm:text-sm transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-white dark:bg-slate-800/90 text-slate-950 dark:text-white shadow-xs border border-slate-200 dark:border-slate-700 font-bold'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50 font-medium'
+                      ? 'bg-slate-100 md:bg-white dark:bg-slate-800/90 text-slate-950 dark:text-white shadow-xs border border-slate-200 dark:border-slate-700 font-bold'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50 font-semibold'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5 sm:gap-3 truncate">
+                  <div className="flex items-center gap-3 truncate">
                     <span
                       className={
                         isSelected
                           ? 'text-slate-950 dark:text-white font-bold'
-                          : 'text-slate-400 dark:text-slate-500'
+                          : 'text-slate-500 dark:text-slate-400'
                       }
                     >
                       {iconMap[cat.icon] || <FileText className="w-4 h-4 sm:w-5 sm:h-5" />}
@@ -144,7 +184,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                     className={`w-4 h-4 shrink-0 transition-transform ${
                       isSelected
                         ? 'text-slate-950 dark:text-white translate-x-0.5'
-                        : 'text-slate-300 dark:text-slate-600'
+                        : 'text-slate-400 dark:text-slate-600'
                     }`}
                   />
                 </button>
@@ -152,8 +192,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
             })}
           </div>
 
-          {/* Right Content Area: Stretches across all remaining screen width */}
-          <div className="flex-1 min-w-0 overflow-y-auto p-5 sm:p-7 lg:p-8 flex flex-col justify-between bg-white dark:bg-[#000000]">
+          {/* Right Content Area: Stretches across all remaining screen width (Desktop only) */}
+          <div className="hidden md:flex flex-1 min-w-0 overflow-y-auto p-5 sm:p-7 lg:p-8 flex-col justify-between bg-white dark:bg-[#000000]">
             {activeCategory ? (
               <div className="space-y-6">
                 {/* Category Header Row */}

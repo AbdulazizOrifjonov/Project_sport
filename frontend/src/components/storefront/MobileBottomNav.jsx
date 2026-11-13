@@ -6,7 +6,7 @@ import { useWishlist } from '../../context/WishlistContext';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 
-export default function MobileBottomNav({ onToggleCatalog }) {
+export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false }) {
   const location = useLocation();
   const { cartCount } = useCart();
   const { wishlist } = useWishlist();
@@ -15,15 +15,15 @@ export default function MobileBottomNav({ onToggleCatalog }) {
 
   const pathname = location.pathname;
 
-  const isHome = pathname === '/';
-  const isCatalog = pathname.startsWith('/shop');
+  const isCatalog = pathname.startsWith('/shop') || isCatalogOpen;
+  const isHome = pathname === '/' && !isCatalogOpen;
   const isCart = pathname === '/cart';
   const isWishlist = pathname === '/wishlist';
   const isAccount = pathname === '/account';
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 dark:bg-[#000000]/95 backdrop-blur-xl border-t border-slate-200/90 dark:border-slate-800/90 shadow-[0_-4px_25px_rgba(0,0,0,0.12)] pb-[calc(env(safe-area-inset-bottom,0px))] transition-colors duration-200"
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 dark:bg-[#000000]/95 backdrop-blur-xl border-t border-slate-200/90 dark:border-slate-800/90 shadow-[0_-4px_25px_rgba(0,0,0,0.12)] pb-[max(env(safe-area-inset-bottom,0px),8px)] pt-1 transition-colors duration-200"
       aria-label="Mobil pastki navigatsiya"
     >
       <div className="grid grid-cols-5 h-16 items-center px-1">
