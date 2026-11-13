@@ -105,7 +105,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
   const formatPrice = (n) => `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} so‘m`;
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 flex transition-colors duration-200">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 flex transition-colors duration-200">
       {/* Sidebar Overlay (Mobile) */}
       {sidebarOpen && (
         <div
@@ -205,11 +205,11 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-hidden">
         {/* Top Navbar */}
-        <header className="sticky top-0 z-30 bg-white dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800 px-4 py-2 sm:px-6 flex items-center justify-between gap-3 shadow-2xs transition-colors duration-200 h-16">
+        <header className="sticky top-0 z-30 bg-white dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800 px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-3 shadow-2xs transition-colors duration-200 h-16 w-full max-w-full">
           {/* Left: Mobile hamburger & Breadcrumb */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={() => setSidebarOpen(true)}
               className="lg:hidden h-10 w-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shrink-0 cursor-pointer"
@@ -226,26 +226,26 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           </div>
 
           {/* Center: Search Input (navbarga input) */}
-          <div className="flex-1 max-w-md mx-2 sm:mx-4 relative h-10 flex items-center">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="flex-1 min-w-0 max-w-md mx-1 sm:mx-4 relative h-10 flex items-center">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={
                 lang === 'ru'
-                  ? 'Поиск: заказы, заявки, товары, клиенты...'
+                  ? 'Поиск...'
                   : lang === 'en'
-                  ? 'Search orders, leads, products, clients...'
-                  : 'Qidiruv: buyurtmalar, zayavkalar, tovarlar...'
+                  ? 'Search...'
+                  : 'Qidiruv...'
               }
-              className="w-full h-10 pl-10 pr-8 rounded-xl text-xs font-medium bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-slate-900 dark:focus:border-white outline-none transition-all box-border"
+              className="w-full h-10 pl-9 pr-7 rounded-xl text-xs font-medium bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-slate-900 dark:focus:border-white outline-none transition-all box-border truncate"
             />
             {searchTerm && (
               <button
                 type="button"
                 onClick={() => setSearchTerm('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 cursor-pointer"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -253,14 +253,14 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           </div>
 
           {/* Right Controls: Zayavkalar Button, Kun/Tun, Lang Switcher, Status */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* 1. Tushgan Zayavkalar Button (bitta bossa zayavkalar paneliga o'tadi) */}
             <button
               type="button"
               onClick={() => {
                 setActiveTab('orders');
               }}
-              className="relative h-10 inline-flex items-center gap-2 px-3.5 sm:px-4 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 font-extrabold text-xs shadow-xs hover:shadow active:scale-95 transition-all cursor-pointer box-border shrink-0 border border-slate-900 dark:border-white"
+              className="relative h-10 inline-flex items-center justify-center gap-1.5 px-2.5 sm:px-4 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 font-extrabold text-xs shadow-xs hover:shadow active:scale-95 transition-all cursor-pointer box-border shrink-0 border border-slate-900 dark:border-white"
               title="Tushgan barcha zayavkalar paneliga o'tish"
             >
               <Bell className="w-4 h-4" />
@@ -280,7 +280,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
             <button
               type="button"
               onClick={toggleTheme}
-              className={`h-10 inline-flex items-center gap-2 px-3 sm:px-3.5 rounded-xl text-xs font-bold transition-all cursor-pointer border shadow-2xs box-border shrink-0 ${
+              className={`h-10 inline-flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 rounded-xl text-xs font-bold transition-all cursor-pointer border shadow-2xs box-border shrink-0 ${
                 isDark
                   ? 'bg-slate-800 hover:bg-slate-700 border-indigo-500/50 text-indigo-300'
                   : 'bg-amber-100/80 hover:bg-amber-100 border-amber-300 text-amber-900'
@@ -300,8 +300,18 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
               )}
             </button>
 
-            {/* 3. Til tanlash (ENG | UZB | RUS) */}
-            <div className="h-10 flex items-center p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs box-border shrink-0">
+            {/* 3. Til tanlash: Compact single-pill on mobile (< sm), 3-button segment on desktop (>= sm) */}
+            <button
+              type="button"
+              onClick={() => setLang(lang === 'uz' ? 'ru' : lang === 'ru' ? 'en' : 'uz')}
+              className="sm:hidden h-10 px-2.5 flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-black uppercase text-slate-800 dark:text-slate-200 active:scale-95 transition-all shrink-0 cursor-pointer"
+              title="Tilni almashtirish (UZ / RU / EN)"
+            >
+              <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+              <span>{lang}</span>
+            </button>
+
+            <div className="hidden sm:flex h-10 items-center p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs box-border shrink-0">
               {['uz', 'ru', 'en'].map((l) => (
                 <button
                   key={l}
@@ -335,8 +345,8 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
         </header>
 
         {/* Dynamic Page Content with Animated Page Entrance */}
-        <main className="p-4 md:p-6 lg:p-8 flex-1 bg-slate-50 dark:bg-[#000000] transition-colors duration-200">
-          <div key={activeTab} className="animate-admin-page-enter">
+        <main className="p-3 sm:p-4 md:p-6 lg:p-8 flex-1 w-full max-w-full min-w-0 overflow-x-hidden bg-slate-50 dark:bg-[#000000] transition-colors duration-200">
+          <div key={activeTab} className="animate-admin-page-enter w-full max-w-full min-w-0">
             {children}
           </div>
         </main>

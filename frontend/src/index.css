@@ -47,6 +47,12 @@
     --color-tile-3: #16161e;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+
   body {
     font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #09090b;

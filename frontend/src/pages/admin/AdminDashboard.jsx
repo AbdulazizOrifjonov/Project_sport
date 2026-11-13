@@ -1701,38 +1701,40 @@ export default function AdminDashboard() {
           <div className="grid lg:grid-cols-[1fr_360px] gap-6 items-start animate-admin-card-2">
             {/* Categories Table */}
             <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs">
-              <table className="w-full text-xs text-left">
-                <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
-                  <tr>
-                    <th className="p-3.5">Kategoriya Nomi</th>
-                    <th className="p-3.5">Slug</th>
-                    <th className="p-3.5">Ikonka</th>
-                    <th className="p-3.5 text-right">Amallar</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                  {categories.map((c) => (
-                    <tr key={c._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-                      <td className="p-3.5 font-bold text-slate-900 dark:text-white">{c.name}</td>
-                      <td className="p-3.5 font-mono text-slate-500 dark:text-slate-400">{c.slug}</td>
-                      <td className="p-3.5 font-semibold text-[var(--color-primary-600)] dark:text-white">{c.icon}</td>
-                      <td className="p-3.5 text-right">
-                        <button
-                          onClick={async () => {
-                            if (window.confirm('Kategoriyani o‘chirmoqchimisiz?')) {
-                              await api.delete(`/categories/${c._id}`);
-                              loadDashboardData();
-                            }
-                          }}
-                          className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-red-600 dark:text-red-400 cursor-pointer"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </td>
+              <div className="overflow-x-auto w-full max-w-full">
+                <table className="w-full text-xs text-left min-w-[480px]">
+                  <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
+                    <tr>
+                      <th className="p-3.5">Kategoriya Nomi</th>
+                      <th className="p-3.5">Slug</th>
+                      <th className="p-3.5">Ikonka</th>
+                      <th className="p-3.5 text-right">Amallar</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {categories.map((c) => (
+                      <tr key={c._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                        <td className="p-3.5 font-bold text-slate-900 dark:text-white">{c.name}</td>
+                        <td className="p-3.5 font-mono text-slate-500 dark:text-slate-400">{c.slug}</td>
+                        <td className="p-3.5 font-semibold text-[var(--color-primary-600)] dark:text-white">{c.icon}</td>
+                        <td className="p-3.5 text-right">
+                          <button
+                            onClick={async () => {
+                              if (window.confirm('Kategoriyani o‘chirmoqchimisiz?')) {
+                                await api.delete(`/categories/${c._id}`);
+                                loadDashboardData();
+                              }
+                            }}
+                            className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-red-600 dark:text-red-400 cursor-pointer"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* Add Category Form */}
@@ -2109,46 +2111,48 @@ export default function AdminDashboard() {
           </div>
 
           <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs animate-admin-card-2">
-            <table className="w-full text-xs text-left">
-              <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
-                <tr>
-                  <th className="p-3.5">Mahsulot</th>
-                  <th className="p-3.5">Kategoriya</th>
-                  <th className="p-3.5">Hozirgi qoldiq</th>
-                  <th className="p-3.5">Tezkor yangilash</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {products.map((p) => (
-                  <tr key={p._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-                    <td className="p-3 font-bold text-slate-900 dark:text-white">{p.title}</td>
-                    <td className="p-3 text-slate-500 dark:text-slate-400">{p.category}</td>
-                    <td className="p-3">
-                      <span className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
-                        p.stock <= 5 ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 font-black' : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
-                      }`}>
-                        {p.stock} dona
-                      </span>
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="number"
-                          defaultValue={p.stock}
-                          onBlur={async (e) => {
-                            const newStock = Number(e.target.value);
-                            await api.put(`/products/${p._id}`, { stock: newStock });
-                            loadDashboardData();
-                          }}
-                          className="w-20 p-1.5 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 rounded-lg text-xs font-bold text-slate-900 dark:text-white"
-                        />
-                        <span className="text-[10px] text-slate-400">Enter yoki bosganda saqlanadi</span>
-                      </div>
-                    </td>
+            <div className="overflow-x-auto w-full max-w-full">
+              <table className="w-full text-xs text-left min-w-[600px]">
+                <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
+                  <tr>
+                    <th className="p-3.5">Mahsulot</th>
+                    <th className="p-3.5">Kategoriya</th>
+                    <th className="p-3.5">Hozirgi qoldiq</th>
+                    <th className="p-3.5">Tezkor yangilash</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {products.map((p) => (
+                    <tr key={p._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                      <td className="p-3 font-bold text-slate-900 dark:text-white">{p.title}</td>
+                      <td className="p-3 text-slate-500 dark:text-slate-400">{p.category}</td>
+                      <td className="p-3">
+                        <span className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
+                          p.stock <= 5 ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 font-black' : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
+                        }`}>
+                          {p.stock} dona
+                        </span>
+                      </td>
+                      <td className="p-3">
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="number"
+                            defaultValue={p.stock}
+                            onBlur={async (e) => {
+                              const newStock = Number(e.target.value);
+                              await api.put(`/products/${p._id}`, { stock: newStock });
+                              loadDashboardData();
+                            }}
+                            className="w-20 p-1.5 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 rounded-lg text-xs font-bold text-slate-900 dark:text-white"
+                          />
+                          <span className="text-[10px] text-slate-400">Enter yoki bosganda saqlanadi</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}
@@ -2340,52 +2344,54 @@ export default function AdminDashboard() {
           <div className="grid lg:grid-cols-[1fr_360px] gap-6 items-start animate-admin-card-2">
             {/* Coupons Table */}
             <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs">
-              <table className="w-full text-xs text-left">
-                <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
-                  <tr>
-                    <th className="p-3.5">Promo Kod</th>
-                    <th className="p-3.5">Chegirma</th>
-                    <th className="p-3.5">Min. Buyurtma</th>
-                    <th className="p-3.5">Amal Qilish</th>
-                    <th className="p-3.5 text-right">Amallar</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                  {coupons.map((c) => (
-                    <tr key={c._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-                      <td className="p-3.5 font-mono font-black text-rose-600 dark:text-white">
-                        <span className="px-2.5 py-1 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-900">
-                          {c.code}
-                        </span>
-                      </td>
-                      <td className="p-3.5 font-black text-slate-900 dark:text-white">
-                        <span className="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-extrabold">
-                          -{c.discountPercent}%
-                        </span>
-                      </td>
-                      <td className="p-3.5 font-bold text-slate-700 dark:text-slate-300">
-                        {formatPrice(c.minOrderAmount)} so‘m
-                      </td>
-                      <td className="p-3.5 font-mono text-slate-500 dark:text-slate-400">
-                        {c.expiryDate}
-                      </td>
-                      <td className="p-3.5 text-right">
-                        <button
-                          onClick={async () => {
-                            if (window.confirm('Kuponni o‘chirmoqchimisiz?')) {
-                              try { await api.delete(`/coupons/${c._id}`); } catch (_) {}
-                              setCoupons((prev) => prev.filter((item) => item._id !== c._id));
-                            }
-                          }}
-                          className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-red-600 dark:text-red-400 cursor-pointer"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </td>
+              <div className="overflow-x-auto w-full max-w-full">
+                <table className="w-full text-xs text-left min-w-[550px]">
+                  <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
+                    <tr>
+                      <th className="p-3.5">Promo Kod</th>
+                      <th className="p-3.5">Chegirma</th>
+                      <th className="p-3.5">Min. Buyurtma</th>
+                      <th className="p-3.5">Amal Qilish</th>
+                      <th className="p-3.5 text-right">Amallar</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                    {coupons.map((c) => (
+                      <tr key={c._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                        <td className="p-3.5 font-mono font-black text-rose-600 dark:text-white">
+                          <span className="px-2.5 py-1 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-900">
+                            {c.code}
+                          </span>
+                        </td>
+                        <td className="p-3.5 font-black text-slate-900 dark:text-white">
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-extrabold">
+                            -{c.discountPercent}%
+                          </span>
+                        </td>
+                        <td className="p-3.5 font-bold text-slate-700 dark:text-slate-300">
+                          {formatPrice(c.minOrderAmount)} so‘m
+                        </td>
+                        <td className="p-3.5 font-mono text-slate-500 dark:text-slate-400">
+                          {c.expiryDate}
+                        </td>
+                        <td className="p-3.5 text-right">
+                          <button
+                            onClick={async () => {
+                              if (window.confirm('Kuponni o‘chirmoqchimisiz?')) {
+                                try { await api.delete(`/coupons/${c._id}`); } catch (_) {}
+                                setCoupons((prev) => prev.filter((item) => item._id !== c._id));
+                              }
+                            }}
+                            className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-red-600 dark:text-red-400 cursor-pointer"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* In-Page Add Coupon Form (Dedicated Panel - No Modal!) */}
