@@ -115,8 +115,8 @@ const api = {
     if (path === '/auth/me') {
       const user = {
         id: 'usr_admin',
-        name: 'NEXT NOUT Admin',
-        email: 'admin@nextnout.uz',
+        name: 'SPORT OUTLET Admin',
+        email: 'admin@sportoutlet.uz',
         role: 'superadmin',
         phone: '+998 90 123 45 67'
       };
@@ -207,8 +207,8 @@ const api = {
       const token = 'supabase-session-token-' + Date.now();
       const user = {
         id: 'usr_admin',
-        name: 'NEXT NOUT Admin',
-        email: body.email || 'admin@nextnout.uz',
+        name: 'SPORT OUTLET Admin',
+        email: body.email || 'admin@sportoutlet.uz',
         role: 'superadmin',
         phone: '+998 90 123 45 67'
       };

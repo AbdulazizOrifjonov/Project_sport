@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ChevronRight,
-  Smartphone,
-  Laptop,
-  FileText,
-  Printer,
-  Armchair,
-  Tv,
-  Server,
+  Footprints,
+  Shirt,
+  Sparkles,
+  Dumbbell,
   Package,
+  Shield,
+  Trophy,
+  Activity,
+  Layers,
+  Award,
   ArrowRight,
   PhoneCall,
   LayoutGrid,
@@ -19,14 +21,16 @@ import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 
 const iconMap = {
-  Smartphone: <Smartphone className="w-5 h-5" />,
-  Laptop: <Laptop className="w-5 h-5" />,
-  FileText: <FileText className="w-5 h-5" />,
-  Printer: <Printer className="w-5 h-5" />,
-  Armchair: <Armchair className="w-5 h-5" />,
-  Tv: <Tv className="w-5 h-5" />,
-  Server: <Server className="w-5 h-5" />,
-  Package: <Package className="w-5 h-5" />
+  Footprints: <Footprints className="w-5 h-5 text-amber-500" />,
+  Shirt: <Shirt className="w-5 h-5 text-blue-500" />,
+  Sparkles: <Sparkles className="w-5 h-5 text-pink-500" />,
+  Dumbbell: <Dumbbell className="w-5 h-5 text-emerald-500" />,
+  Package: <Package className="w-5 h-5 text-violet-500" />,
+  Shield: <Shield className="w-5 h-5 text-rose-500" />,
+  Trophy: <Trophy className="w-5 h-5 text-amber-400" />,
+  Activity: <Activity className="w-5 h-5 text-sky-400" />,
+  Layers: <Layers className="w-5 h-5 text-indigo-400" />,
+  Award: <Award className="w-5 h-5 text-amber-500" />
 };
 
 export default function CategoryDrawer({ isOpen, onClose }) {

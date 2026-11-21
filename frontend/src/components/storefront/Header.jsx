@@ -13,14 +13,15 @@ import {
   ChevronRight,
   Flame,
   Star,
-  Monitor,
   Truck,
   Sun,
   Moon,
   ShieldCheck,
   Package,
-  Printer,
-  Armchair
+  Dumbbell,
+  Footprints,
+  Shirt,
+  Trophy
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -204,13 +205,13 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         </div>
       </div>
 
-      {/* Main Header Row */}
+      {/* Main Header Row - Spacious & Elevated */}
       <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-15 md:h-18">
+        <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-22">
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden h-10 w-10 flex items-center justify-center -ml-1 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer shrink-0"
+            className="md:hidden h-11 w-11 flex items-center justify-center -ml-1 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 cursor-pointer shrink-0"
             aria-label="Menyu"
           >
             <Menu className="w-5 h-5" />
@@ -218,16 +219,16 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
           {/* Brand Logo & Catalog Button */}
           <div className="flex items-center gap-3 md:gap-4">
-            <Link to="/" className="flex items-center gap-2.5 group h-11 shrink-0">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center p-1 shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
-                <img src="/logo.png" alt="NEXT NOUT" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+            <Link to="/" className="flex items-center gap-2.5 group h-12 shrink-0">
+              <div className="w-11 h-11 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 group-hover:border-white transition-all overflow-hidden">
+                <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="font-extrabold text-[15px] sm:text-[18px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5">
-                  NEXT NOUT
+                <span className="font-black text-[17px] sm:text-[19px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
+                  SPORT OUTLET
                 </span>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
-                  Notebook Store
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-extrabold -mt-0.5">
+                  Sport &amp; Fitness Store
                 </span>
               </div>
             </Link>
@@ -236,35 +237,35 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             <button
               type="button"
               onClick={onToggleCatalog}
-              className={`hidden md:inline-flex h-11 items-center gap-2.5 px-4 rounded-xl text-[13px] font-bold active:scale-98 transition-all cursor-pointer shadow-xs border box-border shrink-0 ${
+              className={`hidden md:inline-flex h-12 items-center gap-2.5 px-5 rounded-xl text-[14px] font-black active:scale-98 transition-all cursor-pointer shadow-md shrink-0 ${
                 isCatalogOpen
-                  ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-slate-950 dark:border-white shadow-md'
-                  : 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-slate-900 dark:border-white hover:bg-slate-800 dark:hover:bg-slate-100'
+                  ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/20'
+                  : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
               }`}
               aria-expanded={isCatalogOpen}
               aria-label={isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
             >
               {isCatalogOpen ? (
-                <X className="w-4 h-4 text-white dark:text-slate-950" />
+                <X className="w-4 h-4 text-white" />
               ) : (
-                <LayoutGrid className="w-4 h-4 text-slate-300 dark:text-slate-700" />
+                <LayoutGrid className="w-4 h-4 text-slate-950" />
               )}
               {isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
             </button>
           </div>
 
-          {/* Unified Omnisearch Bar */}
-          <div ref={searchRef} className="hidden md:block flex-1 relative max-w-3xl xl:max-w-4xl mx-auto h-11">
-            <form onSubmit={handleSearchSubmit} className="relative h-11 flex items-center">
+          {/* Unified Omnisearch Bar with Distinct Styling */}
+          <div ref={searchRef} className="hidden md:block flex-1 relative max-w-3xl xl:max-w-4xl mx-auto h-12">
+            <form onSubmit={handleSearchSubmit} className="relative h-12 flex items-center">
               <input
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('header.searchPlaceholder', "Noutbuklar, MacBook, kompyuterlar, aksessuarlar qidirish…")}
-                className="w-full h-11 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-10 pr-4 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-slate-400 transition-all outline-none font-medium box-border"
+                placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
+                className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-4 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
                 autoComplete="off"
               />
-              <Search className="lucide lucide-search w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <Search className="lucide lucide-search w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </form>
 
             {/* Suggestions drop */}
@@ -310,18 +311,18 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             )}
           </div>
 
-          {/* Quick Action Icons - Desktop */}
-          <div className="hidden md:flex items-center gap-1 sm:gap-2 ml-auto md:ml-0 flex-shrink-0">
+          {/* Quick Action Buttons - Desktop (Distinct Solid Styling) */}
+          <div className="hidden md:flex items-center gap-2 ml-auto md:ml-0 flex-shrink-0">
             {/* Compare */}
             <Link
               to="/compare"
-              className="relative hidden xl:inline-flex h-11 px-2.5 flex-col items-center justify-center gap-0.5 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors box-border"
+              className="relative hidden xl:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
               title={t('header.compare')}
             >
-              <GitCompare className="w-4 h-4" />
-              <span className="text-[10px] font-medium leading-none">{t('header.compare')}</span>
+              <GitCompare className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <span className="text-[10px] font-bold leading-none">{t('header.compare')}</span>
               {compareList.length > 0 && (
-                <span className="absolute top-1 right-1.5 w-4 h-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[9px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-emerald-500 text-slate-950 text-[9px] font-black flex items-center justify-center shadow-xs">
                   {compareList.length}
                 </span>
               )}
@@ -330,10 +331,10 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Account */}
             <Link
               to="/account"
-              className="hidden md:inline-flex h-11 px-2.5 flex-col items-center justify-center gap-0.5 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors box-border"
+              className="hidden md:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
             >
-              <User className="w-4 h-4" />
-              <span className="text-[10px] font-medium leading-none">
+              <User className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <span className="text-[10px] font-bold leading-none">
                 {user ? user.name.split(' ')[0] : t('header.login')}
               </span>
             </Link>
@@ -341,13 +342,13 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Wishlist */}
             <Link
               to="/wishlist"
-              className="relative inline-flex h-11 px-2.5 flex-col items-center justify-center gap-0.5 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors box-border"
+              className="relative inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
               aria-label={t('header.wishlist')}
             >
-              <Heart className="w-4 h-4" />
-              <span className="text-[10px] font-medium leading-none">{t('header.wishlist')}</span>
+              <Heart className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <span className="text-[10px] font-bold leading-none">{t('header.wishlist')}</span>
               {wishlist.length > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[9px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
                   {wishlist.length}
                 </span>
               )}
@@ -356,18 +357,18 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Unified Shopping Cart Button */}
             <Link
               to="/cart"
-              className="ml-1 h-11 inline-flex items-center gap-2.5 bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 border border-slate-900 dark:border-white px-4 rounded-xl transition-all cursor-pointer shadow-xs font-semibold box-border shrink-0"
+              className="ml-1 h-12 inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-slate-950 border-2 border-white px-5 rounded-xl transition-all cursor-pointer shadow-lg font-black box-border shrink-0 active:scale-98"
               aria-label={t('header.cart')}
             >
               <span className="relative">
-                <ShoppingCart className="w-4 h-4" />
+                <ShoppingCart className="w-5 h-5 text-slate-950" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 w-4 h-4 rounded-full bg-white dark:bg-slate-950 text-slate-950 dark:text-white text-[9px] font-black flex items-center justify-center border border-slate-950/20 dark:border-white/20">
+                  <span className="absolute -top-2 -right-2.5 w-4.5 h-4.5 rounded-full bg-slate-950 text-white text-[10px] font-black flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
               </span>
-              <span className="text-[13px] font-bold">
+              <span className="text-[14px] font-black">
                 {cartCount > 0 ? formatPrice(cartTotal) : t('header.cart')}
               </span>
             </Link>
@@ -421,7 +422,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('header.searchPlaceholder', "Noutbuklar, MacBook, kompyuterlar, aksessuarlar…")}
+              placeholder={t('header.searchPlaceholder', "Krossovkalar, sport kiyimlari, aksessuarlar…")}
               className="w-full h-10 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-9 pr-9 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-white transition-all outline-none font-medium box-border shadow-2xs [&::-webkit-search-cancel-button]:hidden"
               autoComplete="off"
             />
@@ -469,48 +470,64 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         </div>
       </div>
 
-      {/* Sub-Navigation Strip (Spacious & Clean) */}
-      <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-black transition-colors duration-200">
+      {/* Sub-Navigation Strip (Distinct Pill Backgrounds & Sport Focus) */}
+      <div className="border-t border-b border-slate-200 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/90 backdrop-blur-md transition-colors duration-200 py-2.5">
         <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-          <nav className="flex items-center gap-3 sm:gap-4 py-2.5 overflow-x-auto">
+          <nav className="flex items-center gap-2.5 sm:gap-3.5 overflow-x-auto scrollbar-none py-0.5">
             <Link
               to="/shop?tag=sale"
-              className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-colors border border-red-200 dark:border-red-900/60 bg-red-50/70 dark:bg-red-950/40 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-950/60"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-rose-500/15 hover:bg-rose-500/25 dark:bg-rose-950/70 dark:hover:bg-rose-900/90 text-rose-600 dark:text-rose-300 border border-rose-300 dark:border-rose-700/70 hover:scale-105 active:scale-95"
             >
-              <Flame className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
-              {t('nav.deals', 'Aksiyalar')}
+              <Flame className="w-4 h-4 text-rose-600 dark:text-rose-400 fill-rose-500/20" />
+              <span>{t('nav.deals', 'Aksiyalar kuni')}</span>
             </Link>
 
             <Link
-              to="/shop/kompyuternaya-tehnika"
-              className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white"
+              to="/shop?category=trenajorlar"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-amber-500/15 hover:bg-amber-500/25 dark:bg-amber-950/70 dark:hover:bg-amber-900/90 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700/70 hover:scale-105 active:scale-95"
             >
-              <Monitor className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              {t('nav.computers', 'Noutbuklar & Kompyuterlar')}
+              <span>🏋️‍♂️</span>
+              <span>Trenajorlar &amp; Kardio</span>
             </Link>
 
             <Link
-              to="/shop/apple"
-              className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white"
+              to="/shop?category=stoykalar"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-indigo-500/15 hover:bg-indigo-500/25 dark:bg-indigo-950/70 dark:hover:bg-indigo-900/90 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700/70 hover:scale-105 active:scale-95"
             >
-              <span>🍎</span>
-              {t('nav.apple', 'Apple MacBook')}
+              <span>💪</span>
+              <span>Gantellar &amp; Podstavkalar</span>
+            </Link>
+
+            <Link
+              to="/shop?category=krossovkalar"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-blue-500/15 hover:bg-blue-500/25 dark:bg-blue-950/70 dark:hover:bg-blue-900/90 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-700/70 hover:scale-105 active:scale-95"
+            >
+              <span>👟</span>
+              <span>{t('nav.sneakers', 'Krossovkalar')}</span>
+            </Link>
+
+            <Link
+              to="/shop?category=sport-kiyimlari"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-emerald-500/15 hover:bg-emerald-500/25 dark:bg-emerald-950/70 dark:hover:bg-emerald-900/90 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/70 hover:scale-105 active:scale-95"
+            >
+              <span>👕</span>
+              <span>{t('nav.sportswear', 'Sport Kiyimlari')}</span>
             </Link>
 
             <Link
               to="/shop?tag=bestseller"
-              className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-purple-500/15 hover:bg-purple-500/25 dark:bg-purple-950/70 dark:hover:bg-purple-900/90 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700/70 hover:scale-105 active:scale-95"
             >
-              <Star className="w-3.5 h-3.5 text-amber-500" />
-              {t('nav.popular', 'Ommabop')}
+              <Star className="w-4 h-4 text-purple-600 dark:text-purple-400 fill-purple-500/20" />
+              <span>{t('nav.popular', 'Ommabop')}</span>
             </Link>
 
             <Link
               to="/delivery"
-              className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black whitespace-nowrap transition-all shadow-xs bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 hover:scale-105 active:scale-95"
             >
-              <Truck className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              {t('nav.delivery', 'Yetkazib berish')}
+              <Truck className="w-4 h-4 text-slate-600 dark:text-slate-300" />
+              <span>{t('nav.delivery', 'Yetkazib berish va to‘lov')}</span>
             </Link>
           </nav>
         </div>
@@ -535,22 +552,22 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5"
               >
-                <div className="w-9 h-9 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center p-1 shadow-xs">
+                <div className="w-9 h-9 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 shadow-md overflow-hidden">
                   <img
                     src="/logo.png"
-                    alt="NEXT NOUT"
-                    className="w-full h-full object-contain"
+                    alt="SPORT OUTLET"
+                    className="w-full h-full object-cover rounded-full"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                 </div>
                 <div>
-                  <div className="font-extrabold text-[15px] tracking-tight text-slate-950 dark:text-white">
-                    NEXT NOUT
+                  <div className="font-black text-[15px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
+                    SPORT OUTLET
                   </div>
-                  <div className="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
-                    Notebook Store
+                  <div className="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
+                    Sport &amp; Fitness Store
                   </div>
                 </div>
               </Link>
@@ -688,61 +705,73 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   </Link>
 
                   <Link
-                    to="/shop/apple"
+                    to="/shop/krossovkalar"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <span className="text-base leading-none">🍎</span>
-                      <span>{t('nav.apple', 'Apple MacBook & iPad')}</span>
+                      <Footprints className="w-4 h-4 text-emerald-500" />
+                      <span>{t('cat.krossovkalar', 'Krossovkalar & Poyabzallar')}</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/kompyuternaya-tehnika"
+                    to="/shop/erkaklar-sport"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Monitor className="w-4 h-4 text-slate-500" />
-                      <span>{t('nav.computers', 'Kompyuterlar & Noutbuklar')}</span>
+                      <Shirt className="w-4 h-4 text-blue-500" />
+                      <span>{t('cat.erkaklar-sport', 'Erkaklar Sport Kiyimlari')}</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/orgtehnika"
+                    to="/shop/ayollar-sport"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Printer className="w-4 h-4 text-slate-500" />
-                      <span>Orgtexnika & Printerlar</span>
+                      <Shirt className="w-4 h-4 text-rose-500" />
+                      <span>{t('cat.ayollar-sport', 'Ayollar Sport Kiyimlari')}</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/kanctovary"
+                    to="/shop/fitnes-trenajor"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Package className="w-4 h-4 text-slate-500" />
-                      <span>Kantselyariya tovarlari</span>
+                      <Dumbbell className="w-4 h-4 text-amber-500" />
+                      <span>{t('cat.fitnes-trenajor', 'Fitnes & Mashg‘ulot Jihozlari')}</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/ofisnaya-mebel"
+                    to="/shop/sport-sumkalari"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Armchair className="w-4 h-4 text-slate-500" />
-                      <span>Ofis mebellari & Kreslolar</span>
+                      <Package className="w-4 h-4 text-purple-500" />
+                      <span>{t('cat.sport-sumkalari', 'Sport Sumkalari & Ryukzaklar')}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop/boks-yakka-kurash"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <ShieldCheck className="w-4 h-4 text-red-500" />
+                      <span>{t('cat.boks-yakka-kurash', 'Boks & Yakka Kurash')}</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>

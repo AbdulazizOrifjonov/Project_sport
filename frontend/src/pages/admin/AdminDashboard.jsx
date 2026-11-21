@@ -66,9 +66,9 @@ export default function AdminDashboard() {
     price: '',
     oldPrice: '',
     stock: 10,
-    category: 'Kantselyariya tovarlari',
-    categorySlug: 'kanctovary',
-    brand: 'NSB',
+    category: 'Krossovkalar & Poyabzallar',
+    categorySlug: 'krossovkalar',
+    brand: 'Nike',
     description: '',
     images: [''],
     isBestseller: false,
@@ -621,7 +621,7 @@ export default function AdminDashboard() {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  NSB Buxoro E-Commerce & B2B Tizimi — Savdo hajmi, tushumlar dinamikasi, ombor qoldiqlari va mijozlar tahlili.
+                  SPORT OUTLET E-Commerce Tizimi — Savdo hajmi, tushumlar dinamikasi, ombor qoldiqlari va mijozlar tahlili.
                 </p>
               </div>
 

@@ -17,14 +17,14 @@ export default function VIPBanner() {
           rel="noopener noreferrer"
           className="flex-1 text-center flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
         >
-          <span className="font-extrabold bg-white/20 dark:bg-rose-500/20 px-2 py-0.5 rounded-md text-[11px] uppercase tracking-wider text-white dark:text-rose-400">
-            {t('vip.badge', 'NSB B2B')}
+          <span className="font-extrabold bg-white/20 dark:bg-white/20 px-2 py-0.5 rounded-md text-[11px] uppercase tracking-wider text-white">
+            {t('vip.badge', 'SPORT OUTLET')}
           </span>
           <span className="hidden sm:inline font-semibold">
-            {t('vip.text', 'Buxoro korxona va tashkilotlari uchun yopiq aksiyalar va to‘g‘ridan-to‘g‘ri shartnomalar!')}
+            {t('vip.text', 'Professional trenajorlar, gantel podstavkalari va fitnes anjomlariga outlet chegirmalari!')}
           </span>
           <span className="sm:hidden font-semibold">
-            {t('vip.textMobile', 'Yopiq aksiyalar va tovarlar!')}
+            {t('vip.textMobile', 'Trenajorlar va sport anjomlariga aksiyalar!')}
           </span>
           <span className="font-extrabold underline underline-offset-2 ml-1">
             {t('vip.join', 'Qo‘shilish →')}

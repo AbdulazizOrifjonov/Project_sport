@@ -13,10 +13,10 @@ export default function Footer() {
           {/* Col 1: About & Contacts */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-8 h-8 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center p-0.5 shadow-xs overflow-hidden">
-                <img src="/logo.png" alt="NEXT NOUT" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="w-9 h-9 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 shadow-md overflow-hidden">
+                <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <span className="text-white text-lg font-extrabold tracking-tight">NEXT NOUT</span>
+              <span className="text-white text-lg font-black tracking-tight uppercase font-sans">SPORT OUTLET</span>
             </div>
             <p className="text-xs leading-relaxed text-slate-400 mb-4">
               {t('footer.desc')}
@@ -57,28 +57,28 @@ export default function Footer() {
             <h6 className="text-white text-sm font-bold mb-3 tracking-wide">{t('footer.catalog')}</h6>
             <ul className="flex flex-col gap-2 text-xs">
               <li>
-                <Link to="/shop/kanctovary" className="hover:text-white transition-colors">
-                  {t('nav.stationery')}
+                <Link to="/shop/krossovkalar" className="hover:text-white transition-colors">
+                  Krossovkalar &amp; Poyabzallar
                 </Link>
               </li>
               <li>
-                <Link to="/shop/kompyuternaya-tehnika" className="hover:text-white transition-colors">
-                  {t('nav.computers')}
+                <Link to="/shop/erkaklar-sport" className="hover:text-white transition-colors">
+                  Erkaklar sport kiyimlari
                 </Link>
               </li>
               <li>
-                <Link to="/shop/apple" className="hover:text-white transition-colors">
-                  {t('nav.apple')}
+                <Link to="/shop/ayollar-sport" className="hover:text-white transition-colors">
+                  Ayollar sport kiyimlari
                 </Link>
               </li>
               <li>
-                <Link to="/shop/orgtehnika" className="hover:text-white transition-colors">
-                  HP / Canon Orgtexnika
+                <Link to="/shop/fitnes-trenajor" className="hover:text-white transition-colors">
+                  Fitnes &amp; Trenajor jihozlari
                 </Link>
               </li>
               <li>
-                <Link to="/shop/ofisnaya-mebel" className="hover:text-white transition-colors">
-                  Ofis mebellari &amp; Kreslolar
+                <Link to="/shop/sport-sumkalari" className="hover:text-white transition-colors">
+                  Sport sumkalari &amp; Ryukzaklar
                 </Link>
               </li>
               <li>
@@ -169,7 +169,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 "NEW STAR BUKHARA" MCHJ. {t('footer.rights')}</p>
+          <p>© 2026 "SPORT OUTLET" Do‘koni. {t('footer.rights')}</p>
           <p className="flex items-center gap-2">
             <span>{t('footer.inn')}: 308941258</span>
             <span>•</span>

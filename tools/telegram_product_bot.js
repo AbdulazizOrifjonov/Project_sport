@@ -25,14 +25,14 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
-// Categories detection helper
+// Sport & Fitness Categories detection helper
 const CATEGORIES = [
-  { slug: 'apple', name: 'Apple & Gadgetlar', keywords: ['apple', 'iphone', 'macbook', 'ipad', 'airpods', 'watch', 'imac'] },
-  { slug: 'kompyuternaya-tehnika', name: 'Kompyuter Texnikasi', keywords: ['noutbuk', 'laptop', 'kompyuter', 'asus', 'lenovo', 'acer', 'hp', 'dell', 'sichqoncha', 'klaviatura', 'videokarta', 'intel', 'amd', 'ryzen', 'core', 'protsessor'] },
-  { slug: 'monitory-i-proektory', name: 'Monitory va Proyektorlar', keywords: ['monitor', 'ekran', 'proyektor', 'samsung monitor', 'lg monitor'] },
-  { slug: 'orgtehnika', name: 'Orgtexnika & Printerlar', keywords: ['printer', 'skaner', 'kartridj', 'mfi', 'canon', 'epson'] },
-  { slug: 'ofisnaya-mebel', name: 'Ofis mebellari & Kreslolar', keywords: ['kreslo', 'stol', 'mebel', 'stul'] },
-  { slug: 'kanctovary', name: 'Kantselyariya tovarlari', keywords: ['qogoz', 'qog\'oz', 'ruchka', 'daftar', 'papka', 'kantselyariya'] }
+  { slug: 'stoykalar', name: 'Podstavka & Skameykalar', keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270'] },
+  { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', keywords: ['trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill'] },
+  { slug: 'gantellar', name: 'Gantellar & Shtangalar', keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk'] },
+  { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzal', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali'] },
+  { slug: 'sport-kiyimlari', name: 'Sport Kiyimlari', keywords: ['kiyim', 'kostyum', 'futbolka', 'shortik', 'hudi', 'triko', 'rashgard', 'under armour', 'puma'] },
+  { slug: 'fitnes-aksessuarlari', name: 'Fitnes Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'mat', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
 ];
 
 function detectCategory(text = '') {
@@ -44,16 +44,16 @@ function detectCategory(text = '') {
       }
     }
   }
-  return { slug: 'kompyuternaya-tehnika', name: 'Kompyuter Texnikasi' };
+  return { slug: 'stoykalar', name: 'Podstavka & Skameykalar' };
 }
 
 function detectBrand(text = '') {
   const lower = text.toLowerCase();
-  const brands = ['Apple', 'Asus', 'Lenovo', 'HP', 'Dell', 'Acer', 'MSI', 'Samsung', 'LG', 'Canon', 'Epson', 'Xiaomi', 'Sony', 'Razer', 'Logitech'];
+  const brands = ['Sport Line', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'NSB Fitness'];
   for (const b of brands) {
     if (lower.includes(b.toLowerCase())) return b;
   }
-  return 'NSB';
+  return 'Sport Line';
 }
 
 function parseProductInfo(text = '') {

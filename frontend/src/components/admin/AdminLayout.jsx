@@ -124,14 +124,14 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           {/* Logo Brand Header */}
           <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center p-0.5 shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
-                <img src="/logo.png" alt="NEXT NOUT" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="w-9 h-9 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 shadow-md group-hover:scale-105 group-hover:border-white transition-all overflow-hidden">
+                <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div>
-                <span className="font-extrabold text-sm text-slate-900 dark:text-white tracking-tight">
-                  NEXT NOUT ADMIN
+                <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans">
+                  SPORT OUTLET ADMIN
                 </span>
-                <span className="block text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
+                <span className="block text-[10px] text-slate-400 font-bold tracking-wider uppercase">
                   Boshqaruv Paneli
                 </span>
               </div>
@@ -337,7 +337,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
                   {isSupabaseConfigured ? "Bog'langan" : "Tayyor (Online)"}
                 </span>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center font-black text-sm shadow-2xs shrink-0 cursor-default" title="Admin (NEXT NOUT)">
+              <div className="h-10 w-10 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center font-black text-sm shadow-2xs shrink-0 cursor-default" title="Admin (SPORT OUTLET)">
                 A
               </div>
             </div>

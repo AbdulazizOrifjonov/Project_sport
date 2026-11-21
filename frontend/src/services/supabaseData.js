@@ -10,14 +10,14 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys
+// Local storage collection keys (v3 Sport & Fitness)
 const KEYS = {
-  CATEGORIES: 'nsb_categories_v2',
-  PRODUCTS: 'nsb_products_v2',
-  BANNERS: 'nsb_banners_v2',
-  COUPONS: 'nsb_coupons_v2',
-  REVIEWS: 'nsb_reviews_v2',
-  ORDERS: 'nsb_orders_v2'
+  CATEGORIES: 'nsb_categories_v3_sport',
+  PRODUCTS: 'nsb_products_v3_sport',
+  BANNERS: 'nsb_banners_v3_sport',
+  COUPONS: 'nsb_coupons_v3_sport',
+  REVIEWS: 'nsb_reviews_v3_sport',
+  ORDERS: 'nsb_orders_v3_sport'
 };
 
 // Normalize database product (snake_case from Supabase -> camelCase + snake_case for frontend)
@@ -431,15 +431,15 @@ export const dataService = {
       price,
       old_price: oldPrice,
       discount_percent: discountPercent,
-      category: productData.category || 'Noutbuklar & Kompyuterlar',
-      category_slug: productData.categorySlug || productData.category_slug || 'kompyuternaya-tehnika',
+      category: productData.category || 'Krossovkalar & Poyabzallar',
+      category_slug: productData.categorySlug || productData.category_slug || 'krossovkalar',
       subcategory: productData.subcategory || '',
-      brand: productData.brand || 'NEXT NOUT',
+      brand: productData.brand || 'SPORT OUTLET',
       stock,
       in_stock: inStock,
       rating: 5.0,
       reviews_count: 0,
-      images: Array.isArray(productData.images) && productData.images.length ? productData.images : ['https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80'],
+      images: Array.isArray(productData.images) && productData.images.length ? productData.images : ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80'],
       is_bestseller: Boolean(productData.isBestseller || productData.is_bestseller),
       is_new_arrival: Boolean(productData.isNewArrival || productData.is_new_arrival),
       is_weekly_deal: Boolean(productData.isWeeklyDeal || productData.is_weekly_deal),

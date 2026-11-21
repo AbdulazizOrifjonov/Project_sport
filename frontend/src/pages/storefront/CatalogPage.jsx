@@ -74,7 +74,7 @@ export default function CatalogPage() {
     setSearchParams({});
   };
 
-  const brands = ['ASUS', 'Apple', 'HP', 'SvetoCopy', 'Deli', 'Dell', 'HPE', 'Logitech', 'Redragon', 'Razer', 'Lenovo', 'Attache', 'Double A', 'Ballet', 'NSB Furniture'];
+  const brands = ['Nike', 'Adidas', 'Jordan', 'Puma', 'Under Armour', 'Gymshark', 'Reebok', 'New Balance', 'Venum', 'Everlast', 'Asics', 'SPORT OUTLET'];
 
   return (
     <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6">

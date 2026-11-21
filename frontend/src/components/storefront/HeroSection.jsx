@@ -8,32 +8,32 @@ export default function HeroSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // 4 Full-Bleed Background Slides with Rich Content
+  // 4 Full-Bleed Background Slides with 100% Trenajor / Gym Equipment for SPORT OUTLET
   const slides = [
     {
-      id: 'general',
+      id: 'trenajor-main',
       badge: {
-        uz: "NEXT NOUT — Yangi Avlod",
-        ru: "NEXT NOUT — Новое Поколение",
-        en: "NEXT NOUT — Next-Gen Laptops"
+        uz: "TRENAJORLAR & FITNES JIHOZLARI",
+        ru: "ТРЕНАЖЕРЫ И ФИТНЕС ОБОРУДОВАНИЕ",
+        en: "GYM MACHINES & FITNESS EQUIPMENT"
       },
       title: {
-        uz: "Noutbuklar va Zamonaviy IT Texnikalar",
-        ru: "Ноутбуки и Современная IT Техника",
-        en: "Laptops & Cutting-Edge IT Hardware"
+        uz: "Professional Trenajorlar va Fitnes Uskunalari",
+        ru: "Профессиональные Тренажеры и Фитнес Оборудование",
+        en: "Professional Gym Machines & Fitness Equipment"
       },
       desc: {
-        uz: "Eng so‘nggi avlod Apple MacBook, ASUS, Lenovo, HP noutbuklari va professional IT aksessuarlar. 100% original, rasmiy kafolat bilan.",
-        ru: "Новейшие ноутбуки Apple MacBook, ASUS, Lenovo, HP и профессиональные аксессуары. 100% оригинал с официальной гарантией.",
-        en: "Latest generation Apple MacBook, ASUS, Lenovo, HP laptops and pro IT gear with official warranty."
+        uz: "Zal va uy uchun mo‘ljallangan eng sara trenajorlar: yugurish yo‘lakchalari, velotrenajorlar va ko‘p funksiyali kuch uskunalari. Buxoro bo‘yicha bepul yetkazish va o‘rnatish.",
+        ru: "Лучшие тренажеры для зала и дома: беговые дорожки, велотренажеры и силовые станции с бесплатной доставкой по Бухаре.",
+        en: "Premier cardio and strength machines for commercial gym and home workouts. Treadmills, spin bikes and multi-gym stations."
       },
-      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Katalogga o‘tish",
-        ru: "Перейти в каталог",
-        en: "Browse Catalog"
+        uz: "Trenajorlar katalogi",
+        ru: "Каталог тренажеров",
+        en: "Browse Gym Equipment"
       },
-      btnPrimaryLink: "/shop",
+      btnPrimaryLink: "/shop?category=trenajorlar",
       btnSecondaryText: {
         uz: "Barcha aksiyalar",
         ru: "Все акции",
@@ -43,100 +43,100 @@ export default function HeroSection() {
       gradient: "from-zinc-950/95 via-slate-950/85 to-black/40"
     },
     {
-      id: 'apple',
+      id: 'gantel-stoyka',
       badge: {
-        uz: "Apple & IT Ishchi Stansiyalar",
-        ru: "Apple и Рабочие Станции",
-        en: "Apple & IT Workstations"
+        uz: "GANTEL & STOYKALAR",
+        ru: "ГАНТЕЛИ И СТОЙКИ",
+        en: "DUMBBELLS & RACKS"
       },
       title: {
-        uz: "Apple MacBook Pro M3 & Server Texnikalari",
-        ru: "Apple MacBook Pro M3 и Серверное Оборудование",
-        en: "Apple MacBook Pro M3 & Enterprise Servers"
+        uz: "Gantellar, Shtangalar va Podstavkalar",
+        ru: "Гантели, Штанги и Стойки для Инвентаря",
+        en: "Dumbbells, Barbells & Storage Racks"
       },
       desc: {
-        uz: "Eng so‘nggi avlod MacBook, iMac va professional noutbuklar. 100% original, rasmiy kafolat va tezkor yetkazib berish bilan.",
-        ru: "Новейшие MacBook, iMac и мощные ноутбуки с официальной гарантией и быстрой доставкой.",
-        en: "Latest generation MacBooks, iMacs and pro notebooks with official warranty and fast shipping."
+        uz: "SC seriyali mustahkam po‘lat gantel podstavkalari, professional disklar, xrom va kauchuk gantellar to‘plami kafolatli narxlarda.",
+        ru: "Прочные стальные подставки для гантелей серии SC, олимпийские диски и обрезиненные гантельные ряды.",
+        en: "Heavy-duty SC dumbbell storage racks, hex rubber dumbbells and Olympic barbell sets at best prices."
       },
-      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Apple katalogi",
-        ru: "Каталог Apple",
-        en: "Apple Catalog"
+        uz: "Gantel podstavkalari",
+        ru: "Стойки для гантелей",
+        en: "Dumbbell Racks"
       },
-      btnPrimaryLink: "/shop/apple",
+      btnPrimaryLink: "/shop?category=stoykalar",
       btnSecondaryText: {
-        uz: "Kompyuter texnikasi",
-        ru: "Компьютерная техника",
-        en: "Computers"
+        uz: "Gantellar to‘plami",
+        ru: "Наборы гантелей",
+        en: "Dumbbell Sets"
       },
-      btnSecondaryLink: "/shop/kompyuternaya-tehnika",
-      gradient: "from-[#070b16]/95 via-[#0e1726]/85 to-black/35"
+      btnSecondaryLink: "/shop?category=gantellar",
+      gradient: "from-[#0a0a0c]/95 via-[#121217]/85 to-black/35"
     },
     {
-      id: 'gaming',
+      id: 'kardio-treadmill',
       badge: {
-        uz: "O‘yin va 3D Grafika",
-        ru: "Гейминг и 3D Графика",
-        en: "Gaming & 3D Workloads"
+        uz: "KARDIO TRENAJORLAR",
+        ru: "КАРДИОТРЕНАЖЕРЫ",
+        en: "CARDIO WORKOUT EQUIPMENT"
       },
       title: {
-        uz: "Gaming Noutbuklar & RTX Grafikasi",
-        ru: "Игровые Ноутбуки и Графика RTX",
-        en: "Gaming Laptops & RTX Graphics"
+        uz: "Yugurish Yo‘lakchalari va Velotrenajorlar",
+        ru: "Беговые Дорожки и Спин-Байки",
+        en: "Treadmills & Professional Exercise Bikes"
       },
       desc: {
-        uz: "ASUS ROG, Lenovo Legion va HP Victus. Yuqori unumdorlikdagi og‘ir montaj, render va kibersport o‘yinlari uchun maxsus.",
-        ru: "ASUS ROG, Lenovo Legion и HP Victus. Максимальная производительность для монтажа, рендеринга и киберспорта.",
-        en: "ASUS ROG, Lenovo Legion and HP Victus. Maximum performance for rendering, editing and gaming."
+        uz: "Shovqinsiz kuchli dvigatel, ko‘p pog‘onali amortizatsiya tizimi va yurak urish sensori bilan jihozlangan kardiomashinalar.",
+        ru: "Бесшумные мощные двигатели, многоуровневая амортизация суставов и сенсорные датчики пульса.",
+        en: "Quiet high-torque motors, advanced joint-protection cushioning and smart LED display consoles."
       },
-      image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Gaming noutbuklar",
-        ru: "Игровые ноутбуки",
-        en: "Gaming Laptops"
+        uz: "Yugurish yo‘lakchalari",
+        ru: "Беговые дорожки",
+        en: "Treadmills"
       },
-      btnPrimaryLink: "/shop/kompyuternaya-tehnika",
+      btnPrimaryLink: "/shop?category=trenajorlar",
       btnSecondaryText: {
-        uz: "B2B Shartnoma",
-        ru: "B2B Договор",
-        en: "B2B Contract"
+        uz: "Yetkazib berish",
+        ru: "Доставка",
+        en: "Delivery"
       },
-      btnSecondaryLink: "/delivery#b2b",
-      gradient: "from-[#081b33]/95 via-[#0d2a4d]/85 to-black/35"
+      btnSecondaryLink: "/delivery",
+      gradient: "from-[#08080a]/95 via-[#18181f]/85 to-black/35"
     },
     {
-      id: 'peripherals',
+      id: 'kuch-stansiyalari',
       badge: {
-        uz: "Professional Aksessuarlar",
-        ru: "Профессиональные Аксессуары",
-        en: "Pro Peripherals & Gear"
+        uz: "KUCH & FITNES STANSIYALARI",
+        ru: "СИЛОВЫЕ СТАНЦИИ И СКАМЬИ",
+        en: "STRENGTH STATIONS & BENCHES"
       },
       title: {
-        uz: "Logitech, Razer Sichqoncha va Klaviaturalar",
-        ru: "Мыши и Клавиатуры Logitech, Razer",
-        en: "Logitech, Razer Mice & Keyboards"
+        uz: "Ko‘p Funksiyali Kuch Trenajorlari va Skameykalar",
+        ru: "Многофункциональные Силовые Станции",
+        en: "Multi-Gym Weight Stations & Adjustable Benches"
       },
       desc: {
-        uz: "Ergonomik MX Master sichqonchalari, mexanik klaviaturalar, monitorlar va quloqchinlar eng yaxshi narxlarda.",
-        ru: "Эргономичные мыши MX Master, механические клавиатуры, мониторы и наушники по лучшим ценам.",
-        en: "Ergonomic MX Master mice, mechanical keyboards, displays and headsets at top prices."
+        uz: "Barcha mushak guruhlari uchun universal kuch bloklari, sozlanuvchi skameykalar, turnik va devoriy komplekslar.",
+        ru: "Универсальные блочные тренажеры для всех групп мышц, регулируемые скамьи и настенные комплексы.",
+        en: "Multi-functional cable weight stations, adjustable incline benches and wall pullup stations."
       },
-      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Aksessuarlar",
-        ru: "Аксессуары",
-        en: "Peripherals"
+        uz: "Kuch trenajorlari",
+        ru: "Силовые тренажеры",
+        en: "Strength Equipment"
       },
-      btnPrimaryLink: "/shop/kompyuternaya-tehnika",
+      btnPrimaryLink: "/shop?category=trenajorlar",
       btnSecondaryText: {
         uz: "Barcha tovarlar",
         ru: "Все товары",
         en: "All Products"
       },
       btnSecondaryLink: "/shop",
-      gradient: "from-[#1a1510]/95 via-[#2b1f14]/85 to-black/35"
+      gradient: "from-[#0a0a0d]/95 via-[#14141a]/85 to-black/35"
     }
   ];
 
@@ -372,56 +372,56 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right 2 Side Promo Tiles */}
+        {/* Right 2 Side Promo Tiles (Trenajor & Gantel Podstavka) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5 h-full">
-          {/* Tile 1: Pale Blue / Dark Sapphire */}
+          {/* Tile 1: Trenajorlar & Kardio */}
           <Link
-            to="/shop/apple"
-            className="group relative rounded-2xl p-6 bg-[var(--color-tile-1)] border border-sky-100 dark:border-slate-800 flex flex-col justify-between hover:-translate-y-0.5 transition-transform"
+            to="/shop?category=trenajorlar"
+            className="group relative rounded-2xl p-6 bg-slate-900/90 hover:bg-slate-800/95 border-2 border-slate-700/80 shadow-md flex flex-col justify-between hover:-translate-y-0.5 transition-all"
           >
             <div>
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-sky-700 dark:text-sky-400">
-                {t('hero.tile1Badge')}
+              <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                {t('hero.tile1Badge', 'Trenajorlar & Kardio')}
               </span>
-              <h3 className="mt-1 text-[19px] font-extrabold tracking-tight text-slate-950 dark:text-white leading-snug">
-                {t('hero.tile1Title')}
+              <h3 className="mt-2 text-[19px] font-black tracking-tight text-white leading-snug">
+                {t('hero.tile1Title', 'Yugurish Yo‘lakchalari & Kardiomashinalar')}
               </h3>
-              <p className="mt-1 text-[12px] text-slate-600 dark:text-slate-300 line-clamp-2">
-                {t('hero.tile1Desc')}
+              <p className="mt-1 text-[12px] text-slate-300 line-clamp-2">
+                {t('hero.tile1Desc', 'Professional zal va uy sharoitida mashq qilish uchun aqlli shovqinsiz trenajorlar.')}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-sky-200/60 dark:border-slate-700/60 flex items-center justify-between">
-              <span className="text-[13px] font-bold text-slate-900 dark:text-white group-hover:underline inline-flex items-center gap-1">
-                {t('hero.more')} <ArrowRight className="w-3.5 h-3.5" />
+            <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between">
+              <span className="text-[13px] font-bold text-white group-hover:underline inline-flex items-center gap-1">
+                {t('hero.more', 'Katalogga o‘tish')} <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
               </span>
-              <span className="text-[12px] font-bold text-slate-950 dark:text-white">
-                {t('hero.tile1Price')}
+              <span className="text-[13px] font-black text-emerald-400">
+                {t('hero.tile1Price', '3 200 000 so‘mdan')}
               </span>
             </div>
           </Link>
 
-          {/* Tile 2: Pale Yellow / Dark Amber */}
+          {/* Tile 2: Gantel & Stoykalar */}
           <Link
-            to="/shop/kompyuternaya-tehnika"
-            className="group relative rounded-2xl p-6 bg-[var(--color-tile-2)] border border-amber-100 dark:border-slate-800 flex flex-col justify-between hover:-translate-y-0.5 transition-transform"
+            to="/product/gantel-podstavka-sc80263"
+            className="group relative rounded-2xl p-6 bg-slate-900/90 hover:bg-slate-800/95 border-2 border-slate-700/80 shadow-md flex flex-col justify-between hover:-translate-y-0.5 transition-all"
           >
             <div>
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
-                {t('hero.tile2Badge')}
+              <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/15 px-2.5 py-1 rounded-lg border border-amber-500/30">
+                {t('hero.tile2Badge', 'Gantel & Stoykalar')}
               </span>
-              <h3 className="mt-1 text-[19px] font-extrabold tracking-tight text-slate-950 dark:text-white leading-snug">
-                {t('hero.tile2Title')}
+              <h3 className="mt-2 text-[19px] font-black tracking-tight text-white leading-snug">
+                {t('hero.tile2Title', 'Gantel Podstavkasi SC80263')}
               </h3>
-              <p className="mt-1 text-[12px] text-slate-600 dark:text-slate-300 line-clamp-2">
-                {t('hero.tile2Desc')}
+              <p className="mt-1 text-[12px] text-slate-300 line-clamp-2">
+                {t('hero.tile2Desc', '6 juft gantel sig‘adigan mustahkam po‘lat A-Frame podstavka. Kafolatli yetkazish.')}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-amber-200/60 dark:border-slate-700/60 flex items-center justify-between">
-              <span className="text-[13px] font-bold text-amber-900 dark:text-amber-300 group-hover:underline inline-flex items-center gap-1">
-                {t('hero.btnCatalog')} <ArrowRight className="w-3.5 h-3.5" />
+            <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between">
+              <span className="text-[13px] font-bold text-amber-300 group-hover:underline inline-flex items-center gap-1">
+                {t('hero.btnCatalog', 'Batafsil')} <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
               </span>
-              <span className="text-[12px] font-semibold text-amber-800 dark:text-amber-300">
-                {t('hero.tile2Warranty')}
+              <span className="text-[13px] font-black text-amber-400">
+                {t('hero.tile2Warranty', '75$ (960 000 so‘m)')}
               </span>
             </div>
           </Link>
