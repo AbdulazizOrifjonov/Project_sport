@@ -78,6 +78,49 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
+    "id": "prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
+    "title": "Tatami 1x1m-2 sm Rangi: qizik-ko’k Narxi: 12.5$",
+    "slug": "tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
+    "price": 1125,
+    "oldPrice": 1294,
+    "old_price": 1294,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Rangi: sariq-yashil, qizil-ko’k , seriy-qora ,\nNarxi: 13.5$\nTatami 1x1-3 sm\nRangi: qizil-ko’k\nNarxi: 14$✅\nTatami 1x1m-4 sm\nRangi: qizil-ko’k, sariq-yashil, seri-qora\nNarxi: 17$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T13:37:10.004Z"
+  },
+  {
     "_id": "prod_yangi-mahsulot-6741",
     "id": "prod_yangi-mahsulot-6741",
     "title": "Yangi Mahsulot",
@@ -1130,6 +1173,20 @@ export function getLocalCollection(key, fallback) {
       const hasOldCats = parsed.some(c => c.slug === 'apple' || c.slug === 'orgtehnika');
       if (hasOldCats) {
         console.log('⚡ Purging old categories cache from localStorage');
+        localStorage.setItem(key, JSON.stringify(fallback));
+        return fallback;
+      }
+    }
+
+    if (key.includes('orders') && Array.isArray(parsed)) {
+      const hasOldOrders = parsed.some(o => 
+        o.items?.some(it => {
+          const t = (it.title || '').toLowerCase();
+          return t.includes('macbook') || t.includes('optiplex') || t.includes('canon') || t.includes('apple');
+        })
+      );
+      if (hasOldOrders || parsed.length === 0) {
+        console.log('⚡ Purging old orders cache from localStorage in favor of Sport orders');
         localStorage.setItem(key, JSON.stringify(fallback));
         return fallback;
       }
