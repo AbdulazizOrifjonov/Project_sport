@@ -83,14 +83,14 @@ export const defaultProducts = [
     "title": "Masaj kreslo AM183",
     "slug": "masaj-kreslo-am183-4117",
     "sku": "",
-    "price": 9380500,
-    "oldPrice": 10787575,
-    "old_price": 10787575,
+    "price": 12464500,
+    "oldPrice": 14334175,
+    "old_price": 14334175,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
     "subcategory": "",
     "brand": "Sport Line",
     "stock": 15,
@@ -99,6 +99,13 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_masaj-kreslo-am183-5185_1.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_2.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_3.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_4.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_5.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_6.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5185_7.jpg",
       "/uploads/prod_masaj-kreslo-6358_1.jpg",
       "/uploads/prod_masaj-kreslo-6358_2.jpg",
       "/uploads/prod_masaj-kreslo-6358_3.jpg",
@@ -146,7 +153,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Madel: A002 brown+coffee\nNarxi: 730$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ To'liq tana massaji havo bosimi orqali masaj qlinadi  va 16 etapda  intensivligi sozlanadi\n➖ Tovonlarni rolik orqaki masaj qilish\n➖ Belni qizdirish orqali masaj qilish funksiyasi.\n➖ Havo yostig'ini siqish orqali oyoq va tovonlar masaji.\n➖ Oyoq va bel  isitish funksiyasi.\n➖Yelkaning holatini aniqlash va masaj qilish funksiyasi\n➖16 ta avto masaj va 4 ta qolda boshqariladgan masaj turi",
+    "description": "Narxi : 970$ Black\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
     "specifications": [
       {
         "label": "Brend",
@@ -166,7 +173,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-21T16:28:04.117Z",
-    "updated_at": "2026-11-21T16:29:00.470Z"
+    "updated_at": "2026-11-21T16:29:10.269Z"
   },
   {
     "_id": "prod_gantel-podstavka-xitoy-7222",
