@@ -66,15 +66,15 @@ export default function AdminDashboard() {
     price: '',
     oldPrice: '',
     stock: 10,
-    category: 'Podstavka & Skameykalar',
-    categorySlug: 'stoykalar',
-    brand: 'Sport Line',
+    category: 'Trenajorlar & Kardio',
+    categorySlug: 'trenajorlar',
+    brand: '',
     description: '',
-    images: [''],
+    images: [],
     isBestseller: false,
-    isNewArrival: false,
+    isNewArrival: true,
     isWeeklyDeal: false,
-    specifications: [{ key: 'Kafolat', value: '1 yil' }]
+    specifications: []
   });
 
   // Categories state
@@ -484,15 +484,15 @@ export default function AdminDashboard() {
         price: '',
         oldPrice: '',
         stock: 10,
-        category: 'Podstavka & Skameykalar',
-        categorySlug: 'stoykalar',
-        brand: 'Sport Line',
+        category: categories?.[0]?.name || 'Trenajorlar & Kardio',
+        categorySlug: categories?.[0]?.slug || 'trenajorlar',
+        brand: '',
         description: '',
-        images: ['/uploads/gantel-podstavka-sc80263.png'],
+        images: [],
         isBestseller: false,
         isNewArrival: true,
         isWeeklyDeal: false,
-        specifications: [{ key: 'Konstruksiya', value: 'Mustahkam po‘lat' }]
+        specifications: []
       });
     }
     setProductView('form');
@@ -1312,9 +1312,9 @@ export default function AdminDashboard() {
         <div className="space-y-6">
           {productView === 'form' ? (
             /* Dedicated Full In-Page Product Form Panel */
-            <div className="space-y-6 animate-fadeIn">
-              {/* Header with Back Button and Quick Save */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/80 dark:border-slate-800">
+            <div className="space-y-6 animate-fadeIn pb-16">
+              {/* Sticky Header with Back Button and Quick Save */}
+              <div className="sticky top-16 z-20 backdrop-blur-md bg-white/95 dark:bg-[#111827]/95 p-3.5 sm:p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm transition-colors">
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
@@ -1331,7 +1331,7 @@ export default function AdminDashboard() {
                     <p className="text-xs text-slate-400 mt-0.5">
                       {editingProduct
                         ? `SKU: ${productForm.sku || 'N/A'} • Tahrirlash paneli`
-                        : 'Yangi mahsulot ma’lumotlari, narxi va to‘liq rasmini kiriting'}
+                        : 'Yangi sport mahsuloti ma’lumotlari, narxi va rasmlarini kiriting'}
                     </p>
                   </div>
                 </div>
@@ -1356,9 +1356,10 @@ export default function AdminDashboard() {
               </div>
 
               {/* Form Layout: 2 Columns */}
-              <form id="product-form-panel" onSubmit={handleSaveProduct} className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs">
-                {/* Left Column (2 Cols): Basic Info & Description */}
+              <form id="product-form-panel" onSubmit={handleSaveProduct} className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start text-xs">
+                {/* Left Column (2 Cols): Basic Info & Pricing */}
                 <div className="lg:col-span-2 space-y-6">
+                  {/* 1. Asosiy Ma'lumotlar Card */}
                   <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
                     <h3 className="text-sm font-black text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-slate-800">
                       Asosiy Ma’lumotlar
@@ -1373,7 +1374,7 @@ export default function AdminDashboard() {
                         required
                         value={productForm.title}
                         onChange={(e) => setProductForm({ ...productForm, title: e.target.value })}
-                        placeholder="Masalan: Nike Air Jordan 1 Retro yoki Hexagonal Gantellar"
+                        placeholder="Masalan: Professional Tatami 1x1m yoki Masaj kreslo AM183"
                         className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-[var(--color-primary-500)] outline-none"
                       />
                     </div>
@@ -1387,7 +1388,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.sku}
                           onChange={(e) => setProductForm({ ...productForm, sku: e.target.value })}
-                          placeholder="NK-JORDAN-1-HI"
+                          placeholder="NSB-001 (ixtiyoriy)"
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-mono text-slate-900 dark:text-white outline-none"
                         />
                       </div>
@@ -1399,7 +1400,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.brand}
                           onChange={(e) => setProductForm({ ...productForm, brand: e.target.value })}
-                          placeholder="Nike, Adidas, Jordan, Puma, Under Armour, Gymshark..."
+                          placeholder="Sport Line, Nike, Everlast, SPORT OUTLET..."
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold text-slate-900 dark:text-white outline-none"
                         />
                       </div>
@@ -1420,7 +1421,7 @@ export default function AdminDashboard() {
                             categorySlug: found?.slug || productForm.categorySlug
                           });
                         }}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none cursor-pointer"
                       >
                         {categories.length > 0 ? (
                           categories.map(c => (
@@ -1428,11 +1429,12 @@ export default function AdminDashboard() {
                           ))
                         ) : (
                           <>
-                            <option value="Podstavka & Skameykalar">Podstavka & Skameykalar</option>
                             <option value="Trenajorlar & Kardio">Trenajorlar & Kardio</option>
                             <option value="Gantellar & Shtangalar">Gantellar & Shtangalar</option>
+                            <option value="Podstavka & Skameykalar">Podstavka & Skameykalar</option>
                             <option value="Sport Kiyimlari">Sport Kiyimlari</option>
                             <option value="Krossovkalar & Poyabzal">Krossovkalar & Poyabzal</option>
+                            <option value="Boks & Yakka Kurash">Boks & Yakka Kurash</option>
                             <option value="Fitnes Aksessuarlari">Fitnes Aksessuarlari</option>
                           </>
                         )}
@@ -1452,144 +1454,242 @@ export default function AdminDashboard() {
                       />
                     </div>
                   </div>
-                </div>
 
-                {/* Right Column (1 Col): Pricing, Stock & Full Image Preview */}
-                <div className="space-y-6">
-                  {/* Price & Stock Card */}
+                  {/* 2. Narx va Ombor Qoldig'i Card */}
                   <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
                     <h3 className="text-sm font-black text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-slate-800">
                       Narx va Ombor Qoldig‘i
                     </h3>
 
-                    <div>
-                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
-                        Sotuv narxi (so‘m) *
-                      </label>
-                      <input
-                        type="number"
-                        required
-                        value={productForm.price}
-                        onChange={(e) => setProductForm({ ...productForm, price: Number(e.target.value) })}
-                        placeholder="185000"
-                        className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-black text-sm text-slate-900 dark:text-white outline-none"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
-                          Eski narx (chegirma)
+                          Sotuv narxi (so‘m) *
+                        </label>
+                        <input
+                          type="number"
+                          required
+                          value={productForm.price}
+                          onChange={(e) => setProductForm({ ...productForm, price: Number(e.target.value) })}
+                          placeholder="185000"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-black text-sm text-slate-900 dark:text-white outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+                          Eski narx (chegirma uchun)
                         </label>
                         <input
                           type="number"
                           value={productForm.oldPrice}
                           onChange={(e) => setProductForm({ ...productForm, oldPrice: Number(e.target.value) })}
                           placeholder="220000"
-                          className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-medium text-slate-900 dark:text-white outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
-                          Ombor qoldig‘i *
-                        </label>
-                        <input
-                          type="number"
-                          required
-                          value={productForm.stock}
-                          onChange={(e) => setProductForm({ ...productForm, stock: Number(e.target.value) })}
-                          placeholder="10"
-                          className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-medium text-slate-900 dark:text-white outline-none"
                         />
                       </div>
                     </div>
-
-                    {/* Badges */}
-                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer font-bold text-slate-700 dark:text-slate-300">
-                        <input
-                          type="checkbox"
-                          checked={productForm.isBestseller}
-                          onChange={(e) => setProductForm({ ...productForm, isBestseller: e.target.checked })}
-                          className="w-4 h-4 rounded text-[var(--color-primary-500)]"
-                        />
-                        <span>🔥 Xit mahsulot (Bestseller)</span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer font-bold text-slate-700 dark:text-slate-300">
-                        <input
-                          type="checkbox"
-                          checked={productForm.isWeeklyDeal}
-                          onChange={(e) => setProductForm({ ...productForm, isWeeklyDeal: e.target.checked })}
-                          className="w-4 h-4 rounded text-[var(--color-primary-500)]"
-                        />
-                        <span>⚡ Hafta aksiyasi (Weekly Deal)</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Image Preview Card (To'liq va chiroyli rasm) */}
-                  <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-                    <h3 className="text-sm font-black text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-slate-800">
-                      Mahsulot Rasmi (To‘liq Ko‘rinish)
-                    </h3>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <label className="font-bold text-slate-700 dark:text-slate-300 text-xs">
-                          Rasm URL manzili yoki Fayl
-                        </label>
-                        <label className="cursor-pointer inline-flex items-center gap-1 text-[11px] font-bold text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 transition-colors">
-                          <Upload className="w-3 h-3" />
-                          <span>{uploadingImage ? 'Yuklanmoqda...' : 'Fayl tanlash (Supabase)'}</span>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            className="hidden"
-                            disabled={uploadingImage}
-                            onChange={async (e) => {
-                              const file = e.target.files?.[0];
-                              if (!file) return;
-                              setUploadingImage(true);
-                              try {
-                                const url = await uploadProductImage(file);
-                                if (url) {
-                                  setProductForm(prev => ({ ...prev, images: [url] }));
-                                }
-                              } finally {
-                                setUploadingImage(false);
-                              }
-                            }}
-                          />
-                        </label>
-                      </div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
+                        Ombor qoldig‘i (dona) *
+                      </label>
                       <input
-                        type="text"
-                        value={productForm.images[0] || ''}
-                        onChange={(e) => setProductForm({ ...productForm, images: [e.target.value] })}
-                        placeholder="https://images.unsplash.com/... yoki fayl tanlang"
-                        className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white outline-none font-mono text-[11px]"
+                        type="number"
+                        required
+                        value={productForm.stock}
+                        onChange={(e) => setProductForm({ ...productForm, stock: Number(e.target.value) })}
+                        placeholder="10"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none"
                       />
                     </div>
+                  </div>
+                </div>
 
-                    {/* Live Picture Preview - 100% Full Bleed Display */}
-                    <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center relative shadow-inner">
-                      {productForm.images?.[0] ? (
-                        <img
-                          src={productForm.images[0]}
-                          alt="Mahsulot rasmi"
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
+                {/* Right Column (1 Col): Image Upload & Badges (Sticky on desktop) */}
+                <div className="space-y-6 lg:sticky lg:top-36">
+                  {/* Image Card (To'liq bo'sh boshlanadigan va ko'p rasm qo'shiladigan) */}
+                  <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                      <div>
+                        <h3 className="text-sm font-black text-slate-900 dark:text-white">
+                          Mahsulot Rasmlari ({productForm.images?.filter(Boolean).length || 0})
+                        </h3>
+                        <p className="text-[11px] text-slate-400 mt-0.5">
+                          Asosiy va qo‘shimcha rasmlar
+                        </p>
+                      </div>
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 text-xs font-bold text-white bg-slate-950 dark:bg-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-900 dark:border-white transition-all shadow-xs active:scale-95">
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>{uploadingImage ? 'Yuklanmoqda...' : 'Fayl tanlash'}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          className="hidden"
+                          disabled={uploadingImage}
+                          onChange={async (e) => {
+                            const files = Array.from(e.target.files || []);
+                            if (!files.length) return;
+                            setUploadingImage(true);
+                            try {
+                              const uploadedUrls = [];
+                              for (const file of files) {
+                                const url = await uploadProductImage(file);
+                                if (url) uploadedUrls.push(url);
+                              }
+                              if (uploadedUrls.length) {
+                                setProductForm(prev => ({
+                                  ...prev,
+                                  images: [...(prev.images || []).filter(Boolean), ...uploadedUrls]
+                                }));
+                              }
+                            } finally {
+                              setUploadingImage(false);
+                            }
                           }}
                         />
-                      ) : (
-                        <div className="flex flex-col items-center gap-2 text-slate-400">
-                          <ImageIcon className="w-10 h-10 opacity-40" />
-                          <span className="font-bold text-xs">Rasm URL manzilini kiriting</span>
-                        </div>
-                      )}
+                      </label>
                     </div>
+
+                    {/* URL orqali rasm qo'shish */}
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        placeholder="Rasm havolasini kiriting..."
+                        className="flex-1 px-3 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white outline-none font-mono text-[11px]"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            const val = e.currentTarget.value.trim();
+                            if (val) {
+                              setProductForm(prev => ({
+                                ...prev,
+                                images: [...(prev.images || []).filter(Boolean), val]
+                              }));
+                              e.currentTarget.value = '';
+                            }
+                          }
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          const input = e.currentTarget.previousSibling;
+                          const val = input.value.trim();
+                          if (val) {
+                            setProductForm(prev => ({
+                              ...prev,
+                              images: [...(prev.images || []).filter(Boolean), val]
+                            }));
+                            input.value = '';
+                          }
+                        }}
+                        className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs transition-colors cursor-pointer"
+                      >
+                        Qo‘shish
+                      </button>
+                    </div>
+
+                    {/* Rasmlar ko'rinishi */}
+                    {productForm.images && productForm.images.filter(Boolean).length > 0 ? (
+                      <div className="space-y-3">
+                        {/* Katta asosiy rasm (1-rasm) */}
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xs">
+                          <img
+                            src={productForm.images.filter(Boolean)[0]}
+                            alt="Asosiy rasm"
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/75 text-white text-[10px] font-black backdrop-blur-xs">
+                            1-Asosiy rasm
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setProductForm(prev => ({
+                                ...prev,
+                                images: prev.images.filter((_, idx) => idx !== 0)
+                              }));
+                            }}
+                            className="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-red-600/90 hover:bg-red-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                            title="O‘chirish"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+
+                        {/* Qo'shimcha rasmlar (agar 1 tadan ko'p bo'lsa) */}
+                        {productForm.images.filter(Boolean).length > 1 && (
+                          <div className="grid grid-cols-4 gap-2 pt-1">
+                            {productForm.images.filter(Boolean).slice(1).map((img, idx) => (
+                              <div key={idx} className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group">
+                                <img src={img} alt={`Rasm ${idx + 2}`} className="w-full h-full object-cover" />
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setProductForm(prev => ({
+                                      ...prev,
+                                      images: prev.images.filter((_, i) => i !== idx + 1)
+                                    }));
+                                  }}
+                                  className="absolute top-1 right-1 w-5 h-5 rounded bg-red-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-xs"
+                                  title="O‘chirish"
+                                >
+                                  <X className="w-3 h-3" />
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      /* Butkul bo'sh holat (Pustoy) */
+                      <div className="w-full aspect-square rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center p-6 text-center text-slate-400 bg-slate-50/50 dark:bg-slate-800/30">
+                        <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 text-slate-400">
+                          <ImageIcon className="w-7 h-7 opacity-40" />
+                        </div>
+                        <span className="font-extrabold text-xs text-slate-700 dark:text-slate-300 mb-1">
+                          Hozircha rasm yo‘q (bo‘sh)
+                        </span>
+                        <p className="text-[11px] text-slate-400 max-w-[200px]">
+                          Yuqoridagi «Fayl tanlash» yoki havola orqali rasm qo‘shing
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Badges Card */}
+                  <div className="p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+                    <h3 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
+                      Qo‘shimcha Belgilar
+                    </h3>
+                    <label className="flex items-center gap-2.5 cursor-pointer font-bold text-slate-700 dark:text-slate-300">
+                      <input
+                        type="checkbox"
+                        checked={productForm.isBestseller}
+                        onChange={(e) => setProductForm({ ...productForm, isBestseller: e.target.checked })}
+                        className="w-4 h-4 rounded text-[var(--color-primary-500)]"
+                      />
+                      <span>🔥 Xit mahsulot (Bestseller)</span>
+                    </label>
+                    <label className="flex items-center gap-2.5 cursor-pointer font-bold text-slate-700 dark:text-slate-300">
+                      <input
+                        type="checkbox"
+                        checked={productForm.isWeeklyDeal}
+                        onChange={(e) => setProductForm({ ...productForm, isWeeklyDeal: e.target.checked })}
+                        className="w-4 h-4 rounded text-[var(--color-primary-500)]"
+                      />
+                      <span>⚡ Hafta aksiyasi (Weekly Deal)</span>
+                    </label>
+                    <label className="flex items-center gap-2.5 cursor-pointer font-bold text-slate-700 dark:text-slate-300">
+                      <input
+                        type="checkbox"
+                        checked={productForm.isNewArrival}
+                        onChange={(e) => setProductForm({ ...productForm, isNewArrival: e.target.checked })}
+                        className="w-4 h-4 rounded text-[var(--color-primary-500)]"
+                      />
+                      <span>✨ Yangi kelgan mahsulot</span>
+                    </label>
                   </div>
                 </div>
               </form>
