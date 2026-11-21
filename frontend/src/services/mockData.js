@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_grif-zig-zag-1-2m-sc-80186-0900",
+    "id": "prod_grif-zig-zag-1-2m-sc-80186-0900",
+    "title": "Grif zig zag  1.2m sc-80186",
+    "slug": "grif-zig-zag-1-2m-sc-80186-0900",
+    "sku": "0462910",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80186-5228_1.jpg",
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80186-5228_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0462910\nNarxi : 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0462910"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:26:50.900Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-ax-1008-1478",
     "id": "prod_masaj-kreslo-ax-1008-1478",
     "title": "Masaj kreslo AX-1008",
