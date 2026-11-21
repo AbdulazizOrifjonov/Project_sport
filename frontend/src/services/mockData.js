@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_grif-trep-0405",
+    "id": "prod_grif-trep-0405",
+    "title": "Grif  Trep",
+    "slug": "grif-trep-0405",
+    "sku": "",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-trep-4765_1.jpg",
+      "/uploads/prod_grif-trep-4765_2.jpg",
+      "/uploads/prod_grif-trep-4765_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Vazni : 22.5kg\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:29:30.405Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-a31a-5163",
     "id": "prod_masaj-kreslo-a31a-5163",
     "title": "MASAJ KRESLO A31A",
