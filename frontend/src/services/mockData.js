@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-ax-1006-3900",
+    "id": "prod_masaj-kreslo-ax-1006-3900",
+    "title": "Masaj kreslo AX-1006",
+    "slug": "masaj-kreslo-ax-1006-3900",
+    "sku": "",
+    "price": 20945500,
+    "oldPrice": 24087325,
+    "old_price": 24087325,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1006-5190_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1006-5190_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1630$\n➖Tanani skanerlash va moslashib massaj qilish\n➖ Barmoq orqali salomatlik diagnozi\n➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo'shatish\n➖ Tailandcha chigal yozish rejimi mavjud.\n➖ Belni qizdirish\n➖ Simsiz telefonni quvvatlash\n➖ Maks foydalanuvchi vazni: 150kg\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:26:33.900Z"
+  },
+  {
     "_id": "prod_grif-olimpiski-8994",
     "id": "prod_grif-olimpiski-8994",
     "title": "Grif olimpiski",
