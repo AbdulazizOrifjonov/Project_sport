@@ -53,20 +53,28 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const headerRef = useRef(null);
   const activeNavRef = useRef(null);
 
+  // Track window scroll for compact header styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Sync searchQuery from URL params when on /shop?search=...
+  useEffect(() => {
+    const q = new URLSearchParams(location.search).get('search');
+    if (q !== null && q !== undefined) {
+      setSearchQuery(q);
+    }
+  }, [location.search]);
+
   // Active Category / Tag from location
   const currentParams = new URLSearchParams(location.search);
   const currentCategory = currentParams.get('category') || (location.pathname.startsWith('/shop/') ? location.pathname.replace('/shop/', '') : '');
   const currentTag = currentParams.get('tag') || '';
-
-  // Track page scroll to activate compact, elevated navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 35;
-      setIsScrolled(scrolled);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -94,7 +102,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
     updateHeaderHeight();
     window.addEventListener('resize', updateHeaderHeight);
     return () => window.removeEventListener('resize', updateHeaderHeight);
-  }, [isScrolled]);
+  }, []);
 
   // Active horizontal scroll for subnav: auto-scroll to the active link
   useEffect(() => {
@@ -153,11 +161,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const formatPrice = (num) => `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
 
   return (
-    <header ref={headerRef} className={`sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300 ${isScrolled ? 'shadow-md' : 'shadow-xs'}`}>
-      {/* Top Utility Contact Bar - Unified background with smooth scroll collapse */}
-      <div className={`hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 transition-all duration-300 overflow-hidden ${
-        isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-1.5 opacity-100 border-b border-slate-100 dark:border-slate-800/80'
-      }`}>
+    <header ref={headerRef} className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200">
+      {/* Top Utility Contact Bar - Unified background, fixed and stable (hech qachon sakramaydi) */}
+      <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
         <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Demo Admin Panel Quick Button */}
@@ -237,9 +243,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         </div>
       </div>
 
-      {/* Main Header Row - Spacious & Elevated */}
+      {/* Main Header Row - Spacious, Stable & Fixed */}
       <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className={`flex items-center justify-between md:justify-start gap-3 lg:gap-4 transition-all duration-300 ${isScrolled ? 'h-16 md:h-18' : 'h-18 md:h-22'}`}>
+        <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
@@ -294,10 +300,26 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
-                className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-4 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
+                className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-28 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
                 autoComplete="off"
               />
               <Search className="lucide lucide-search w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-22 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 cursor-pointer"
+                  title="Tozalash"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+              <button
+                type="submit"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-1.5 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-black hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer shadow-xs active:scale-95"
+              >
+                Qidirish
+              </button>
             </form>
 
             {/* Suggestions drop */}

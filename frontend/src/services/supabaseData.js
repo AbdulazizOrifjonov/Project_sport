@@ -293,13 +293,23 @@ export const dataService = {
     let filtered = [...all];
 
     if (params.search) {
-      const q = params.search.toLowerCase().trim();
-      filtered = filtered.filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        p.description?.toLowerCase().includes(q) ||
-        p.sku?.toLowerCase().includes(q) ||
-        p.brand?.toLowerCase().includes(q)
-      );
+      const normalize = (str) => (str || '').toLowerCase().replace(/[`'‘’ʻʼ]/g, '').trim();
+      const rawQ = normalize(params.search);
+      const words = rawQ.split(/\s+/).filter(Boolean);
+
+      filtered = filtered.filter(p => {
+        const variantText = (p.variants || []).map(v => `${v.name || ''} ${v.fullName || ''} ${(v.colors || []).join(' ')}`).join(' ');
+        const searchableText = normalize(`
+          ${p.title || ''} 
+          ${p.description || ''} 
+          ${p.category || ''} 
+          ${p.categorySlug || ''} 
+          ${p.brand || ''} 
+          ${p.sku || ''} 
+          ${variantText}
+        `);
+        return words.every(w => searchableText.includes(w));
+      });
     }
 
     if (params.categorySlug && (!isSupabaseConfigured || !supabase)) {
