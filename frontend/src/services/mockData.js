@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_grif-zig-zag-sc-80188-120cm-7823",
+    "id": "prod_grif-zig-zag-sc-80188-120cm-7823",
+    "title": "Grif zig zag sc-80188 120cm",
+    "slug": "grif-zig-zag-sc-80188-120cm-7823",
+    "sku": "",
+    "price": 257000,
+    "oldPrice": 295550,
+    "old_price": 295550,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-sc-80188-120cm-5249_1.jpg",
+      "/uploads/prod_grif-zig-zag-sc-80188-120cm-5249_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uzunligi : 1.2m\nNarxi : 20$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:27:07.823Z"
+  },
+  {
     "_id": "prod_grif-zig-zag-sc-80189-150cm-9702",
     "id": "prod_grif-zig-zag-sc-80189-150cm-9702",
     "title": "Grif zig zag sc-80189 150cm",
