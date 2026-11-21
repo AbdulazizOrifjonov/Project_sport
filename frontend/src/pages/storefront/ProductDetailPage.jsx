@@ -50,6 +50,10 @@ export default function ProductDetailPage() {
   // Lightbox Modal state
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
+  // Product Variants & Options state
+  const [selectedVariant, setSelectedVariant] = useState(null);
+  const [selectedColor, setSelectedColor] = useState('');
+
   useEffect(() => {
     setLoading(true);
     const fetchProduct = async () => {
@@ -65,6 +69,18 @@ export default function ProductDetailPage() {
           setRelated(res.data.related || []);
           setSelectedImage(0);
           setQuantity(1);
+
+          // Initialize variants
+          if (res.data.product?.variants && res.data.product.variants.length > 0) {
+            const firstVar = res.data.product.variants[0];
+            setSelectedVariant(firstVar);
+            if (firstVar.colors && firstVar.colors.length > 0) {
+              setSelectedColor(firstVar.colors[0]);
+            }
+          } else {
+            setSelectedVariant(null);
+            setSelectedColor('');
+          }
 
           // Fetch reviews for this product
           api
@@ -155,8 +171,24 @@ export default function ProductDetailPage() {
     setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const activePrice = selectedVariant ? selectedVariant.price : product.price;
+  const activeOldPrice = selectedVariant ? selectedVariant.oldPrice : product.oldPrice;
+
+  const handleAddToCart = () => {
+    const itemToAdd = {
+      ...product,
+      _id: selectedVariant ? `${product._id}_${selectedVariant.id || selectedVariant.name}` : product._id,
+      title: selectedVariant ? `${product.title} (${selectedVariant.name}${selectedColor ? ` - ${selectedColor}` : ''})` : product.title,
+      price: activePrice,
+      oldPrice: activeOldPrice,
+      selectedVariant,
+      selectedColor
+    };
+    addToCart(itemToAdd, quantity);
+  };
+
   const handleBuyNow = () => {
-    addToCart(product, quantity);
+    handleAddToCart();
     navigate('/checkout');
   };
 
@@ -389,15 +421,88 @@ export default function ProductDetailPage() {
               </span>
             </div>
 
+            {/* Product Variants (Qalinlik / O‘lcham / Razmer) */}
+            {product.variants && product.variants.length > 0 && (
+              <div className="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    {product.variantLabel || 'Variantni tanlang (Qalinlik / O‘lcham)'}:
+                  </span>
+                  {selectedVariant && (
+                    <span className="text-xs font-extrabold text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">
+                      {selectedVariant.name || selectedVariant.title}
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {product.variants.map((v, idx) => {
+                    const isSelected = selectedVariant && (selectedVariant.id === v.id || selectedVariant.name === v.name);
+                    return (
+                      <button
+                        key={v.id || idx}
+                        type="button"
+                        onClick={() => {
+                          setSelectedVariant(v);
+                          if (v.colors && v.colors.length > 0) {
+                            setSelectedColor(v.colors[0]);
+                          }
+                        }}
+                        className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                          isSelected
+                            ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 border-slate-950 dark:border-white shadow-xs scale-102'
+                            : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500'
+                        }`}
+                      >
+                        <span className="font-extrabold">{v.name || v.title}</span>
+                        {v.price && (
+                          <span className={`ml-2 text-[11px] font-semibold ${isSelected ? 'opacity-90' : 'text-slate-500 dark:text-slate-400'}`}>
+                            {formatPrice(v.price)}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Color selection if selected variant has colors */}
+                {selectedVariant && selectedVariant.colors && selectedVariant.colors.length > 0 && (
+                  <div className="mt-3.5 pt-3 border-t border-slate-200/60 dark:border-slate-800">
+                    <div className="text-xs font-bold text-slate-600 dark:text-slate-400 mb-2">
+                      Mavjud ranglar: <span className="text-slate-900 dark:text-white font-extrabold">{selectedColor || selectedVariant.colors[0]}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedVariant.colors.map((c, cIdx) => {
+                        const isColorSelected = selectedColor === c || (!selectedColor && cIdx === 0);
+                        return (
+                          <button
+                            key={cIdx}
+                            type="button"
+                            onClick={() => setSelectedColor(c)}
+                            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer border ${
+                              isColorSelected
+                                ? 'bg-emerald-50 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-400 dark:border-emerald-700 ring-1 ring-emerald-400'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                            }`}
+                          >
+                            {c}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Price Box */}
             <div className="mt-5 p-5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-              {product.oldPrice > product.price && (
+              {activeOldPrice > activePrice && (
                 <div className="text-sm line-through text-slate-400 mb-1 font-medium">
-                  {formatPrice(product.oldPrice)}
+                  {formatPrice(activeOldPrice)}
                 </div>
               )}
               <div className="text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-                {formatPrice(product.price)}
+                {formatPrice(activePrice)}
                 <span className="text-xs font-normal text-slate-500 dark:text-slate-400 ml-2">
                   {t('product.vat', '(QQS bilan)')}
                 </span>
@@ -435,7 +540,7 @@ export default function ProductDetailPage() {
               {/* Add to Cart Button (Strict h-12, whitespace-nowrap) */}
               <button
                 type="button"
-                onClick={() => addToCart(product, quantity)}
+                onClick={handleAddToCart}
                 className="h-12 flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 px-6 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 active:scale-98 font-bold text-sm whitespace-nowrap transition-all shadow-xs cursor-pointer border border-slate-950 dark:border-white"
               >
                 {inCart ? <Check className="w-4 h-4" /> : <ShoppingCart className="w-4 h-4" />}

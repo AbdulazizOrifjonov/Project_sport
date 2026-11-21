@@ -123,8 +123,8 @@ export const defaultProducts = [
   {
     "_id": "prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
     "id": "prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
-    "title": "Professional Tatami 1x1m (Qalinligi: 2 sm)",
-    "slug": "tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
+    "title": "Professional Tatami 1x1m (Sport Qoplamasi)",
+    "slug": "professional-tatami-1x1m",
     "price": 160000,
     "oldPrice": 185000,
     "old_price": 185000,
@@ -141,27 +141,91 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157.jpg"
+      "/uploads/prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157.jpg",
+      "/uploads/prod_yangi-mahsulot-1141.jpg",
+      "/uploads/prod_yangi-mahsulot-4815.jpg",
+      "/uploads/prod_yangi-mahsulot-6213.jpg",
+      "/uploads/prod_yangi-mahsulot-5248.jpg",
+      "/uploads/prod_yangi-mahsulot-6210.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
-    "description": "Tatami 1x1m, qalinligi 2 sm. Rangi: qizil-ko‘k ikki tomonlama. Boks, dzyudo, karate va yakka kurash zallari uchun professional elastik mat. Narxi: 12.5$.",
+    "description": "Professional Tatami 1x1m sport qoplamasi. Qalinliklari: 2 sm, 2.5 sm, 3 sm, 4 sm. Rangi: Qizil-ko‘k, Sariq-yashil, Seriy-qora ikki tomonlama qoplama. Boks, dzyudo, karate, taekvondo va fitnes zallari uchun xavfsiz va qulay qoplama.",
     "specifications": [
       {
-        "label": "Brend",
-        "value": "Sport Line"
+        "label": "O‘lchami",
+        "value": "1m x 1m"
       },
       {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
+        "label": "Qalinligi",
+        "value": "2 sm dan 4 sm gacha"
+      },
+      {
+        "label": "Mavjud ranglar",
+        "value": "Qizil-ko‘k, Sariq-yashil, Seriy-qora"
+      },
+      {
+        "label": "Qulflanish turi",
+        "value": "Qaldirg‘och dum (pazel) qulf"
       },
       {
         "label": "Yetkazib berish",
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T13:37:10.004Z"
+    "created_at": "2026-11-21T13:37:10.004Z",
+    "variantLabel": "Qalinlikni tanlang",
+    "variants": [
+      {
+        "id": "var_2sm",
+        "name": "2 sm",
+        "fullName": "Tatami 1x1m (Qalinligi: 2 sm)",
+        "price": 160000,
+        "oldPrice": 185000,
+        "priceUSD": 12.5,
+        "colors": [
+          "Qizil-ko‘k"
+        ]
+      },
+      {
+        "id": "var_2_5sm",
+        "name": "2.5 sm",
+        "fullName": "Tatami 1x1m (Qalinligi: 2.5 sm)",
+        "price": 173000,
+        "oldPrice": 200000,
+        "priceUSD": 13.5,
+        "colors": [
+          "Sariq-yashil",
+          "Qizil-ko‘k",
+          "Seriy-qora"
+        ]
+      },
+      {
+        "id": "var_3sm",
+        "name": "3 sm",
+        "fullName": "Tatami 1x1m (Qalinligi: 3 sm)",
+        "price": 180000,
+        "oldPrice": 210000,
+        "priceUSD": 14,
+        "colors": [
+          "Qizil-ko‘k"
+        ]
+      },
+      {
+        "id": "var_4sm",
+        "name": "4 sm",
+        "fullName": "Tatami 1x1m (Qalinligi: 4 sm)",
+        "price": 218000,
+        "oldPrice": 250000,
+        "priceUSD": 17,
+        "colors": [
+          "Qizil-ko‘k",
+          "Sariq-yashil",
+          "Seriy-qora"
+        ]
+      }
+    ]
   },
   {
     "_id": "prod_gantel-podstavka-an-001-8998",
@@ -1089,6 +1153,23 @@ export const defaultOrders = [
  */
 export function getLocalCollection(key, fallback) {
   try {
+    // 1. Purge all obsolete storage keys from previous builds
+    const obsoleteKeys = [
+      'nsb_products_v3_sport',
+      'nsb_products_v2_sport',
+      'nsb_products_v1_sport',
+      'nsb_products_sport',
+      'nsb_products',
+      'products',
+      'nsb_categories_v3_sport',
+      'nsb_banners_v3_sport'
+    ];
+    for (const oldKey of obsoleteKeys) {
+      if (oldKey !== key) {
+        try { localStorage.removeItem(oldKey); } catch (_) {}
+      }
+    }
+
     const raw = localStorage.getItem(key);
     if (!raw) {
       localStorage.setItem(key, JSON.stringify(fallback));
@@ -1096,7 +1177,7 @@ export function getLocalCollection(key, fallback) {
     }
     const parsed = JSON.parse(raw);
 
-    // If cached collection contains obsolete laptops or electronics, purge it immediately
+    // If cached collection contains obsolete laptops, electronics, or old generic "Yangi Mahsulot" cards, purge immediately
     if (key.includes('products') && Array.isArray(parsed)) {
       const hasOldLaptops = parsed.some(p => p.slug && (
         p.slug.includes('macbook') || 
@@ -1105,27 +1186,44 @@ export function getLocalCollection(key, fallback) {
         p.slug.includes('apple') ||
         p.category === 'Kompyuter Texnikasi'
       ));
-      if (hasOldLaptops) {
-        console.log('⚡ Purging old electronics cache from localStorage in favor of Sport & Fitness items');
+
+      // Check if duplicate placeholder cards exist (e.g. 4x "Yangi Mahsulot" cards)
+      const hasPlaceholderDuplicates = parsed.some(p =>
+        (p.title && (p.title.trim().toLowerCase() === 'yangi mahsulot' || p.title.trim().toLowerCase() === 'yangi sport mahsuloti')) ||
+        (p.slug && p.slug.startsWith('yangi-mahsulot')) ||
+        (p.slug && p.slug.includes('tatami') && p.slug !== 'professional-tatami-1x1m')
+      );
+
+      if (hasOldLaptops || hasPlaceholderDuplicates) {
+        console.log('⚡ Purging old cache / duplicate placeholder cards from localStorage');
         localStorage.setItem(key, JSON.stringify(fallback));
         return fallback;
       }
 
+      // Filter out any unwanted duplicates
+      const cleanParsed = parsed.filter(p =>
+        p && p.title &&
+        p.title.trim().toLowerCase() !== 'yangi mahsulot' &&
+        p.title.trim().toLowerCase() !== 'yangi sport mahsuloti' &&
+        !(p.slug && p.slug.startsWith('yangi-mahsulot')) &&
+        !(p.slug && p.slug.includes('tatami') && p.slug !== 'professional-tatami-1x1m')
+      );
+
       // Auto-merge any new items in fallback (e.g., added from Telegram bot or updates)
-      const existingIds = new Set(parsed.map(p => p.id || p._id || p.slug));
+      const existingIds = new Set(cleanParsed.map(p => p.id || p._id || p.slug));
       let hasNew = false;
       for (const item of fallback) {
         const id = item.id || item._id || item.slug;
         if (!existingIds.has(id)) {
-          parsed.unshift(item);
+          cleanParsed.unshift(item);
           existingIds.add(id);
           hasNew = true;
         }
       }
-      if (hasNew) {
-        localStorage.setItem(key, JSON.stringify(parsed));
+      if (hasNew || cleanParsed.length !== parsed.length) {
+        localStorage.setItem(key, JSON.stringify(cleanParsed));
       }
-      return parsed;
+      return cleanParsed;
     }
 
     if (key.includes('categories') && Array.isArray(parsed)) {

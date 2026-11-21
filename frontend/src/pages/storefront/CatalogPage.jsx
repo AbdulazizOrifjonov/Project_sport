@@ -12,14 +12,15 @@ export default function CatalogPage() {
 
   const searchQuery = searchParams.get('search') || '';
   const tagParam = searchParams.get('tag') || '';
+  const categoryParam = searchParams.get('category') || '';
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // Filter States
-  const [selectedCategory, setSelectedCategory] = useState(categorySlug || '');
+  // Filter States - Synchronized with URL category query & params
+  const [selectedCategory, setSelectedCategory] = useState(categorySlug || categoryParam || '');
   const [selectedBrand, setSelectedBrand] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -34,8 +35,20 @@ export default function CatalogPage() {
   }, []);
 
   useEffect(() => {
-    if (categorySlug) setSelectedCategory(categorySlug);
-  }, [categorySlug]);
+    const cat = categorySlug || searchParams.get('category') || '';
+    setSelectedCategory(cat);
+  }, [categorySlug, searchParams]);
+
+  const handleSelectCategory = (slug) => {
+    setSelectedCategory(slug);
+    const newParams = new URLSearchParams(searchParams);
+    if (slug) {
+      newParams.set('category', slug);
+    } else {
+      newParams.delete('category');
+    }
+    setSearchParams(newParams);
+  };
 
   useEffect(() => {
     fetchProducts();
@@ -142,8 +155,11 @@ export default function CatalogPage() {
 
       {/* Main Grid: Sidebar + Products */}
       <div className="grid lg:grid-cols-[260px_1fr] gap-6 items-start">
-        {/* Left Filter Sidebar (Desktop) */}
-        <aside className="hidden lg:block bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-slate-800 p-5 space-y-6 sticky top-24 shadow-xs">
+        {/* Left Filter Sidebar (Desktop) - 100% Pinned during catalog scroll */}
+        <aside 
+          style={{ top: 'calc(var(--nsb-header-height, 130px) + 16px)' }}
+          className="hidden lg:block bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 p-5 space-y-5 sticky self-start max-h-[calc(100vh-var(--nsb-header-height,130px)-32px)] overflow-y-auto overscroll-contain shadow-xs transition-[top] duration-200 scrollbar-thin"
+        >
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
             <span className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
               <Filter className="w-4 h-4 text-slate-900 dark:text-white" /> {t('catalog.filters', 'Filterlar')}
@@ -167,7 +183,7 @@ export default function CatalogPage() {
             <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
               <button
                 type="button"
-                onClick={() => setSelectedCategory('')}
+                onClick={() => handleSelectCategory('')}
                 className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors cursor-pointer ${
                   !selectedCategory
                     ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
@@ -178,9 +194,9 @@ export default function CatalogPage() {
               </button>
               {categories.map((c) => (
                 <button
-                  key={c._id}
+                  key={c._id || c.slug}
                   type="button"
-                  onClick={() => setSelectedCategory(c.slug)}
+                  onClick={() => handleSelectCategory(c.slug)}
                   className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors truncate cursor-pointer ${
                     selectedCategory === c.slug
                       ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
@@ -317,7 +333,10 @@ export default function CatalogPage() {
                   <div className="space-y-1">
                     <button
                       type="button"
-                      onClick={() => setSelectedCategory('')}
+                      onClick={() => {
+                        handleSelectCategory('');
+                        setMobileFilterOpen(false);
+                      }}
                       className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors ${
                         !selectedCategory
                           ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
@@ -328,9 +347,12 @@ export default function CatalogPage() {
                     </button>
                     {categories.map((c) => (
                       <button
-                        key={c._id}
+                        key={c._id || c.slug}
                         type="button"
-                        onClick={() => setSelectedCategory(c.slug)}
+                        onClick={() => {
+                          handleSelectCategory(c.slug);
+                          setMobileFilterOpen(false);
+                        }}
                         className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors ${
                           selectedCategory === c.slug
                             ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'

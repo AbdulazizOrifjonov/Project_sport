@@ -51,6 +51,13 @@ export default function ProductCard({ product }) {
           </span>
         )}
 
+        {/* Rasmlar soni nishoni */}
+        {product.images && product.images.length > 1 && (
+          <span className="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/75 backdrop-blur-xs text-white shadow-xs pointer-events-none flex items-center gap-1">
+            <span>📷</span> {product.images.length} ta rasm
+          </span>
+        )}
+
         {/* Sevimlilar (Wishlist) tugmasi */}
         <button
           type="button"
@@ -157,10 +164,20 @@ export default function ProductCard({ product }) {
             </button>
           </div>
 
-          <div className="text-[14px] sm:text-[15px] font-extrabold text-slate-950 dark:text-white tracking-tight leading-tight">
-            {formatPrice(product.price)}
-            <span className="text-[10px] font-normal text-slate-400 ml-1">{t('product.vat')}</span>
+          <div className="flex items-baseline gap-1 text-[14px] sm:text-[15px] font-extrabold text-slate-950 dark:text-white tracking-tight leading-tight">
+            <span>{formatPrice(product.price)}</span>
+            {product.variants && product.variants.length > 0 && (
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">dan</span>
+            )}
+            <span className="text-[10px] font-normal text-slate-400 ml-auto">{t('product.vat')}</span>
           </div>
+          {product.variants && product.variants.length > 0 && (
+            <div className="mt-1 flex items-center gap-1.5">
+              <span className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-black text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                {product.variants.length} xil qalinlik
+              </span>
+            </div>
+          )}
         </div>
 
         {/* 3. Pastdagi uzun savatcha tugmasi va - 1 + boshqaruvi */}

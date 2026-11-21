@@ -10,14 +10,14 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v3 Sport & Fitness)
+// Local storage collection keys (v4 Sport & Fitness)
 const KEYS = {
-  CATEGORIES: 'nsb_categories_v3_sport',
-  PRODUCTS: 'nsb_products_v3_sport',
-  BANNERS: 'nsb_banners_v3_sport',
-  COUPONS: 'nsb_coupons_v3_sport',
-  REVIEWS: 'nsb_reviews_v3_sport',
-  ORDERS: 'nsb_orders_v3_sport'
+  CATEGORIES: 'nsb_categories_v4_sport',
+  PRODUCTS: 'nsb_products_v4_sport',
+  BANNERS: 'nsb_banners_v4_sport',
+  COUPONS: 'nsb_coupons_v4_sport',
+  REVIEWS: 'nsb_reviews_v4_sport',
+  ORDERS: 'nsb_orders_v4_sport'
 };
 
 // Normalize database product (snake_case from Supabase -> camelCase + snake_case for frontend)

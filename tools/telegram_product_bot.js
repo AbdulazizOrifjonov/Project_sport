@@ -3,11 +3,18 @@
  * Bot Token: 6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w
  * 
  * Features:
- * - Automatically receives product photos, titles, and prices from Telegram.
- * - SMART PRICE PARSER: Handles $ (USD) and so'm (UZS), ignores codes/dimensions.
- * - SMART DUPLICATE PREVENTION: If a product already exists (by title, model, or SKU),
- *   it UPDATES the existing product (price, image, description) instead of creating a duplicate!
- * - Syncs with mockData.js and pushes to GitHub for instant live deployment!
+ * 1. MULTI-PHOTO & ALBUM SUPPORT:
+ *    Automatically detects Telegram media groups (albums) and consecutive photos.
+ *    Downloads ALL photos and attaches them to ONE single product as a gallery!
+ * 2. MULTI-VARIANT DETECTION:
+ *    If caption has multiple thickness/size options (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm),
+ *    creates 1 single product with interactive variant selection and individual prices!
+ * 3. SMART PRICE PARSER:
+ *    Accurately handles USD ($) and UZS (so'm), ignores model numbers & dimensions.
+ * 4. DUPLICATE PREVENTION:
+ *    Prevents multiple cards for the same product; updates existing products in place.
+ * 5. AUTO-SYNC:
+ *    Syncs with mockData.js and pushes to GitHub for instant live deployment!
  */
 
 const fs = require('fs');
@@ -64,10 +71,90 @@ function detectBrand(text = '') {
 }
 
 /**
+ * Detects multiple variants/options in caption (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm)
+ */
+function extractVariants(text = '') {
+  // Normalize text: if single line with delimiters, split into newlines
+  let normalized = text.trim();
+  if (!normalized.includes('\n')) {
+    normalized = normalized.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
+  }
+
+  // Split into blocks by double newlines or lines starting with product variant names
+  const blocks = normalized.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  const variants = [];
+  let baseTitle = '';
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+    if (lines.length === 0) continue;
+
+    // Price
+    let price = 0;
+    let priceUSD = 0;
+    const priceLine = lines.find(l => /(?:narx[i]?|baho[si]?|price|\$)/i.test(l));
+    if (priceLine) {
+      const dMatch = priceLine.match(/(\d+(?:[.,]\d+)?)\s*\$/);
+      if (dMatch) {
+        priceUSD = parseFloat(dMatch[1].replace(',', '.'));
+        price = Math.round(priceUSD * USD_RATE);
+      } else {
+        const uzsDigits = priceLine.replace(/[^\d]/g, '');
+        if (uzsDigits.length >= 4) {
+          price = parseInt(uzsDigits, 10);
+        }
+      }
+    }
+
+    if (!price) continue; // Skip blocks without prices
+
+    // Colors
+    const colors = [];
+    const colorLine = lines.find(l => /(?:rang[i]?|color)/i.test(l));
+    if (colorLine) {
+      const parts = colorLine.replace(/^[^:]*:\s*/i, '')
+        .split(/[,;]+/)
+        .map(p => p.replace(/[✅✔]/g, '').trim())
+        .filter(Boolean);
+      colors.push(...parts);
+    }
+
+    // Name / Size
+    const rawName = lines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
+    const sizeMatch = rawName.match(/(\d+(?:[.,]\d+)?\s*(?:sm|mm|kg|m\b))/i);
+    const shortName = sizeMatch ? sizeMatch[1].trim() : rawName;
+
+    if (!baseTitle) {
+      baseTitle = rawName.replace(/[-–—]?\s*\d+(?:[.,]\d+)?\s*(?:sm|mm|kg)\b/i, '').trim();
+    }
+
+    variants.push({
+      id: 'var_' + (shortName.replace(/[^a-z0-9]/gi, '_').toLowerCase() || i),
+      name: shortName,
+      fullName: rawName,
+      price,
+      oldPrice: Math.round(price * 1.15),
+      priceUSD,
+      colors
+    });
+  }
+
+  if (variants.length >= 2) {
+    return {
+      hasVariants: true,
+      baseTitle: baseTitle || 'Sport Mahsuloti',
+      variants
+    };
+  }
+
+  return { hasVariants: false };
+}
+
+/**
  * Intelligent parser for Telegram product captions
  */
 function parseProductInfo(text = '') {
-  // If single line contains delimiters like Narxi:, Kodi:, Rangi:, split into newlines
   let normalizedText = (text || '').trim();
   if (!normalizedText.includes('\n')) {
     normalizedText = normalizedText.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
@@ -82,17 +169,38 @@ function parseProductInfo(text = '') {
       sku: '',
       description: 'SPORT OUTLET - kafolatli va sifatli sport anjomi.',
       category: { slug: 'stoykalar', name: 'Podstavka & Skameykalar' },
-      brand: 'Sport Line'
+      brand: 'Sport Line',
+      variants: []
     };
   }
 
+  // Check if text has multiple variants (e.g. Tatami thicknesses)
+  const variantResult = extractVariants(normalizedText);
+  if (variantResult.hasVariants) {
+    const minPrice = Math.min(...variantResult.variants.map(v => v.price));
+    const category = detectCategory(normalizedText);
+    const brand = detectBrand(normalizedText);
+    const variantTitles = variantResult.variants.map(v => v.name).join(', ');
+
+    return {
+      title: `${variantResult.baseTitle} (Sport Qoplamasi)`,
+      sku: '',
+      price: minPrice,
+      rawPriceLabel: `${new Intl.NumberFormat('uz-UZ').format(minPrice)} so'mdan`,
+      description: `${variantResult.baseTitle} professional sport qoplamasi. Variantlar: ${variantTitles}. Boks, yakka kurash va fitnes zallari uchun maxsus qoplama.`,
+      category,
+      brand,
+      variantLabel: 'Qalinlik / O‘lchamni tanlang',
+      variants: variantResult.variants
+    };
+  }
+
+  // Single product parsing
   let title = rawLines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
   let sku = '';
   let price = 0;
   let rawPriceLabel = '';
-  const descLines = [];
 
-  // 1. Extract SKU / Kod
   for (const line of rawLines) {
     const skuMatch = line.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
     if (skuMatch && !sku) {
@@ -100,13 +208,12 @@ function parseProductInfo(text = '') {
     }
   }
 
-  // 2. Parse Price accurately
-  // Priority 1: Line with 'narx', 'baho', 'price'
+  // Parse Price accurately
   for (let i = 0; i < rawLines.length; i++) {
     const line = rawLines[i];
     const isPriceLine = /(?:narx[i]?|baho[si]?|price)/i.test(line);
 
-    // Dollar price: e.g. "Narxi: 750$" or "290$" or "$195" or "195 usd"
+    // Dollar price
     const dollarMatch = line.match(/(?:narx[i]?|baho[si]?|price)?\s*[:=-]?\s*\$?\s*(\d+(?:[.,]\d+)?)\s*(?:\$|usd)/i) ||
                        (isPriceLine && line.match(/(\d+(?:[.,]\d+)?)\s*\$/i)) ||
                        (isPriceLine && line.match(/\$\s*(\d+(?:[.,]\d+)?)/i));
@@ -120,7 +227,7 @@ function parseProductInfo(text = '') {
       }
     }
 
-    // UZS price: e.g. "Narxi: 1 850 000 so'm" or "1850000"
+    // UZS price
     if (isPriceLine) {
       const uzsDigits = line.replace(/[^\d]/g, '');
       if (uzsDigits.length >= 4) {
@@ -131,7 +238,6 @@ function parseProductInfo(text = '') {
     }
   }
 
-  // Priority 2: Standalone dollar or som in any line
   if (!price) {
     for (const line of rawLines) {
       const standAloneDollar = line.match(/(\d{2,5})\s*\$/) || line.match(/\$\s*(\d{2,5})/);
@@ -153,17 +259,14 @@ function parseProductInfo(text = '') {
     }
   }
 
-  // Fallback price if none detected
   if (!price) {
     price = 750000;
     rawPriceLabel = '750 000 so‘m';
   }
 
-  // Build description (all lines after title)
   const description = rawLines.slice(1).join('\n') || `${title} - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.`;
-
-  const category = detectCategory(text);
-  const brand = detectBrand(text);
+  const category = detectCategory(normalizedText);
+  const brand = detectBrand(normalizedText);
 
   return {
     title,
@@ -172,7 +275,8 @@ function parseProductInfo(text = '') {
     rawPriceLabel,
     description,
     category,
-    brand
+    brand,
+    variants: []
   };
 }
 
@@ -219,16 +323,10 @@ async function downloadTelegramPhoto(fileId, targetFileName) {
   }
 }
 
-/**
- * Normalizes title for duplicate checking
- */
 function normalizeKey(str = '') {
   return str.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-/**
- * Load existing defaultProducts from mockData.js
- */
 function loadMockProducts() {
   try {
     const content = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
@@ -245,9 +343,6 @@ function loadMockProducts() {
   }
 }
 
-/**
- * Write updated products array back to mockData.js
- */
 function writeMockProducts(products) {
   try {
     let content = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
@@ -269,18 +364,14 @@ function writeMockProducts(products) {
 }
 
 /**
- * SMART DUPLICATE PREVENTION & UPDATE LOGIC:
- * If product exists (same SKU, same normalized title, or same model):
- *   UPDATE it in place! (Price, image, description)
- * Otherwise:
- *   ADD as new product.
+ * SAVE OR UPDATE:
+ * Handles multiple images, variants, and duplicate prevention!
  */
-function saveOrUpdateProduct(parsed, imagePath) {
+function saveOrUpdateProduct(parsed, imagePaths = []) {
   const products = loadMockProducts();
   const normNewTitle = normalizeKey(parsed.title);
   const newSku = (parsed.sku || '').trim().toLowerCase();
 
-  // Find existing duplicate product
   let existingIndex = -1;
 
   for (let i = 0; i < products.length; i++) {
@@ -294,13 +385,13 @@ function saveOrUpdateProduct(parsed, imagePath) {
       break;
     }
 
-    // 2. Exact or close title match (e.g. "gantel podstavka ax003" vs "Gantel podstavka AX003")
+    // 2. Exact or close title match
     if (normNewTitle && normPTitle && (normNewTitle === normPTitle || normNewTitle.includes(normPTitle) || normPTitle.includes(normNewTitle))) {
       existingIndex = i;
       break;
     }
 
-    // 3. Match generic "yangi mahsulot" if re-sent within recent session
+    // 3. Match generic "yangi mahsulot"
     if (normNewTitle === 'yangimahsulot' && normPTitle === 'yangimahsulot') {
       existingIndex = i;
       break;
@@ -311,7 +402,7 @@ function saveOrUpdateProduct(parsed, imagePath) {
   const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
 
   if (existingIndex !== -1) {
-    // DUPLICATE FOUND: UPDATE EXISTING INSTEAD OF ADDING DUPLICATE
+    // UPDATE EXISTING PRODUCT (MERGE IMAGES & VARIANTS)
     const existing = products[existingIndex];
     existing.price = parsed.price;
     existing.oldPrice = oldPrice;
@@ -323,15 +414,23 @@ function saveOrUpdateProduct(parsed, imagePath) {
     existing.categorySlug = parsed.category.slug;
     existing.description = parsed.description;
     if (parsed.sku) existing.sku = parsed.sku;
-    if (imagePath) {
-      existing.images = [imagePath, ...(existing.images || []).filter(img => img !== imagePath)];
+    if (parsed.variants && parsed.variants.length > 0) {
+      existing.variants = parsed.variants;
+      existing.variantLabel = parsed.variantLabel || 'Qalinlik / O‘lcham';
+    }
+
+    // Merge new images into existing images gallery
+    if (imagePaths && imagePaths.length > 0) {
+      const mergedImages = [...imagePaths, ...(existing.images || [])];
+      // deduplicate image URLs
+      existing.images = Array.from(new Set(mergedImages));
     }
     existing.updated_at = new Date().toISOString();
 
     writeMockProducts(products);
     return { isUpdate: true, product: existing };
   } else {
-    // NEW UNIQUE PRODUCT: PREPEND TO LIST
+    // CREATE NEW PRODUCT WITH FULL GALLERY & VARIANTS
     const slug = (parsed.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
@@ -352,15 +451,17 @@ function saveOrUpdateProduct(parsed, imagePath) {
       categorySlug: parsed.category.slug,
       subcategory: '',
       brand: parsed.brand,
-      stock: 12,
+      stock: 15,
       inStock: true,
       in_stock: true,
       rating: 5.0,
       reviews_count: 0,
-      images: [imagePath || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80'],
+      images: imagePaths.length > 0 ? imagePaths : ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80'],
       is_bestseller: true,
       is_new_arrival: true,
       is_weekly_deal: false,
+      variantLabel: parsed.variantLabel || '',
+      variants: parsed.variants || [],
       description: parsed.description,
       specifications: [
         { label: 'Brend', value: parsed.brand },
@@ -392,6 +493,65 @@ function pushChangesToGitHub(productTitle, isUpdate) {
   }
 }
 
+// Media Group (Album) and Consecutive Photos Buffer
+const mediaGroupBuffer = new Map();
+const userSinglePhotoBuffer = new Map();
+
+async function processMediaGroup(key, groupData) {
+  const { chatId, photos, caption } = groupData;
+  mediaGroupBuffer.delete(key);
+  userSinglePhotoBuffer.delete(key);
+
+  console.log(`Processing media group ${key} with ${photos.length} photos...`);
+
+  await sendTelegram('sendMessage', {
+    chat_id: chatId,
+    text: `⏳ Albom qabul qilindi (${photos.length} ta rasm)! Barchasi bitta mahsulotga yuklanmoqda...`
+  });
+
+  const parsed = parseProductInfo(caption || 'Sport Mahsuloti');
+  const baseSlug = (parsed.title.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
+
+  // Download all photos in the album
+  const downloadedImages = [];
+  for (let i = 0; i < photos.length; i++) {
+    const photo = photos[i];
+    const fileName = `prod_${baseSlug}_${i + 1}.jpg`;
+    const imagePath = await downloadTelegramPhoto(photo.file_id, fileName);
+    if (imagePath) downloadedImages.push(imagePath);
+  }
+
+  // Save product with full gallery and variants
+  const { isUpdate, product } = saveOrUpdateProduct(parsed, downloadedImages);
+
+  // Push to GitHub
+  pushChangesToGitHub(parsed.title, isUpdate);
+
+  const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
+  const variantText = product.variants && product.variants.length > 0
+    ? `\n🔀 <b>Variantlar (${product.variants.length} xil):</b>\n` + product.variants.map(v => `• ${v.name}: ${new Intl.NumberFormat('uz-UZ').format(v.price)} so'm ($${v.priceUSD || '-'})`).join('\n')
+    : '';
+
+  const statusTitle = isUpdate
+    ? `🔄 <b>Mavjud mahsulot yangilandi! (Dublikat yaratilmadi)</b>`
+    : `✅ <b>Yangi mahsulot do‘konga qo‘shildi!</b>`;
+
+  await sendTelegram('sendMessage', {
+    chat_id: chatId,
+    parse_mode: 'HTML',
+    text: `${statusTitle}\n\n` +
+          `📦 <b>Nomi:</b> ${product.title}\n` +
+          `🖼 <b>Rasmlar:</b> ${downloadedImages.length} ta rasm to‘liq bitta galereyaga biriktirildi\n` +
+          `💰 <b>Boshlang‘ich narx:</b> ${formattedPrice} so'mdan\n` +
+          `${variantText}\n` +
+          `📂 <b>Toifa:</b> ${product.category}\n` +
+          `🏷 <b>Brend:</b> ${product.brand}\n\n` +
+          `🚀 <b>Sayt:</b> 1 ta mahsulot ichida barcha rasmlar va variantlar bilan jonli efirga chiqdi!`
+  });
+}
+
 // Bot polling loop
 let lastUpdateId = 0;
 
@@ -411,7 +571,6 @@ async function pollUpdates() {
     await new Promise(r => setTimeout(r, 3000));
   }
   
-  // Continue polling
   setImmediate(pollUpdates);
 }
 
@@ -427,80 +586,77 @@ async function handleUpdate(update) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>SPORT OUTLET</b> do'koningizga mahsulot qo'shuvchi va yangilovchi botman!\n\n🛡 <b>Dublikatdan himoyalangan:</b> Agar bitta mahsulotni qayta tashlasangiz, dublikat yaratilmaydi — uning narxi, rasmi va tavsifi avtomatik yangilanadi!\n\n📸 <b>Mahsulot qo'shish/yangilash uchun:</b>\n1. Mahsulot rasmini yuboring.\n2. Rasm tagiga (caption) <b>Nomi</b>, <b>Kodi</b> va <b>Narxi ($ yoki so'mda)</b>ni yozing.\n\n<i>Misol:</i>\n<code>Stol Tennis: K2008\nKodi: 0455888\nNarxi: 750$\n25 mm MDF, 100 mm gildiraklar</code>\n\nMen uni darhol onlayn do'konga qo'shaman yoki yangilayman!`
+      text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>SPORT OUTLET</b> do'koningizga mahsulot qo'shuvchi va yangilovchi rasmiy botman!\n\n` +
+            `📸 <b>Albom / Bir nechta rasm qo'llab-quvvatlanadi:</b>\n` +
+            `• Mahsulotga 2, 3 yoki 6 ta rasm albom qilib tashlasangiz, barchasini <b>1 ta mahsulot</b> ichiga galereya qilib saqlayman!\n` +
+            `• Agar captionda bir nechta razmer/qalinlik bo‘lsa (masalan Tatami 2sm, 2.5sm, 3sm, 4sm), saytda 1 ta mahsulot ochilib, ichida barcha variantlar tanlanadigan bo‘ladi!\n\n` +
+            `🛡 <b>Dublikat yo‘q:</b> Qayta tashlangan tovar dublikat bo‘lmaydi, o‘zi avtomat yangilanadi.`
     });
     return;
   }
 
-  // 2. Photo received
+  // 2. Photo received (Single or Album/MediaGroup)
   if (msg.photo && msg.photo.length > 0) {
-    const largestPhoto = msg.photo[msg.photo.length - 1]; // highest resolution
-    const caption = msg.caption || '';
+    const largestPhoto = msg.photo[msg.photo.length - 1];
+    const mediaGroupId = msg.media_group_id;
 
-    await sendTelegram('sendMessage', {
-      chat_id: chatId,
-      text: '⏳ Mahsulot qabul qilinmoqda, dublikat tekshirilmoqda va do‘konga saqlanmoqda...'
-    });
-
-    const parsed = parseProductInfo(caption || 'Yangi Sport Mahsuloti');
-    const slug = (parsed.title.toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
-    
-    const fileName = `prod_${slug}.jpg`;
-    const imagePath = await downloadTelegramPhoto(largestPhoto.file_id, fileName);
-
-    // Save or update with duplicate prevention
-    const { isUpdate, product } = saveOrUpdateProduct(parsed, imagePath);
-
-    // Push to GitHub so it goes live!
-    pushChangesToGitHub(parsed.title, isUpdate);
-
-    const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
-
-    if (isUpdate) {
-      await sendTelegram('sendMessage', {
-        chat_id: chatId,
-        parse_mode: 'HTML',
-        text: `🔄 <b>Mavjud mahsulot yangilandi! (Dublikat saqlanmadi)</b>\n\n` +
-              `📦 <b>Nomi:</b> ${product.title}\n` +
-              `💰 <b>Yangilangan narx:</b> ${formattedPrice} so'm (${parsed.rawPriceLabel})\n` +
-              `🔢 <b>Kodi / SKU:</b> ${product.sku || 'Ko‘rsatilmagan'}\n` +
-              `📂 <b>Toifa:</b> ${product.category}\n` +
-              `🖼 <b>Rasm:</b> Yangilandi\n\n` +
-              `✅ Ushbu mahsulot allaqachon do'konda mavjud bo'lgani uchun dublikat yaratilmadi — uning narxi va rasmi yangilandi!`
-      });
-    } else {
-      await sendTelegram('sendMessage', {
-        chat_id: chatId,
-        parse_mode: 'HTML',
-        text: `✅ <b>Yangi mahsulot do'konga qo'shildi!</b>\n\n` +
-              `📦 <b>Nomi:</b> ${product.title}\n` +
-              `💰 <b>Narxi:</b> ${formattedPrice} so'm (${parsed.rawPriceLabel})\n` +
-              `🔢 <b>Kodi / SKU:</b> ${product.sku || 'Avtomatik'}\n` +
-              `📂 <b>Toifa:</b> ${product.category}\n` +
-              `🏷 <b>Brend:</b> ${product.brand}\n` +
-              `🖼 <b>Rasm:</b> Yuklandi va saqlandi\n` +
-              `🚀 <b>Sayt:</b> Jonli efirga chiqarildi!`
-      });
+    if (mediaGroupId) {
+      // TELEGRAM MEDIA GROUP (ALBUM) BUFFERING
+      if (mediaGroupBuffer.has(mediaGroupId)) {
+        const group = mediaGroupBuffer.get(mediaGroupId);
+        group.photos.push(largestPhoto);
+        if (msg.caption) group.caption = msg.caption;
+        clearTimeout(group.timer);
+        group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+      } else {
+        const group = {
+          chatId,
+          photos: [largestPhoto],
+          caption: msg.caption || '',
+          timer: null
+        };
+        group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+        mediaGroupBuffer.set(mediaGroupId, group);
+      }
+      return;
     }
+
+    // SINGLE PHOTO (with short debounce in case user sends 2-3 photos rapidly)
+    const userKey = `user_${chatId}`;
+    if (userSinglePhotoBuffer.has(userKey)) {
+      const buffer = userSinglePhotoBuffer.get(userKey);
+      buffer.photos.push(largestPhoto);
+      if (msg.caption) buffer.caption = msg.caption;
+      clearTimeout(buffer.timer);
+      buffer.timer = setTimeout(() => processMediaGroup(userKey, buffer), 1500);
+      return;
+    }
+
+    const singleGroup = {
+      chatId,
+      photos: [largestPhoto],
+      caption: msg.caption || '',
+      timer: null
+    };
+    singleGroup.timer = setTimeout(() => processMediaGroup(userKey, singleGroup), 1500);
+    userSinglePhotoBuffer.set(userKey, singleGroup);
     return;
   }
 
-  // 3. User sent only text without photo
+  // 3. Text only
   if (text) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `⚠️ <b>Rasm topilmadi!</b>\n\nIltimos, mahsulotning <b>rasmini</b> yuboring va rasm tagiga (caption):\n\n<b>1. Nomi\n2. Kodi (ixtiyoriy)\n3. Narxi ($ yoki so'mda)</b>\n\nni yozib yuboring. Qayta yuborsangiz ham dublikat bo'lmaydi, o'zi yangilanadi! 👍`
+      text: `⚠️ <b>Rasm topilmadi!</b>\n\nIltimos, mahsulotning rasmini (yoki albomini) yuboring va tagiga nomi hamda narxini yozing.`
     });
   }
 }
 
 console.log('====================================================');
-console.log('🤖 SPORT OUTLET TELEGRAM PRODUCT BOT IS RUNNING...');
+console.log('🤖 SPORT OUTLET TELEGRAM BOT (ALBUM & VARIANTS) RUNNING...');
 console.log(`Bot username: @Ttxtxtctxtxtxhxhchxhbot`);
-console.log('Smart Price Parser & Duplicate Prevention ACTIVE!');
+console.log('Multi-photo albums & Variant detection ACTIVE!');
 console.log('====================================================');
 
 pollUpdates();

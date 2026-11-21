@@ -47,9 +47,26 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const searchRef = useRef(null);
   const mobileSearchRef = useRef(null);
   const headerRef = useRef(null);
+  const activeNavRef = useRef(null);
+
+  // Active Category / Tag from location
+  const currentParams = new URLSearchParams(location.search);
+  const currentCategory = currentParams.get('category') || (location.pathname.startsWith('/shop/') ? location.pathname.replace('/shop/', '') : '');
+  const currentTag = currentParams.get('tag') || '';
+
+  // Track page scroll to activate compact, elevated navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 35;
+      setIsScrolled(scrolled);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -77,7 +94,18 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
     updateHeaderHeight();
     window.addEventListener('resize', updateHeaderHeight);
     return () => window.removeEventListener('resize', updateHeaderHeight);
-  }, []);
+  }, [isScrolled]);
+
+  // Active horizontal scroll for subnav: auto-scroll to the active link
+  useEffect(() => {
+    if (activeNavRef.current) {
+      activeNavRef.current.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
+    }
+  }, [location.pathname, location.search]);
 
   useEffect(() => {
     if (searchQuery.trim().length > 1) {
@@ -125,9 +153,11 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const formatPrice = (num) => `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-white dark:bg-black border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200">
-      {/* Top Utility Contact Bar - Unified background with main navbar */}
-      <div className="hidden md:block bg-white dark:bg-black border-b border-slate-100 dark:border-slate-800/80 text-[12px] py-1.5 text-slate-700 dark:text-slate-300 transition-colors duration-200">
+    <header ref={headerRef} className={`sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300 ${isScrolled ? 'shadow-md' : 'shadow-xs'}`}>
+      {/* Top Utility Contact Bar - Unified background with smooth scroll collapse */}
+      <div className={`hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 transition-all duration-300 overflow-hidden ${
+        isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-1.5 opacity-100 border-b border-slate-100 dark:border-slate-800/80'
+      }`}>
         <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Demo Admin Panel Quick Button */}
@@ -209,7 +239,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
       {/* Main Header Row - Spacious & Elevated */}
       <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-22">
+        <div className={`flex items-center justify-between md:justify-start gap-3 lg:gap-4 transition-all duration-300 ${isScrolled ? 'h-16 md:h-18' : 'h-18 md:h-22'}`}>
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
@@ -476,61 +506,138 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
       <div className="border-t border-b border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
         <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
           <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
-            <Link
-              to="/shop?tag=sale"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-rose-50 hover:bg-rose-100/80 text-rose-600 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 dark:text-rose-300 border border-rose-200 dark:border-rose-800/50 hover:scale-105 active:scale-95"
-            >
-              <Flame className="w-4 h-4 text-rose-600 dark:text-rose-400 fill-rose-500/20 shrink-0" />
-              <span>{t('nav.deals', 'Aksiyalar kuni')}</span>
-            </Link>
+            {/* 1. Aksiyalar kuni */}
+            {(() => {
+              const isActive = currentTag === 'sale';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?tag=sale"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-rose-600 text-white shadow-rose-600/25 ring-2 ring-rose-500/30 font-black'
+                      : 'bg-rose-50 hover:bg-rose-100/80 text-rose-600 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 dark:text-rose-300 border border-rose-200 dark:border-rose-800/50'
+                  }`}
+                >
+                  <Flame className={`w-4 h-4 shrink-0 ${isActive ? 'text-white fill-white/20' : 'text-rose-600 dark:text-rose-400 fill-rose-500/20'}`} />
+                  <span>{t('nav.deals', 'Aksiyalar kuni')}</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/shop?category=trenajorlar"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Activity className="w-4 h-4 text-amber-500 shrink-0" />
-              <span>Trenajorlar &amp; Kardio</span>
-            </Link>
+            {/* 2. Trenajorlar & Kardio */}
+            {(() => {
+              const isActive = currentCategory === 'trenajorlar';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=trenajorlar"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Activity className={`w-4 h-4 shrink-0 ${isActive ? 'text-amber-400' : 'text-amber-500'}`} />
+                  <span>Trenajorlar &amp; Kardio</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/shop?category=stoykalar"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Dumbbell className="w-4 h-4 text-blue-500 shrink-0" />
-              <span>Gantellar &amp; Podstavkalar</span>
-            </Link>
+            {/* 3. Gantellar & Podstavkalar */}
+            {(() => {
+              const isActive = currentCategory === 'stoykalar' || currentCategory === 'gantellar';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=stoykalar"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Dumbbell className={`w-4 h-4 shrink-0 ${isActive ? 'text-blue-400' : 'text-blue-500'}`} />
+                  <span>Gantellar &amp; Podstavkalar</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/shop?category=krossovkalar"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Footprints className="w-4 h-4 text-indigo-500 shrink-0" />
-              <span>{t('nav.sneakers', 'Krossovkalar')}</span>
-            </Link>
+            {/* 4. Krossovkalar */}
+            {(() => {
+              const isActive = currentCategory === 'krossovkalar';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=krossovkalar"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Footprints className={`w-4 h-4 shrink-0 ${isActive ? 'text-indigo-400' : 'text-indigo-500'}`} />
+                  <span>{t('nav.sneakers', 'Krossovkalar')}</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/shop?category=sport-kiyimlari"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Shirt className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>{t('nav.sportswear', 'Sport Kiyimlari')}</span>
-            </Link>
+            {/* 5. Sport Kiyimlari */}
+            {(() => {
+              const isActive = currentCategory === 'sport-kiyimlari';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=sport-kiyimlari"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Shirt className={`w-4 h-4 shrink-0 ${isActive ? 'text-emerald-400' : 'text-emerald-500'}`} />
+                  <span>{t('nav.sportswear', 'Sport Kiyimlari')}</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/shop?tag=bestseller"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Star className="w-4 h-4 text-purple-500 fill-purple-500/20 shrink-0" />
-              <span>{t('nav.popular', 'Ommabop')}</span>
-            </Link>
+            {/* 6. Ommabop */}
+            {(() => {
+              const isActive = currentTag === 'bestseller';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?tag=bestseller"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Star className={`w-4 h-4 shrink-0 ${isActive ? 'text-amber-400 fill-amber-400/20' : 'text-purple-500 fill-purple-500/20'}`} />
+                  <span>{t('nav.popular', 'Ommabop')}</span>
+                </Link>
+              );
+            })()}
 
-            <Link
-              to="/delivery"
-              className="shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95"
-            >
-              <Truck className="w-4 h-4 text-sky-500 shrink-0" />
-              <span>{t('nav.delivery', 'Yetkazib berish va to‘lov')}</span>
-            </Link>
+            {/* 7. Yetkazib berish va to'lov */}
+            {(() => {
+              const isActive = location.pathname === '/delivery';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/delivery"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Truck className={`w-4 h-4 shrink-0 ${isActive ? 'text-sky-400' : 'text-sky-500'}`} />
+                  <span>{t('nav.delivery', 'Yetkazib berish va to‘lov')}</span>
+                </Link>
+              );
+            })()}
           </nav>
         </div>
       </div>
