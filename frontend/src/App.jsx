@@ -33,7 +33,7 @@ function AppContent() {
   const [catalogOpen, setCatalogOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden bg-white dark:bg-black text-slate-900 dark:text-slate-100 transition-colors duration-200">
+    <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-clip bg-white dark:bg-black text-slate-900 dark:text-slate-100 transition-colors duration-200">
       {!isAdminRoute && (
         <Header
           onToggleCatalog={() => setCatalogOpen((prev) => !prev)}
