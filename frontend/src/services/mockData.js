@@ -78,6 +78,49 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-an-001-8998",
+    "id": "prod_gantel-podstavka-an-001-8998",
+    "title": "Gantel podstavka an-001",
+    "slug": "gantel-podstavka-an-001-8998",
+    "price": 2278,
+    "oldPrice": 2620,
+    "old_price": 2620,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-an-001-8998.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Kodi: 0455407\nNarxi: 290$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T13:29:01.624Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-ax003-2670",
     "id": "prod_gantel-podstavka-ax003-2670",
     "title": "Gantel podstavka AX003",
