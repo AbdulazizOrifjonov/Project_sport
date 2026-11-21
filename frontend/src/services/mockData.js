@@ -3,6 +3,18 @@
 
 export const defaultCategories = [
   {
+    "_id": "cat_sport-fitnes",
+    "id": "cat_sport-fitnes",
+    "name": "Sport va Fitnes",
+    "slug": "sport-fitnes",
+    "icon": "Activity",
+    "description": "Sport va fitnes anjomlari Buxoro bo'yicha kafolatli yetkazib berish",
+    "image": "",
+    "order": 9,
+    "active": true,
+    "created_at": "2026-11-21T12:00:00.000Z"
+  },
+  {
     "_id": "cat_apple",
     "id": "cat_apple",
     "name": "Apple & Gadgetlar",
@@ -101,6 +113,113 @@ export const defaultCategories = [
 ];
 
 export const defaultProducts = [
+  {
+    "_id": "prod_gantel-podstavka-sc80263-2849",
+    "id": "prod_gantel-podstavka-sc80263-2849",
+    "title": "Gantel podstavka SC80263",
+    "slug": "gantel-podstavka-sc80263-2849",
+    "price": 80263,
+    "oldPrice": 92302,
+    "old_price": 92302,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Kompyuter Texnikasi",
+    "category_slug": "kompyuternaya-tehnika",
+    "categorySlug": "kompyuternaya-tehnika",
+    "subcategory": "",
+    "brand": "NSB",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-sc80263-2849.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Kodi: 0455763\nNarxi: 75$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "NSB"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T12:49:33.739Z"
+  },
+  {
+    "_id": "prod_gantel-podstavka-sc80263",
+    "id": "prod_gantel-podstavka-sc80263",
+    "title": "Gantel podstavka SC80263",
+    "slug": "gantel-podstavka-sc80263",
+    "sku": "0455763",
+    "description": "Gantel podstavka SC80263 (Kodi: 0455763, Narxi: 75$). Mustahkam po'lat konstruksiyaga ega professional gantel qo'yish stoykasi. A-shaklli qulay va ixcham dizayn, gantellarni tartibli saqlash uchun mo'ljallangan. Buxoro bo'yicha tezkor yetkazib berish.",
+    "price": 960000,
+    "oldPrice": 1100000,
+    "old_price": 1100000,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Sport va Fitnes",
+    "category_slug": "sport-fitnes",
+    "categorySlug": "sport-fitnes",
+    "subcategory": "Gantellar va Stoykalar",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 6,
+    "images": [
+      "/uploads/gantel-podstavka-sc80263.png"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": true,
+    "specifications": [
+      {
+        "label": "Model",
+        "value": "SC80263"
+      },
+      {
+        "label": "Mahsulot kodi",
+        "value": "0455763"
+      },
+      {
+        "label": "Narxi (USD)",
+        "value": "75$"
+      },
+      {
+        "label": "Material",
+        "value": "Mustahkam qotishma po'lat (Black powder coating)"
+      },
+      {
+        "label": "Shakl",
+        "value": "A-Frame ixcham va xavfsiz dizayn"
+      },
+      {
+        "label": "Sig'imi",
+        "value": "6 juft gantellar uchun"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo'ylab bepul va tezkor"
+      }
+    ],
+    "created_at": "2026-11-21T12:42:24.425Z"
+  },
   {
     "_id": "prod_apple-macbook-pro-16-m3-max",
     "id": "prod_apple-macbook-pro-16-m3-max",
