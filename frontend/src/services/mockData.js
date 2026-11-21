@@ -78,6 +78,49 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-sc80262-4326",
+    "id": "prod_gantel-podstavka-sc80262-4326",
+    "title": "Gantel podstavka SC80262",
+    "slug": "gantel-podstavka-sc80262-4326",
+    "price": 80262,
+    "oldPrice": 92301,
+    "old_price": 92301,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-sc80262-4326.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Kodi: 0455598\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T13:28:44.881Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-sc80263",
     "id": "prod_gantel-podstavka-sc80263",
     "title": "Gantel podstavka SC80263",
