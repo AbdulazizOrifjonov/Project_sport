@@ -198,6 +198,108 @@ export default function ProductDetailPage() {
     setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  // Pointer & Touch Swipe handlers for detail page gallery and lightbox
+  const detailPointerStartX = useRef(null);
+  const detailPointerStartY = useRef(null);
+  const detailHasSwipedRef = useRef(false);
+
+  const handlePointerDown = (e) => {
+    if (images.length <= 1) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    try {
+      e.target.setPointerCapture(e.pointerId);
+    } catch (_) {}
+    detailPointerStartX.current = e.clientX;
+    detailPointerStartY.current = e.clientY;
+    detailHasSwipedRef.current = false;
+  };
+
+  const handlePointerMove = (e) => {
+    if (detailPointerStartX.current === null || images.length <= 1) return;
+    const diffX = e.clientX - detailPointerStartX.current;
+    const diffY = e.clientY - (detailPointerStartY.current ?? e.clientY);
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+      detailHasSwipedRef.current = true;
+    }
+  };
+
+  const handlePointerUp = (e) => {
+    try {
+      if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
+        e.target.releasePointerCapture(e.pointerId);
+      }
+    } catch (_) {}
+
+    if (detailPointerStartX.current === null || images.length <= 1) {
+      detailPointerStartX.current = null;
+      detailPointerStartY.current = null;
+      return;
+    }
+    const diffX = e.clientX - detailPointerStartX.current;
+    const diffY = e.clientY - (detailPointerStartY.current ?? e.clientY);
+
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 20) {
+      if (diffX < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+      detailHasSwipedRef.current = true;
+    }
+    detailPointerStartX.current = null;
+    detailPointerStartY.current = null;
+  };
+
+  const handlePointerCancel = (e) => {
+    try {
+      if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
+        e.target.releasePointerCapture(e.pointerId);
+      }
+    } catch (_) {}
+    detailPointerStartX.current = null;
+    detailPointerStartY.current = null;
+  };
+
+  const handleTouchStart = (e) => {
+    if (images.length <= 1) return;
+    const touch = e.touches[0];
+    detailPointerStartX.current = touch.clientX;
+    detailPointerStartY.current = touch.clientY;
+    detailHasSwipedRef.current = false;
+  };
+
+  const handleTouchMove = (e) => {
+    if (detailPointerStartX.current === null || images.length <= 1) return;
+    const touch = e.touches[0];
+    const diffX = touch.clientX - detailPointerStartX.current;
+    const diffY = touch.clientY - (detailPointerStartY.current ?? touch.clientY);
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+      detailHasSwipedRef.current = true;
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (detailPointerStartX.current === null || images.length <= 1) {
+      detailPointerStartX.current = null;
+      detailPointerStartY.current = null;
+      return;
+    }
+    const touch = e.changedTouches[0];
+    const diffX = touch.clientX - detailPointerStartX.current;
+    const diffY = touch.clientY - (detailPointerStartY.current ?? touch.clientY);
+
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 20) {
+      if (diffX < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+      detailHasSwipedRef.current = true;
+    }
+    detailPointerStartX.current = null;
+    detailPointerStartY.current = null;
+  };
+
   const activePrice = selectedVariant ? selectedVariant.price : product.price;
   const activeOldPrice = selectedVariant ? selectedVariant.oldPrice : product.oldPrice;
 
@@ -349,16 +451,29 @@ export default function ProductDetailPage() {
               </div>
             )}
 
-            {/* Click to open Lightbox Modal - Interactive Mouse Follow Zoom */}
+            {/* Click to open Lightbox Modal - Interactive Mouse Follow Zoom with Touch/Mouse Swipe */}
             <div
-              onClick={() => setIsLightboxOpen(true)}
+              onClick={() => {
+                if (detailHasSwipedRef.current) {
+                  detailHasSwipedRef.current = false;
+                  return;
+                }
+                setIsLightboxOpen(true);
+              }}
               onMouseEnter={() => setIsZooming(true)}
               onMouseLeave={() => {
                 setIsZooming(false);
                 setZoomPos({ x: 50, y: 50 });
               }}
               onMouseMove={handleMouseMove}
-              className="w-full h-full cursor-zoom-in block overflow-hidden relative"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerCancel}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="w-full h-full cursor-zoom-in block overflow-hidden relative touch-pan-y select-none"
               title={t('detail.zoom', 'Kattalashtirib ko‘rish (bosilsa to‘liq ekran)')}
             >
               <div
@@ -863,10 +978,23 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Lightbox Main Stage with Big Image and Nav Buttons */}
+          {/* Lightbox Main Stage with Big Image and Nav Buttons (Supports Touch / Mouse Swipe) */}
           <div
-            className="relative flex-1 flex items-center justify-center my-2 sm:my-4 overflow-hidden w-full cursor-pointer"
-            onClick={() => setIsLightboxOpen(false)}
+            className="relative flex-1 flex items-center justify-center my-2 sm:my-4 overflow-hidden w-full cursor-pointer touch-pan-y select-none"
+            onClick={() => {
+              if (detailHasSwipedRef.current) {
+                detailHasSwipedRef.current = false;
+                return;
+              }
+              setIsLightboxOpen(false);
+            }}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerCancel}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {/* Prev Button */}
             {images.length > 1 && (
