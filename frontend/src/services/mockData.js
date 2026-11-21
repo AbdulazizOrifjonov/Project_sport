@@ -78,6 +78,62 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-am183-4117",
+    "id": "prod_masaj-kreslo-am183-4117",
+    "title": "Masaj kreslo AM183",
+    "slug": "masaj-kreslo-am183-4117",
+    "sku": "",
+    "price": 12593000,
+    "oldPrice": 14481950,
+    "old_price": 14481950,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-am183-5149_1.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_2.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_3.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_4.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_5.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_6.jpg",
+      "/uploads/prod_masaj-kreslo-am183-5149_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 980$ Orange\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:28:04.117Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-xitoy-7222",
     "id": "prod_gantel-podstavka-xitoy-7222",
     "title": "Gantel podstavka xitoy",
