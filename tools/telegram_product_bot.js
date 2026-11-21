@@ -19,7 +19,17 @@
 
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
 const { execSync } = require('child_process');
+
+// Render & Cloud platform health-check listener
+const PORT = process.env.PORT || 3000;
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end('SPORT OUTLET Telegram Bot is running!\n');
+}).listen(PORT, () => {
+  console.log(`Render health check server listening on port ${PORT}`);
+});
 
 const BOT_TOKEN = '6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w';
 const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
