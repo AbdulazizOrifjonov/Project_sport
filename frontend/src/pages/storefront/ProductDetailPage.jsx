@@ -143,17 +143,9 @@ export default function ProductDetailPage() {
   const fallbackImage =
     'https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=1000&auto=format&fit=crop&q=80';
 
-  // Ensure rich gallery
+  // Product gallery images
   const rawImages = (product.images && product.images.length > 0 && product.images.filter((img) => img && img.trim() !== '')) || [fallbackImage];
-  
-  const images = rawImages.length >= 2 
-    ? rawImages 
-    : [
-        rawImages[0],
-        'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=800&auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800&auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80'
-      ];
+  const images = rawImages;
 
   const nextImage = () => {
     setSelectedImage((prev) => (prev + 1) % images.length);

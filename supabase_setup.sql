@@ -398,3 +398,36 @@ ON CONFLICT (order_number) DO NOTHING;
 INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
 VALUES ('ord_100251', 'NSB-100251', 'Sherzod Po‘latov', '+998 97 123 98 76', 'Buxoro', 'Abu Ali Ibn Sino 88', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_razer-gigantus-v2-large-mousepad","product_id":"prod_razer-gigantus-v2-large-mousepad","title":"Katta ofis va o‘yin gilamchasi Razer Gigantus V2 Large (450x400 mm)","price":210000,"quantity":3,"image":"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"},{"product":"prod_dell-optiplex-7010-micro","product_id":"prod_dell-optiplex-7010-micro","title":"Tizimli blok Dell OptiPlex 7010 Micro (Core i5-13500T, 16GB, 512GB SSD)","price":7900000,"quantity":2,"image":"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 16430000, 0, 'click', 'pending', 'new', 'standard', '2026-11-11T19:00:34.343Z')
 ON CONFLICT (order_number) DO NOTHING;
+
+-- ------------------------------------------------------------------------------
+-- SPORT & FITNES: Gantel podstavka SC80263
+-- ------------------------------------------------------------------------------
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_sport-fitnes', 'Sport va Fitnes', 'sport-fitnes', 'Activity', 'Sport va fitnes anjomlari Buxoro bo''yicha kafolatli yetkazib berish', '', 9, TRUE)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
+
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES (
+    'prod_gantel-podstavka-sc80263',
+    'Gantel podstavka SC80263',
+    'gantel-podstavka-sc80263',
+    '0455763',
+    'Gantel podstavka SC80263 (Kodi: 0455763, Narxi: 75$). Mustahkam po''lat konstruksiyaga ega professional gantel qo''yish stoykasi. A-shaklli qulay va ixcham dizayn.',
+    960000,
+    1100000,
+    13,
+    'Sport va Fitnes',
+    'sport-fitnes',
+    'Gantellar va Stoykalar',
+    'Sport Line',
+    15,
+    TRUE,
+    5.0,
+    6,
+    '["/uploads/gantel-podstavka-sc80263.png"]'::jsonb,
+    TRUE,
+    TRUE,
+    TRUE,
+    '[{"label": "Model", "value": "SC80263"}, {"label": "Mahsulot kodi", "value": "0455763"}, {"label": "Narxi (USD)", "value": "75$"}, {"label": "Material", "value": "Mustahkam qotishma po''lat"}, {"label": "Sig''imi", "value": "6 juft gantellar uchun"}, {"label": "Yetkazib berish", "value": "Buxoro bo''ylab bepul"}]'::jsonb
+)
+ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, images = EXCLUDED.images;
