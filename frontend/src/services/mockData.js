@@ -135,9 +135,9 @@ export const defaultProducts = [
     "title": "MASAJ KRESLO A31A",
     "slug": "masaj-kreslo-a31a-5163",
     "sku": "",
-    "price": 7196000,
-    "oldPrice": 8275400,
-    "old_price": 8275400,
+    "price": 9380500,
+    "oldPrice": 10787575,
+    "old_price": 10787575,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Podstavka & Skameykalar",
@@ -151,6 +151,12 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_masaj-kreslo-5140_2.jpg",
+      "/uploads/prod_masaj-kreslo-5140_3.jpg",
+      "/uploads/prod_masaj-kreslo-5140_4.jpg",
+      "/uploads/prod_masaj-kreslo-5140_5.jpg",
+      "/uploads/prod_masaj-kreslo-5140_6.jpg",
+      "/uploads/prod_masaj-kreslo-5140_7.jpg",
       "/uploads/prod_masaj-kreslo-a31a-5331_1.jpg",
       "/uploads/prod_masaj-kreslo-a31a-5331_2.jpg",
       "/uploads/prod_masaj-kreslo-a31a-5331_3.jpg",
@@ -164,7 +170,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi : 560$\n1. O’rindiqlarda massaj roliklari mavjud\n2. 3D vaznsizlik rejimi: ko'tarilish burchagi 95-175 darajagacha qiyalik\n3. Bluethooth orqali Musiqa tinglash mumkin\n4. Butun tana uchun 8D va havoli massaj funksiyasi\n5. Oyoqlarni va belni Isituvchi massaj funksiyasi\n6. Smar Boshqaruv.\n7. Foydalanuvchi Maks. Vazni: 150 kg\n8. 6 ta massaj dasturlari va 5 xil qol rejimlar",
+    "description": "Madel: A002 black brown\nNarxi : 730$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ To'liq tana massaji havo bosimi orqali masaj qlinadi  va 16 etapda  intensivligi sozlanadi\n➖ Tovonlarni rolik orqaki masaj qilish\n➖ Belni qizdirish orqali masaj qilish funksiyasi.\n➖ Havo yostig'ini siqish orqali oyoq va tovonlar masaji.\n➖ Oyoq va bel  isitish funksiyasi.\n➖Yelkaning holatini aniqlash va masaj qilish funksiyasi\n➖16 ta avto masaj va 4 ta qolda boshqariladgan masaj turi",
     "specifications": [
       {
         "label": "Brend",
@@ -183,7 +189,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T16:29:25.163Z"
+    "created_at": "2026-11-21T16:29:25.163Z",
+    "updated_at": "2026-11-21T16:34:35.063Z"
   },
   {
     "_id": "prod_masaj-kreslo-am183-4117",
