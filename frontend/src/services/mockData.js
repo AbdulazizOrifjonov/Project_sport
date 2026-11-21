@@ -78,6 +78,54 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-m11b-0982",
+    "id": "prod_masaj-kreslo-m11b-0982",
+    "title": "Masaj kreslo M11B",
+    "slug": "masaj-kreslo-m11b-0982",
+    "sku": "",
+    "price": 7067500,
+    "oldPrice": 8127625,
+    "old_price": 8127625,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Fitnes & Sport Aksessuarlari",
+    "category_slug": "fitnes-aksessuarlari",
+    "categorySlug": "fitnes-aksessuarlari",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 12,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-m11b-0158.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Narxi : 550$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:26:00.982Z"
+  },
+  {
     "_id": "prod_stol-tennis-k2008-6770",
     "id": "prod_stol-tennis-k2008-6770",
     "title": "Stol Tennis: K2008",
