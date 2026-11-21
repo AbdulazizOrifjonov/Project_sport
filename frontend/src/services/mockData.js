@@ -78,6 +78,62 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-a31a-5163",
+    "id": "prod_masaj-kreslo-a31a-5163",
+    "title": "MASAJ KRESLO A31A",
+    "slug": "masaj-kreslo-a31a-5163",
+    "sku": "",
+    "price": 7196000,
+    "oldPrice": 8275400,
+    "old_price": 8275400,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-a31a-5331_1.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_2.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_3.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_4.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_5.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_6.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-5331_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 560$\n1. O’rindiqlarda massaj roliklari mavjud\n2. 3D vaznsizlik rejimi: ko'tarilish burchagi 95-175 darajagacha qiyalik\n3. Bluethooth orqali Musiqa tinglash mumkin\n4. Butun tana uchun 8D va havoli massaj funksiyasi\n5. Oyoqlarni va belni Isituvchi massaj funksiyasi\n6. Smar Boshqaruv.\n7. Foydalanuvchi Maks. Vazni: 150 kg\n8. 6 ta massaj dasturlari va 5 xil qol rejimlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:29:25.163Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-am183-4117",
     "id": "prod_masaj-kreslo-am183-4117",
     "title": "Masaj kreslo AM183",
