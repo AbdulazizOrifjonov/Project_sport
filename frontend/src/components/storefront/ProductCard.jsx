@@ -41,7 +41,7 @@ export default function ProductCard({ product }) {
   const categorySlug = product.categorySlug || 'kanctovary';
 
   return (
-    <article className="group relative flex flex-col h-full min-w-0 rounded-xl transition-all duration-200 hover:shadow-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden">
+    <article className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden">
       {/* 1. Top Image Area - To'liq va katta rasm */}
       <div className="relative w-full aspect-square bg-slate-50 dark:bg-[#0b0f19] overflow-hidden">
         {/* Chegirma foizi belgisi */}
@@ -70,7 +70,7 @@ export default function ProductCard({ product }) {
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
         </button>
 
-        {/* Mahsulot rasmi */}
+        {/* Mahsulot rasmi - Hoverda oldinga kattalashuvchi (Zoom-in) */}
         <Link
           to={`/product/${product.slug}`}
           className="relative block w-full h-full overflow-hidden"
@@ -83,7 +83,7 @@ export default function ProductCard({ product }) {
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 will-change-transform"
           />
         </Link>
       </div>

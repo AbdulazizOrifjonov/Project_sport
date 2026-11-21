@@ -263,7 +263,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                                 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=300&auto=format&fit=crop&q=80'
                               }
                               alt={p.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out will-change-transform"
                             />
                           </div>
                           <h5 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-slate-950 dark:group-hover:text-white transition-colors">

@@ -218,10 +218,10 @@ export default function ProductDetailPage() {
                   key={i}
                   type="button"
                   onClick={() => setSelectedImage(i)}
-                  className={`relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
+                  className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
                     selectedImage === i
                       ? 'border-slate-900 dark:border-white shadow-md ring-2 ring-slate-400/40 dark:ring-white/40'
-                      : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                      : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
                   }`}
                   aria-label={`${t('detail.photo', 'Rasm')} ${i + 1}`}
                 >
@@ -232,7 +232,7 @@ export default function ProductDetailPage() {
                       e.target.onerror = null;
                       e.target.src = fallbackImage;
                     }}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115 will-change-transform"
                   />
                 </button>
               ))}
@@ -274,7 +274,7 @@ export default function ProductDetailPage() {
                         e.target.onerror = null;
                         e.target.src = fallbackImage;
                       }}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 will-change-transform"
                     />
                   </div>
                 ))}
