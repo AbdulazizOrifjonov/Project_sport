@@ -82,10 +82,10 @@ export const defaultProducts = [
     "id": "prod_grif-olimpiski-8994",
     "title": "Grif olimpiski",
     "slug": "grif-olimpiski-8994",
-    "sku": "",
-    "price": 1028000,
-    "oldPrice": 1182200,
-    "old_price": 1182200,
+    "sku": "8444261",
+    "price": 1542000,
+    "oldPrice": 1773300,
+    "old_price": 1773300,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Gantellar & Shtangalar",
@@ -99,6 +99,8 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_grif-olimpiski-5214_1.jpg",
+      "/uploads/prod_grif-olimpiski-5214_2.jpg",
       "/uploads/prod_grif-olimpiski-5301_1.jpg",
       "/uploads/prod_grif-olimpiski-5301_2.jpg"
     ],
@@ -107,7 +109,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "uzunligi 2.2m\nSof ogirligi : 20.9kg\nko'tarish og'irligi 500LB (220kg)\nnarxi : 80$",
+    "description": "Kodi: 8444261\nUzunligi 2.2m\nKo'tarish og'irligi 1500LB ( 680kg )\nO'zini vazni : 20kg\nPodchivnikli\nNarxi : 120$",
     "specifications": [
       {
         "label": "Brend",
@@ -126,7 +128,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T16:26:08.994Z"
+    "created_at": "2026-11-21T16:26:08.994Z",
+    "updated_at": "2026-11-21T16:26:24.809Z"
   },
   {
     "_id": "prod_masaj-kreslo-m11b-0982",
