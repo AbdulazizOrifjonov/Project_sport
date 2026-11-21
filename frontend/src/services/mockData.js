@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_grif-olimpiski-8994",
+    "id": "prod_grif-olimpiski-8994",
+    "title": "Grif olimpiski",
+    "slug": "grif-olimpiski-8994",
+    "sku": "",
+    "price": 1028000,
+    "oldPrice": 1182200,
+    "old_price": 1182200,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-olimpiski-5301_1.jpg",
+      "/uploads/prod_grif-olimpiski-5301_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "uzunligi 2.2m\nSof ogirligi : 20.9kg\nko'tarish og'irligi 500LB (220kg)\nnarxi : 80$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:26:08.994Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-m11b-0982",
     "id": "prod_masaj-kreslo-m11b-0982",
     "title": "Masaj kreslo M11B",
