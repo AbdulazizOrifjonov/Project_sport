@@ -50,7 +50,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const searchRef = useRef(null);
   const mobileSearchRef = useRef(null);
-  const headerRef = useRef(null);
+  const navbarRef = useRef(null);
   const activeNavRef = useRef(null);
 
   // Track window scroll for compact header styling
@@ -93,15 +93,16 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const updateHeaderHeight = () => {
-      if (headerRef.current) {
-        const height = headerRef.current.offsetHeight;
+    const updateNavbarHeight = () => {
+      if (navbarRef.current) {
+        const height = navbarRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--nsb-navbar-height', `${height}px`);
         document.documentElement.style.setProperty('--nsb-header-height', `${height}px`);
       }
     };
-    updateHeaderHeight();
-    window.addEventListener('resize', updateHeaderHeight);
-    return () => window.removeEventListener('resize', updateHeaderHeight);
+    updateNavbarHeight();
+    window.addEventListener('resize', updateNavbarHeight);
+    return () => window.removeEventListener('resize', updateNavbarHeight);
   }, []);
 
   // Active horizontal scroll for subnav: auto-scroll to the active link
@@ -161,8 +162,10 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   const formatPrice = (num) => `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200">
-      {/* Top Utility Contact Bar - Unified background, fixed and stable (hech qachon sakramaydi) */}
+    <>
+      {/* 1. Header (Logo, Search, Cart, Account, Phone) - Skroll bilan birga ketadi (headerni qo'shmagan holda) */}
+      <header className="relative z-30 bg-white dark:bg-black border-b border-slate-100 dark:border-slate-800 transition-colors duration-200">
+        {/* Top Utility Contact Bar - Unified background, fixed and stable (hech qachon sakramaydi) */}
       <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
         <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -524,11 +527,15 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           )}
         </div>
       </div>
+      </header>
 
-      {/* Sub-Navigation Strip (Unified Clean Navbar Background & Real SVG Icons) */}
-      <div className="border-t border-b border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
+      {/* 2. Active Sticky Navbar (Kategoriyalar Navbari) - FAQAT NAVBARNING O'ZI YUQORIDA STICKY TOP-0 BO'LADI (headerni qo'shmagan holda) */}
+      <nav
+        ref={navbarRef}
+        className="sticky top-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200 py-2 sm:py-2.5"
+      >
         <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-          <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
             {/* 1. Aksiyalar kuni */}
             {(() => {
               const isActive = currentTag === 'sale';
@@ -661,9 +668,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 </Link>
               );
             })()}
-          </nav>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Slide-over Drawer Modal */}
       {mobileMenuOpen && (
@@ -957,6 +964,6 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
