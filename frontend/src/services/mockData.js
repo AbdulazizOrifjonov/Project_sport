@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-g6-0119",
+    "id": "prod_masaj-kreslo-g6-0119",
+    "title": "Masaj kreslo G6",
+    "slug": "masaj-kreslo-g6-0119",
+    "sku": "",
+    "price": 13235500,
+    "oldPrice": 15220825,
+    "old_price": 15220825,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-g6-5170_1.jpg",
+      "/uploads/prod_masaj-kreslo-g6-5170_2.jpg",
+      "/uploads/prod_masaj-kreslo-g6-5170_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1030$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 135 smlik butun tana uchun SL massaj relyesi\n➖  2D massaj roliklari\n➖  Gravitasiya rejimi (tepaga ko'taradi)\n➖  Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖  12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T16:27:40.119Z"
+  },
+  {
     "_id": "prod_gantel-lb-podstavka-2668",
     "id": "prod_gantel-lb-podstavka-2668",
     "title": "Gantel lb podstavka",
