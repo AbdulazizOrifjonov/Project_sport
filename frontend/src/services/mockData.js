@@ -99,6 +99,13 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_masaj-kreslo-5146_1.jpg",
+      "/uploads/prod_masaj-kreslo-5146_2.jpg",
+      "/uploads/prod_masaj-kreslo-5146_3.jpg",
+      "/uploads/prod_masaj-kreslo-5146_4.jpg",
+      "/uploads/prod_masaj-kreslo-5146_5.jpg",
+      "/uploads/prod_masaj-kreslo-5146_6.jpg",
+      "/uploads/prod_masaj-kreslo-5146_7.jpg",
       "/uploads/prod_masaj-kreslo-5152_1.jpg",
       "/uploads/prod_masaj-kreslo-5152_2.jpg",
       "/uploads/prod_masaj-kreslo-5152_3.jpg",
@@ -126,7 +133,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Madel G9 BLACK\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Al (suniy intelskt) orqali  ovozli boshqaruv",
+    "description": "Madel G9 WHITE BROWN\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari",
     "specifications": [
       {
         "label": "Brend",
@@ -146,7 +153,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-21T16:28:04.117Z",
-    "updated_at": "2026-11-21T16:28:33.741Z"
+    "updated_at": "2026-11-21T16:28:38.965Z"
   },
   {
     "_id": "prod_gantel-podstavka-xitoy-7222",
