@@ -66,9 +66,9 @@ export default function AdminDashboard() {
     price: '',
     oldPrice: '',
     stock: 10,
-    category: 'Krossovkalar & Poyabzallar',
-    categorySlug: 'krossovkalar',
-    brand: 'Nike',
+    category: 'Podstavka & Skameykalar',
+    categorySlug: 'stoykalar',
+    brand: 'Sport Line',
     description: '',
     images: [''],
     isBestseller: false,
@@ -112,101 +112,99 @@ export default function AdminDashboard() {
 
   // Fallback realistic business stats if database is empty or loading
   const fallbackStats = {
-    totalRevenue: 222735000,
-    totalOrders: 12,
-    totalProducts: 45,
-    totalCustomers: 12,
-    averageOrderValue: 18561250,
-    b2bRevenue: 44510000,
+    totalRevenue: 41640000,
+    totalOrders: 5,
+    totalProducts: 12,
+    totalCustomers: 5,
+    averageOrderValue: 8328000,
+    b2bRevenue: 22800000,
     statusCounts: [
-      { _id: 'new', count: 3 },
-      { _id: 'processing', count: 2 },
-      { _id: 'shipped', count: 1 },
-      { _id: 'delivered', count: 5 },
-      { _id: 'cancelled', count: 1 }
+      { _id: 'new', count: 2 },
+      { _id: 'processing', count: 1 },
+      { _id: 'shipped', count: 0 },
+      { _id: 'delivered', count: 2 },
+      { _id: 'cancelled', count: 0 }
     ],
     dailySales: [
-      { day: 'Dush', revenue: 22273500, orders: 1 },
-      { day: 'Sesh', revenue: 31819286, orders: 2 },
-      { day: 'Chor', revenue: 41365071, orders: 1 },
-      { day: 'Pay', revenue: 22273500, orders: 2 },
-      { day: 'Juma', revenue: 31819286, orders: 1 },
-      { day: 'Shan', revenue: 41365071, orders: 2 },
-      { day: 'Yak', revenue: 22273500, orders: 1 }
+      { day: 'Dush', revenue: 4500000, orders: 1 },
+      { day: 'Sesh', revenue: 6200000, orders: 1 },
+      { day: 'Chor', revenue: 8100000, orders: 1 },
+      { day: 'Pay', revenue: 5340000, orders: 1 },
+      { day: 'Juma', revenue: 14500000, orders: 1 },
+      { day: 'Shan', revenue: 22800000, orders: 1 },
+      { day: 'Yak', revenue: 3500000, orders: 1 }
     ],
     paymentCounts: [
-      { _id: 'click', count: 4, total: 81575000 },
-      { _id: 'cash', count: 3, total: 60740000 },
-      { _id: 'payme', count: 2, total: 53710000 },
-      { _id: 'bank_transfer', count: 3, total: 44510000 }
+      { _id: 'click', count: 2, total: 3490000 },
+      { _id: 'payme', count: 1, total: 14500000 },
+      { _id: 'bank_transfer', count: 1, total: 22800000 },
+      { _id: 'cash', count: 1, total: 850000 }
     ],
     categoryCounts: [
-      { _id: 'Kompyuter Texnikasi', count: 9 },
-      { _id: 'Kantselyariya tovarlari', count: 9 },
-      { _id: 'Apple & Gadgetlar', count: 6 },
-      { _id: 'Orgtexnika & Printerlar', count: 6 },
-      { _id: 'Ofis mebellari & Kreslolar', count: 5 },
-      { _id: 'Xo‘jalik tovarlari', count: 4 },
-      { _id: 'Serverlar va Tarmoq', count: 3 },
-      { _id: 'Monitory va Proyektorlar', count: 3 }
+      { _id: 'Podstavka & Skameykalar', count: 3 },
+      { _id: 'Trenajorlar & Kardio', count: 3 },
+      { _id: 'Gantellar & Shtangalar', count: 2 },
+      { _id: 'Sport Kiyimlari', count: 2 },
+      { _id: 'Krossovkalar & Poyabzal', count: 1 },
+      { _id: 'Fitnes Aksessuarlari', count: 1 }
     ],
     lowStockProducts: [
-      { _id: 'low1', title: 'SvetoCopy A4 Classic (80g/m²)', sku: 'SVETO-A4-80', stock: 3, category: 'Kantselyariya tovarlari', price: 43500, images: ['https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80'] },
-      { _id: 'low2', title: 'HP LaserJet Pro M404dn printer', sku: 'HP-M404DN', stock: 2, category: 'Orgtexnika & Printerlar', price: 3500000, images: ['https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80'] },
-      { _id: 'low3', title: 'Logitech MX Master 3S Wireless Sichqoncha', sku: 'LOGI-MX3S-B', stock: 4, category: 'Kompyuter Texnikasi', price: 1650000, images: ['https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80'] }
+      { _id: 'low1', title: 'Gantel podstavka SC80263', sku: '0455763', stock: 5, category: 'Podstavka & Skameykalar', price: 960000, images: ['/uploads/gantel-podstavka-sc80263.png'] },
+      { _id: 'low2', title: 'Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500', sku: 'GYM-HG500-STATION', stock: 2, category: 'Trenajorlar & Kardio', price: 22800000, images: ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80'] },
+      { _id: 'low3', title: '2-Qavatli Universal Gantel Stoykasi SC80270', sku: '0455770', stock: 4, category: 'Podstavka & Skameykalar', price: 1850000, images: ['https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80'] }
     ],
     topProducts: [
-      { _id: 'top1', title: 'Apple MacBook Pro 16" M3 Max', category: 'Apple & Gadgetlar', price: 42000000, stock: 4, images: ['https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'], soldCount: 2 },
-      { _id: 'top2', title: 'SvetoCopy A4 Classic (80g/m²)', category: 'Kantselyariya tovarlari', price: 43500, stock: 85, images: ['https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80'], soldCount: 320 },
-      { _id: 'top3', title: 'Logitech MX Master 3S Wireless Sichqoncha', category: 'Kompyuter Texnikasi', price: 1650000, stock: 7, images: ['https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80'], soldCount: 14 },
-      { _id: 'top4', title: 'HP LaserJet Pro M404dn printer', category: 'Orgtexnika & Printerlar', price: 3500000, stock: 3, images: ['https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80'], soldCount: 6 },
-      { _id: 'top5', title: 'Deli kantselyariya to‘plami (Ruchkalar, markerlar)', category: 'Kantselyariya tovarlari', price: 185000, stock: 30, images: ['https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80'], soldCount: 45 }
+      { _id: 'top1', title: 'Gantel podstavka SC80263', category: 'Podstavka & Skameykalar', price: 960000, stock: 15, images: ['/uploads/gantel-podstavka-sc80263.png'], soldCount: 48 },
+      { _id: 'top2', title: 'Professional Yugurish Yo‘lakchasi ProForm T800', category: 'Trenajorlar & Kardio', price: 14500000, stock: 4, images: ['https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&auto=format&fit=crop&q=80'], soldCount: 22 },
+      { _id: 'top3', title: 'Hexagonal Kauchuk Gantellar To‘plami (2x10kg)', category: 'Gantellar & Shtangalar', price: 680000, stock: 18, images: ['https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&auto=format&fit=crop&q=80'], soldCount: 35 },
+      { _id: 'top4', title: 'Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500', category: 'Trenajorlar & Kardio', price: 22800000, stock: 2, images: ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80'], soldCount: 12 },
+      { _id: 'top5', title: 'Kombinatsiyalangan Devoriy Turnik-Brus 3-in-1', category: 'Trenajorlar & Kardio', price: 850000, stock: 25, images: ['https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=600&auto=format&fit=crop&q=80'], soldCount: 29 }
     ],
     recentOrders: [
       {
         _id: 'ord1',
-        orderNumber: 'NSB-100247',
-        customerDetails: { fullName: 'Farrux Saidov', phone: '+998 94 222 10 30', city: 'Vobkent', address: 'Markaziy ko‘cha, 7' },
-        totalAmount: 1290000,
-        paymentMethod: 'cash',
+        orderNumber: 'NSB-902101',
+        customerDetails: { fullName: 'Farrux Saidov', phone: '+998 94 222 10 30', city: 'Buxoro shahri', address: 'Ibn Sino ko‘chasi, 24-uy' },
+        totalAmount: 1640000,
+        paymentMethod: 'click',
         orderStatus: 'new',
         createdAt: new Date().toISOString()
       },
       {
         _id: 'ord2',
-        orderNumber: 'NSB-100242',
-        customerDetails: { fullName: 'Nodira Xoliqova', phone: '+998 93 333 88 99', city: 'Kogon', address: 'Navoiy shoh ko‘chasi, 8-dom' },
-        totalAmount: 41650000,
-        paymentMethod: 'cash',
-        orderStatus: 'new',
-        createdAt: new Date(Date.now() - 3600000 * 3).toISOString()
+        orderNumber: 'NSB-902102',
+        customerDetails: { fullName: 'Nodira Xoliqova', phone: '+998 93 333 88 99', city: 'Kogon tumani', address: 'Navoiy shoh ko‘chasi, 8-uy' },
+        totalAmount: 14500000,
+        paymentMethod: 'payme',
+        orderStatus: 'processing',
+        createdAt: new Date(Date.now() - 3600000 * 4).toISOString()
       },
       {
         _id: 'ord3',
-        orderNumber: 'NSB-100251',
-        customerDetails: { fullName: 'Sherzod Po‘latov', phone: '+998 97 123 98 76', city: 'Buxoro', address: 'Abu Ali Ibn Sino 88' },
-        totalAmount: 16430000,
-        paymentMethod: 'click',
-        orderStatus: 'new',
-        createdAt: new Date(Date.now() - 3600000 * 6).toISOString()
-      },
-      {
-        _id: 'ord4',
-        orderNumber: 'NSB-100241',
-        customerDetails: { fullName: 'Shahzod Aliyev', phone: '+998 91 445 11 22', city: 'Buxoro', address: 'Ibn Sino ko‘chasi, 12-uy' },
-        totalAmount: 5120000,
-        paymentMethod: 'payme',
-        orderStatus: 'processing',
+        orderNumber: 'NSB-902103',
+        customerDetails: { fullName: 'Sherzod Po‘latov («Bukhara Fitness»)', phone: '+998 97 123 98 76', city: 'Buxoro shahri', address: 'Abu Ali Ibn Sino 88, Fitnes Zal' },
+        totalAmount: 22800000,
+        paymentMethod: 'bank_transfer',
+        orderStatus: 'delivered',
         createdAt: new Date(Date.now() - 86400000).toISOString()
       },
       {
-        _id: 'ord5',
-        orderNumber: 'NSB-100243',
-        customerDetails: { fullName: '«Buxoro Qurilish Servis» MCHJ', phone: '+998 97 700 20 20', city: 'Buxoro', address: 'Sanoat hududi, 5-bino' },
-        totalAmount: 44510000,
-        paymentMethod: 'bank_transfer',
+        _id: 'ord4',
+        orderNumber: 'NSB-902104',
+        customerDetails: { fullName: 'Shahzod Aliyev', phone: '+998 91 445 11 22', city: 'Buxoro shahri', address: 'Somoniylar ko‘chasi, 12-uy' },
+        totalAmount: 850000,
+        paymentMethod: 'cash',
         orderStatus: 'delivered',
         createdAt: new Date(Date.now() - 86400000 * 2).toISOString()
+      },
+      {
+        _id: 'ord5',
+        orderNumber: 'NSB-902105',
+        customerDetails: { fullName: 'Jamshid Ergashev', phone: '+998 91 445 78 90', city: 'G‘ijduvon tumani', address: 'Yusuf Hamadoniy ko‘chasi, 45-uy' },
+        totalAmount: 1850000,
+        paymentMethod: 'click',
+        orderStatus: 'new',
+        createdAt: new Date(Date.now() - 3600000 * 2).toISOString()
       }
     ]
   };
@@ -272,32 +270,32 @@ export default function AdminDashboard() {
   const fallbackBanners = [
     {
       _id: 'ban-1',
-      title: 'Ofis jihozlari va kantselyariya A dan Z gacha',
-      subtitle: 'SvetoCopy A4 qog‘ozlari, Apple va server texnikalari, HP printerlar, ergonomik ofis kreslolari va kantselyariya buyumlari.',
-      badge: 'BUXORO VILOYATI VA O‘ZBEKISTON BO‘YLAB',
+      title: 'Original Sport Kiyimlari va Poyabzallar',
+      subtitle: 'Nike, Adidas, Jordan, Under Armour va Gymshark mahsulotlari eng yaxshi narxlarda.',
+      badge: 'SPORT OUTLET RASMIY KOLLEKSIYASI',
       link: '/shop',
       type: 'hero',
-      image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1600&auto=format&fit=crop&q=80',
       isActive: true
     },
     {
       _id: 'ban-2',
-      title: 'Ergonomik Kreslolar & Ofis Mebellari',
-      subtitle: 'Ish unumdorligini oshiruvchi ortopedik kreslolar, zamonaviy ofis stollari va qulay ish joyi jihozlari rasmiy kafolat bilan.',
-      badge: 'MAXSUS AKSIYA -25%',
-      link: '/shop?category=mebel',
+      title: 'Nike Air Jordan & Streetwear Kolleksiyasi',
+      subtitle: 'Krossovkalar, hudi va sport shimlari original sifatda. 100% kafolatlangan brend tovarlar.',
+      badge: 'YANGI KOLLEKSIYA 2026',
+      link: '/shop/krossovkalar',
       type: 'hero',
-      image: 'https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=1600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=1600&auto=format&fit=crop&q=80',
       isActive: true
     },
     {
       _id: 'ban-3',
-      title: 'Apple MacBook & IT Uskunalari',
-      subtitle: 'Biznes va korxona uchun rasmiy kafolatli noutbuklar, monitorlar, quloqchinlar va original Apple mahsulotlari 12% QQS bilan.',
-      badge: 'KAFOLAT 12 OY',
-      link: '/shop?category=apple',
+      title: 'Fitnes & Mashg‘ulot Jihozlari',
+      subtitle: 'Uy va zal uchun professional gantellar, skameykalar, sport sumkalari va aksessuarlar.',
+      badge: 'ZAL VA FITNES UCHUN',
+      link: '/shop/fitnes-trenajor',
       type: 'hero',
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&auto=format&fit=crop&q=80',
       isActive: true
     }
   ];
@@ -313,7 +311,7 @@ export default function AdminDashboard() {
     },
     {
       _id: 'coup-2',
-      code: 'OFIS_START',
+      code: 'SPORT_START',
       discountPercent: 15,
       minOrderAmount: 500000,
       expiryDate: '2026-06-01',
@@ -342,8 +340,8 @@ export default function AdminDashboard() {
       _id: 'rev-1',
       userName: 'Bekzod Karimov',
       rating: 5,
-      productTitle: 'SvetoCopy Classic A4 qog‘ozi 80g/m²',
-      comment: 'SvetoCopy qog‘ozlarini tezda yetkazib berishdi. Sifati ajoyib, printer qog‘ozni umuman chaynamaydi. Ofisimiz doimiy mijozi bo‘ldik!',
+      productTitle: 'Nike Air Jordan 1 Retro High OG',
+      comment: 'Nike Air Jordan 1 original sifati ajoyib, oyoqqa juda qulay o‘tirdi. SPORT OUTLET ga tezkor yetkazib berish uchun rahmat!',
       createdAt: '2026-03-01',
       status: 'approved'
     },
@@ -351,8 +349,8 @@ export default function AdminDashboard() {
       _id: 'rev-2',
       userName: 'Dilnoza Rustamova',
       rating: 5,
-      productTitle: 'Ergonomik ofis kreslosi NSB Executive',
-      comment: 'Kreslo juda qulay ekan, kun bo‘yi o‘tirganda ham bel og‘rig‘i sezilmaydi. Yetkazib yig‘ib berishdi, rahmat!',
+      productTitle: 'Gymshark Vital Seamless Leggins',
+      comment: 'Fitnes uchun eng zo‘r tanlov. Mato sifati cho‘ziluvchan, mashg‘ulot paytida judayam qulay. Tavsiya qilaman!',
       createdAt: '2026-02-24',
       status: 'approved'
     },
@@ -360,8 +358,8 @@ export default function AdminDashboard() {
       _id: 'rev-3',
       userName: 'Azizbek Mirzayev',
       rating: 5,
-      productTitle: 'Logitech MX Master 3S Wireless Sichqoncha',
-      comment: 'Logitech sichqoncha original, qutisida kafolat taloni bor. Buxoroda bunaqa original tovar topish qiyin edi, NSB ga rahmat!',
+      productTitle: 'Hexagonal Gantellar To‘plami (2x10kg)',
+      comment: 'Hexagonal gantellar sifati juda baland, rezina qoplami sifatli. Uy sharoitida trenirovka uchun ayni muddao.',
       createdAt: '2026-02-15',
       status: 'approved'
     }
@@ -469,8 +467,8 @@ export default function AdminDashboard() {
         oldPrice: product.oldPrice || '',
         stock: product.stock,
         category: product.category,
-        categorySlug: product.categorySlug || 'kanctovary',
-        brand: product.brand || 'NSB',
+        categorySlug: product.categorySlug || 'stoykalar',
+        brand: product.brand || 'Sport Line',
         description: product.description || '',
         images: product.images?.length ? product.images : [''],
         isBestseller: product.isBestseller || false,
@@ -486,15 +484,15 @@ export default function AdminDashboard() {
         price: '',
         oldPrice: '',
         stock: 10,
-        category: 'Kantselyariya tovarlari',
-        categorySlug: 'kanctovary',
-        brand: 'NSB',
+        category: 'Podstavka & Skameykalar',
+        categorySlug: 'stoykalar',
+        brand: 'Sport Line',
         description: '',
-        images: ['https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80'],
+        images: ['/uploads/gantel-podstavka-sc80263.png'],
         isBestseller: false,
-        isNewArrival: false,
+        isNewArrival: true,
         isWeeklyDeal: false,
-        specifications: [{ key: 'Format', value: 'A4' }]
+        specifications: [{ key: 'Konstruksiya', value: 'Mustahkam po‘lat' }]
       });
     }
     setProductView('form');
@@ -569,19 +567,19 @@ export default function AdminDashboard() {
       {/* 1. OVERVIEW & KPI STATS */}
       {activeTab === 'overview' && (() => {
         const curStats = stats || fallbackStats;
-        const totalRev = curStats.totalRevenue || 222735000;
-        const b2bRev = curStats.b2bRevenue || 44510000;
+        const totalRev = curStats.totalRevenue ?? fallbackStats.totalRevenue;
+        const b2bRev = curStats.b2bRevenue ?? fallbackStats.b2bRevenue;
         const retailRev = Math.max(0, totalRev - b2bRev);
-        const totalOrd = curStats.totalOrders || 12;
-        const aov = curStats.averageOrderValue || (totalOrd > 0 ? Math.round(totalRev / totalOrd) : 18561250);
-        const totalProd = curStats.totalProducts || 45;
-        const totalCust = curStats.totalCustomers || 12;
+        const totalOrd = curStats.totalOrders ?? fallbackStats.totalOrders;
+        const aov = curStats.averageOrderValue || (totalOrd > 0 ? Math.round(totalRev / totalOrd) : fallbackStats.averageOrderValue);
+        const totalProd = curStats.totalProducts ?? fallbackStats.totalProducts;
+        const totalCust = curStats.totalCustomers ?? fallbackStats.totalCustomers;
 
-        const newCount = curStats.statusCounts?.find(s => s._id === 'new')?.count || 3;
-        const procCount = curStats.statusCounts?.find(s => s._id === 'processing')?.count || 2;
-        const shipCount = curStats.statusCounts?.find(s => s._id === 'shipped')?.count || 1;
-        const delivCount = curStats.statusCounts?.find(s => s._id === 'delivered')?.count || 5;
-        const cancCount = curStats.statusCounts?.find(s => s._id === 'cancelled')?.count || 1;
+        const newCount = curStats.statusCounts?.find(s => s._id === 'new')?.count ?? fallbackStats.statusCounts.find(s => s._id === 'new')?.count ?? 2;
+        const procCount = curStats.statusCounts?.find(s => s._id === 'processing')?.count ?? fallbackStats.statusCounts.find(s => s._id === 'processing')?.count ?? 1;
+        const shipCount = curStats.statusCounts?.find(s => s._id === 'shipped')?.count ?? 0;
+        const delivCount = curStats.statusCounts?.find(s => s._id === 'delivered')?.count ?? fallbackStats.statusCounts.find(s => s._id === 'delivered')?.count ?? 2;
+        const cancCount = curStats.statusCounts?.find(s => s._id === 'cancelled')?.count ?? 0;
 
         const dailySales = curStats.dailySales || fallbackStats.dailySales;
         const maxDailyRev = Math.max(...dailySales.map(d => d.revenue), 1);
@@ -1101,7 +1099,7 @@ export default function AdminDashboard() {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-400 text-center font-medium">
-                  SvetoCopy A4 va Apple texnikalari savdoda yetakchilik qilmoqda
+                  Nike krossovkalari va sport kiyimlari savdoda yetakchilik qilmoqda
                 </div>
               </div>
 
@@ -1375,7 +1373,7 @@ export default function AdminDashboard() {
                         required
                         value={productForm.title}
                         onChange={(e) => setProductForm({ ...productForm, title: e.target.value })}
-                        placeholder="Masalan: Apple MacBook Pro 16 M3 Max yoki SvetoCopy A4"
+                        placeholder="Masalan: Nike Air Jordan 1 Retro yoki Hexagonal Gantellar"
                         className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-[var(--color-primary-500)] outline-none"
                       />
                     </div>
@@ -1389,7 +1387,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.sku}
                           onChange={(e) => setProductForm({ ...productForm, sku: e.target.value })}
-                          placeholder="MBP16-M3MAX-BLK"
+                          placeholder="NK-JORDAN-1-HI"
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-mono text-slate-900 dark:text-white outline-none"
                         />
                       </div>
@@ -1401,7 +1399,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.brand}
                           onChange={(e) => setProductForm({ ...productForm, brand: e.target.value })}
-                          placeholder="Apple, HP, SvetoCopy, Deli, Logitech..."
+                          placeholder="Nike, Adidas, Jordan, Puma, Under Armour, Gymshark..."
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold text-slate-900 dark:text-white outline-none"
                         />
                       </div>
@@ -1413,17 +1411,31 @@ export default function AdminDashboard() {
                       </label>
                       <select
                         value={productForm.category}
-                        onChange={(e) => setProductForm({ ...productForm, category: e.target.value })}
+                        onChange={(e) => {
+                          const catName = e.target.value;
+                          const found = categories.find(c => c.name === catName);
+                          setProductForm({ 
+                            ...productForm, 
+                            category: catName,
+                            categorySlug: found?.slug || productForm.categorySlug
+                          });
+                        }}
                         className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none"
                       >
-                        <option value="Kantselyariya tovarlari">Kantselyariya tovarlari</option>
-                        <option value="Kompyuter Texnikasi">Kompyuter Texnikasi</option>
-                        <option value="Apple & Gadgetlar">Apple & Gadgetlar</option>
-                        <option value="Orgtexnika & Printerlar">Orgtexnika & Printerlar</option>
-                        <option value="Ofis mebellari & Kreslolar">Ofis mebellari & Kreslolar</option>
-                        <option value="Monitory va Proyektorlar">Monitory va Proyektorlar</option>
-                        <option value="Serverlar va Tarmoq">Serverlar va Tarmoq</option>
-                        <option value="Xo‘jalik tovarlari">Xo‘jalik tovarlari</option>
+                        {categories.length > 0 ? (
+                          categories.map(c => (
+                            <option key={c._id || c.id || c.slug} value={c.name}>{c.name}</option>
+                          ))
+                        ) : (
+                          <>
+                            <option value="Podstavka & Skameykalar">Podstavka & Skameykalar</option>
+                            <option value="Trenajorlar & Kardio">Trenajorlar & Kardio</option>
+                            <option value="Gantellar & Shtangalar">Gantellar & Shtangalar</option>
+                            <option value="Sport Kiyimlari">Sport Kiyimlari</option>
+                            <option value="Krossovkalar & Poyabzal">Krossovkalar & Poyabzal</option>
+                            <option value="Fitnes Aksessuarlari">Fitnes Aksessuarlari</option>
+                          </>
+                        )}
                       </select>
                     </div>
 
@@ -1756,7 +1768,7 @@ export default function AdminDashboard() {
                     required
                     value={categoryForm.name}
                     onChange={(e) => setCategoryForm({ ...categoryForm, name: e.target.value })}
-                    placeholder="Masalan: Ofis Qog‘ozlari"
+                    placeholder="Masalan: Krossovkalar & Poyabzallar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-semibold text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -1766,7 +1778,7 @@ export default function AdminDashboard() {
                     type="text"
                     value={categoryForm.slug}
                     onChange={(e) => setCategoryForm({ ...categoryForm, slug: e.target.value })}
-                    placeholder="ofis-qogozlari"
+                    placeholder="krossovkalar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-mono text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -2246,7 +2258,7 @@ export default function AdminDashboard() {
                     required
                     value={bannerForm.title}
                     onChange={(e) => setBannerForm({ ...bannerForm, title: e.target.value })}
-                    placeholder="Masalan: SvetoCopy va Ergonomik Kreslolar"
+                    placeholder="Masalan: Nike & Jordan Original Krossovkalari"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-semibold text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -2256,7 +2268,7 @@ export default function AdminDashboard() {
                     type="text"
                     value={bannerForm.subtitle}
                     onChange={(e) => setBannerForm({ ...bannerForm, subtitle: e.target.value })}
-                    placeholder="Kantselyariya va ofis jihozlari uchun maxsus narxlar"
+                    placeholder="Sport kiyimlari va mashg‘ulot jihozlari uchun maxsus chegirmalar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white outline-none"
                   />
                 </div>

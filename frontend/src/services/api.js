@@ -84,7 +84,7 @@ const api = {
     // 6. Admin Dashboard Stats
     if (path === '/admin/dashboard-stats') {
       const stats = await dataService.getDashboardStats();
-      return { data: { success: true, ...stats } };
+      return { data: { success: true, stats, ...stats } };
     }
 
     // 7. Admin Customers

@@ -1,10 +1,13 @@
 /**
- * NSB — NEXT NOUT Telegram Product Bot
+ * SPORT OUTLET — Telegram Product Bot
  * Bot Token: 6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w
  * 
- * Automatically receives product photos, titles, and prices from Telegram,
- * adds them directly to the NSB online store, updates mockData & Supabase,
- * and pushes updates to GitHub for instant live deployment!
+ * Features:
+ * - Automatically receives product photos, titles, and prices from Telegram.
+ * - SMART PRICE PARSER: Handles $ (USD) and so'm (UZS), ignores codes/dimensions.
+ * - SMART DUPLICATE PREVENTION: If a product already exists (by title, model, or SKU),
+ *   it UPDATES the existing product (price, image, description) instead of creating a duplicate!
+ * - Syncs with mockData.js and pushes to GitHub for instant live deployment!
  */
 
 const fs = require('fs');
@@ -14,6 +17,8 @@ const { execSync } = require('child_process');
 const BOT_TOKEN = '6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w';
 const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const TELEGRAM_FILE_API = `https://api.telegram.org/file/bot${BOT_TOKEN}`;
+
+const USD_RATE = 12850; // 1 USD = 12,850 UZS
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const FRONTEND_DIR = path.join(ROOT_DIR, 'frontend');
@@ -25,14 +30,16 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
-// Sport & Fitness Categories detection helper
+// Sport & Fitness Categories
 const CATEGORIES = [
-  { slug: 'stoykalar', name: 'Podstavka & Skameykalar', keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270'] },
+  { slug: 'stoykalar', name: 'Podstavka & Skameykalar', keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270', 'ax003', 'an-001'] },
   { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', keywords: ['trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill'] },
   { slug: 'gantellar', name: 'Gantellar & Shtangalar', keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk'] },
-  { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzal', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali'] },
-  { slug: 'sport-kiyimlari', name: 'Sport Kiyimlari', keywords: ['kiyim', 'kostyum', 'futbolka', 'shortik', 'hudi', 'triko', 'rashgard', 'under armour', 'puma'] },
-  { slug: 'fitnes-aksessuarlari', name: 'Fitnes Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'mat', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
+  { slug: 'toplar-oyinlar', name: 'Futbol & To‘plar', keywords: ['tennis', 'stol tennis', 'raketka', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol'] },
+  { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzallar', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali', 'snickers'] },
+  { slug: 'sport-kiyimlari', name: 'Sport Kiyimlari', keywords: ['kiyim', 'kostyum', 'futbolka', 'shortik', 'hudi', 'triko', 'rashgard', 'under armour', 'puma', 'gymshark', 'leggins'] },
+  { slug: 'boks-yakka-kurash', name: 'Boks & Yakka Kurash', keywords: ['boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast'] },
+  { slug: 'fitnes-aksessuarlari', name: 'Fitnes & Sport Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'mat', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
 ];
 
 function detectCategory(text = '') {
@@ -49,69 +56,115 @@ function detectCategory(text = '') {
 
 function detectBrand(text = '') {
   const lower = text.toLowerCase();
-  const brands = ['Sport Line', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'NSB Fitness'];
+  const brands = ['Sport Line', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'Gymshark', 'SPORT OUTLET'];
   for (const b of brands) {
     if (lower.includes(b.toLowerCase())) return b;
   }
   return 'Sport Line';
 }
 
+/**
+ * Intelligent parser for Telegram product captions
+ */
 function parseProductInfo(text = '') {
-  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-  if (lines.length === 0) return null;
+  const rawLines = text.split('\n').map(l => l.trim()).filter(Boolean);
+  if (rawLines.length === 0) {
+    return {
+      title: 'Yangi Sport Mahsuloti',
+      price: 500000,
+      rawPriceLabel: '500 000 so‘m',
+      sku: '',
+      description: 'SPORT OUTLET - kafolatli va sifatli sport anjomi.',
+      category: { slug: 'stoykalar', name: 'Podstavka & Skameykalar' },
+      brand: 'Sport Line'
+    };
+  }
 
-  let title = '';
+  let title = rawLines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
+  let sku = '';
   let price = 0;
-  let description = '';
+  let rawPriceLabel = '';
+  const descLines = [];
 
-  // Look for price patterns
-  let priceLineIndex = -1;
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    // Check if line contains price keywords or is mostly digits
-    const priceMatch = line.match(/(?:narx[i]?|baho[si]?|price)?:?\s*([\d\s.,]{3,})\s*(?:so'?m|sum|usd|\$)?/i);
-    const cleanedDigits = line.replace(/[^\d]/g, '');
-    
-    if (priceMatch && cleanedDigits.length >= 4) {
-      let parsed = parseInt(cleanedDigits, 10);
-      if (line.includes('$') || line.toLowerCase().includes('usd')) {
-        parsed = parsed * 12800; // approximate USD to UZS
+  // 1. Extract SKU / Kod
+  for (const line of rawLines) {
+    const skuMatch = line.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
+    if (skuMatch && !sku) {
+      sku = skuMatch[1];
+    }
+  }
+
+  // 2. Parse Price accurately
+  // Priority 1: Line with 'narx', 'baho', 'price'
+  for (let i = 0; i < rawLines.length; i++) {
+    const line = rawLines[i];
+    const isPriceLine = /(?:narx[i]?|baho[si]?|price)/i.test(line);
+
+    // Dollar price: e.g. "Narxi: 750$" or "290$" or "$195" or "195 usd"
+    const dollarMatch = line.match(/(?:narx[i]?|baho[si]?|price)?\s*[:=-]?\s*\$?\s*(\d+(?:[.,]\d+)?)\s*(?:\$|usd)/i) ||
+                       (isPriceLine && line.match(/(\d+(?:[.,]\d+)?)\s*\$/i)) ||
+                       (isPriceLine && line.match(/\$\s*(\d+(?:[.,]\d+)?)/i));
+
+    if (dollarMatch) {
+      const num = parseFloat(dollarMatch[1].replace(',', '.'));
+      if (num > 0) {
+        price = Math.round(num * USD_RATE);
+        rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
+        break;
       }
-      price = parsed;
-      priceLineIndex = i;
-      break;
+    }
+
+    // UZS price: e.g. "Narxi: 1 850 000 so'm" or "1850000"
+    if (isPriceLine) {
+      const uzsDigits = line.replace(/[^\d]/g, '');
+      if (uzsDigits.length >= 4) {
+        price = parseInt(uzsDigits, 10);
+        rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+        break;
+      }
     }
   }
 
-  if (priceLineIndex !== -1) {
-    // Title is usually the first line before price, or line 0
-    title = lines.slice(0, priceLineIndex).join(' ') || lines[0];
-    description = lines.slice(priceLineIndex + 1).join('\n');
-  } else {
-    title = lines[0];
-    description = lines.slice(1).join('\n');
-  }
-
-  // Clean title prefix if any
-  title = title.replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
-
-  // If price is still 0, check description or title for numbers
+  // Priority 2: Standalone dollar or som in any line
   if (!price) {
-    const digits = text.replace(/[^\d]/g, '');
-    if (digits.length >= 5) {
-      price = parseInt(digits.slice(0, 8), 10);
-    } else {
-      price = 1000000; // default 1 mln som
+    for (const line of rawLines) {
+      const standAloneDollar = line.match(/(\d{2,5})\s*\$/) || line.match(/\$\s*(\d{2,5})/);
+      if (standAloneDollar) {
+        const num = parseInt(standAloneDollar[1], 10);
+        price = Math.round(num * USD_RATE);
+        rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
+        break;
+      }
+      const somMatch = line.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sum)/i);
+      if (somMatch) {
+        const digits = somMatch[1].replace(/[^\d]/g, '');
+        if (digits.length >= 4) {
+          price = parseInt(digits, 10);
+          rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+          break;
+        }
+      }
     }
   }
+
+  // Fallback price if none detected
+  if (!price) {
+    price = 750000;
+    rawPriceLabel = '750 000 so‘m';
+  }
+
+  // Build description (all lines after title)
+  const description = rawLines.slice(1).join('\n') || `${title} - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.`;
 
   const category = detectCategory(text);
   const brand = detectBrand(text);
 
   return {
-    title: title || 'Yangi Mahsulot',
+    title,
+    sku,
     price,
-    description: description || `${title} - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.`,
+    rawPriceLabel,
+    description,
     category,
     brand
   };
@@ -160,34 +213,170 @@ async function downloadTelegramPhoto(fileId, targetFileName) {
   }
 }
 
-function addProductToMockData(newProduct) {
-  try {
-    const fileContent = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
-    const marker = 'export const defaultProducts = [';
-    const index = fileContent.indexOf(marker);
-    if (index === -1) {
-      console.error('Could not find defaultProducts marker in mockData.js');
-      return false;
-    }
+/**
+ * Normalizes title for duplicate checking
+ */
+function normalizeKey(str = '') {
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
 
-    const insertPos = index + marker.length;
-    const productJsonString = '\n  ' + JSON.stringify(newProduct, null, 2).replace(/\n/g, '\n  ') + ',';
-    
-    const updatedContent = fileContent.slice(0, insertPos) + productJsonString + fileContent.slice(insertPos);
+/**
+ * Load existing defaultProducts from mockData.js
+ */
+function loadMockProducts() {
+  try {
+    const content = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
+    const pStart = content.indexOf('export const defaultProducts = [');
+    const bStart = content.indexOf('export const defaultBanners = [');
+    const closingIdx = content.lastIndexOf('];', bStart);
+    if (pStart === -1 || closingIdx === -1) return [];
+
+    const sub = content.slice(pStart + 'export const defaultProducts = '.length, closingIdx + 1);
+    return JSON.parse(sub.trim().replace(/,\s*$/, ''));
+  } catch (err) {
+    console.error('Failed to parse mock products:', err);
+    return [];
+  }
+}
+
+/**
+ * Write updated products array back to mockData.js
+ */
+function writeMockProducts(products) {
+  try {
+    let content = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
+    const pStart = content.indexOf('export const defaultProducts = [');
+    const bStart = content.indexOf('export const defaultBanners = [');
+    if (pStart === -1 || bStart === -1) return false;
+
+    const formatted = JSON.stringify(products, null, 2);
+    const updatedContent = content.slice(0, pStart + 'export const defaultProducts = '.length) + 
+      formatted + ';\n\n' + content.slice(bStart);
+
     fs.writeFileSync(MOCK_DATA_PATH, updatedContent, 'utf8');
-    console.log(`Successfully added product "${newProduct.title}" to mockData.js!`);
+    console.log(`Updated mockData.js with ${products.length} products.`);
     return true;
   } catch (err) {
-    console.error('Failed to update mockData.js:', err);
+    console.error('Failed to write mockData.js:', err);
     return false;
   }
 }
 
-function pushChangesToGitHub(productTitle) {
+/**
+ * SMART DUPLICATE PREVENTION & UPDATE LOGIC:
+ * If product exists (same SKU, same normalized title, or same model):
+ *   UPDATE it in place! (Price, image, description)
+ * Otherwise:
+ *   ADD as new product.
+ */
+function saveOrUpdateProduct(parsed, imagePath) {
+  const products = loadMockProducts();
+  const normNewTitle = normalizeKey(parsed.title);
+  const newSku = (parsed.sku || '').trim().toLowerCase();
+
+  // Find existing duplicate product
+  let existingIndex = -1;
+
+  for (let i = 0; i < products.length; i++) {
+    const p = products[i];
+    const normPTitle = normalizeKey(p.title);
+    const pSku = (p.sku || '').trim().toLowerCase();
+
+    // 1. SKU match
+    if (newSku && (pSku === newSku || (p.description && p.description.toLowerCase().includes(newSku)))) {
+      existingIndex = i;
+      break;
+    }
+
+    // 2. Exact or close title match (e.g. "gantel podstavka ax003" vs "Gantel podstavka AX003")
+    if (normNewTitle && normPTitle && (normNewTitle === normPTitle || normNewTitle.includes(normPTitle) || normPTitle.includes(normNewTitle))) {
+      existingIndex = i;
+      break;
+    }
+
+    // 3. Match generic "yangi mahsulot" if re-sent within recent session
+    if (normNewTitle === 'yangimahsulot' && normPTitle === 'yangimahsulot') {
+      existingIndex = i;
+      break;
+    }
+  }
+
+  const oldPrice = Math.round(parsed.price * 1.15);
+  const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
+
+  if (existingIndex !== -1) {
+    // DUPLICATE FOUND: UPDATE EXISTING INSTEAD OF ADDING DUPLICATE
+    const existing = products[existingIndex];
+    existing.price = parsed.price;
+    existing.oldPrice = oldPrice;
+    existing.old_price = oldPrice;
+    existing.discountPercent = discountPercent;
+    existing.discount_percent = discountPercent;
+    existing.category = parsed.category.name;
+    existing.category_slug = parsed.category.slug;
+    existing.categorySlug = parsed.category.slug;
+    existing.description = parsed.description;
+    if (parsed.sku) existing.sku = parsed.sku;
+    if (imagePath) {
+      existing.images = [imagePath, ...(existing.images || []).filter(img => img !== imagePath)];
+    }
+    existing.updated_at = new Date().toISOString();
+
+    writeMockProducts(products);
+    return { isUpdate: true, product: existing };
+  } else {
+    // NEW UNIQUE PRODUCT: PREPEND TO LIST
+    const slug = (parsed.title.toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
+
+    const newProduct = {
+      _id: `prod_${slug}`,
+      id: `prod_${slug}`,
+      title: parsed.title,
+      slug: slug,
+      sku: parsed.sku || '',
+      price: parsed.price,
+      oldPrice: oldPrice,
+      old_price: oldPrice,
+      discountPercent: discountPercent,
+      discount_percent: discountPercent,
+      category: parsed.category.name,
+      category_slug: parsed.category.slug,
+      categorySlug: parsed.category.slug,
+      subcategory: '',
+      brand: parsed.brand,
+      stock: 12,
+      inStock: true,
+      in_stock: true,
+      rating: 5.0,
+      reviews_count: 0,
+      images: [imagePath || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80'],
+      is_bestseller: true,
+      is_new_arrival: true,
+      is_weekly_deal: false,
+      description: parsed.description,
+      specifications: [
+        { label: 'Brend', value: parsed.brand },
+        { label: 'Kodi', value: parsed.sku || 'SPORT-OUTLET' },
+        { label: 'Kafolat', value: '1 yil rasmiy kafolat' },
+        { label: 'Yetkazib berish', value: 'Buxoro bo‘ylab bepul' }
+      ],
+      created_at: new Date().toISOString()
+    };
+
+    products.unshift(newProduct);
+    writeMockProducts(products);
+    return { isUpdate: false, product: newProduct };
+  }
+}
+
+function pushChangesToGitHub(productTitle, isUpdate) {
   try {
-    console.log('Pushing new product to GitHub...');
+    console.log('Pushing changes to GitHub...');
     execSync('git add frontend/public/uploads frontend/src/services/mockData.js', { cwd: ROOT_DIR });
-    execSync(`git commit -m "feat(store): add product '${productTitle}' via Telegram"`, { cwd: ROOT_DIR });
+    const action = isUpdate ? 'update' : 'add';
+    execSync(`git commit -m "feat(store): ${action} product '${productTitle}' via Telegram"`, { cwd: ROOT_DIR });
     execSync('git push origin main', { cwd: ROOT_DIR, timeout: 30000 });
     console.log('Successfully pushed to GitHub! Vercel/Cloudflare will auto-deploy.');
     return true;
@@ -232,7 +421,7 @@ async function handleUpdate(update) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>NEXT NOUT (NSB)</b> do'koningizga mahsulot qo'shuvchi botman!\n\n📸 <b>Mahsulot qo'shish uchun:</b>\n1. Mahsulot rasmini yuboring.\n2. Rasm tagiga (caption) <b>Nomi</b> va <b>Narxi</b>ni yozing.\n\n<i>Misol:</i>\n<code>MacBook Pro 16 M3 Max\n35 000 000 so'm\n512GB SSD, 36GB RAM, Yangi</code>\n\nMen uni darhol onlayn do'konga qo'shib beraman!`
+      text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>SPORT OUTLET</b> do'koningizga mahsulot qo'shuvchi va yangilovchi botman!\n\n🛡 <b>Dublikatdan himoyalangan:</b> Agar bitta mahsulotni qayta tashlasangiz, dublikat yaratilmaydi — uning narxi, rasmi va tavsifi avtomatik yangilanadi!\n\n📸 <b>Mahsulot qo'shish/yangilash uchun:</b>\n1. Mahsulot rasmini yuboring.\n2. Rasm tagiga (caption) <b>Nomi</b>, <b>Kodi</b> va <b>Narxi ($ yoki so'mda)</b>ni yozing.\n\n<i>Misol:</i>\n<code>Stol Tennis: K2008\nKodi: 0455888\nNarxi: 750$\n25 mm MDF, 100 mm gildiraklar</code>\n\nMen uni darhol onlayn do'konga qo'shaman yoki yangilayman!`
     });
     return;
   }
@@ -244,10 +433,10 @@ async function handleUpdate(update) {
 
     await sendTelegram('sendMessage', {
       chat_id: chatId,
-      text: '⏳ Mahsulot qabul qilinmoqda va do\'konga yuklanmoqda...'
+      text: '⏳ Mahsulot qabul qilinmoqda, dublikat tekshirilmoqda va do‘konga saqlanmoqda...'
     });
 
-    const parsed = parseProductInfo(caption || 'Yangi Mahsulot');
+    const parsed = parseProductInfo(caption || 'Yangi Sport Mahsuloti');
     const slug = (parsed.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
@@ -255,61 +444,40 @@ async function handleUpdate(update) {
     const fileName = `prod_${slug}.jpg`;
     const imagePath = await downloadTelegramPhoto(largestPhoto.file_id, fileName);
 
-    const oldPrice = Math.round(parsed.price * 1.15); // +15% old price for discount badge
-    const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
-
-    const newProduct = {
-      _id: `prod_${slug}`,
-      id: `prod_${slug}`,
-      title: parsed.title,
-      slug: slug,
-      price: parsed.price,
-      oldPrice: oldPrice,
-      old_price: oldPrice,
-      discountPercent: discountPercent,
-      discount_percent: discountPercent,
-      category: parsed.category.name,
-      category_slug: parsed.category.slug,
-      categorySlug: parsed.category.slug,
-      subcategory: '',
-      brand: parsed.brand,
-      stock: 10,
-      inStock: true,
-      in_stock: true,
-      rating: 5.0,
-      reviews_count: 0,
-      images: [imagePath || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'],
-      is_bestseller: true,
-      is_new_arrival: true,
-      is_weekly_deal: false,
-      description: parsed.description,
-      specifications: [
-        { label: 'Brend', value: parsed.brand },
-        { label: 'Kafolat', value: '1 yil rasmiy kafolat' },
-        { label: 'Yetkazib berish', value: 'Buxoro bo‘ylab bepul' }
-      ],
-      created_at: new Date().toISOString()
-    };
-
-    // Save to mockData
-    const saved = addProductToMockData(newProduct);
+    // Save or update with duplicate prevention
+    const { isUpdate, product } = saveOrUpdateProduct(parsed, imagePath);
 
     // Push to GitHub so it goes live!
-    pushChangesToGitHub(parsed.title);
+    pushChangesToGitHub(parsed.title, isUpdate);
 
-    const formattedPrice = new Intl.NumberFormat('uz-UZ').format(parsed.price);
+    const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
 
-    await sendTelegram('sendMessage', {
-      chat_id: chatId,
-      parse_mode: 'HTML',
-      text: `✅ <b>Mahsulot muvaffaqiyatli do'konga qo'shildi!</b>\n\n` +
-            `📦 <b>Nomi:</b> ${parsed.title}\n` +
-            `💰 <b>Narxi:</b> ${formattedPrice} so'm\n` +
-            `📂 <b>Toifa:</b> ${parsed.category.name}\n` +
-            `🏷 <b>Brend:</b> ${parsed.brand}\n` +
-            `🖼 <b>Rasm:</b> Yuklandi va saqlandi\n` +
-            `🚀 <b>Sayt:</b> Yangilandi va jonli efirga chiqarildi!`
-    });
+    if (isUpdate) {
+      await sendTelegram('sendMessage', {
+        chat_id: chatId,
+        parse_mode: 'HTML',
+        text: `🔄 <b>Mavjud mahsulot yangilandi! (Dublikat saqlanmadi)</b>\n\n` +
+              `📦 <b>Nomi:</b> ${product.title}\n` +
+              `💰 <b>Yangilangan narx:</b> ${formattedPrice} so'm (${parsed.rawPriceLabel})\n` +
+              `🔢 <b>Kodi / SKU:</b> ${product.sku || 'Ko‘rsatilmagan'}\n` +
+              `📂 <b>Toifa:</b> ${product.category}\n` +
+              `🖼 <b>Rasm:</b> Yangilandi\n\n` +
+              `✅ Ushbu mahsulot allaqachon do'konda mavjud bo'lgani uchun dublikat yaratilmadi — uning narxi va rasmi yangilandi!`
+      });
+    } else {
+      await sendTelegram('sendMessage', {
+        chat_id: chatId,
+        parse_mode: 'HTML',
+        text: `✅ <b>Yangi mahsulot do'konga qo'shildi!</b>\n\n` +
+              `📦 <b>Nomi:</b> ${product.title}\n` +
+              `💰 <b>Narxi:</b> ${formattedPrice} so'm (${parsed.rawPriceLabel})\n` +
+              `🔢 <b>Kodi / SKU:</b> ${product.sku || 'Avtomatik'}\n` +
+              `📂 <b>Toifa:</b> ${product.category}\n` +
+              `🏷 <b>Brend:</b> ${product.brand}\n` +
+              `🖼 <b>Rasm:</b> Yuklandi va saqlandi\n` +
+              `🚀 <b>Sayt:</b> Jonli efirga chiqarildi!`
+      });
+    }
     return;
   }
 
@@ -318,15 +486,15 @@ async function handleUpdate(update) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `⚠️ <b>Rasm topilmadi!</b>\n\nIltimos, mahsulotning <b>rasmini</b> yuboring va rasm tagiga (caption):\n\n<b>1. Nomi\n2. Narxi</b>\n\nni yozib yuboring. Shunda men uni do'konga darhol joylayman! 👍`
+      text: `⚠️ <b>Rasm topilmadi!</b>\n\nIltimos, mahsulotning <b>rasmini</b> yuboring va rasm tagiga (caption):\n\n<b>1. Nomi\n2. Kodi (ixtiyoriy)\n3. Narxi ($ yoki so'mda)</b>\n\nni yozib yuboring. Qayta yuborsangiz ham dublikat bo'lmaydi, o'zi yangilanadi! 👍`
     });
   }
 }
 
 console.log('====================================================');
-console.log('🤖 NEXT NOUT TELEGRAM PRODUCT BOT IS RUNNING...');
+console.log('🤖 SPORT OUTLET TELEGRAM PRODUCT BOT IS RUNNING...');
 console.log(`Bot username: @Ttxtxtctxtxtxhxhchxhbot`);
-console.log('Waiting for product photos and captions from Telegram...');
+console.log('Smart Price Parser & Duplicate Prevention ACTIVE!');
 console.log('====================================================');
 
 pollUpdates();

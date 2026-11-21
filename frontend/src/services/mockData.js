@@ -82,14 +82,14 @@ export const defaultProducts = [
     "id": "prod_stol-tennis-k2008-6770",
     "title": "Stol Tennis: K2008",
     "slug": "stol-tennis-k2008-6770",
-    "price": 2008,
-    "oldPrice": 2309,
-    "old_price": 2309,
+    "price": 9600000,
+    "oldPrice": 11000000,
+    "old_price": 11000000,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
     "subcategory": "",
     "brand": "Sport Line",
     "stock": 10,
@@ -119,221 +119,6 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-21T13:39:08.078Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-6210",
-    "id": "prod_yangi-mahsulot-6210",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-6210",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-6210.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:38:57.129Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-5248",
-    "id": "prod_yangi-mahsulot-5248",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-5248",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-5248.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:37:56.177Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-6213",
-    "id": "prod_yangi-mahsulot-6213",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-6213",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-6213.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:37:47.166Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-4815",
-    "id": "prod_yangi-mahsulot-4815",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-4815",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-4815.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:37:36.317Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-1141",
-    "id": "prod_yangi-mahsulot-1141",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-1141",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-1141.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:37:22.172Z"
   },
   {
     "_id": "prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157",
@@ -379,99 +164,13 @@ export const defaultProducts = [
     "created_at": "2026-11-21T13:37:10.004Z"
   },
   {
-    "_id": "prod_yangi-mahsulot-6741",
-    "id": "prod_yangi-mahsulot-6741",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-6741",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-6741.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:29:27.206Z"
-  },
-  {
-    "_id": "prod_yangi-mahsulot-7501",
-    "id": "prod_yangi-mahsulot-7501",
-    "title": "Yangi Mahsulot",
-    "slug": "yangi-mahsulot-7501",
-    "price": 1000000,
-    "oldPrice": 1150000,
-    "old_price": 1150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
-    "category": "Podstavka & Skameykalar",
-    "category_slug": "stoykalar",
-    "categorySlug": "stoykalar",
-    "subcategory": "",
-    "brand": "Sport Line",
-    "stock": 10,
-    "inStock": true,
-    "in_stock": true,
-    "rating": 5,
-    "reviews_count": 0,
-    "images": [
-      "/uploads/prod_yangi-mahsulot-7501.jpg"
-    ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
-    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
-    "specifications": [
-      {
-        "label": "Brend",
-        "value": "Sport Line"
-      },
-      {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro bo‘ylab bepul"
-      }
-    ],
-    "created_at": "2026-11-21T13:29:18.675Z"
-  },
-  {
     "_id": "prod_gantel-podstavka-an-001-8998",
     "id": "prod_gantel-podstavka-an-001-8998",
     "title": "Gantel podstavka an-001",
     "slug": "gantel-podstavka-an-001-8998",
-    "price": 2278,
-    "oldPrice": 2620,
-    "old_price": 2620,
+    "price": 3712000,
+    "oldPrice": 4250000,
+    "old_price": 4250000,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Podstavka & Skameykalar",
@@ -505,16 +204,17 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T13:29:01.624Z"
+    "created_at": "2026-11-21T13:29:01.624Z",
+    "sku": "0455407"
   },
   {
     "_id": "prod_gantel-podstavka-ax003-2670",
     "id": "prod_gantel-podstavka-ax003-2670",
     "title": "Gantel podstavka AX003",
     "slug": "gantel-podstavka-ax003-2670",
-    "price": 1357775,
-    "oldPrice": 1561441,
-    "old_price": 1561441,
+    "price": 2496000,
+    "oldPrice": 2850000,
+    "old_price": 2850000,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Podstavka & Skameykalar",
@@ -555,9 +255,9 @@ export const defaultProducts = [
     "id": "prod_gantel-podstavka-sc80262-4326",
     "title": "Gantel podstavka SC80262",
     "slug": "gantel-podstavka-sc80262-4326",
-    "price": 80262,
-    "oldPrice": 92301,
-    "old_price": 92301,
+    "price": 1216000,
+    "oldPrice": 1400000,
+    "old_price": 1400000,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Podstavka & Skameykalar",
@@ -591,7 +291,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T13:28:44.881Z"
+    "created_at": "2026-11-21T13:28:44.881Z",
+    "sku": "0455598"
   },
   {
     "_id": "prod_gantel-podstavka-sc80263",

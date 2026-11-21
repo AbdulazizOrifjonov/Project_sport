@@ -630,7 +630,7 @@ export const dataService = {
 
     // Unique customers count
     const uniquePhones = new Set(orders.map(o => o.customerDetails?.phone || o.customer_phone).filter(Boolean));
-    const totalCustomers = uniquePhones.size || 12;
+    const totalCustomers = uniquePhones.size || 5;
 
     const avgOrderValue = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
     const lowStockProducts = products.filter(p => (p.stock || 0) <= 6).slice(0, 6);
@@ -646,17 +646,47 @@ export const dataService = {
       orders: Math.max(1, Math.round((totalOrders / 7) * (0.9 + (idx % 2) * 0.3)))
     }));
 
+    // Status counts
+    const statusMap = { new: 0, processing: 0, shipped: 0, delivered: 0, cancelled: 0 };
+    orders.forEach(o => {
+      const st = o.orderStatus || 'new';
+      statusMap[st] = (statusMap[st] || 0) + 1;
+    });
+    const statusCounts = Object.keys(statusMap).map(k => ({ _id: k, count: statusMap[k] }));
+
+    // Payment counts
+    const payMap = {};
+    orders.forEach(o => {
+      const pm = o.paymentMethod || 'cash';
+      if (!payMap[pm]) payMap[pm] = { count: 0, total: 0 };
+      payMap[pm].count += 1;
+      payMap[pm].total += (o.totalAmount || 0);
+    });
+    const paymentCounts = Object.keys(payMap).map(k => ({ _id: k, count: payMap[k].count, total: payMap[k].total }));
+
+    // Category counts
+    const catMap = {};
+    products.forEach(p => {
+      const c = p.category || 'Trenajorlar & Kardio';
+      catMap[c] = (catMap[c] || 0) + 1;
+    });
+    const categoryCounts = Object.keys(catMap).map(k => ({ _id: k, count: catMap[k] }));
+
     return {
       totalOrders,
       totalProducts,
       totalCustomers,
       totalRevenue,
+      averageOrderValue: avgOrderValue,
       avgOrderValue,
       b2bRevenue,
       recentOrders: orders.slice(0, 8),
       topProducts,
       lowStockProducts,
-      dailySales
+      dailySales,
+      statusCounts,
+      paymentCounts,
+      categoryCounts
     };
   },
 

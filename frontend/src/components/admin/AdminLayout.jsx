@@ -114,9 +114,9 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
         />
       )}
 
-      {/* Sidebar Navigation - Sticky on desktop, stays pinned during full page scroll */}
+      {/* Sidebar Navigation - Fixed on desktop, stays 100% pinned during full page scroll */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#111827] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 ease-in-out lg:sticky lg:top-0 lg:h-screen lg:shrink-0 lg:self-start lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#111827] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:shadow-none'
         }`}
       >
@@ -204,8 +204,8 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-hidden">
+      {/* Main Content Area (padded on left by sidebar width on desktop) */}
+      <div className="lg:pl-64 flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-hidden">
         {/* Top Navbar */}
         <header className="sticky top-0 z-30 bg-white dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800 px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-3 shadow-2xs transition-colors duration-200 h-16 w-full max-w-full">
           {/* Left: Mobile hamburger & Breadcrumb */}
