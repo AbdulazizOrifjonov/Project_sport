@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart, Plus, Minus, Star } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
@@ -32,16 +32,50 @@ export default function ProductCard({ product }) {
   const fallbackImage =
     'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
 
-  const imageSrc =
-    product.images && product.images[0] && product.images[0].trim() !== ''
-      ? product.images[0]
-      : fallbackImage;
+  const validImages =
+    product.images && Array.isArray(product.images)
+      ? product.images.filter((img) => img && typeof img === 'string' && img.trim() !== '')
+      : [];
+  const images = validImages.length > 0 ? validImages : [fallbackImage];
+  const hasMultipleImages = images.length > 1;
+
+  const [activeImgIndex, setActiveImgIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Ko'p rasmli mahsulotlar ustiga sichqoncha kelganda (hover) har 1 sekundda rasmlarni navbat bilan almashtirish
+  useEffect(() => {
+    if (!isHovered || !hasMultipleImages) {
+      setActiveImgIndex(0);
+      return;
+    }
+
+    // Keyingi rasmlar tez yuklanishi va almashganda qotmasligi uchun oldindan keshga yuklash
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    const timer = setInterval(() => {
+      setActiveImgIndex((prev) => (prev + 1) % images.length);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isHovered, hasMultipleImages, images]);
+
+  const currentImageSrc = images[activeImgIndex] || fallbackImage;
 
   const categoryName = product.category || 'Kantselyariya';
   const categorySlug = product.categorySlug || 'kanctovary';
 
   return (
-    <article className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden">
+    <article
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setActiveImgIndex(0);
+      }}
+      className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden"
+    >
       {/* 1. Top Image Area - To'liq va katta rasm */}
       <div className="relative w-full aspect-square bg-slate-50 dark:bg-[#0b0f19] overflow-hidden">
         {/* Chegirma foizi belgisi */}
@@ -51,11 +85,34 @@ export default function ProductCard({ product }) {
           </span>
         )}
 
-        {/* Rasmlar soni nishoni */}
-        {product.images && product.images.length > 1 && (
-          <span className="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/75 backdrop-blur-xs text-white shadow-xs pointer-events-none flex items-center gap-1">
-            <span>📷</span> {product.images.length} ta rasm
+        {/* Rasmlar soni nishoni - Hover bo'lganda joriy rasm indeksini ko'rsatadi (masalan: 1 / 7) */}
+        {hasMultipleImages && (
+          <span className="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/75 backdrop-blur-xs text-white shadow-xs pointer-events-none flex items-center gap-1 transition-all">
+            <span>📷</span> {isHovered ? `${activeImgIndex + 1} / ${images.length}` : `${images.length} ta rasm`}
           </span>
+        )}
+
+        {/* Ko'p rasmli mahsulotlar uchun indikator chiziqchalar */}
+        {hasMultipleImages && (
+          <div
+            className={`absolute bottom-2.5 right-2.5 z-10 flex items-center gap-1 transition-opacity duration-300 pointer-events-none ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {images.slice(0, 6).map((_, idx) => (
+              <span
+                key={idx}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  idx === activeImgIndex
+                    ? 'w-3.5 bg-white shadow-sm'
+                    : 'w-1.5 bg-white/40 backdrop-blur-xs'
+                }`}
+              />
+            ))}
+            {images.length > 6 && (
+              <span className="text-[9px] font-bold text-white drop-shadow-xs">+{images.length - 6}</span>
+            )}
+          </div>
         )}
 
         {/* Sevimlilar (Wishlist) tugmasi */}
@@ -83,7 +140,7 @@ export default function ProductCard({ product }) {
           className="relative block w-full h-full overflow-hidden"
         >
           <img
-            src={imageSrc}
+            src={currentImageSrc}
             alt={product.title}
             loading="lazy"
             onError={(e) => {
