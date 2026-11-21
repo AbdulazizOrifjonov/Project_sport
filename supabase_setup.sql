@@ -1,17 +1,11 @@
 -- ==============================================================================
--- NEXT NOUT (NSB BUKHARA) — FULL SUPABASE DATABASE SCHEMA & SEED SCRIPT
--- Paste this script directly into Supabase SQL Editor and click RUN.
--- It creates all tables, enables RLS with permissive public access,
--- sets up the 'product-images' Storage bucket, and seeds all 45+ products,
--- categories, orders, reviews, and coupons.
+-- SPORT OUTLET — FULL SUPABASE DATABASE SCHEMA & SPORT PRODUCTS SEED SCRIPT
+-- Copy and paste this ENTIRE code into Supabase SQL Editor and click RUN.
 -- ==============================================================================
 
--- Enable UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- ------------------------------------------------------------------------------
 -- 1. CATEGORIES TABLE
--- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.categories (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
@@ -26,9 +20,7 @@ CREATE TABLE IF NOT EXISTS public.categories (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- ------------------------------------------------------------------------------
 -- 2. PRODUCTS TABLE
--- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.products (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -41,12 +33,13 @@ CREATE TABLE IF NOT EXISTS public.products (
     category TEXT NOT NULL,
     category_slug TEXT NOT NULL,
     subcategory TEXT DEFAULT '',
-    brand TEXT DEFAULT 'NSB',
+    brand TEXT DEFAULT 'SPORT OUTLET',
     stock INT DEFAULT 10,
     in_stock BOOLEAN DEFAULT TRUE,
     rating NUMERIC DEFAULT 5.0,
     reviews_count INT DEFAULT 0,
     images JSONB DEFAULT '[]'::jsonb,
+    variants JSONB DEFAULT '[]'::jsonb,
     is_bestseller BOOLEAN DEFAULT FALSE,
     is_new_arrival BOOLEAN DEFAULT FALSE,
     is_weekly_deal BOOLEAN DEFAULT FALSE,
@@ -55,49 +48,35 @@ CREATE TABLE IF NOT EXISTS public.products (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- ------------------------------------------------------------------------------
 -- 3. ORDERS TABLE
--- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.orders (
     id TEXT PRIMARY KEY,
     order_number TEXT UNIQUE NOT NULL,
     customer_name TEXT NOT NULL,
     customer_phone TEXT NOT NULL,
     city TEXT DEFAULT 'Buxoro',
-    address TEXT NOT NULL,
-    notes TEXT DEFAULT '',
-    coordinates JSONB DEFAULT '{}'::jsonb,
-    location_url TEXT DEFAULT '',
-    items JSONB NOT NULL,
-    total_amount NUMERIC NOT NULL,
+    address TEXT DEFAULT '',
+    delivery_type TEXT DEFAULT 'standard',
     delivery_fee NUMERIC DEFAULT 0,
+    items JSONB NOT NULL DEFAULT '[]'::jsonb,
+    total_amount NUMERIC NOT NULL DEFAULT 0,
     payment_method TEXT DEFAULT 'cash',
     payment_status TEXT DEFAULT 'pending',
     order_status TEXT DEFAULT 'new',
-    delivery_type TEXT DEFAULT 'standard',
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- ------------------------------------------------------------------------------
--- 4. REVIEWS TABLE
--- ------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS public.reviews (
-    id TEXT PRIMARY KEY,
-    product_id TEXT DEFAULT NULL,
-    product_title TEXT DEFAULT '',
-    user_name TEXT NOT NULL,
-    user_email TEXT DEFAULT '',
-    rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
-    comment TEXT NOT NULL,
-    verified_purchase BOOLEAN DEFAULT TRUE,
-    status TEXT DEFAULT 'approved',
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- ------------------------------------------------------------------------------
+-- 4. REVIEWS TABLE
+CREATE TABLE IF NOT EXISTS public.reviews (
+    id TEXT PRIMARY KEY,
+    product_id TEXT NOT NULL,
+    user_name TEXT NOT NULL,
+    rating NUMERIC DEFAULT 5.0,
+    comment TEXT DEFAULT '',
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- 5. BANNERS TABLE
--- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.banners (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
@@ -113,9 +92,7 @@ CREATE TABLE IF NOT EXISTS public.banners (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- ------------------------------------------------------------------------------
 -- 6. COUPONS TABLE
--- ------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.coupons (
     id TEXT PRIMARY KEY,
     code TEXT UNIQUE NOT NULL,
@@ -125,9 +102,7 @@ CREATE TABLE IF NOT EXISTS public.coupons (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- ------------------------------------------------------------------------------
 -- ROW LEVEL SECURITY (RLS) POLICIES
--- ------------------------------------------------------------------------------
 ALTER TABLE public.categories ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
@@ -135,7 +110,20 @@ ALTER TABLE public.reviews ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.banners ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.coupons ENABLE ROW LEVEL SECURITY;
 
--- Allow public reads on storefront data
+-- Drop old policies to prevent conflict
+DROP POLICY IF EXISTS "Public Categories Select" ON public.categories;
+DROP POLICY IF EXISTS "Public Products Select" ON public.products;
+DROP POLICY IF EXISTS "Public Banners Select" ON public.banners;
+DROP POLICY IF EXISTS "Public Coupons Select" ON public.coupons;
+DROP POLICY IF EXISTS "Public Reviews Select" ON public.reviews;
+DROP POLICY IF EXISTS "Public Orders Select" ON public.orders;
+DROP POLICY IF EXISTS "Admin All Products" ON public.products;
+DROP POLICY IF EXISTS "Admin All Categories" ON public.categories;
+DROP POLICY IF EXISTS "Admin All Orders" ON public.orders;
+DROP POLICY IF EXISTS "Admin All Reviews" ON public.reviews;
+DROP POLICY IF EXISTS "Admin All Banners" ON public.banners;
+DROP POLICY IF EXISTS "Admin All Coupons" ON public.coupons;
+
 CREATE POLICY "Public Categories Select" ON public.categories FOR SELECT USING (true);
 CREATE POLICY "Public Products Select" ON public.products FOR SELECT USING (true);
 CREATE POLICY "Public Banners Select" ON public.banners FOR SELECT USING (true);
@@ -143,11 +131,6 @@ CREATE POLICY "Public Coupons Select" ON public.coupons FOR SELECT USING (true);
 CREATE POLICY "Public Reviews Select" ON public.reviews FOR SELECT USING (true);
 CREATE POLICY "Public Orders Select" ON public.orders FOR SELECT USING (true);
 
--- Allow public creation for orders and reviews
-CREATE POLICY "Public Orders Insert" ON public.orders FOR INSERT WITH CHECK (true);
-CREATE POLICY "Public Reviews Insert" ON public.reviews FOR INSERT WITH CHECK (true);
-
--- Allow full manage access for admin demo / management
 CREATE POLICY "Admin All Products" ON public.products FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Admin All Categories" ON public.categories FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Admin All Orders" ON public.orders FOR ALL USING (true) WITH CHECK (true);
@@ -155,279 +138,216 @@ CREATE POLICY "Admin All Reviews" ON public.reviews FOR ALL USING (true) WITH CH
 CREATE POLICY "Admin All Banners" ON public.banners FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Admin All Coupons" ON public.coupons FOR ALL USING (true) WITH CHECK (true);
 
--- ------------------------------------------------------------------------------
 -- STORAGE BUCKET: product-images
--- ------------------------------------------------------------------------------
 INSERT INTO storage.buckets (id, name, public)
 VALUES ('product-images', 'product-images', true)
 ON CONFLICT (id) DO UPDATE SET public = true;
 
--- Storage RLS
+DROP POLICY IF EXISTS "Public Storage Read" ON storage.objects;
+DROP POLICY IF EXISTS "Public Storage Upload" ON storage.objects;
+DROP POLICY IF EXISTS "Public Storage Manage" ON storage.objects;
+
 CREATE POLICY "Public Storage Read" ON storage.objects FOR SELECT USING (bucket_id = 'product-images');
 CREATE POLICY "Public Storage Upload" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'product-images');
 CREATE POLICY "Public Storage Manage" ON storage.objects FOR ALL USING (bucket_id = 'product-images') WITH CHECK (bucket_id = 'product-images');
 
--- ------------------------------------------------------------------------------
--- SEED DATA INSERTION
--- ------------------------------------------------------------------------------
+-- SEED CATEGORIES
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_trenajorlar', 'Trenajorlar & Kardio', 'trenajorlar', 'Activity', 'Professional zal va uy uchun yugurish yo‘lakchalari, velotrenajorlar va kardiomashinalar', 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&auto=format&fit=crop&q=80', 1, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_gantellar', 'Gantellar & Shtangalar', 'gantellar', 'Dumbbell', 'Kauchukli va xromli gantellar, shtanga griflari va og‘ir atletika disklari', 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600&auto=format&fit=crop&q=80', 2, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_stoykalar', 'Podstavka & Skameykalar', 'stoykalar', 'Layers', 'Gantel podstavkalari, mashg‘ulot skameykalari, turnik va shtanga stoykalari', '/uploads/gantel-podstavka-sc80263.png', 3, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_sport-kiyimlari', 'Sport Kiyimlari', 'sport-kiyimlari', 'Shirt', 'Nafas oluvchi termo sport kostyumlari, zal liboslari, hudilar va futbolkalar', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80', 4, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_krossovkalar', 'Krossovkalar & Poyabzal', 'krossovkalar', 'Footprints', 'Nike, Jordan, Adidas original yugurish va fitnes krossovkalari', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80', 5, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
+INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
+VALUES ('cat_fitnes-aksessuarlari', 'Fitnes Aksessuarlari', 'fitnes-aksessuarlari', 'Award', 'Sport sumkalari, fitnes rezinkalari, mashg‘ulot qo‘lqoplari va gilamchalar', 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=600&auto=format&fit=crop&q=80', 6, true)
+ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description, image = EXCLUDED.image;
 
--- Insert Categories
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_apple', 'Apple & Gadgetlar', 'apple', 'Smartphone', 'Apple & Gadgetlar Buxoro bo''yicha kafolatli yetkazib berish', '', 1, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_kompyuternaya-tehnika', 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', 'Laptop', 'Kompyuter Texnikasi Buxoro bo''yicha kafolatli yetkazib berish', '', 2, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_kanctovary', 'Kantselyariya tovarlari', 'kanctovary', 'FileText', 'Kantselyariya tovarlari Buxoro bo''yicha kafolatli yetkazib berish', '', 3, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_orgtehnika', 'Orgtexnika & Printerlar', 'orgtehnika', 'Printer', 'Orgtexnika & Printerlar Buxoro bo''yicha kafolatli yetkazib berish', '', 4, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_ofisnaya-mebel', 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', 'Armchair', 'Ofis mebellari & Kreslolar Buxoro bo''yicha kafolatli yetkazib berish', '', 5, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_monitory-i-proektory', 'Monitory va Proyektorlar', 'monitory-i-proektory', 'Tv', 'Monitory va Proyektorlar Buxoro bo''yicha kafolatli yetkazib berish', '', 6, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_servernoe-oborudovanie', 'Serverlar va Tarmoq', 'servernoe-oborudovanie', 'Server', 'Serverlar va Tarmoq Buxoro bo''yicha kafolatli yetkazib berish', '', 7, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_hozyajstvennye-tovary', 'Xo‘jalik tovarlari', 'hozyajstvennye-tovary', 'Package', 'Xo‘jalik tovarlari Buxoro bo''yicha kafolatli yetkazib berish', '', 8, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-
--- Insert Products
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-macbook-pro-16-m3-max', 'Apple MacBook Pro 16" M3 Max (36GB RAM, 1TB SSD, Space Black)', 'apple-macbook-pro-16-m3-max', 'MBP16-M3MAX-BLK', 'Apple kompaniyasining eng kuchli protsessoriga ega professional noutbuki. Dizaynerlar va dasturchilar uchun.', 42500000, 46000000, 8, 'Apple & Gadgetlar', 'apple', '', 'Apple', 7, TRUE, 5, 32, '["https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=1000&auto=format&fit=crop&q=80"]'::jsonb, TRUE, TRUE, FALSE, '[{"key":"Ekran","value":"16.2\" Liquid Retina XDR 120Hz"},{"key":"Protsessor","value":"Apple M3 Max (14-core CPU, 30-core GPU)"},{"key":"Tezkor xotira","value":"36GB Unified Memory"},{"key":"Doimiy xotira","value":"1TB SSD"},{"key":"Rang","value":"Space Black"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-macbook-air-15-m3-starlight', 'Apple MacBook Air 15" M3 (16GB RAM, 512GB SSD, Starlight)', 'apple-macbook-air-15-m3-starlight', 'MBA15-M3-STAR', 'Yupqa va yengil korpus, kuchli M3 chip va butun kun yetadigan batareya quvvati.', 21800000, 23500000, 7, 'Apple & Gadgetlar', 'apple', '', 'Apple', 12, TRUE, 4.9, 19, '["https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Ekran","value":"15.3\" Liquid Retina Display"},{"key":"Protsessor","value":"Apple M3"},{"key":"Xotira","value":"16GB RAM / 512GB SSD"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-macbook-air-13-m2-midnight', 'Apple MacBook Air 13" M2 (8GB RAM, 256GB SSD, Midnight)', 'apple-macbook-air-13-m2-midnight', 'MBA13-M2-MID', 'Ofis va o‘qish ishlari uchun ideal darajada ixcham va tezkor noutbuk.', 13400000, 14800000, 9, 'Apple & Gadgetlar', 'apple', '', 'Apple', 18, TRUE, 4.8, 42, '["https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, TRUE, '[{"key":"Ekran","value":"13.6\" Liquid Retina"},{"key":"Protsessor","value":"Apple M2"},{"key":"Xotira","value":"8GB / 256GB"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-ipad-pro-13-m4-wifi-256gb', 'Apple iPad Pro 13" M4 Wi-Fi 256GB Space Black', 'apple-ipad-pro-13-m4-wifi-256gb', 'IPAD-PRO13-M4', 'Eng yangi Ultra Retina XDR OLED displeyli planshet va Apple M4 protsessori.', 16200000, 17500000, 7, 'Apple & Gadgetlar', 'apple', '', 'Apple', 9, TRUE, 5, 23, '["https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, TRUE, FALSE, '[{"key":"Ekran","value":"13\" Tandem OLED Ultra Retina XDR"},{"key":"Chip","value":"Apple M4"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-magic-keyboard-touchid-numeric', 'Apple Magic Keyboard with Touch ID and Numeric Keypad', 'apple-magic-keyboard-touchid-numeric', 'MK-NUM-TOUCH', 'Barmoq izi skaneri (Touch ID) va to‘liq raqamlar paneli mavjud simsiz klaviatura.', 2600000, 2850000, 8, 'Apple & Gadgetlar', 'apple', '', 'Apple', 25, TRUE, 4.9, 15, '["https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Ulanish","value":"Bluetooth, Lightning/Type-C"},{"key":"Funksiya","value":"Touch ID xavfsiz avtorizatsiya"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apple-magic-mouse-black-wireless', 'Apple Magic Mouse Wireless (Black Multi-Touch Surface)', 'apple-magic-mouse-black-wireless', 'MM-BLK-WIRELESS', 'Multi-Touch imo-ishoralarni qo‘llab-quvvatlovchi zamonaviy simsiz qora sichqoncha.', 1450000, 1650000, 12, 'Apple & Gadgetlar', 'apple', '', 'Apple', 30, TRUE, 4.8, 27, '["https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Sensor","value":"Lazerli yuqori aniqlik"},{"key":"Yuzasi","value":"Multi-Touch imo-ishoralar"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_logitech-mx-master-3s-wireless', 'Ergonomik simsiz sichqoncha Logitech MX Master 3S Wireless', 'logitech-mx-master-3s-wireless', 'LOGI-MX3S-GRY', 'Dasturchilar va ofis rahbarlari uchun eng qulay ergonomik simsiz sichqoncha (mishka).', 1650000, 1850000, 11, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Logitech', 28, TRUE, 5, 47, '["https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=1000&auto=format&fit=crop&q=80","https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=1000&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Turi","value":"Simsiz lazerli sichqoncha (Mishka)"},{"key":"Sensor","value":"8000 DPI Darkfield shishada ham ishlaydi"},{"key":"Skroll","value":"MagSpeed elektromagnit sokin g‘ildirak"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_logitech-m220-silent-wireless-mouse', 'Simsiz ofis sichqonchasi Logitech M220 Silent Wireless', 'logitech-m220-silent-wireless-mouse', 'LOGI-M220-BLK', 'Shovqinsiz tugmalarga ega (90% sokin) kundalik ofis sichqonchasi.', 195000, 230000, 15, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Logitech', 85, TRUE, 4.8, 64, '["https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, TRUE, '[{"key":"Turi","value":"Simsiz sokin sichqoncha (Mishka)"},{"key":"Batareya","value":"18 oygacha xizmat qiladi"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_delux-m618c-vertical-ergonomic-mouse', 'Simsiz vertikal ergonomik sichqoncha Delux M618C RGB', 'delux-m618c-vertical-ergonomic-mouse', 'DELUX-M618C', 'Qo‘l bilagini charchatmaydigan va tunnel sindromidan himoyalovchi vertikal sichqoncha.', 280000, 320000, 12, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Delux', 40, TRUE, 4.9, 31, '["https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Shakli","value":"57° vertikal ergonomik burchak"},{"key":"DPI","value":"1600 DPI 3 bosqichli"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_logitech-mk295-silent-wireless-combo', 'Simsiz klaviatura va sichqoncha to‘plami Logitech MK295 Silent Combo', 'logitech-mk295-silent-wireless-combo', 'LOGI-MK295-BLK', 'SilentTouch texnologiyasi bilan 90% shovqinsiz klaviatura va simsiz sichqoncha to‘plami.', 480000, 550000, 12, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Logitech', 65, TRUE, 4.9, 58, '["https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Komplekt","value":"Simsiz klaviatura + Sichqoncha"},{"key":"Shovqin","value":"SilentTouch sokin bosilish"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_redragon-k552-kumara-rgb-mechanical', 'Mexanik RGB klaviatura Redragon K552 Kumara Blue Switches', 'redragon-k552-kumara-rgb-mechanical', 'REDRAGON-K552', 'Metall korpusli, bosilishi aniq va uzoq umrli mexanik kompyuter klaviaturasi.', 450000, 520000, 13, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Redragon', 35, TRUE, 4.8, 39, '["https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, TRUE, FALSE, '[{"key":"Turi","value":"Mexanik klaviatura"},{"key":"Svitchlar","value":"Outemu Blue (50 million bosish)"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_razer-gigantus-v2-large-mousepad', 'Katta ofis va o‘yin gilamchasi Razer Gigantus V2 Large (450x400 mm)', 'razer-gigantus-v2-large-mousepad', 'RZ-GIGANTUS-L', 'Sichqoncha yengil sirpanishi va klaviatura siljimasligi uchun maxsus to‘qimali gilamcha (kovrik).', 210000, 250000, 16, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Razer', 50, TRUE, 4.9, 22, '["https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"O‘lchami","value":"450 x 400 x 3 mm"},{"key":"Asosi","value":"Sirpanmaydigan rezina taglik"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_lenovo-thinkpad-e16-gen1-core-i7', 'Noutbuk Lenovo ThinkPad E16 Gen 1 (Core i7-1355U, 16GB, 512GB SSD)', 'lenovo-thinkpad-e16-gen1-core-i7', 'THINKPAD-E16-I7', 'Harbiy standartlar bo‘yicha sinovdan o‘tgan mustahkam va ishonchli korporativ noutbuk.', 11200000, 12500000, 10, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Lenovo', 14, TRUE, 4.9, 28, '["https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Ekran","value":"16.0\" WUXGA IPS Antiglare"},{"key":"Protsessor","value":"Intel Core i7-1355U 10-yadroli"},{"key":"Xotira","value":"16GB DDR4 / 512GB PCIe SSD"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_asus-zenbook-14-oled-ultra7', 'Noutbuk ASUS ZenBook 14 OLED (Intel Core Ultra 7, 32GB RAM, 1TB SSD)', 'asus-zenbook-14-oled-ultra7', 'ZENBOOK-14-U7', 'Yuqori aniqlikdagi 3K OLED ekran va yangi avlod sun’iy intellekt AI protsessori.', 16900000, 18400000, 8, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'ASUS', 8, TRUE, 5, 16, '["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Ekran","value":"14\" 3K OLED 120Hz 100% DCI-P3"},{"key":"Protsessor","value":"Intel Core Ultra 7 155H"},{"key":"Xotira","value":"32GB LPDDR5X / 1TB SSD"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_dell-optiplex-7010-micro', 'Tizimli blok Dell OptiPlex 7010 Micro (Core i5-13500T, 16GB, 512GB SSD)', 'dell-optiplex-7010-micro', 'DELL-OPT-7010', 'Monitor orqasiga o‘rnatiladigan o‘ta ixcham va kuchli korporativ mini-PK.', 7900000, 8500000, 7, 'Kompyuter Texnikasi', 'kompyuternaya-tehnika', '', 'Dell', 15, TRUE, 4.9, 12, '["https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Hajm","value":"Micro Form Factor (1 litr)"},{"key":"Protsessor","value":"Intel Core i5-13500T"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_svetocopy-classic-a4-500-varaq', 'Qog‘oz SvetoCopy Classic A4, 500 varaq, 80 g/m² (Pallet narxi)', 'svetocopy-classic-a4-500-varaq', 'PAP-A4-SVETO', 'Ofis texnikasi, lazerli va siyohli printerlar uchun eng ommabop va sifatli oq qog‘oz.', 43500, 48000, 9, 'Kantselyariya tovarlari', 'kanctovary', '', 'SvetoCopy', 3500, TRUE, 5, 142, '["https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, TRUE, '[{"key":"Format","value":"A4 (210 x 297 mm)"},{"key":"Zichlik","value":"80 g/m²"},{"key":"Varaqlar soni","value":"500 varaq"},{"key":"Oqlik darajasi","value":"146% CIE"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_double-a-premium-a4-80g', 'Qog‘oz Double A Premium A4, 80 g/m², 500 varaq (Tailand)', 'double-a-premium-a4-80g', 'PAP-A4-DOUBLEA', 'Yuqori sifatli evkalipt tolasidan tayyorlangan benuqson oq silliq qog‘oz.', 56000, 62000, 10, 'Kantselyariya tovarlari', 'kanctovary', '', 'Double A', 1200, TRUE, 5, 88, '["https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Format","value":"A4"},{"key":"Oqlik","value":"165% CIE"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_ballet-premier-a4-80g', 'Qog‘oz Ballet Premier A4, 80 g/m², 500 varaq yuqori oqlik', 'ballet-premier-a4-80g', 'PAP-A4-BALLET', 'Muhim hujjatlar va taqdimotlar chop etish uchun A sinfidagi premium qog‘oz.', 52000, 58000, 10, 'Kantselyariya tovarlari', 'kanctovary', '', 'Ballet', 850, TRUE, 4.9, 46, '["https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Klass","value":"Klass A"},{"key":"Oqlik","value":"162% CIE"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_deli-kantselyariya-toplami-premium', 'Deli kantselyariya to‘plami (Ruchkalar, korrektor, markerlar, qisqichlar)', 'deli-kantselyariya-toplami-premium', 'DELI-SET-01', 'Ofis xodimlari uchun 12 xil kerakli buyumdan iborat to‘liq kantselyariya to‘plami.', 185000, 220000, 16, 'Kantselyariya tovarlari', 'kanctovary', '', 'Deli', 150, TRUE, 4.9, 65, '["https://images.unsplash.com/photo-1584727638096-042c45049ebe?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, TRUE, FALSE, '[{"key":"Komplekt","value":"12 dona predmet"},{"key":"Brend","value":"Deli Official"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_erichkrause-sharikli-ruchkalar-50dona', 'ErichKrause sharikli ruchkalar to‘plami (50 dona, ko‘k)', 'erichkrause-sharikli-ruchkalar-50dona', 'EK-PEN-BLUE50', 'Yumshoq yozuvchi, iz qoldirmaydigan va uzoq xizmat qiluvchi sifatli sharikli ruchkalar.', 125000, 145000, 14, 'Kantselyariya tovarlari', 'kanctovary', '', 'ErichKrause', 240, TRUE, 4.9, 78, '["https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Soni","value":"50 dona qutida"},{"key":"Rang","value":"Ko‘k siyoh"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_stapler-deli-heavy-duty-24-6', 'Shtapler Deli Heavy Duty 24/6 metall korpus (30 varaqgacha)', 'stapler-deli-heavy-duty-24-6', 'DELI-STP-02', 'Zanglamas po‘latdan ishlangan baquvvat shtapler va mexanizm.', 68000, 79000, 14, 'Kantselyariya tovarlari', 'kanctovary', '', 'Deli', 90, TRUE, 4.8, 31, '["https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Sig‘imi","value":"30 varaq qog‘oz"},{"key":"Skoba","value":"24/6, 26/6"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_papka-registrator-attache-75mm-black', 'Papka-registrator Attache 75mm A4 (Qora marmar)', 'papka-registrator-attache-75mm-black', 'REG-ATT-75BLK', 'Arxiv hujjatlarini saqlash uchun metal burchakli mustahkam registrator.', 28000, 32000, 12, 'Kantselyariya tovarlari', 'kanctovary', '', 'Attache', 450, TRUE, 4.9, 92, '["https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Eni","value":"75 mm"},{"key":"Sig‘imi","value":"500 tagacha A4 varaq"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_shaffof-fayllar-deli-a4-100dona', 'Shaffof fayllar to‘plami Deli A4 40 mkm (100 dona)', 'shaffof-fayllar-deli-a4-100dona', 'FILE-DELI-100', 'Yirtilmaydigan mustahkam teshikli polietilen fayllar.', 34000, 39000, 13, 'Kantselyariya tovarlari', 'kanctovary', '', 'Deli', 600, TRUE, 4.9, 110, '["https://images.unsplash.com/photo-1584727638096-042c45049ebe?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Qalinlik","value":"40 mkm"},{"key":"Soni","value":"100 dona"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_ejednevnik-charm-a5-datiratsiyasiz', 'Ejednevnik (Kundalik daftar) charm muqovali A5 datiratsiyasiz', 'ejednevnik-charm-a5-datiratsiyasiz', 'NOTE-A5-LEATH', 'Rahbarlar va ofis xodimlari uchun eslatma va rejalashtirish daftari.', 95000, 110000, 14, 'Kantselyariya tovarlari', 'kanctovary', '', 'Attache', 180, TRUE, 5, 52, '["https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Format","value":"A5"},{"key":"Muqova","value":"Ekologik yumshoq charm"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_hp-laserjet-pro-mfp-m428fdw', 'Ko‘p funksiyali printer HP LaserJet Pro MFP M428fdw', 'hp-laserjet-pro-mfp-m428fdw', 'HP-M428FDW', 'Tezkor va tejamkor monoxrom MFP: chop etish, skanerlash, nusxalash va faks. Avtomatik ikki tomonlama bosma.', 6850000, 7400000, 7, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'HP', 15, TRUE, 4.8, 29, '["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Chop etish turi","value":"Lazerli monoxrom"},{"key":"Tezlik","value":"38 bet/daqiqasiga"},{"key":"Dupleks (ikki tomonlama)","value":"Mavjud"},{"key":"Ulanish","value":"Wi-Fi, Ethernet, USB"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_epson-ecotank-l3250-wifi', 'Rangli MFP Epson EcoTank L3250 Wi-Fi doimiy siyohli', 'epson-ecotank-l3250-wifi', 'EPSON-L3250', 'Doimiy siyoh idishiga (CISS) ega tejamkor rangli printer, skaner va nusxalagich.', 3450000, 3800000, 9, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'Epson', 24, TRUE, 4.9, 54, '["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, TRUE, '[{"key":"Rangli chop","value":"4 xil rangli doimiy siyoh"},{"key":"Resurs","value":"Qutidagi siyoh 4500 qora / 7500 rangli varaqqa yetadi"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_canon-i-sensys-lbp223dw-wifi', 'Monoxrom printer Canon i-SENSYS LBP223dw Wi-Fi ikki tomonlama', 'canon-i-sensys-lbp223dw-wifi', 'CANON-LBP223', 'Katta yuklamaga bardoshli, ishonchli va tezkor lazerli monoxrom ofis printeri.', 3950000, 4300000, 8, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'Canon', 18, TRUE, 4.8, 22, '["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Tezlik","value":"33 bet/daqiqasiga"},{"key":"Ulanish","value":"Wi-Fi, LAN, USB"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_hp-designjet-t650-36-in-plotter', 'Katta formatli plotter HP DesignJet T650 36-in A0/A1', 'hp-designjet-t650-36-in-plotter', 'HP-T650-PLOT', 'Muhandislik chizmalari, arxitektura loyihalari va xaritalar uchun yuqori aniqlikdagi plotter.', 28500000, 31000000, 8, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'HP', 3, TRUE, 5, 8, '["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Format","value":"36 dyuym (A0, A1, A2, A3, A4)"},{"key":"Tezlik","value":"A1 format 25 soniyada"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_shredder-deli-e9939-12varaq', 'Hujjat maydalagich (Shredder) Deli E9939 12 varaq CD/kartochka', 'shredder-deli-e9939-12varaq', 'DELI-SHRED-9939', 'Maxfiy hujjatlar, plastik kartochkalar va disklarni parchalovchi xavfsiz ofis shredderi.', 1650000, 1850000, 11, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'Deli', 20, TRUE, 4.7, 17, '["https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Bir martalik maydalash","value":"12 varaq"},{"key":"Xavfsizlik darajasi","value":"P-4 mikro-kesish"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_laminator-deli-a4-a3-pro', 'Laminator Deli A4 / A3 issiq va sovuq laminatsiya', 'laminator-deli-a4-a3-pro', 'DELI-LAM-A3', 'Hujjatlar, sertifikatlar va fotosuratlarni sifatli qoplash uchun harorat rostlagichli laminator.', 890000, 990000, 10, 'Orgtexnika & Printerlar', 'orgtehnika', '', 'Deli', 32, TRUE, 4.8, 24, '["https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Format","value":"A3 va A4 gacha"},{"key":"Plenka qalinligi","value":"75-250 mkm"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_nsb-executive-orthopedic-mesh-chair', 'Ergonomik ofis kreslosi NSB Executive Orthopedic Mesh Chair', 'nsb-executive-orthopedic-mesh-chair', 'CHR-NSB-ORTHO', 'Bel qismini qo‘llab-quvvatlovchi zamonaviy nafas oluvchi to‘rli kreslo.', 2450000, 2900000, 15, 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', '', 'NSB Furniture', 22, TRUE, 4.9, 38, '["https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, TRUE, '[{"key":"Material","value":"Nafas oluvchi elastik Mesh"},{"key":"Mexanizm","value":"Multiblok tebranish va qulflash"},{"key":"Maksimal yuklama","value":"150 kg gacha"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_nsb-director-boss-genuine-leather', 'Rahbar kreslosi NSB Director Boss Genuine Leather Black', 'nsb-director-boss-genuine-leather', 'CHR-NSB-BOSS', 'Tabiiy charmdan ishlangan, xrom detallarga ega obro‘li rahbarlik kreslosi.', 4200000, 4800000, 12, 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', '', 'NSB Furniture', 10, TRUE, 5, 19, '["https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Material","value":"100% Tabiiy qora charm"},{"key":"Krestovina","value":"Qalin mustahkam xrom"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_nsb-staff-ergonomic-black', 'Xodimlar uchun qulay kreslo NSB Staff Ergonomic Black', 'nsb-staff-ergonomic-black', 'CHR-NSB-STAFF', 'Uzoq vaqt kompyuter oldida o‘tirib ishlovchi xodimlar uchun yengil va mustahkam kreslo.', 1150000, 1300000, 11, 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', '', 'NSB Furniture', 45, TRUE, 4.8, 62, '["https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Gazlift","value":"Klass 3 xavfsiz gazlift"},{"key":"Yuklama","value":"120 kg gacha"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_nsb-visitor-chrome-black-chair', 'Konferensiya kreslosi NSB Visitor Chrome Black', 'nsb-visitor-chrome-black-chair', 'CHR-NSB-VISITOR', 'Muzokaralar va majlislar zali uchun xrom oyoqli qulay kreslo.', 650000, 750000, 13, 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', '', 'NSB Furniture', 60, TRUE, 4.7, 34, '["https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Karkas","value":"Yaxlit xromli po‘lat"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_nsb-loft-office-desk-140x70', 'Zamonaviy ofis yozuv stoli NSB Loft Office Desk 140x70 sm metall karkas', 'nsb-loft-office-desk-140x70', 'DSK-NSB-LOFT', 'Qalin metall profil va tirnalishga chidamli LDSP stol yuzasi.', 1850000, 2100000, 12, 'Ofis mebellari & Kreslolar', 'ofisnaya-mebel', '', 'NSB Furniture', 26, TRUE, 4.9, 27, '["https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"O‘lchami","value":"140 sm x 70 sm, balandligi 75 sm"},{"key":"Karkas","value":"Qora kukunli bo‘yoqli metall"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_dell-ultrasharp-u2724d-2k', 'Monitor 27" Dell UltraSharp U2724D 2K QHD IPS 120Hz', 'dell-ultrasharp-u2724d-2k', 'DELL-U2724D', 'Dizaynerlar va ofis ishlari uchun ajoyib ranglar aniqligiga ega 2K monitor.', 5200000, 5600000, 7, 'Monitory va Proyektorlar', 'monitory-i-proektory', '', 'Dell', 10, TRUE, 5, 21, '["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Dioganal","value":"27 dyuym (68.5 sm)"},{"key":"Ruxsat","value":"2560 x 1440 QHD"},{"key":"Matritsa","value":"IPS Black"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_samsung-essential-s3-24-ips', 'Monitor 24" Samsung Essential S3 IPS 75Hz Full HD', 'samsung-essential-s3-24-ips', 'SAM-S3-24IPS', 'Kundalik ofis ishlari va jadvallar bilan qulay ishlash uchun ko‘zni toliqtirmaydigan ekran.', 1750000, 1950000, 10, 'Monitory va Proyektorlar', 'monitory-i-proektory', '', 'Samsung', 35, TRUE, 4.8, 47, '["https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Dioganal","value":"24 dyuym Full HD (1920x1080)"},{"key":"Chastota","value":"75 Hz Eye Saver Mode"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_epson-eb-e01-3lcd-proyektor', 'Taqdimot va majlislar uchun proyektor Epson EB-E01 3LCD 3300 Lumens', 'epson-eb-e01-3lcd-proyektor', 'EPSON-EB-E01', 'Yorug‘ xonalarda ham tiniq va yorqin tasvir uzatuvchi professional majlis proyektori.', 6100000, 6700000, 9, 'Monitory va Proyektorlar', 'monitory-i-proektory', '', 'Epson', 8, TRUE, 4.9, 14, '["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Yorug‘lik","value":"3300 ANSI Lumens"},{"key":"Texnologiya","value":"3LCD yorqin ranglar"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_server-hpe-proliant-dl380-gen10-plus', 'Server HPE ProLiant DL380 Gen10 Plus 2x Intel Xeon 64GB', 'server-hpe-proliant-dl380-gen10-plus', 'HPE-DL380-GEN10', 'Korxona va tashkilotlar infratuzilmasi uchun xavfsiz va quvvatli 2U server.', 89000000, 95000000, 6, 'Serverlar va Tarmoq', 'servernoe-oborudovanie', '', 'HPE', 3, TRUE, 5, 8, '["https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Protsessor","value":"2x Intel Xeon Silver 4314"},{"key":"Xotira","value":"64GB RDIMM ECC DDR4"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_cisco-cbs350-24t-4g-switch', 'Tarmoq kommutatori Cisco CBS350-24T-4G 24-Port Gigabit', 'cisco-cbs350-24t-4g-switch', 'CISCO-CBS350-24T', 'Katta tarmoqlar uchun 24 ta Gigabit port va 4 ta SFP optik portga ega boshqariladigan kommutator.', 8900000, 9800000, 9, 'Serverlar va Tarmoq', 'servernoe-oborudovanie', '', 'Cisco', 9, TRUE, 5, 15, '["https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Portlar","value":"24 x 10/100/1000 Gigabit + 4 x SFP"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_apc-smart-ups-1500va-lcd', 'Uzluksiz quvvat manbai (UPS) APC Smart-UPS 1500VA LCD 230V', 'apc-smart-ups-1500va-lcd', 'APC-SMT1500I', 'Serverlar va tarmoq uskunalarini elektr tebranishlari va uzilishlaridan himoyalovchi ishonchli UPS.', 9800000, 10600000, 8, 'Serverlar va Tarmoq', 'servernoe-oborudovanie', '', 'APC', 12, TRUE, 4.9, 19, '["https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Quvvati","value":"1500 VA / 1000 Watt"},{"key":"Chiqish to‘lqini","value":"Toza sinus to‘lqini"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_kuler-vatten-v45nk-muzlatgichli', 'Ofis oshxonasi uchun suv dispenseri (Kuler) Vatten V45NK', 'kuler-vatten-v45nk-muzlatgichli', 'WAT-V45NK', 'Pastki qismida mini-sovutgichga ega issiq, sovuq va xona haroratidagi suv beruvchi kuler.', 2100000, 2400000, 12, 'Xo‘jalik tovarlari', 'hozyajstvennye-tovary', '', 'Vatten', 16, TRUE, 4.8, 31, '["https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Isitish","value":"90-95 °C gacha (5 l/soat)"},{"key":"Sovutish","value":"Kompressorli 5-10 °C gacha"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_delonghi-magnifica-s-ecam-kofe-mashina', 'Qahva mashinasi DeLonghi Magnifica S ECAM 22.110.B ofis uchun', 'delonghi-magnifica-s-ecam-kofe-mashina', 'DEL-MAG-S', 'Yangi yanchilgan donali qahvadan espresso va kapuchino tayyorlovchi italyan kofe mashinasi.', 7300000, 8100000, 10, 'Xo‘jalik tovarlari', 'hozyajstvennye-tovary', '', 'DeLonghi', 8, TRUE, 5, 42, '["https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&auto=format&fit=crop&q=80"]'::jsonb, TRUE, FALSE, FALSE, '[{"key":"Bosim","value":"15 Bar professional pompa"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_grass-office-box-tozalash-vositalari', 'Professional tozalash vositalari to‘plami Grass Office Box', 'grass-office-box-tozalash-vositalari', 'GRASS-OFFICE-BOX', 'Ofis pollari, derazalar, mebel va sanitariya xonalari uchun 6 xil konsentrat vosita.', 260000, 310000, 16, 'Xo‘jalik tovarlari', 'hozyajstvennye-tovary', '', 'Grass', 95, TRUE, 4.9, 53, '["https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, TRUE, '[{"key":"Tarkibi","value":"6 xil vosita + mikrofibra sochiqlar"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES ('prod_xiaomi-robot-vacuum-s10-laser', 'Xiaomi Robot Vacuum S10 ofis pol tozalagich aqlli changyutgich', 'xiaomi-robot-vacuum-s10-laser', 'MI-ROBOT-S10', 'Lazerli navigatsiya (LDS) va 4000 Pa kuchli so‘rish quvvatiga ega robot-changyutgich.', 2850000, 3300000, 14, 'Xo‘jalik tovarlari', 'hozyajstvennye-tovary', '', 'Xiaomi', 18, TRUE, 4.9, 29, '["https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop&q=80"]'::jsonb, FALSE, FALSE, FALSE, '[{"key":"Navigatsiya","value":"LDS Lazerli 360° xaritalash"},{"key":"Quvvati","value":"4000 Pa kuchli turbo so‘rish"}]'::jsonb)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, stock = EXCLUDED.stock, images = EXCLUDED.images;
-
--- Insert Banners
-INSERT INTO public.banners (id, title, subtitle, badge, image, link, type, bg_color, text_color, display_order, active)
-VALUES ('banner_1', 'Noutbuklar va Zamonaviy IT Texnikalar', 'Eng so‘nggi avlod Apple MacBook, ASUS, Lenovo, HP noutbuklari', 'NEXT NOUT — Yangi Avlod', 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop&q=85', '/shop', 'hero', '#000000', '#ffffff', 1, TRUE)
-ON CONFLICT (id) DO UPDATE SET title = EXCLUDED.title, image = EXCLUDED.image;
-INSERT INTO public.banners (id, title, subtitle, badge, image, link, type, bg_color, text_color, display_order, active)
-VALUES ('banner_2', 'Apple MacBook Pro M3 & Server Texnikalari', 'Buxoro korxonalari va IT mutaxassislari uchun maxsus takliflar', 'Apple & IT Ishchi Stansiyalar', 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=1600&auto=format&fit=crop&q=85', '/shop?tag=bestseller', 'hero', '#0a0a0a', '#ffffff', 2, TRUE)
-ON CONFLICT (id) DO UPDATE SET title = EXCLUDED.title, image = EXCLUDED.image;
-
--- Insert Coupons
-INSERT INTO public.coupons (id, code, discount_percent, expiry_date, active)
-VALUES ('coupon_1', 'NSB2026', 10, '2026-12-31T23:59:59.000Z', TRUE)
-ON CONFLICT (code) DO UPDATE SET discount_percent = EXCLUDED.discount_percent;
-INSERT INTO public.coupons (id, code, discount_percent, expiry_date, active)
-VALUES ('coupon_2', 'BUKHARA5', 5, '2026-12-31T23:59:59.000Z', TRUE)
-ON CONFLICT (code) DO UPDATE SET discount_percent = EXCLUDED.discount_percent;
-
--- Insert Reviews
-INSERT INTO public.reviews (id, product_id, product_title, user_name, user_email, rating, comment, verified_purchase, status)
-VALUES ('rev_1', 'prod_apple-macbook-pro-16-m3-max', 'Apple MacBook Pro 16" M3 Max (36GB RAM, 1TB SSD, Space Black)', 'Aziz Raximov', 'aziz@bukhara.uz', 5, 'NSB orqali butun ofisimiz uchun noutbuklar va orgtexnika xarid qildik. Buyurtma 2 soat ichida yetib keldi, hisob-fakturalar Didox orqali tasdiqlandi. 100% ishonchli!', TRUE, 'approved')
-ON CONFLICT (id) DO NOTHING;
-INSERT INTO public.reviews (id, product_id, product_title, user_name, user_email, rating, comment, verified_purchase, status)
-VALUES ('rev_2', 'prod_apple-macbook-air-15-m3-starlight', 'Apple MacBook Air 15" M3 (16GB RAM, 512GB SSD, Starlight)', 'Nodira Salimova', 'nodira@zarafshon.it', 5, 'Apple MacBook Pro stansiyalarini buyurtma qildik. Rasmiy kafolati bor, qadoqlari butun va toza. Buxoroda professional korporativ xizmat a’lo darajada.', TRUE, 'approved')
-ON CONFLICT (id) DO NOTHING;
-INSERT INTO public.reviews (id, product_id, product_title, user_name, user_email, rating, comment, verified_purchase, status)
-VALUES ('rev_3', 'prod_lenovo-thinkpad-e16-gen1-core-i7', 'Noutbuk Lenovo ThinkPad E16 Gen 1 (Core i7-1355U, 16GB, 512GB SSD)', 'Jamshid Toirov', 'jamshid@neft.uz', 5, 'Ulgurji narxlar va to‘g‘ridan-to‘g‘ri shartnoma tuzish juda qulay. Barcha kantselyariya va ofis jihozlarini faqat shu yerdan xarid qilamiz.', TRUE, 'approved')
-ON CONFLICT (id) DO NOTHING;
-
--- Insert Orders
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100240', 'NSB-100240', 'Bekzod Karimov', '+998 90 123 45 67', 'Buxoro', 'Mustaqillik ko‘chasi, 24-uy', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-macbook-pro-16-m3-max","product_id":"prod_apple-macbook-pro-16-m3-max","title":"Apple MacBook Pro 16\" M3 Max (36GB RAM, 1TB SSD, Space Black)","price":42500000,"quantity":1,"image":"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1000&auto=format&fit=crop&q=80"},{"product":"prod_apple-ipad-pro-13-m4-wifi-256gb","product_id":"prod_apple-ipad-pro-13-m4-wifi-256gb","title":"Apple iPad Pro 13\" M4 Wi-Fi 256GB Space Black","price":16200000,"quantity":1,"image":"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 58700000, 0, 'click', 'paid', 'delivered', 'standard', '2026-11-07T06:00:34.342Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100241', 'NSB-100241', 'Shahzod Aliyev', '+998 91 445 11 22', 'Buxoro', 'Ibn Sino ko‘chasi, 12-uy', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-macbook-air-15-m3-starlight","product_id":"prod_apple-macbook-air-15-m3-starlight","title":"Apple MacBook Air 15\" M3 (16GB RAM, 512GB SSD, Starlight)","price":21800000,"quantity":2,"image":"https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&auto=format&fit=crop&q=80"},{"product":"prod_apple-magic-keyboard-touchid-numeric","product_id":"prod_apple-magic-keyboard-touchid-numeric","title":"Apple Magic Keyboard with Touch ID and Numeric Keypad","price":2600000,"quantity":2,"image":"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 48800000, 0, 'payme', 'pending', 'processing', 'standard', '2026-11-11T05:00:34.342Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100242', 'NSB-100242', 'Nodira Xoliqova', '+998 93 333 88 99', 'Kogon', 'Navoiy shoh ko‘chasi, 8-dom', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-macbook-air-13-m2-midnight","product_id":"prod_apple-macbook-air-13-m2-midnight","title":"Apple MacBook Air 13\" M2 (8GB RAM, 256GB SSD, Midnight)","price":13400000,"quantity":3,"image":"https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&auto=format&fit=crop&q=80"},{"product":"prod_apple-magic-mouse-black-wireless","product_id":"prod_apple-magic-mouse-black-wireless","title":"Apple Magic Mouse Wireless (Black Multi-Touch Surface)","price":1450000,"quantity":1,"image":"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 41650000, 0, 'cash', 'pending', 'new', 'standard', '2026-11-12T04:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100243', 'NSB-100243', '«Buxoro Qurilish Servis» MCHJ', '+998 97 700 20 20', 'Buxoro', 'Sanoat hududi, 5-bino', '12% QQS bilan shartnoma talab qilinadi', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-ipad-pro-13-m4-wifi-256gb","product_id":"prod_apple-ipad-pro-13-m4-wifi-256gb","title":"Apple iPad Pro 13\" M4 Wi-Fi 256GB Space Black","price":16200000,"quantity":1,"image":"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80"},{"product":"prod_logitech-mx-master-3s-wireless","product_id":"prod_logitech-mx-master-3s-wireless","title":"Ergonomik simsiz sichqoncha Logitech MX Master 3S Wireless","price":1650000,"quantity":2,"image":"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=1000&auto=format&fit=crop&q=80"}]'::jsonb, 19500000, 0, 'bank_transfer', 'paid', 'delivered', 'standard', '2026-11-06T03:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100244', 'NSB-100244', 'Jasur Temirov', '+998 90 555 44 33', 'G‘ijduvon', 'Yusuf Hamadoniy ko‘chasi, 15', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-magic-keyboard-touchid-numeric","product_id":"prod_apple-magic-keyboard-touchid-numeric","title":"Apple Magic Keyboard with Touch ID and Numeric Keypad","price":2600000,"quantity":2,"image":"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80"},{"product":"prod_logitech-m220-silent-wireless-mouse","product_id":"prod_logitech-m220-silent-wireless-mouse","title":"Simsiz ofis sichqonchasi Logitech M220 Silent Wireless","price":195000,"quantity":1,"image":"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 5395000, 0, 'click', 'pending', 'shipped', 'standard', '2026-11-10T02:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100245', 'NSB-100245', 'Aziza Rahimova', '+998 99 812 34 56', 'Buxoro', 'Bahouddin Naqshband, 45', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_apple-magic-mouse-black-wireless","product_id":"prod_apple-magic-mouse-black-wireless","title":"Apple Magic Mouse Wireless (Black Multi-Touch Surface)","price":1450000,"quantity":3,"image":"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80"},{"product":"prod_delux-m618c-vertical-ergonomic-mouse","product_id":"prod_delux-m618c-vertical-ergonomic-mouse","title":"Simsiz vertikal ergonomik sichqoncha Delux M618C RGB","price":280000,"quantity":2,"image":"https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 4910000, 0, 'payme', 'paid', 'delivered', 'standard', '2026-11-08T01:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100246', 'NSB-100246', '«Oasis Tech» IT Hub', '+998 95 155 45 00', 'Buxoro', 'Universitet ko‘chasi, 1-bino', '12% QQS bilan shartnoma talab qilinadi', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_logitech-mx-master-3s-wireless","product_id":"prod_logitech-mx-master-3s-wireless","title":"Ergonomik simsiz sichqoncha Logitech MX Master 3S Wireless","price":1650000,"quantity":1,"image":"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=1000&auto=format&fit=crop&q=80"},{"product":"prod_logitech-mk295-silent-wireless-combo","product_id":"prod_logitech-mk295-silent-wireless-combo","title":"Simsiz klaviatura va sichqoncha to‘plami Logitech MK295 Silent Combo","price":480000,"quantity":1,"image":"https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 2130000, 0, 'bank_transfer', 'paid', 'delivered', 'standard', '2026-11-09T00:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100247', 'NSB-100247', 'Farrux Saidov', '+998 94 222 10 30', 'Vobkent', 'Markaziy ko‘cha, 7', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_logitech-m220-silent-wireless-mouse","product_id":"prod_logitech-m220-silent-wireless-mouse","title":"Simsiz ofis sichqonchasi Logitech M220 Silent Wireless","price":195000,"quantity":2,"image":"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"},{"product":"prod_redragon-k552-kumara-rgb-mechanical","product_id":"prod_redragon-k552-kumara-rgb-mechanical","title":"Mexanik RGB klaviatura Redragon K552 Kumara Blue Switches","price":450000,"quantity":2,"image":"https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 1290000, 0, 'cash', 'pending', 'new', 'standard', '2026-11-11T23:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100248', 'NSB-100248', 'Dilshod Normatov', '+998 91 999 00 11', 'Qorako‘l', 'Buyuk Ipak Yo‘li, 29', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_delux-m618c-vertical-ergonomic-mouse","product_id":"prod_delux-m618c-vertical-ergonomic-mouse","title":"Simsiz vertikal ergonomik sichqoncha Delux M618C RGB","price":280000,"quantity":3,"image":"https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=600&auto=format&fit=crop&q=80"},{"product":"prod_razer-gigantus-v2-large-mousepad","product_id":"prod_razer-gigantus-v2-large-mousepad","title":"Katta ofis va o‘yin gilamchasi Razer Gigantus V2 Large (450x400 mm)","price":210000,"quantity":1,"image":"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 1050000, 0, 'click', 'pending', 'processing', 'standard', '2026-11-10T22:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100249', 'NSB-100249', '«Zarafshon Agro» XK', '+998 93 456 78 90', 'Buxoro', 'Hamza ko‘chasi, 14', '12% QQS bilan shartnoma talab qilinadi', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_logitech-mk295-silent-wireless-combo","product_id":"prod_logitech-mk295-silent-wireless-combo","title":"Simsiz klaviatura va sichqoncha to‘plami Logitech MK295 Silent Combo","price":480000,"quantity":1,"image":"https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=600&auto=format&fit=crop&q=80"},{"product":"prod_lenovo-thinkpad-e16-gen1-core-i7","product_id":"prod_lenovo-thinkpad-e16-gen1-core-i7","title":"Noutbuk Lenovo ThinkPad E16 Gen 1 (Core i7-1355U, 16GB, 512GB SSD)","price":11200000,"quantity":2,"image":"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 22880000, 0, 'bank_transfer', 'paid', 'delivered', 'standard', '2026-11-04T21:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100250', 'NSB-100250', 'Malika Ergasheva', '+998 90 888 77 66', 'Kogon', 'Temiryo‘lchilar ko‘chasi, 3', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_redragon-k552-kumara-rgb-mechanical","product_id":"prod_redragon-k552-kumara-rgb-mechanical","title":"Mexanik RGB klaviatura Redragon K552 Kumara Blue Switches","price":450000,"quantity":2,"image":"https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&auto=format&fit=crop&q=80"},{"product":"prod_asus-zenbook-14-oled-ultra7","product_id":"prod_asus-zenbook-14-oled-ultra7","title":"Noutbuk ASUS ZenBook 14 OLED (Intel Core Ultra 7, 32GB RAM, 1TB SSD)","price":16900000,"quantity":1,"image":"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 17800000, 0, 'cash', 'failed', 'cancelled', 'standard', '2026-11-08T20:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-INSERT INTO public.orders (id, order_number, customer_name, customer_phone, city, address, notes, coordinates, location_url, items, total_amount, delivery_fee, payment_method, payment_status, order_status, delivery_type, created_at)
-VALUES ('ord_100251', 'NSB-100251', 'Sherzod Po‘latov', '+998 97 123 98 76', 'Buxoro', 'Abu Ali Ibn Sino 88', 'Tezkor yetkazish', '{"lat":39.7681,"lon":64.4556}'::jsonb, 'https://yandex.uz/maps/?pt=64.4556,39.7681&z=15', '[{"product":"prod_razer-gigantus-v2-large-mousepad","product_id":"prod_razer-gigantus-v2-large-mousepad","title":"Katta ofis va o‘yin gilamchasi Razer Gigantus V2 Large (450x400 mm)","price":210000,"quantity":3,"image":"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=80"},{"product":"prod_dell-optiplex-7010-micro","product_id":"prod_dell-optiplex-7010-micro","title":"Tizimli blok Dell OptiPlex 7010 Micro (Core i5-13500T, 16GB, 512GB SSD)","price":7900000,"quantity":2,"image":"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&auto=format&fit=crop&q=80"}]'::jsonb, 16430000, 0, 'click', 'pending', 'new', 'standard', '2026-11-11T19:00:34.343Z')
-ON CONFLICT (order_number) DO NOTHING;
-
--- ------------------------------------------------------------------------------
--- SPORT & FITNES: Gantel podstavka SC80263
--- ------------------------------------------------------------------------------
-INSERT INTO public.categories (id, name, slug, icon, description, image, display_order, active)
-VALUES ('cat_sport-fitnes', 'Sport va Fitnes', 'sport-fitnes', 'Activity', 'Sport va fitnes anjomlari Buxoro bo''yicha kafolatli yetkazib berish', '', 9, TRUE)
-ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, icon = EXCLUDED.icon, description = EXCLUDED.description;
-
-INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
-VALUES (
-    'prod_gantel-podstavka-sc80263',
-    'Gantel podstavka SC80263',
-    'gantel-podstavka-sc80263',
-    '0455763',
-    'Gantel podstavka SC80263 (Kodi: 0455763, Narxi: 75$). Mustahkam po''lat konstruksiyaga ega professional gantel qo''yish stoykasi. A-shaklli qulay va ixcham dizayn.',
-    960000,
-    1100000,
-    13,
-    'Sport va Fitnes',
-    'sport-fitnes',
-    'Gantellar va Stoykalar',
-    'Sport Line',
-    15,
-    TRUE,
-    5.0,
-    6,
-    '["/uploads/gantel-podstavka-sc80263.png"]'::jsonb,
-    TRUE,
-    TRUE,
-    TRUE,
-    '[{"label": "Model", "value": "SC80263"}, {"label": "Mahsulot kodi", "value": "0455763"}, {"label": "Narxi (USD)", "value": "75$"}, {"label": "Material", "value": "Mustahkam qotishma po''lat"}, {"label": "Sig''imi", "value": "6 juft gantellar uchun"}, {"label": "Yetkazib berish", "value": "Buxoro bo''ylab bepul"}]'::jsonb
-)
-ON CONFLICT (slug) DO UPDATE SET price = EXCLUDED.price, images = EXCLUDED.images;
+-- SEED PRODUCTS
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-trep-0405', 'Grif  Trep', 'grif-trep-0405', '', 'Vazni : 22.5kg
+Narxi: 95$', 1220750, 1403863, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-trep-4765_1.jpg","/uploads/prod_grif-trep-4765_2.jpg","/uploads/prod_grif-trep-4765_3.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-a31a-5163', 'MASAJ KRESLO A31A', 'masaj-kreslo-a31a-5163', '', 'Madel: A002 black brown
+Narxi : 730$
+➖ Maks foydalanuvchi vazni: 150kg
+➖ Gravitasiya rejimi (vazinsizlik)
+➖ To''liq tana massaji havo bosimi orqali masaj qlinadi  va 16 etapda  intensivligi sozlanadi
+➖ Tovonlarni rolik orqaki masaj qilish
+➖ Belni qizdirish orqali masaj qilish funksiyasi.
+➖ Havo yostig''ini siqish orqali oyoq va tovonlar masaji.
+➖ Oyoq va bel  isitish funksiyasi.
+➖Yelkaning holatini aniqlash va masaj qilish funksiyasi
+➖16 ta avto masaj va 4 ta qolda boshqariladgan masaj turi', 9380500, 10787575, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-5140_2.jpg","/uploads/prod_masaj-kreslo-5140_3.jpg","/uploads/prod_masaj-kreslo-5140_4.jpg","/uploads/prod_masaj-kreslo-5140_5.jpg","/uploads/prod_masaj-kreslo-5140_6.jpg","/uploads/prod_masaj-kreslo-5140_7.jpg","/uploads/prod_masaj-kreslo-a31a-5331_1.jpg","/uploads/prod_masaj-kreslo-a31a-5331_2.jpg","/uploads/prod_masaj-kreslo-a31a-5331_3.jpg","/uploads/prod_masaj-kreslo-a31a-5331_4.jpg","/uploads/prod_masaj-kreslo-a31a-5331_5.jpg","/uploads/prod_masaj-kreslo-a31a-5331_6.jpg","/uploads/prod_masaj-kreslo-a31a-5331_7.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-am183-4117', 'Masaj kreslo AM183', 'masaj-kreslo-am183-4117', '', 'Narxi : 970$ Black
+➖ Maks foydalanuvchi vazni: 150kg
+➖ 3D massaj roliklari
+➖ Gravitasiya rejimi (vazinsizlik)
+➖ Tanani skanerlash va mos massaj qilish tizimi
+➖ Belni isitadi
+➖ Simsiz telefonni quvvatlash va smartfonda vide ko''rish mumkin
+➖  Bluetooth orqali yon tomonlarida audio eshitish
+➖ Barmoq orqali salomatlik diagnozi
+➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari
+➖ Havoli massaj yostiqchalari
+➖  Ovozli va sensor displeyli boshqaruv', 12464500, 14334175, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-am183-5185_1.jpg","/uploads/prod_masaj-kreslo-am183-5185_2.jpg","/uploads/prod_masaj-kreslo-am183-5185_3.jpg","/uploads/prod_masaj-kreslo-am183-5185_4.jpg","/uploads/prod_masaj-kreslo-am183-5185_5.jpg","/uploads/prod_masaj-kreslo-am183-5185_6.jpg","/uploads/prod_masaj-kreslo-am183-5185_7.jpg","/uploads/prod_masaj-kreslo-6358_1.jpg","/uploads/prod_masaj-kreslo-6358_2.jpg","/uploads/prod_masaj-kreslo-6358_3.jpg","/uploads/prod_masaj-kreslo-6358_4.jpg","/uploads/prod_masaj-kreslo-6358_5.jpg","/uploads/prod_masaj-kreslo-6358_6.jpg","/uploads/prod_masaj-kreslo-5132_1.jpg","/uploads/prod_masaj-kreslo-5132_2.jpg","/uploads/prod_masaj-kreslo-5132_3.jpg","/uploads/prod_masaj-kreslo-5132_4.jpg","/uploads/prod_masaj-kreslo-5132_5.jpg","/uploads/prod_masaj-kreslo-5132_6.jpg","/uploads/prod_masaj-kreslo-5132_7.jpg","/uploads/prod_masaj-kreslo-5146_1.jpg","/uploads/prod_masaj-kreslo-5146_2.jpg","/uploads/prod_masaj-kreslo-5146_3.jpg","/uploads/prod_masaj-kreslo-5146_4.jpg","/uploads/prod_masaj-kreslo-5146_5.jpg","/uploads/prod_masaj-kreslo-5146_6.jpg","/uploads/prod_masaj-kreslo-5146_7.jpg","/uploads/prod_masaj-kreslo-5152_1.jpg","/uploads/prod_masaj-kreslo-5152_2.jpg","/uploads/prod_masaj-kreslo-5152_3.jpg","/uploads/prod_masaj-kreslo-5152_4.jpg","/uploads/prod_masaj-kreslo-5152_5.jpg","/uploads/prod_masaj-kreslo-5152_6.jpg","/uploads/prod_masaj-kreslo-5152_7.jpg","/uploads/prod_masaj-kreslo-am183-5195_1.jpg","/uploads/prod_masaj-kreslo-am183-5195_2.jpg","/uploads/prod_masaj-kreslo-am183-5195_3.jpg","/uploads/prod_masaj-kreslo-am183-5195_4.jpg","/uploads/prod_masaj-kreslo-am183-5195_5.jpg","/uploads/prod_masaj-kreslo-am183-5195_6.jpg","/uploads/prod_masaj-kreslo-am183-5195_7.jpg","/uploads/prod_masaj-kreslo-am183-5149_1.jpg","/uploads/prod_masaj-kreslo-am183-5149_2.jpg","/uploads/prod_masaj-kreslo-am183-5149_3.jpg","/uploads/prod_masaj-kreslo-am183-5149_4.jpg","/uploads/prod_masaj-kreslo-am183-5149_5.jpg","/uploads/prod_masaj-kreslo-am183-5149_6.jpg","/uploads/prod_masaj-kreslo-am183-5149_7.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-xitoy-7222', 'Gantel podstavka xitoy', 'gantel-podstavka-xitoy-7222', '', 'Model: MD6244
+Narxi: 335$✅', 4304750, 4950463, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_gantel-podstavka-xitoy-5056_1.jpg","/uploads/prod_gantel-podstavka-xitoy-5056_2.jpg","/uploads/prod_gantel-podstavka-xitoy-5056_3.jpg","/uploads/prod_gantel-podstavka-xitoy-5056_4.jpg","/uploads/prod_gantel-podstavka-xitoy-5056_5.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-g6-0119', 'Masaj kreslo G6', 'masaj-kreslo-g6-0119', '', 'Narxi: 1030$
+➖ Maks foydalanuvchi vazni: 150kg
+➖ 135 smlik butun tana uchun SL massaj relyesi
+➖  2D massaj roliklari
+➖  Gravitasiya rejimi (tepaga ko''taradi)
+➖  Tanani skanerlash va mos massaj qilish tizimi
+➖ Belni isitadi
+➖ Simsiz telefonni quvvatlash va smartfonda vide ko''rish mumkin
+➖  Bluetooth orqali yon tomonlarida audio eshitish
+➖ Barmoq orqali salomatlik diagnozi
+➖  12 ta avtomatik va 8 ta ruchnoy massaj rejimlari
+➖ Havoli massaj yostiqchalari
+➖  Ovozli va sensor displeyli boshqaruv', 13235500, 15220825, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-g6-5170_1.jpg","/uploads/prod_masaj-kreslo-g6-5170_2.jpg","/uploads/prod_masaj-kreslo-g6-5170_3.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-lb-podstavka-2668', 'Gantel lb podstavka', 'gantel-lb-podstavka-2668', '0449641', 'Kodi: 0449641
+Narxi: 160$✅', 2056000, 2364400, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_gantel-lb-podstavka-5222_1.jpg","/uploads/prod_gantel-lb-podstavka-5222_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"0449641"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-ax-1007-4308', 'Masaj kreslo AX-1007', 'masaj-kreslo-ax-1007-4308', '', 'Narxi: 1550$
+➖Tanani skanerlash va moslashib massaj qilish
+➖ Barmoq orqali salomatlik diagnozi
+➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo''shatish
+➖ Tailandcha chigal yozish rejimi mavjud.
+➖ Belni qizdirish
+➖ Simsiz telefonni quvvatlash
+➖ Maks foydalanuvchi vazni: 150kg
+➖  Bluetooth orqali audio musiqa eshitish', 19917500, 22905125, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-ax-1007-3313_1.jpg","/uploads/prod_masaj-kreslo-ax-1007-3313_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-zig-zag-1-2m-sc-80187-5299', 'Grif zig zag 1.2m sc-80187', 'grif-zig-zag-1-2m-sc-80187-5299', '0463075', 'Kodi: 0463075
+Narxi: 33$', 424050, 487657, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-zig-zag-1-2m-sc-80187-5201_1.jpg","/uploads/prod_grif-zig-zag-1-2m-sc-80187-5201_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"0463075"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-zig-zag-sc-80188-120cm-7823', 'Grif zig zag sc-80188 120cm', 'grif-zig-zag-sc-80188-120cm-7823', '', 'Uzunligi : 1.2m
+Narxi : 20$', 257000, 295550, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-zig-zag-sc-80188-120cm-5249_1.jpg","/uploads/prod_grif-zig-zag-sc-80188-120cm-5249_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-zig-zag-sc-80189-150cm-9702', 'Grif zig zag sc-80189 150cm', 'grif-zig-zag-sc-80189-150cm-9702', '', 'Uzunligi: 1.5m
+Narxi : 24$', 308400, 354660, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-zig-zag-sc-80189-150cm-5178_1.jpg","/uploads/prod_grif-zig-zag-sc-80189-150cm-5178_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-zig-zag-1-2m-sc-80186-0900', 'Grif zig zag  1.2m sc-80186', 'grif-zig-zag-1-2m-sc-80186-0900', '0462910', 'Kodi: 0462910
+Narxi : 32$', 411200, 472880, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-zig-zag-1-2m-sc-80186-5228_1.jpg","/uploads/prod_grif-zig-zag-1-2m-sc-80186-5228_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"0462910"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-ax-1008-1478', 'Masaj kreslo AX-1008', 'masaj-kreslo-ax-1008-1478', '', 'Narxi: 1210$
+➖Tanani skanerlash va moslashib massaj qilish
+➖ Barmoq orqali salomatlik diagnozi
+➖ Belni qizdirish
+➖ Tailandcha chigal yozish rejimi mavjud.
+➖ Simsiz telefonni quvvatlash
+➖ Maks foydalanuvchi vazni: 150kg
+➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin1. Foydalanuvchi Maks.', 15548500, 17880775, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-ax-1008-5164_1.jpg","/uploads/prod_masaj-kreslo-ax-1008-5164_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-ax-1006-3900', 'Masaj kreslo AX-1006', 'masaj-kreslo-ax-1006-3900', '', 'Narxi: 1630$
+➖Tanani skanerlash va moslashib massaj qilish
+➖ Barmoq orqali salomatlik diagnozi
+➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo''shatish
+➖ Tailandcha chigal yozish rejimi mavjud.
+➖ Belni qizdirish
+➖ Simsiz telefonni quvvatlash
+➖ Maks foydalanuvchi vazni: 150kg
+➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin', 20945500, 24087325, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_masaj-kreslo-ax-1006-5190_1.jpg","/uploads/prod_masaj-kreslo-ax-1006-5190_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_grif-olimpiski-8994', 'Grif olimpiski', 'grif-olimpiski-8994', '8444261', 'Kodi: 8444261
+Uzunligi 2.2m
+Ko''tarish og''irligi 1500LB ( 680kg )
+O''zini vazni : 20kg
+Podchivnikli
+Narxi : 120$', 1542000, 1773300, 13, 'Gantellar & Shtangalar', 'gantellar', '', 'Sport Line', 15, true, 5, 0, '["/uploads/prod_grif-olimpiski-5214_1.jpg","/uploads/prod_grif-olimpiski-5214_2.jpg","/uploads/prod_grif-olimpiski-5301_1.jpg","/uploads/prod_grif-olimpiski-5301_2.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_masaj-kreslo-m11b-0982', 'Masaj kreslo M11B', 'masaj-kreslo-m11b-0982', '', 'Narxi : 550$
+1. Foydalanuvchi Maks. Vazni: 150 kg
+2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.
+3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.
+4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.
+5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.
+6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma''lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi
+7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar', 7067500, 8127625, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 12, true, 5, 0, '["/uploads/prod_masaj-kreslo-m11b-5156_1.jpg","/uploads/prod_masaj-kreslo-m11b-5156_2.jpg","/uploads/prod_masaj-kreslo-m11b-5156_3.jpg","/uploads/prod_masaj-kreslo-m11b-5156_4.jpg","/uploads/prod_masaj-kreslo-m11b-5156_5.jpg","/uploads/prod_masaj-kreslo-m11b-5156_6.jpg","/uploads/prod_masaj-kreslo-m11b-5156_7.jpg","/uploads/prod_masaj-kreslo-m11b-0158.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kodi","value":"SPORT-OUTLET"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_stol-tennis-k2008-6770', 'Stol Tennis: K2008', 'stol-tennis-k2008-6770', '', 'ITTF standartidan o''tgan
+25 mm MDF ustki qismi
+Ramka 60 mm
+Oyoqlari 50x50 mm
+100 mm diametrli g''ildiraklar
+Narxi: 750$', 9600000, 11000000, 13, 'Futbol & To‘plar', 'toplar-oyinlar', '', 'Sport Line', 10, true, 5, 0, '["/uploads/prod_stol-tennis-k2008-6770.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157', 'Professional Tatami 1x1m (Sport Qoplamasi)', 'professional-tatami-1x1m', '', 'Professional Tatami 1x1m sport qoplamasi. Qalinliklari: 2 sm, 2.5 sm, 3 sm, 4 sm. Rangi: Qizil-ko‘k, Sariq-yashil, Seriy-qora ikki tomonlama qoplama. Boks, dzyudo, karate, taekvondo va fitnes zallari uchun xavfsiz va qulay qoplama.', 160000, 185000, 13, 'Boks & Yakka Kurash', 'boks-yakka-kurash', '', 'Sport Line', 10, true, 5, 0, '["/uploads/prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157.jpg","/uploads/prod_yangi-mahsulot-1141.jpg","/uploads/prod_yangi-mahsulot-4815.jpg","/uploads/prod_yangi-mahsulot-5248.jpg","/uploads/prod_yangi-mahsulot-6210.jpg"]'::jsonb, '[{"id":"var_2sm","name":"2 sm","fullName":"Tatami 1x1m (Qalinligi: 2 sm)","price":160000,"oldPrice":185000,"priceUSD":12.5,"colors":["Qizil-ko‘k"]},{"id":"var_2_5sm","name":"2.5 sm","fullName":"Tatami 1x1m (Qalinligi: 2.5 sm)","price":173000,"oldPrice":200000,"priceUSD":13.5,"colors":["Sariq-yashil","Qizil-ko‘k","Seriy-qora"]},{"id":"var_3sm","name":"3 sm","fullName":"Tatami 1x1m (Qalinligi: 3 sm)","price":180000,"oldPrice":210000,"priceUSD":14,"colors":["Qizil-ko‘k"]},{"id":"var_4sm","name":"4 sm","fullName":"Tatami 1x1m (Qalinligi: 4 sm)","price":218000,"oldPrice":250000,"priceUSD":17,"colors":["Qizil-ko‘k","Sariq-yashil","Seriy-qora"]}]'::jsonb, true, true, false, '[{"label":"O‘lchami","value":"1m x 1m"},{"label":"Qalinligi","value":"2 sm dan 4 sm gacha"},{"label":"Mavjud ranglar","value":"Qizil-ko‘k, Sariq-yashil, Seriy-qora"},{"label":"Qulflanish turi","value":"Qaldirg‘och dum (pazel) qulf"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-an-001-8998', 'Gantel podstavka an-001', 'gantel-podstavka-an-001-8998', '0455407', 'Kodi: 0455407
+Narxi: 290$', 3712000, 4250000, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 10, true, 5, 0, '["/uploads/prod_gantel-podstavka-an-001-8998.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-ax003-2670', 'Gantel podstavka AX003', 'gantel-podstavka-ax003-2670', '', 'Sigimi: 6 par gantel
+Narxi: 195$', 2496000, 2850000, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 10, true, 5, 0, '["/uploads/prod_gantel-podstavka-ax003-2670.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-sc80262-4326', 'Gantel podstavka SC80262', 'gantel-podstavka-sc80262-4326', '0455598', 'Kodi: 0455598
+Narxi: 95$', 1216000, 1400000, 13, 'Podstavka & Skameykalar', 'stoykalar', '', 'Sport Line', 10, true, 5, 0, '["/uploads/prod_gantel-podstavka-sc80262-4326.jpg"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Sport Line"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo‘ylab bepul"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-sc80263', 'Gantel podstavka SC80263', 'gantel-podstavka-sc80263', '0455763', 'Gantel podstavka SC80263 (Kodi: 0455763, Narxi: 75$). Mustahkam po''lat konstruksiyaga ega professional gantel qo''yish stoykasi. A-shaklli qulay va ixcham dizayn, gantellarni tartibli saqlash uchun mo''ljallangan. Buxoro bo''yicha tezkor yetkazib berish.', 960000, 1100000, 13, 'Podstavka & Skameykalar', 'stoykalar', 'Gantel Stoykalari', 'Sport Line', 15, true, 5, 8, '["/uploads/gantel-podstavka-sc80263.png"]'::jsonb, '[]'::jsonb, true, true, true, '[{"label":"Model","value":"SC80263"},{"label":"Mahsulot kodi","value":"0455763"},{"label":"Narxi (USD)","value":"75$"},{"label":"Material","value":"Mustahkam qotishma po''lat (Black powder coating)"},{"label":"Shakl","value":"A-Frame ixcham va xavfsiz dizayn"},{"label":"Sig''imi","value":"6 juft gantellar uchun maxsus qavslar"},{"label":"Kafolat","value":"1 yil rasmiy kafolat"},{"label":"Yetkazib berish","value":"Buxoro bo''ylab bepul va tezkor"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_yugurish-yolakchasi-proform-t800', 'Professional Yugurish Yo‘lakchasi ProForm T800', 'yugurish-yolakchasi-proform-t800', '0455801', '3.5 Ot kuchiga ega shovqinsiz kuchli dvigatel, avtomatik 15% qiyalik burchagi, 8 pog‘onali bo‘g‘inlarni asrovchi amortizatsiya tizimi va sensorli LED displey.', 8500000, 9800000, 13, 'Trenajorlar & Kardio', 'trenajorlar', 'Yugurish yo‘lakchalari', 'ProForm', 8, true, 5, 14, '["https://images.unsplash.com/photo-1576678927484-cc907957088c?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Dvigatel quvvati","value":"3.5 HP (Doimiy quvvat)"},{"label":"Tezlik diapazoni","value":"1 - 18 km/soat"},{"label":"Maksimal yuklama","value":"140 kg"},{"label":"Yugurish maydoni","value":"135 x 48 sm"},{"label":"Kafolat","value":"2 yil rasmiy kafolat"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_multi-gym-station-hg500', 'Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500', 'multi-gym-station-hg500', '0455802', 'Ko‘krak, yelka, orqa, bisept, trisept va oyoq mushaklari uchun 15 dan ortiq mashqlarni bajaruvchi universal trenajor. 75 kg li xavfsiz blokli yuklar to‘plami.', 12800000, 14500000, 12, 'Trenajorlar & Kardio', 'trenajorlar', 'Kuch trenajorlari', 'IronPower', 5, true, 4.9, 11, '["https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, false, true, '[{"label":"Og‘irlik bloki","value":"75 kg (Kauchuklangan disklarda)"},{"label":"Konstruksiya","value":"50x70 mm mustahkam po‘lat profil"},{"label":"Maksimal foydalanuvchi vazni","value":"150 kg"},{"label":"Kafolat","value":"3 yil servis xizmati"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_velotrenajor-spin-bike-sb300', 'Magnitli Velotrenajor Spining Bike SB-300', 'velotrenajor-spin-bike-sb300', '0455803', '18 kg li og‘ir maxovik, magnitli ovozsiz yuklash tizimi, qulay anatomik sport o‘rindig‘i va smartfon ushlagichi bilan.', 3200000, 3700000, 14, 'Trenajorlar & Kardio', 'trenajorlar', 'Velotrenajorlar', 'Sport Life', 12, true, 4.8, 9, '["https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, false, false, '[{"label":"Maxovik vazni","value":"18 kg"},{"label":"Tizim","value":"Kamarlik, ovozsiz magnit"},{"label":"Displey","value":"Tezlik, masofa, kaloriya, puls"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantellar-toplami-rubber-hex', 'Professional Kauchukli Gantellar To‘plami (2.5kg - 25kg)', 'gantellar-toplami-rubber-hex', '0455804', 'Olti burchakli (Hex) xrom tutqichli rezinalangan mustahkam gantellar to‘plami. Polga zarar yetkazmaydi, xavfsiz va qulay.', 5400000, 6200000, 13, 'Gantellar & Shtangalar', 'gantellar', 'Gantellar', 'IronPower', 10, true, 5, 16, '["https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Qoplamasi","value":"Yuqori zichlikdagi tabiiy kauchuk"},{"label":"Tutqich","value":"Sirpanmaydigan riflyoniy xrom po‘lat"},{"label":"Vaznlar","value":"2.5kg, 5kg, 7.5kg, 10kg, 12.5kg, 15kg, 20kg, 25kg"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_sozlanuvchi-skameyka-db90', 'Sozlanuvchi Mashg‘ulot Skameykasi Bench Press DB-90', 'sozlanuvchi-skameyka-db90', '0455805', '7 xil orqa suyanchiq burchagiga (salbiy, tekis, tik) sozlanadigan qalin eko-charm yumshoq qoplamali sport skameykasi. 350 kg maksimal yuklama.', 1450000, 1700000, 15, 'Podstavka & Skameykalar', 'stoykalar', 'Skameykalar', 'Sport Line', 14, true, 4.9, 7, '["https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, false, true, false, '[{"label":"Burchaklar","value":"-15°, 0°, 30°, 45°, 60°, 75°, 90°"},{"label":"Maksimal yuklama","value":"350 kg"},{"label":"Konstruksiya","value":"Mustahkam qora poroshok bo‘yoqli po‘lat"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_gantel-podstavka-gorizontal-2layer', 'Gantel Podstavka SC80270 (2 Qavatli Gorizontal)', 'gantel-podstavka-gorizontal-2layer', '0455808', '10-12 juft gantellar sig‘adigan 2 qavatli og‘ir yukka mo‘ljallangan professional zal stoykasi. Kauchuk himoya prokladkalariga ega.', 1400000, 1650000, 15, 'Podstavka & Skameykalar', 'stoykalar', 'Gantel Stoykalari', 'Sport Line', 11, true, 5, 5, '["https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, true, true, '[{"label":"Model","value":"SC80270"},{"label":"Sig‘imi","value":"10-12 juft og‘ir gantellar"},{"label":"Material","value":"Qotishma po‘lat (Black coating)"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_turnik-brus-press-3in1', 'Devorga O‘rnatiladigan 3-in-1 Turnik-Brus-Press', 'turnik-brus-press-3in1', '0455806', 'Mustahkam po‘lat turnik, brus va qorin pressi uchun qulay tirsak yostiqchalariga ega universal uy trenajori. 200 kg ko‘tarish quvvati.', 650000, 780000, 17, 'Podstavka & Skameykalar', 'stoykalar', 'Turniklar', 'Sport Line', 20, true, 4.9, 12, '["https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, false, false, '[{"label":"Funksiyalar","value":"Turnik (keng va tor ushlash), Brus, Press"},{"label":"Maksimal vazn","value":"200 kg"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_olimpiyskiy-shtanga-grifi-20kg', 'Olimpiyskiy Shtanga Grifi 20kg (220cm / 50mm)', 'olimpiyskiy-shtanga-grifi-20kg', '0455807', '4 ta podshipnikli professional xrom qoplamali olimpiada shtanga grifi. 450 kg maksimal yuklama.', 1150000, 1350000, 15, 'Gantellar & Shtangalar', 'gantellar', 'Shtangalar', 'IronPower', 9, true, 5, 8, '["https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, false, false, false, '[{"label":"Grif og‘irligi","value":"20 kg"},{"label":"Uzunligi","value":"220 sm"},{"label":"Vtulka diametri","value":"50 mm (Olimpiyskiy disklar uchun)"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_nike-air-zoom-pegasus-sport', 'Nike Air Zoom Pegasus 40 Professional Yugurish Krossovkasi', 'nike-air-zoom-pegasus-sport', '0455809', 'React ko‘pik amortizatsiyasi, yengil nafas oluvchi setka mato va baquvvat protektor.', 1250000, 1450000, 14, 'Krossovkalar & Poyabzal', 'krossovkalar', 'Yugurish krossovkalari', 'Nike', 25, true, 5, 22, '["https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, true, false, '[{"label":"Brend","value":"Nike Original"},{"label":"Mavsum","value":"Barcha fasllar"},{"label":"Tavsiya","value":"Zal, yugurish, marafon"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_fitnes-rezinkalari-set-5', 'Elastik Fitnes Rezinkalari To‘plami (5 xil yuklama)', 'fitnes-rezinkalari-set-5', '0455810', '100% tabiiy lateksdan tayyorlangan 5kg dan 25kg gacha qarshilik ko‘rsatuvchi fitnes espanderlari.', 180000, 230000, 22, 'Fitnes Aksessuarlari', 'fitnes-aksessuarlari', 'Espanderlar', 'Sport Line', 35, true, 4.9, 19, '["https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, true, false, false, '[{"label":"To‘plam","value":"5 ta turli qarshilikdagi lenta + sumkasi"},{"label":"Material","value":"100% tabiiy elastik lateks"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
+INSERT INTO public.products (id, title, slug, sku, description, price, old_price, discount_percent, category, category_slug, subcategory, brand, stock, in_stock, rating, reviews_count, images, variants, is_bestseller, is_new_arrival, is_weekly_deal, specifications)
+VALUES ('prod_termo-sport-kostyumi-under-armour', 'Erkaklar Termo Sport Kostyumi Under Armour Storm', 'termo-sport-kostyumi-under-armour', '0455811', 'Nafas oluvchi namlik o‘tkazmaydigan ColdGear texnologiyasidagi mashg‘ulot sport kiyimi. Harakat erkinligi va elastik mato.', 680000, 820000, 17, 'Sport Kiyimlari', 'sport-kiyimlari', 'Sport Kostyumlari', 'Under Armour', 18, true, 4.9, 14, '["https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000&auto=format&fit=crop&q=85"]'::jsonb, '[]'::jsonb, false, true, false, '[{"label":"Brend","value":"Under Armour"},{"label":"Material","value":"Poliester + Elastan (Termo)"},{"label":"O‘lchamlar","value":"S, M, L, XL, XXL"}]'::jsonb)
+ON CONFLICT (slug) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, old_price = EXCLUDED.old_price, discount_percent = EXCLUDED.discount_percent, images = EXCLUDED.images, variants = EXCLUDED.variants, stock = EXCLUDED.stock, in_stock = EXCLUDED.in_stock;
