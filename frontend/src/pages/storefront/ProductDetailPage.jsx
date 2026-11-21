@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   Heart,
@@ -10,6 +10,8 @@ import {
   RotateCcw,
   ChevronRight,
   ChevronLeft,
+  ChevronUp,
+  ChevronDown,
   X,
   ZoomIn,
   Minus,
@@ -49,6 +51,31 @@ export default function ProductDetailPage() {
 
   // Lightbox Modal state
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  // Interactive Hover Zoom state (oldinga kattalashish)
+  const [isZooming, setIsZooming] = useState(false);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const thumbnailContainerRef = useRef(null);
+  const thumbnailRefs = useRef([]);
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    if (thumbnailRefs.current && thumbnailRefs.current[selectedImage]) {
+      thumbnailRefs.current[selectedImage].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+  }, [selectedImage]);
+
+  // Cursor position tracking for smooth hover zoom
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+    setZoomPos({ x, y });
+  };
 
   // Product Variants & Options state
   const [selectedVariant, setSelectedVariant] = useState(null);
@@ -234,37 +261,80 @@ export default function ProductDetailPage() {
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 pb-12 border-b border-slate-200 dark:border-slate-800">
         {/* Left: Image Gallery with Interactive Slider & Thumbnails */}
         <div className="flex flex-col-reverse sm:flex-row gap-4 items-start">
-          {/* Thumbnails Column */}
+          {/* Thumbnails Column (Tayoqsiz silliq vertikal slider + hoverda oldindan ko'rish) */}
           {images.length > 1 && (
-            <div className="flex sm:flex-col gap-2 overflow-x-auto sm:overflow-y-auto max-h-[500px] w-full sm:w-20 pr-1 shrink-0">
-              {images.map((img, i) => (
+            <div className="relative flex flex-col items-center shrink-0 w-full sm:w-20">
+              {/* Up Scroll Button for desktop thumbnails */}
+              {images.length > 4 && (
                 <button
-                  key={i}
                   type="button"
-                  onClick={() => setSelectedImage(i)}
-                  className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
-                    selectedImage === i
-                      ? 'border-slate-900 dark:border-white shadow-md ring-2 ring-slate-400/40 dark:ring-white/40'
-                      : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
-                  }`}
-                  aria-label={`${t('detail.photo', 'Rasm')} ${i + 1}`}
+                  onClick={() => {
+                    if (thumbnailContainerRef.current) {
+                      thumbnailContainerRef.current.scrollBy({ top: -110, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hidden sm:flex mb-1.5 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 items-center justify-center transition-all cursor-pointer shadow-xs border border-slate-200 dark:border-slate-700"
+                  title="Tepaga"
+                  aria-label="Tepaga"
                 >
-                  <img
-                    src={img}
-                    alt=""
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = fallbackImage;
-                    }}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115 will-change-transform"
-                  />
+                  <ChevronUp className="w-4 h-4" />
                 </button>
-              ))}
+              )}
+
+              {/* Thumbnails list - 100% tayoqsiz, scrollbar yo'q qilingan */}
+              <div
+                ref={thumbnailContainerRef}
+                className="flex sm:flex-col gap-2.5 overflow-x-auto sm:overflow-y-auto max-h-[460px] w-full sm:w-20 scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shrink-0 py-0.5"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {images.map((img, i) => (
+                  <button
+                    key={i}
+                    ref={(el) => (thumbnailRefs.current[i] = el)}
+                    type="button"
+                    onClick={() => setSelectedImage(i)}
+                    onMouseEnter={() => setSelectedImage(i)}
+                    className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
+                      selectedImage === i
+                        ? 'border-slate-950 dark:border-white shadow-md ring-2 ring-slate-900/40 dark:ring-white/40 scale-102'
+                        : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                    }`}
+                    aria-label={`${t('detail.photo', 'Rasm')} ${i + 1}`}
+                  >
+                    <img
+                      src={img}
+                      alt=""
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = fallbackImage;
+                      }}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115 will-change-transform"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Down Scroll Button for desktop thumbnails */}
+              {images.length > 4 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (thumbnailContainerRef.current) {
+                      thumbnailContainerRef.current.scrollBy({ top: 110, behavior: 'smooth' });
+                    }
+                  }}
+                  className="hidden sm:flex mt-1.5 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 items-center justify-center transition-all cursor-pointer shadow-xs border border-slate-200 dark:border-slate-700"
+                  title="Pastga"
+                  aria-label="Pastga"
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              )}
             </div>
           )}
 
-          {/* Main Selected Image - TO'LIQ VA KATTA (hech qanday bo'sh oq hoshiyasiz, hamma chekkalariga 100% yetib turadi) */}
-          <div className="relative flex-1 w-full aspect-square rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none">
+          {/* Main Selected Image - Smooth Hover Zoom (oldinga kattalashadi) */}
+          <div className="relative flex-1 w-full aspect-square rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
             {/* Discount Badge */}
             {product.discountPercent > 0 && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg text-xs font-black bg-red-600 text-white shadow-xs pointer-events-none">
@@ -279,18 +349,24 @@ export default function ProductDetailPage() {
               </div>
             )}
 
-            {/* Click to open Lightbox Modal - Smooth Sliding Gallery */}
+            {/* Click to open Lightbox Modal - Interactive Mouse Follow Zoom */}
             <div
               onClick={() => setIsLightboxOpen(true)}
+              onMouseEnter={() => setIsZooming(true)}
+              onMouseLeave={() => {
+                setIsZooming(false);
+                setZoomPos({ x: 50, y: 50 });
+              }}
+              onMouseMove={handleMouseMove}
               className="w-full h-full cursor-zoom-in block overflow-hidden relative"
-              title={t('detail.zoom', 'Kattalashtirib ko‘rish')}
+              title={t('detail.zoom', 'Kattalashtirib ko‘rish (bosilsa to‘liq ekran)')}
             >
               <div
                 className="flex w-full h-full transition-transform duration-500 ease-out will-change-transform"
                 style={{ transform: `translateX(-${selectedImage * 100}%)` }}
               >
                 {images.map((img, i) => (
-                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-slate-50 dark:bg-slate-900 overflow-hidden">
                     <img
                       src={img}
                       alt={`${product.title} ${i + 1}`}
@@ -298,7 +374,12 @@ export default function ProductDetailPage() {
                         e.target.onerror = null;
                         e.target.src = fallbackImage;
                       }}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 will-change-transform"
+                      style={{
+                        transform: isZooming && selectedImage === i ? 'scale(2.1)' : 'scale(1)',
+                        transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                        transition: isZooming ? 'transform 0.1s ease-out' : 'transform 0.3s ease-out'
+                      }}
+                      className="w-full h-full object-cover will-change-transform"
                     />
                   </div>
                 ))}
@@ -358,14 +439,14 @@ export default function ProductDetailPage() {
             )}
 
             {/* Zoom Tooltip Hint in bottom-right */}
-            <button
-              type="button"
-              onClick={() => setIsLightboxOpen(true)}
-              className="absolute bottom-3 right-3 z-10 hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white dark:bg-slate-900/90 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-xs transition-all cursor-pointer"
-            >
-              <ZoomIn className="w-3.5 h-3.5 text-[var(--color-primary-600)]" />
-              <span>{t('detail.zoom', 'Kattalashtirish')}</span>
-            </button>
+            <div className={`absolute bottom-3 right-3 z-20 pointer-events-none hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold backdrop-blur-md shadow-xs transition-all duration-200 ${
+              isZooming
+                ? 'bg-emerald-600/95 text-white scale-105 shadow-md'
+                : 'bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+            }`}>
+              <ZoomIn className={`w-3.5 h-3.5 ${isZooming ? 'text-white' : 'text-slate-900 dark:text-white'}`} />
+              <span>{isZooming ? '2.1x Yaqinlashtirildi' : t('detail.zoom', 'Kattalashtirish')}</span>
+            </div>
           </div>
         </div>
 

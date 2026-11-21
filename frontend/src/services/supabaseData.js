@@ -10,10 +10,10 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v4 Sport & Fitness)
+// Local storage collection keys (v6 Sport & Fitness)
 const KEYS = {
   CATEGORIES: 'nsb_categories_v4_sport',
-  PRODUCTS: 'nsb_products_v4_sport',
+  PRODUCTS: 'nsb_products_v6_sport',
   BANNERS: 'nsb_banners_v4_sport',
   COUPONS: 'nsb_coupons_v4_sport',
   REVIEWS: 'nsb_reviews_v4_sport',
@@ -38,6 +38,8 @@ function normalizeProduct(p) {
     try { images = JSON.parse(images); } catch (_) { images = [images]; }
   }
   if (!Array.isArray(images)) images = [];
+  // Exclude rogue non-product stick images (e.g. 6213 from tatami)
+  images = images.filter((img) => img && !img.includes('6213'));
 
   let specifications = p.specifications;
   if (typeof specifications === 'string') {

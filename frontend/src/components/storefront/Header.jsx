@@ -515,8 +515,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   to="/shop?tag=sale"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
-                      ? 'bg-rose-600 text-white shadow-rose-600/25 ring-2 ring-rose-500/30 font-black'
-                      : 'bg-rose-50 hover:bg-rose-100/80 text-rose-600 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 dark:text-rose-300 border border-rose-200 dark:border-rose-800/50'
+                      ? 'bg-rose-600 text-white shadow-md ring-2 ring-rose-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
                   }`}
                 >
                   <Flame className={`w-4 h-4 shrink-0 ${isActive ? 'text-white fill-white/20' : 'text-rose-600 dark:text-rose-400 fill-rose-500/20'}`} />

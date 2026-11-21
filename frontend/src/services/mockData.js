@@ -144,7 +144,6 @@ export const defaultProducts = [
       "/uploads/prod_tatami-1x1m-2-sm-rangi-qizik-ko-k-narxi-12-5-9157.jpg",
       "/uploads/prod_yangi-mahsulot-1141.jpg",
       "/uploads/prod_yangi-mahsulot-4815.jpg",
-      "/uploads/prod_yangi-mahsulot-6213.jpg",
       "/uploads/prod_yangi-mahsulot-5248.jpg",
       "/uploads/prod_yangi-mahsulot-6210.jpg"
     ],
