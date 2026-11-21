@@ -252,10 +252,10 @@ export default function ProductCard({ product }) {
           </span>
         )}
 
-        {/* Rasmlar soni nishoni - Hover bo'lganda joriy rasm indeksini ko'rsatadi (masalan: 📷 1 / 7) */}
+        {/* Rasmlar soni nishoni - joriy rasm indeksini ko'rsatadi (masalan: 📷 1 / 7) */}
         {hasMultipleImages && (
           <span className="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/75 backdrop-blur-xs text-white shadow-xs pointer-events-none flex items-center gap-1 transition-all">
-            <span>📷</span> {isHovered ? `${activeImgIndex + 1} / ${images.length}` : `${images.length} ta rasm`}
+            <span>📷</span> {activeImgIndex > 0 || isHovered ? `${activeImgIndex + 1} / ${images.length}` : `${images.length} ta rasm`}
           </span>
         )}
 
