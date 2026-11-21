@@ -172,9 +172,12 @@ export default function ProductFeedbackModal({ isOpen, onClose, product, onRevie
   const activeRating = hoverRating || rating;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs transition-opacity animate-in fade-in duration-200 cursor-pointer"
+      onClick={onClose}
+    >
       <div
-        className="relative w-full max-w-lg rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden transition-all duration-200 scale-100"
+        className="relative w-full max-w-lg rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden transition-all duration-200 scale-100 cursor-default"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

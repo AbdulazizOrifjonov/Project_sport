@@ -645,50 +645,71 @@ export default function ProductDetailPage() {
 
       {/* FULLSCREEN LIGHTBOX MODAL (Kengaytirilgan Rasm Ko'rish Oynasi) */}
       {isLightboxOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col justify-between bg-slate-950/92 backdrop-blur-md p-4 sm:p-6 animate-fadeIn">
+        <div
+          className="fixed inset-0 z-[100] flex flex-col justify-between bg-black/95 backdrop-blur-2xl p-3 sm:p-6 animate-fadeIn select-none"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          {/* Always Visible Corner Close Button (Burchakdagi X tugmasi) */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsLightboxOpen(false);
+            }}
+            className="fixed top-3 right-3 sm:top-5 sm:right-5 z-[120] w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/80 hover:bg-rose-600 text-white border border-white/30 shadow-2xl backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-90 hover:scale-105 group"
+            title={t('detail.close', 'Yopish (Esc)')}
+            aria-label={t('detail.close', 'Yopish')}
+          >
+            <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-200" />
+          </button>
+
           {/* Lightbox Top Header */}
-          <div className="flex items-center justify-between text-white max-w-[1820px] mx-auto w-full pb-3 border-b border-white/10">
-            <div>
-              <span className="text-xs uppercase font-extrabold tracking-wider text-[var(--color-primary-400)]">
+          <div
+            className="flex items-center justify-between text-white max-w-[1820px] mx-auto w-full pb-3 border-b border-white/15 pr-14 sm:pr-16 relative z-10 shrink-0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="min-w-0 pr-4">
+              <span className="text-[11px] sm:text-xs uppercase font-extrabold tracking-wider text-emerald-400 block mb-0.5">
                 {t(`cat.${product.categorySlug}`, product.category)}
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-white truncate max-w-md sm:max-w-xl">
+              <h3 className="text-sm sm:text-base font-extrabold text-white truncate max-w-[260px] sm:max-w-2xl drop-shadow-sm">
                 {product.title}
               </h3>
             </div>
 
-            <div className="flex items-center gap-4">
-              <span className="text-xs font-mono font-bold text-white/80 bg-white/10 px-3 py-1.5 rounded-xl">
+            <div className="flex items-center gap-3 shrink-0">
+              <span className="text-xs font-mono font-bold text-white bg-white/15 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl border border-white/20 shadow-xs">
                 {selectedImage + 1} / {images.length}
               </span>
-              <button
-                type="button"
-                onClick={() => setIsLightboxOpen(false)}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer transition-colors shadow-xs"
-                title={t('detail.close', 'Yopish (Esc)')}
-                aria-label={t('detail.close', 'Yopish')}
-              >
-                <X className="w-5 h-5" />
-              </button>
             </div>
           </div>
 
           {/* Lightbox Main Stage with Big Image and Nav Buttons */}
-          <div className="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
+          <div
+            className="relative flex-1 flex items-center justify-center my-2 sm:my-4 overflow-hidden w-full cursor-pointer"
+            onClick={() => setIsLightboxOpen(false)}
+          >
             {/* Prev Button */}
             {images.length > 1 && (
               <button
                 type="button"
-                onClick={prevImage}
-                className="absolute left-2 sm:left-6 z-10 w-12 h-12 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+                className="absolute left-2 sm:left-6 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-md active:scale-90 border border-white/30 shadow-2xl hover:border-white hover:scale-105"
                 aria-label={t('detail.prev', 'Oldingisi')}
               >
-                <ChevronLeft className="w-7 h-7" />
+                <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white stroke-[2.5]" />
               </button>
             )}
 
             {/* Big High-Res Image */}
-            <div className="max-w-4xl max-h-[72vh] flex items-center justify-center p-4">
+            <div
+              className="max-w-4xl max-h-[72vh] flex items-center justify-center p-2 sm:p-4 cursor-default select-none"
+              onClick={(e) => e.stopPropagation()}
+            >
               <img
                 src={images[selectedImage]}
                 alt={product.title}
@@ -696,7 +717,7 @@ export default function ProductDetailPage() {
                   e.target.onerror = null;
                   e.target.src = fallbackImage;
                 }}
-                className="max-w-full max-h-[72vh] object-contain rounded-xl shadow-2xl transition-all duration-200 select-none"
+                className="max-w-full max-h-[72vh] object-contain rounded-2xl shadow-2xl transition-all duration-200 select-none cursor-default"
               />
             </div>
 
@@ -704,27 +725,36 @@ export default function ProductDetailPage() {
             {images.length > 1 && (
               <button
                 type="button"
-                onClick={nextImage}
-                className="absolute right-2 sm:right-6 z-10 w-12 h-12 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-xs active:scale-90"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+                className="absolute right-2 sm:right-6 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-md active:scale-90 border border-white/30 shadow-2xl hover:border-white hover:scale-105"
                 aria-label={t('detail.next', 'Keyingisi')}
               >
-                <ChevronRight className="w-7 h-7" />
+                <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white stroke-[2.5]" />
               </button>
             )}
           </div>
 
           {/* Lightbox Bottom Thumbnail Strip */}
           {images.length > 1 && (
-            <div className="max-w-3xl mx-auto w-full pt-3 border-t border-white/10 flex justify-center items-center gap-2.5 overflow-x-auto py-2">
+            <div
+              className="max-w-3xl mx-auto w-full pt-3 border-t border-white/15 flex justify-center items-center gap-2.5 sm:gap-3 overflow-x-auto py-2 relative z-10 shrink-0"
+              onClick={(e) => e.stopPropagation()}
+            >
               {images.map((img, idx) => (
                 <button
                   key={idx}
                   type="button"
-                  onClick={() => setSelectedImage(idx)}
-                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 p-1 bg-white/10 overflow-hidden shrink-0 transition-all cursor-pointer ${
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedImage(idx);
+                  }}
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 p-1 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
                     selectedImage === idx
-                      ? 'border-white scale-105 shadow-md ring-2 ring-white/60'
-                      : 'border-white/20 opacity-60 hover:opacity-100'
+                      ? 'border-white scale-110 shadow-2xl ring-2 ring-white opacity-100'
+                      : 'border-white/30 opacity-60 hover:opacity-100 hover:scale-105 hover:border-white/80'
                   }`}
                 >
                   <img src={img} alt="" className="w-full h-full object-contain" />
