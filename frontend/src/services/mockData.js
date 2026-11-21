@@ -656,9 +656,9 @@ export const defaultProducts = [
     "old_price": 8127625,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Fitnes & Sport Aksessuarlari",
-    "category_slug": "fitnes-aksessuarlari",
-    "categorySlug": "fitnes-aksessuarlari",
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
     "subcategory": "",
     "brand": "Sport Line",
     "stock": 12,
@@ -667,6 +667,13 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_masaj-kreslo-m11b-5156_1.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_2.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_3.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_4.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_5.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_6.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5156_7.jpg",
       "/uploads/prod_masaj-kreslo-m11b-0158.jpg"
     ],
     "is_bestseller": true,
@@ -691,7 +698,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-21T16:26:00.982Z"
+    "created_at": "2026-11-21T16:26:00.982Z",
+    "updated_at": "2026-11-21T16:27:56.448Z"
   },
   {
     "_id": "prod_stol-tennis-k2008-6770",
