@@ -78,6 +78,49 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_yangi-mahsulot-7501",
+    "id": "prod_yangi-mahsulot-7501",
+    "title": "Yangi Mahsulot",
+    "slug": "yangi-mahsulot-7501",
+    "price": 1000000,
+    "oldPrice": 1150000,
+    "old_price": 1150000,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_yangi-mahsulot-7501.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Yangi Mahsulot - kafolatli va sifatli mahsulot. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T13:29:18.675Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-an-001-8998",
     "id": "prod_gantel-podstavka-an-001-8998",
     "title": "Gantel podstavka an-001",
