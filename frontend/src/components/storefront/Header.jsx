@@ -386,22 +386,23 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               )}
             </Link>
 
-            {/* Unified Shopping Cart Button */}
+            {/* Unified Shopping Cart Button - No price/sum, only icon + badge + title */}
             <Link
               to="/cart"
-              className="ml-1 h-12 inline-flex items-center gap-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-950 dark:text-white border border-slate-300 dark:border-slate-700/80 px-4.5 rounded-xl transition-all cursor-pointer shadow-xs font-black box-border shrink-0 active:scale-98"
-              aria-label={t('header.cart')}
+              className="ml-1 h-12 inline-flex items-center gap-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-950 dark:text-white border border-slate-300 dark:border-slate-700/80 px-4 rounded-xl transition-all cursor-pointer shadow-xs font-black box-border shrink-0 active:scale-98"
+              aria-label={t('header.cart', 'Savat')}
+              title={t('header.cart', 'Savat')}
             >
               <span className="relative">
                 <ShoppingCart className="w-5 h-5 text-slate-950 dark:text-white" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 w-4.5 h-4.5 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-[10px] font-black flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-[10px] font-black flex items-center justify-center shadow-xs">
                     {cartCount}
                   </span>
                 )}
               </span>
               <span className="text-[13px] font-extrabold tracking-tight">
-                {cartCount > 0 ? formatPrice(cartTotal) : t('header.cart')}
+                {t('header.cart', 'Savat')}
               </span>
             </Link>
           </div>
