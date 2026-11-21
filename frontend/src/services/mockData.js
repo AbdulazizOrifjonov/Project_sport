@@ -78,6 +78,49 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-ax003-2670",
+    "id": "prod_gantel-podstavka-ax003-2670",
+    "title": "Gantel podstavka AX003",
+    "slug": "gantel-podstavka-ax003-2670",
+    "price": 1357775,
+    "oldPrice": 1561441,
+    "old_price": 1561441,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 10,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-ax003-2670.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "description": "Sigimi: 6 par gantel\nNarxi: 195$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-21T13:28:53.003Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-sc80262-4326",
     "id": "prod_gantel-podstavka-sc80262-4326",
     "title": "Gantel podstavka SC80262",
@@ -753,7 +796,160 @@ export const defaultReviews = [
   }
 ];
 
-export const defaultOrders = [];
+export const defaultOrders = [
+  {
+    "_id": "ord_sport_101",
+    "id": "ord_sport_101",
+    "orderNumber": "NSB-902101",
+    "order_number": "NSB-902101",
+    "customerDetails": {
+      "fullName": "Farrux Saidov",
+      "phone": "+998 94 222 10 30",
+      "city": "Buxoro shahri",
+      "address": "Ibn Sino ko‘chasi, 24-uy"
+    },
+    "items": [
+      {
+        "product": "prod_gantel-podstavka-sc80263",
+        "title": "Gantel podstavka SC80263",
+        "price": 960000,
+        "quantity": 1,
+        "image": "/uploads/gantel-podstavka-sc80263.png"
+      },
+      {
+        "product": "prod_kauchuk-gantellar-hex",
+        "title": "Hexagonal Kauchuk Gantellar To‘plami (2x10kg)",
+        "price": 680000,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&auto=format&fit=crop&q=80"
+      }
+    ],
+    "totalAmount": 1640000,
+    "total_amount": 1640000,
+    "paymentMethod": "click",
+    "payment_method": "click",
+    "orderStatus": "new",
+    "order_status": "new",
+    "paymentStatus": "paid",
+    "createdAt": new Date().toISOString()
+  },
+  {
+    "_id": "ord_sport_102",
+    "id": "ord_sport_102",
+    "orderNumber": "NSB-902102",
+    "order_number": "NSB-902102",
+    "customerDetails": {
+      "fullName": "Nodira Xoliqova",
+      "phone": "+998 93 333 88 99",
+      "city": "Kogon tumani",
+      "address": "Navoiy shoh ko‘chasi, 8-uy"
+    },
+    "items": [
+      {
+        "product": "prod_yugurish-yolakchasi-proform-t800",
+        "title": "Professional Yugurish Yo‘lakchasi ProForm T800",
+        "price": 14500000,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&auto=format&fit=crop&q=80"
+      }
+    ],
+    "totalAmount": 14500000,
+    "total_amount": 14500000,
+    "paymentMethod": "payme",
+    "payment_method": "payme",
+    "orderStatus": "processing",
+    "order_status": "processing",
+    "paymentStatus": "paid",
+    "createdAt": new Date(Date.now() - 3600000 * 4).toISOString()
+  },
+  {
+    "_id": "ord_sport_103",
+    "id": "ord_sport_103",
+    "orderNumber": "NSB-902103",
+    "order_number": "NSB-902103",
+    "customerDetails": {
+      "fullName": "Sherzod Po‘latov («Bukhara Fitness»)",
+      "phone": "+998 97 123 98 76",
+      "city": "Buxoro shahri",
+      "address": "Abu Ali Ibn Sino 88, Fitnes Zal"
+    },
+    "items": [
+      {
+        "product": "prod_kuch-trenajori-multigym-hg500",
+        "title": "Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500",
+        "price": 22800000,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80"
+      }
+    ],
+    "totalAmount": 22800000,
+    "total_amount": 22800000,
+    "paymentMethod": "bank_transfer",
+    "payment_method": "bank_transfer",
+    "orderStatus": "delivered",
+    "order_status": "delivered",
+    "paymentStatus": "paid",
+    "createdAt": new Date(Date.now() - 86400000).toISOString()
+  },
+  {
+    "_id": "ord_sport_104",
+    "id": "ord_sport_104",
+    "orderNumber": "NSB-902104",
+    "order_number": "NSB-902104",
+    "customerDetails": {
+      "fullName": "Shahzod Aliyev",
+      "phone": "+998 91 445 11 22",
+      "city": "Buxoro shahri",
+      "address": "Somoniylar ko‘chasi, 12-uy"
+    },
+    "items": [
+      {
+        "product": "prod_turnik-brus-3in1",
+        "title": "Kombinatsiyalangan Devoriy Turnik-Brus 3-in-1",
+        "price": 850000,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=600&auto=format&fit=crop&q=80"
+      }
+    ],
+    "totalAmount": 850000,
+    "total_amount": 850000,
+    "paymentMethod": "cash",
+    "payment_method": "cash",
+    "orderStatus": "delivered",
+    "order_status": "delivered",
+    "paymentStatus": "paid",
+    "createdAt": new Date(Date.now() - 86400000 * 2).toISOString()
+  },
+  {
+    "_id": "ord_sport_105",
+    "id": "ord_sport_105",
+    "orderNumber": "NSB-902105",
+    "order_number": "NSB-902105",
+    "customerDetails": {
+      "fullName": "Jamshid Ergashev",
+      "phone": "+998 91 445 78 90",
+      "city": "G‘ijduvon tumani",
+      "address": "Yusuf Hamadoniy ko‘chasi, 45-uy"
+    },
+    "items": [
+      {
+        "product": "prod_gantel-stoykasi-sc80270",
+        "title": "2-Qavatli Universal Gantel Stoykasi SC80270",
+        "price": 1850000,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80"
+      }
+    ],
+    "totalAmount": 1850000,
+    "total_amount": 1850000,
+    "paymentMethod": "click",
+    "payment_method": "click",
+    "orderStatus": "new",
+    "order_status": "new",
+    "paymentStatus": "paid",
+    "createdAt": new Date(Date.now() - 3600000 * 2).toISOString()
+  }
+];
 
 /**
  * Intelligent LocalStorage sync:
