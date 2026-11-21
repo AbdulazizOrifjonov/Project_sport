@@ -83,9 +83,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo AM183",
     "slug": "masaj-kreslo-am183-4117",
     "sku": "",
-    "price": 12464500,
-    "oldPrice": 14334175,
-    "old_price": 14334175,
+    "price": 11822000,
+    "oldPrice": 13595300,
+    "old_price": 13595300,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Boks & Yakka Kurash",
@@ -99,6 +99,13 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
+      "/uploads/prod_masaj-kreslo-5152_1.jpg",
+      "/uploads/prod_masaj-kreslo-5152_2.jpg",
+      "/uploads/prod_masaj-kreslo-5152_3.jpg",
+      "/uploads/prod_masaj-kreslo-5152_4.jpg",
+      "/uploads/prod_masaj-kreslo-5152_5.jpg",
+      "/uploads/prod_masaj-kreslo-5152_6.jpg",
+      "/uploads/prod_masaj-kreslo-5152_7.jpg",
       "/uploads/prod_masaj-kreslo-am183-5195_1.jpg",
       "/uploads/prod_masaj-kreslo-am183-5195_2.jpg",
       "/uploads/prod_masaj-kreslo-am183-5195_3.jpg",
@@ -119,7 +126,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi : 970$ Black\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
+    "description": "Madel G9 BLACK\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Al (suniy intelskt) orqali  ovozli boshqaruv",
     "specifications": [
       {
         "label": "Brend",
@@ -139,7 +146,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-21T16:28:04.117Z",
-    "updated_at": "2026-11-21T16:28:12.088Z"
+    "updated_at": "2026-11-21T16:28:33.741Z"
   },
   {
     "_id": "prod_gantel-podstavka-xitoy-7222",
