@@ -38,8 +38,8 @@ const CATEGORIES = [
   { slug: 'toplar-oyinlar', name: 'Futbol & To‘plar', keywords: ['tennis', 'stol tennis', 'raketka', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol'] },
   { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzallar', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali', 'snickers'] },
   { slug: 'sport-kiyimlari', name: 'Sport Kiyimlari', keywords: ['kiyim', 'kostyum', 'futbolka', 'shortik', 'hudi', 'triko', 'rashgard', 'under armour', 'puma', 'gymshark', 'leggins'] },
-  { slug: 'boks-yakka-kurash', name: 'Boks & Yakka Kurash', keywords: ['boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast'] },
-  { slug: 'fitnes-aksessuarlari', name: 'Fitnes & Sport Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'mat', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
+  { slug: 'boks-yakka-kurash', name: 'Boks & Yakka Kurash', keywords: ['tatami', 'mat', 'boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast', 'dzyudo', 'karate', 'sambo'] },
+  { slug: 'fitnes-aksessuarlari', name: 'Fitnes & Sport Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
 ];
 
 function detectCategory(text = '') {
@@ -67,7 +67,13 @@ function detectBrand(text = '') {
  * Intelligent parser for Telegram product captions
  */
 function parseProductInfo(text = '') {
-  const rawLines = text.split('\n').map(l => l.trim()).filter(Boolean);
+  // If single line contains delimiters like Narxi:, Kodi:, Rangi:, split into newlines
+  let normalizedText = (text || '').trim();
+  if (!normalizedText.includes('\n')) {
+    normalizedText = normalizedText.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
+  }
+
+  const rawLines = normalizedText.split('\n').map(l => l.trim()).filter(Boolean);
   if (rawLines.length === 0) {
     return {
       title: 'Yangi Sport Mahsuloti',
