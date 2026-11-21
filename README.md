@@ -1,14 +1,19 @@
-# NEXT NOUT — Notebook Store Platform
+# Project_sport — SPORT OUTLET (Sport & Fitness Store Platform)
 
-NEXT NOUT (Buxoro) — Noutbuklar, kompyuterlar va zamonaviy IT texnikalar uchun to'liq funksional internet-do'kon va B2B savdo platformasi.
+SPORT OUTLET — Sport anjomlari, trenajorlar, kardio uskunalar, gantel va shtangalar, tatami, boks va sport kiyimlari uchun to'liq funksional internet-do'kon va savdo platformasi.
 
 ## 🚀 Texnologiyalar (Tech Stack)
 
-- **Frontend**: React 18, Vite, Tailwind CSS, Lucide Icons, Leaflet (Yandex Maps)
-- **Ma'lumotlar bazasi**: Supabase PostgreSQL (Serverless Jamstack arxitekturasi)
-- **Rasm ombori**: Supabase Storage (`product-images` bucket)
-- **Hosting**: Vercel Edge Network
-- **Admin Panel**: Boshqaruv paneli, mahsulotlar CRUD, toifalar, buyurtmalar, hisobotlar (CSV) va sotuvlar dinamikasi
+- **Frontend**: React 18, Vite, Tailwind CSS, Lucide Icons
+- **Storefront & UI**:
+  - Interaktiv rasm slayderi (1 soniyalik avto-aylanish hover effekti)
+  - Zoom-in kattalashtirish (2.1x interaktiv lupa)
+  - Qalinlik va o'lchamlar varianti (Variant selector)
+  - Yopishqoq zamonaviy navigatsiya (Sticky Navbar)
+  - Kun/Tun (Dark/Light mode) tizimi
+- **Boshqaruv**: Admin Panel (`/admin`) va Telegram Mahsulot Boti
+- **Baza & Saqlash**: Supabase PostgreSQL / MockData Service
+- **Deploy**: Vercel (`vercel.json` tayyorlangan)
 
 ---
 
@@ -21,7 +26,7 @@ cd frontend
 # 2. Bog'liqliklarni o'rnatish
 npm install
 
-# 3. Loyihani dev serverda yurgazish
+# 3. Saytni yurgazish
 npm run dev
 ```
 
@@ -29,29 +34,18 @@ Sayt brauzerda `http://localhost:3000` manzilida ochiladi.
 
 ---
 
-## 🗄️ Supabase Ma'lumotlar Bazasini Sozlash (1 Click Setup)
+## 🤖 Telegram Bot Orqali Mahsulot Qo'shish
 
-1. [Supabase](https://supabase.com) platformasida yangi loyiha oching.
-2. Chap menyudan **SQL Editor** bo'limiga kiring.
-3. Loyihadagi `supabase_setup.sql` fayli tarkibini nusxalab, SQL Editorga qo'ying va **RUN** tugmasini bosing.
-   - Barcha jadvallar (`products`, `categories`, `orders`, `reviews`, `banners`, `coupons`) yaratiladi.
-   - 45+ ta boy parametrli noutbuklar va orgtexnika mahsulotlari avtomatik yuklanadi.
-   - `product-images` Storage ombori ochiladi.
-4. `frontend/.env.example` faylidan nusxa olib `frontend/.env` yarating:
-   ```env
-   VITE_SUPABASE_URL=https://your-project.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-anon-public-key
-   ```
+```bash
+# Botni yurgazish
+node tools/telegram_product_bot.js
+```
+
+Telegramdan rasmlar va narxlarni yuborganingizda bot avtomatik ravishda yangi mahsulotni yaratadi, rasmlarni optimallashtiradi va saytga qo'shadi.
 
 ---
 
 ## 🌐 Vercel-ga Joylash (Deploy to Vercel)
 
-1. Loyihani GitHub-ga push qiling.
-2. [Vercel](https://vercel.com) orqali ushbu repository-ni ulang.
-3. Sozlamalarda:
-   - **Root Directory**: `frontend`
-4. **Environment Variables** ga quyidagilarni kiriting:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
-5. **Deploy** tugmasini bosing!
+1. GitHub omboringizni (`Project_sport`) [Vercel](https://vercel.com) bilan ulang.
+2. Vercel barcha sozlamalarni `vercel.json` orqali avtomatik aniqlaydi va bir necha soniyada saytni jonli efirga chiqaradi.
