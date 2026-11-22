@@ -47,6 +47,11 @@ function AppContent() {
   const isAdminRoute = location.pathname.startsWith('/admin');
   const [catalogOpen, setCatalogOpen] = useState(false);
 
+  // Sahifa o'zgarganda (boshqa panelga yoki mahsulotga o'tganda) katalogni avtomatik yopish
+  useEffect(() => {
+    setCatalogOpen(false);
+  }, [location.pathname, location.search]);
+
   return (
     <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-clip bg-white dark:bg-black text-slate-900 dark:text-slate-100 transition-colors duration-200">
       <ScrollToTop />
@@ -82,6 +87,7 @@ function AppContent() {
       {!isAdminRoute && (
         <MobileBottomNav
           onToggleCatalog={() => setCatalogOpen((prev) => !prev)}
+          onCloseCatalog={() => setCatalogOpen(false)}
           isCatalogOpen={catalogOpen}
         />
       )}

@@ -6,7 +6,7 @@ import { useWishlist } from '../../context/WishlistContext';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 
-export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false }) {
+export default function MobileBottomNav({ onToggleCatalog, onCloseCatalog, isCatalogOpen = false }) {
   const location = useLocation();
   const { cartCount } = useCart();
   const { wishlist } = useWishlist();
@@ -15,11 +15,15 @@ export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false
 
   const pathname = location.pathname;
 
-  const isCatalog = pathname.startsWith('/shop') || isCatalogOpen;
+  const isCatalog = isCatalogOpen;
   const isHome = pathname === '/' && !isCatalogOpen;
-  const isCart = pathname === '/cart';
-  const isWishlist = pathname === '/wishlist';
-  const isAccount = pathname === '/account';
+  const isCart = pathname === '/cart' && !isCatalogOpen;
+  const isWishlist = pathname === '/wishlist' && !isCatalogOpen;
+  const isAccount = pathname === '/account' && !isCatalogOpen;
+
+  const handleNavClick = () => {
+    if (onCloseCatalog) onCloseCatalog();
+  };
 
   return (
     <nav
@@ -30,6 +34,7 @@ export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false
         {/* 1. Bosh Sahifa */}
         <Link
           to="/"
+          onClick={handleNavClick}
           className={`flex flex-col items-center justify-center h-full py-1 group active:scale-90 transition-transform ${
             isHome
               ? 'text-slate-950 dark:text-white'
@@ -67,6 +72,7 @@ export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false
         {/* 3. Savat */}
         <Link
           to="/cart"
+          onClick={handleNavClick}
           className={`flex flex-col items-center justify-center h-full py-1 group active:scale-90 transition-transform ${
             isCart
               ? 'text-slate-950 dark:text-white'
@@ -90,6 +96,7 @@ export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false
         {/* 4. Sevimlilar */}
         <Link
           to="/wishlist"
+          onClick={handleNavClick}
           className={`flex flex-col items-center justify-center h-full py-1 group active:scale-90 transition-transform ${
             isWishlist
               ? 'text-slate-950 dark:text-white'
@@ -113,6 +120,7 @@ export default function MobileBottomNav({ onToggleCatalog, isCatalogOpen = false
         {/* 5. Kabinet / Kirish */}
         <Link
           to="/account"
+          onClick={handleNavClick}
           className={`flex flex-col items-center justify-center h-full py-1 group active:scale-90 transition-transform ${
             isAccount
               ? 'text-slate-950 dark:text-white'

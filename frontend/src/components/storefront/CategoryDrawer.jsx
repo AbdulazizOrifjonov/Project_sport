@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   ChevronRight,
   Footprints,
@@ -35,11 +35,17 @@ const iconMap = {
 
 export default function CategoryDrawer({ isOpen, onClose }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useLanguage();
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
   const [previewProducts, setPreviewProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
+
+  // Sahifa o'zgarganda (masalan, pastki navigatsiyadan savat, sevimlilar yoki boshqa panel bosilganda) katalogni avtomatik yopish
+  useEffect(() => {
+    if (isOpen) onClose();
+  }, [location.pathname, location.search]);
 
   // Keyboard Escape listener
   useEffect(() => {
@@ -106,10 +112,10 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 md:z-40 md:inset-x-0 md:bottom-0 bg-slate-950/70 md:bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
+      className="fixed inset-0 z-40 md:inset-x-0 md:bottom-0 bg-slate-950/70 md:bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300 pb-16 md:pb-0"
       style={{
         top: typeof window !== 'undefined' && window.innerWidth < 768 ? '0px' : 'var(--nsb-navbar-height, var(--nsb-header-height, 136px))',
-        height: typeof window !== 'undefined' && window.innerWidth < 768 ? '100dvh' : 'calc(100dvh - var(--nsb-navbar-height, var(--nsb-header-height, 136px)))'
+        height: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100dvh - 64px)' : 'calc(100dvh - var(--nsb-navbar-height, var(--nsb-header-height, 136px)))'
       }}
       onClick={onClose}
     >
