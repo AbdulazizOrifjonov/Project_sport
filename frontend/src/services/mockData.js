@@ -78,6 +78,60 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_box-per-riada-ipli-1628",
+    "id": "prod_box-per-riada-ipli-1628",
+    "title": "Box per Riada Ipli",
+    "slug": "box-per-riada-ipli-1628",
+    "sku": "",
+    "price": 642500,
+    "oldPrice": 738875,
+    "old_price": 738875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-riada-ipli-4235_1.jpg",
+      "/uploads/prod_box-per-riada-ipli-4235_2.jpg",
+      "/uploads/prod_box-per-riada-ipli-4235_3.jpg",
+      "/uploads/prod_box-per-riada-ipli-4235_4.jpg",
+      "/uploads/prod_box-per-riada-ipli-4235_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Matreali : koja\nRazmer : 8, 10, 12, 14, 16R\nNarxi: 50$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:41.628Z"
+  },
+  {
     "_id": "prod_kamar-axelus-koja-212-pok-0641",
     "id": "prod_kamar-axelus-koja-212-pok-0641",
     "title": "KAMAR AXELUS KOJA 212 POK",
