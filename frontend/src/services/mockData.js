@@ -78,6 +78,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_padel-raketka-head-evo-226415-orginal-6805",
+    "id": "prod_padel-raketka-head-evo-226415-orginal-6805",
+    "title": "Padel raketka HEAD EVO 226415(Orginal✅)",
+    "slug": "padel-raketka-head-evo-226415-orginal-6805",
+    "sku": "",
+    "price": 2313000,
+    "oldPrice": 2659950,
+    "old_price": 2659950,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-raketka-head-evo-226415-orginal-6069_1.jpg",
+      "/uploads/prod_padel-raketka-head-evo-226415-orginal-6069_2.jpg",
+      "/uploads/prod_padel-raketka-head-evo-226415-orginal-6069_3.jpg",
+      "/uploads/prod_padel-raketka-head-evo-226415-orginal-6069_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Oğirligi: 350g +/-10\nNarxi: 180$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:56.805Z"
+  },
+  {
     "_id": "prod_bb-stand-m026-0085",
     "id": "prod_bb-stand-m026-0085",
     "title": "BB STAND M026",
