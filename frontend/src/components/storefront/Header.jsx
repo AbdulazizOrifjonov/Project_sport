@@ -85,14 +85,22 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   useEffect(() => {
     const updateHeaderHeight = () => {
       if (headerRef.current) {
-        const height = headerRef.current.offsetHeight;
+        const height = headerRef.current.getBoundingClientRect().height || headerRef.current.offsetHeight;
         document.documentElement.style.setProperty('--nsb-navbar-height', `${height}px`);
         document.documentElement.style.setProperty('--nsb-header-height', `${height}px`);
       }
     };
     updateHeaderHeight();
     window.addEventListener('resize', updateHeaderHeight);
-    return () => window.removeEventListener('resize', updateHeaderHeight);
+    let ro = null;
+    if (typeof ResizeObserver !== 'undefined' && headerRef.current) {
+      ro = new ResizeObserver(updateHeaderHeight);
+      ro.observe(headerRef.current);
+    }
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight);
+      if (ro) ro.disconnect();
+    };
   }, []);
 
   // Active horizontal scroll for subnav: auto-scroll to the active link
@@ -240,288 +248,248 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
         className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200"
       >
         {/* Main Header Row - Spacious, Stable & Fixed */}
-        <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden h-11 w-11 flex items-center justify-center -ml-1 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 cursor-pointer shrink-0"
-            aria-label="Menyu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
+        <div className="mx-auto max-w-[1820px] px-3 sm:px-6 lg:px-8 xl:px-10">
+          {/* 1. DESKTOP HEADER ROW (md+) */}
+          <div className="hidden md:flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
+            {/* Brand Logo & Catalog Button */}
+            <div className="flex items-center gap-3 md:gap-4">
+              <Link to="/" className="flex items-center gap-2.5 group h-12 shrink-0">
+                <div className="w-11 h-11 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 group-hover:border-white transition-all overflow-hidden">
+                  <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="font-black text-[17px] sm:text-[19px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
+                    SPORT OUTLET
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-extrabold -mt-0.5">
+                    Sport &amp; Fitness Store
+                  </span>
+                </div>
+              </Link>
 
-          {/* Brand Logo & Catalog Button */}
-          <div className="flex items-center gap-3 md:gap-4">
-            <Link to="/" className="flex items-center gap-2.5 group h-12 shrink-0">
-              <div className="w-11 h-11 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 group-hover:border-white transition-all overflow-hidden">
+              {/* Catalog Button */}
+              <button
+                type="button"
+                onClick={onToggleCatalog}
+                className={`hidden md:inline-flex h-12 items-center gap-2.5 px-5 rounded-xl text-[14px] font-black active:scale-98 transition-all cursor-pointer shadow-md shrink-0 ${
+                  isCatalogOpen
+                    ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/20'
+                    : 'bg-slate-950 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 shadow-slate-950/20 dark:shadow-white/10'
+                }`}
+                aria-expanded={isCatalogOpen}
+                aria-label={isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
+              >
+                {isCatalogOpen ? (
+                  <X className="w-4.5 h-4.5 text-white" />
+                ) : (
+                  <LayoutGrid className="w-4.5 h-4.5 text-white dark:text-slate-950" />
+                )}
+                {isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
+              </button>
+            </div>
+
+            {/* Desktop Unified Omnisearch Bar */}
+            <div ref={searchRef} className="flex-1 relative max-w-3xl xl:max-w-4xl mx-auto h-12">
+              <form onSubmit={handleSearchSubmit} className="relative h-12 flex items-center">
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
+                  className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-28 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
+                  autoComplete="off"
+                />
+                <Search className="lucide lucide-search w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-22 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 cursor-pointer"
+                    title="Tozalash"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+                <button
+                  type="submit"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-1.5 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-black hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer shadow-xs active:scale-95"
+                >
+                  Qidirish
+                </button>
+              </form>
+
+              {/* Suggestions dropdown */}
+              {showSuggestions && (
+                <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
+                  {suggestions.length > 0 ? (
+                    suggestions.map((p) => (
+                      <Link
+                        key={p._id}
+                        to={`/product/${p.slug}`}
+                        onClick={() => setShowSuggestions(false)}
+                        className="flex items-center gap-3 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                      >
+                        <img
+                          src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
+                          alt={p.title}
+                          className="w-10 h-10 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[10px] uppercase font-bold text-slate-400">{p.category}</div>
+                          <div className="text-[13px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>
+                          <div className="text-[13px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="p-4 text-center text-xs text-slate-400">{t('header.noProducts')}</div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Quick Action Buttons - Desktop */}
+            <div className="hidden md:flex items-center gap-2 ml-auto md:ml-0 flex-shrink-0">
+              <Link
+                to="/compare"
+                className="relative hidden xl:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+                title={t('header.compare')}
+              >
+                <GitCompare className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+                <span className="text-[10px] font-bold leading-none">{t('header.compare')}</span>
+                {compareList.length > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-emerald-500 text-slate-950 text-[9px] font-black flex items-center justify-center shadow-xs">
+                    {compareList.length}
+                  </span>
+                )}
+              </Link>
+
+              <Link
+                to="/account"
+                className="hidden md:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+              >
+                <User className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+                <span className="text-[10px] font-bold leading-none">{user ? user.name.split(' ')[0] : t('header.login')}</span>
+              </Link>
+
+              <Link
+                to="/wishlist"
+                className="relative inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+                aria-label={t('header.wishlist')}
+              >
+                <Heart className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+                <span className="text-[10px] font-bold leading-none">{t('header.wishlist')}</span>
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+
+              <Link
+                to="/cart"
+                className="ml-1 h-12 inline-flex items-center gap-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-950 dark:text-white border border-slate-300 dark:border-slate-700/80 px-4 rounded-xl transition-all cursor-pointer shadow-xs font-black box-border shrink-0 active:scale-98"
+                aria-label={t('header.cart', 'Savat')}
+                title={t('header.cart', 'Savat')}
+              >
+                <span className="relative">
+                  <ShoppingCart className="w-5 h-5 text-slate-950 dark:text-white" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-[10px] font-black flex items-center justify-center shadow-xs">
+                      {cartCount}
+                    </span>
+                  )}
+                </span>
+                <span className="text-[13px] font-extrabold tracking-tight">{t('header.cart', 'Savat')}</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* 2. MOBILE CLEAN 1-ROW NAVBAR (< md) — [LOGO] + [INPUT] + [= BUTTON] */}
+          <div className="flex md:hidden items-center gap-2.5 h-14 w-full">
+            {/* Logo (chapda) */}
+            <Link to="/" className="flex items-center shrink-0">
+              <div className="w-9 h-9 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-sm overflow-hidden">
                 <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
-              </div>
-              <div className="flex flex-col justify-center">
-                <span className="font-black text-[17px] sm:text-[19px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
-                  SPORT OUTLET
-                </span>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-extrabold -mt-0.5">
-                  Sport &amp; Fitness Store
-                </span>
               </div>
             </Link>
 
-            {/* Catalog Button - Sleek athletic high-contrast styling */}
+            {/* Input (o'rtada, to'liq qidiruv) */}
+            <div ref={mobileSearchRef} className="flex-1 relative min-w-0">
+              <form onSubmit={handleSearchSubmit} className="relative h-10 flex items-center w-full">
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={t('header.searchPlaceholder', "Qidiruv...")}
+                  className="w-full h-10 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-8 pr-7 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-white transition-all outline-none font-medium box-border shadow-2xs [&::-webkit-search-cancel-button]:hidden"
+                  autoComplete="off"
+                />
+                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </form>
+
+              {/* Mobile search suggestions */}
+              {showSuggestions && (
+                <div className="absolute left-0 right-0 top-full mt-1.5 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800 max-h-72 overflow-y-auto">
+                  {suggestions.length > 0 ? (
+                    suggestions.map((p) => (
+                      <Link
+                        key={p._id}
+                        to={`/product/${p.slug}`}
+                        onClick={() => setShowSuggestions(false)}
+                        className="flex items-center gap-2.5 p-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                      >
+                        <img
+                          src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200'}
+                          alt={p.title}
+                          className="w-9 h-9 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[12px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>
+                          <div className="text-[11px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="p-3 text-center text-xs text-slate-400">{t('header.noProducts')}</div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Sidebarni / Katalogni ochadigan buton (=) (o'ng burchakda) */}
             <button
               type="button"
               onClick={onToggleCatalog}
-              className={`hidden md:inline-flex h-12 items-center gap-2.5 px-5 rounded-xl text-[14px] font-black active:scale-98 transition-all cursor-pointer shadow-md shrink-0 ${
+              className={`h-10 w-10 flex items-center justify-center rounded-xl transition-all cursor-pointer shrink-0 shadow-2xs border ${
                 isCatalogOpen
-                  ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/20'
-                  : 'bg-slate-950 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 shadow-slate-950/20 dark:shadow-white/10'
+                  ? 'bg-rose-600 text-white border-rose-600 shadow-rose-600/20'
+                  : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white active:scale-95'
               }`}
-              aria-expanded={isCatalogOpen}
-              aria-label={isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
+              aria-label="Katalogni ochish"
+              title="Katalogni ochish"
             >
               {isCatalogOpen ? (
-                <X className="w-4.5 h-4.5 text-white" />
+                <X className="w-5 h-5 text-white" />
               ) : (
-                <LayoutGrid className="w-4.5 h-4.5 text-white dark:text-slate-950" />
+                <Menu className="w-5 h-5 stroke-[2.5]" />
               )}
-              {isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
             </button>
           </div>
-
-          {/* Unified Omnisearch Bar with Distinct Styling */}
-          <div ref={searchRef} className="hidden md:block flex-1 relative max-w-3xl xl:max-w-4xl mx-auto h-12">
-            <form onSubmit={handleSearchSubmit} className="relative h-12 flex items-center">
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
-                className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-28 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
-                autoComplete="off"
-              />
-              <Search className="lucide lucide-search w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-22 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 cursor-pointer"
-                  title="Tozalash"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-              <button
-                type="submit"
-                className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-1.5 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-black hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer shadow-xs active:scale-95"
-              >
-                Qidirish
-              </button>
-            </form>
-
-            {/* Suggestions drop */}
-            {showSuggestions && (
-              <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
-                {suggestions.length > 0 ? (
-                  suggestions.map((p) => (
-                    <Link
-                      key={p._id}
-                      to={`/product/${p.slug}`}
-                      onClick={() => setShowSuggestions(false)}
-                      className="flex items-center gap-3 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <img
-                        src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
-                        alt={p.title}
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80';
-                        }}
-                        className="w-10 h-10 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[10px] uppercase font-bold text-slate-400">
-                          {p.category}
-                        </div>
-                        <div className="text-[13px] font-medium text-slate-900 dark:text-white truncate">
-                          {p.title}
-                        </div>
-                        <div className="text-[13px] font-extrabold text-slate-950 dark:text-white">
-                          {formatPrice(p.price)}
-                        </div>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
-                    </Link>
-                  ))
-                ) : (
-                  <div className="p-4 text-center text-xs text-slate-400">
-                    {t('header.noProducts')}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Quick Action Buttons - Desktop (Distinct Solid Styling) */}
-          <div className="hidden md:flex items-center gap-2 ml-auto md:ml-0 flex-shrink-0">
-            {/* Compare */}
-            <Link
-              to="/compare"
-              className="relative hidden xl:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
-              title={t('header.compare')}
-            >
-              <GitCompare className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-              <span className="text-[10px] font-bold leading-none">{t('header.compare')}</span>
-              {compareList.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-emerald-500 text-slate-950 text-[9px] font-black flex items-center justify-center shadow-xs">
-                  {compareList.length}
-                </span>
-              )}
-            </Link>
-
-            {/* Account */}
-            <Link
-              to="/account"
-              className="hidden md:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
-            >
-              <User className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-              <span className="text-[10px] font-bold leading-none">
-                {user ? user.name.split(' ')[0] : t('header.login')}
-              </span>
-            </Link>
-
-            {/* Wishlist */}
-            <Link
-              to="/wishlist"
-              className="relative inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
-              aria-label={t('header.wishlist')}
-            >
-              <Heart className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-              <span className="text-[10px] font-bold leading-none">{t('header.wishlist')}</span>
-              {wishlist.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
-                  {wishlist.length}
-                </span>
-              )}
-            </Link>
-
-            {/* Unified Shopping Cart Button - No price/sum, only icon + badge + title */}
-            <Link
-              to="/cart"
-              className="ml-1 h-12 inline-flex items-center gap-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-950 dark:text-white border border-slate-300 dark:border-slate-700/80 px-4 rounded-xl transition-all cursor-pointer shadow-xs font-black box-border shrink-0 active:scale-98"
-              aria-label={t('header.cart', 'Savat')}
-              title={t('header.cart', 'Savat')}
-            >
-              <span className="relative">
-                <ShoppingCart className="w-5 h-5 text-slate-950 dark:text-white" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-[10px] font-black flex items-center justify-center shadow-xs">
-                    {cartCount}
-                  </span>
-                )}
-              </span>
-              <span className="text-[13px] font-extrabold tracking-tight">
-                {t('header.cart', 'Savat')}
-              </span>
-            </Link>
-          </div>
-
-          {/* Mobile Right Quick Action Icons (Visible only on < md) */}
-          <div className="flex md:hidden items-center gap-1.5 shrink-0">
-            {/* Admin Demo quick pill */}
-            <Link
-              to="/admin"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold text-[11px] shadow-2xs border border-slate-900 dark:border-white shrink-0 active:scale-95 transition-transform"
-              title="Admin Panel Demo"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
-              <span>Admin</span>
-            </Link>
-
-            {/* Theme switch quick button */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center border border-slate-200 dark:border-slate-700 active:scale-95 transition-all shadow-2xs cursor-pointer"
-              aria-label="Rejimni almashtirish"
-              title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
-            >
-              {isDark ? (
-                <Sun className="w-4 h-4 text-amber-400 fill-amber-400/20" />
-              ) : (
-                <Moon className="w-4 h-4 text-slate-700 fill-slate-700/20" />
-              )}
-            </button>
-
-            {/* Phone quick call */}
-            <a
-              href="tel:+998951554500"
-              className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center border border-slate-200 dark:border-slate-700 active:scale-95 transition-all shadow-2xs"
-              aria-label="Telefon qilish"
-              title="Qo‘ng‘iroq qilish: +998 (95) 155-45-00"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-          </div>
         </div>
-      </div>
-
-      {/* Row 2: Mobile Omnisearch Bar (< md) */}
-      <div className="md:hidden px-4 pb-2.5 pt-0.5">
-        <div ref={mobileSearchRef} className="relative w-full">
-          <form onSubmit={handleSearchSubmit} className="relative h-10 flex items-center">
-            <input
-              type="search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('header.searchPlaceholder', "Krossovkalar, sport kiyimlari, aksessuarlar…")}
-              className="w-full h-10 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-9 pr-9 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-white transition-all outline-none font-medium box-border shadow-2xs [&::-webkit-search-cancel-button]:hidden"
-              autoComplete="off"
-            />
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            )}
-          </form>
-
-          {/* Mobile search suggestions dropdown */}
-          {showSuggestions && (
-            <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800 max-h-80 overflow-y-auto">
-              {suggestions.length > 0 ? (
-                suggestions.map((p) => (
-                  <Link
-                    key={p._id}
-                    to={`/product/${p.slug}`}
-                    onClick={() => setShowSuggestions(false)}
-                    className="flex items-center gap-3 p-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                  >
-                    <img
-                      src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
-                      alt={p.title}
-                      className="w-9 h-9 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[10px] uppercase font-bold text-slate-400 truncate">{p.category}</div>
-                      <div className="text-xs font-semibold text-slate-900 dark:text-white truncate">{p.title}</div>
-                      <div className="text-xs font-black text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
-                  </Link>
-                ))
-              ) : (
-                <div className="p-3 text-center text-xs text-slate-400">{t('header.noProducts')}</div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
-        {/* Sub-Navigation Strip (Kategoriyalar Tasmagichi - Qizil hoshiya ichidagi pastki qator) */}
-        <div className="border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
+        {/* Sub-Navigation Strip (Desktop only - mobilda faqat 1 qator navbar qoladi) */}
+        <div className="hidden md:block border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
           <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
             <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
             {/* 1. Aksiyalar kuni */}

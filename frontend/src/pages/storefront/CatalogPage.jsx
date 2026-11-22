@@ -56,7 +56,7 @@ export default function CatalogPage() {
 
   const fetchProducts = () => {
     setLoading(true);
-    let url = `/products?sort=${sortBy}`;
+    let url = `/products?limit=1000&sort=${sortBy}`;
     if (selectedCategory) url += `&categorySlug=${selectedCategory}`;
     if (selectedBrand) url += `&brand=${selectedBrand}`;
     if (minPrice) url += `&minPrice=${minPrice}`;

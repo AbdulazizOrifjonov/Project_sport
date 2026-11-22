@@ -387,7 +387,7 @@ export default function AdminDashboard() {
           setRefreshingStats(false);
         });
     } else if (activeTab === 'products' || activeTab === 'inventory') {
-      api.get('/products?limit=100')
+      api.get('/products?limit=1000')
         .then(res => { if (res.data.success) setProducts(res.data.products); })
         .finally(() => setLoading(false));
     } else if (activeTab === 'categories') {
@@ -751,7 +751,11 @@ export default function AdminDashboard() {
               </div>
 
               {/* Card 4: Aktiv Mahsulotlar */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between hover-lift hover-glow-sky transition-all duration-300 group">
+              <div
+                onClick={() => setActiveTab('products')}
+                className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between hover-lift hover-glow-sky hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 group cursor-pointer"
+                title="Barcha mahsulotlar ro‘yxatini ochish"
+              >
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Mahsulotlar
@@ -766,13 +770,14 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex items-center gap-1.5 mt-2 text-[11px]">
                     <span className="inline-flex items-center gap-0.5 font-extrabold text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 px-1.5 py-0.5 rounded-md">
-                      8 ta toifa
+                      Barchasini boshqarish
                     </span>
-                    <span className="text-slate-400 font-medium">katalogda</span>
+                    <span className="text-slate-400 font-medium">CRUD</span>
                   </div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[10px] text-slate-500 dark:text-slate-400 font-semibold truncate">
-                  100% omborda mavjud
+                <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[10px] text-sky-600 dark:text-sky-400 font-bold flex items-center justify-between">
+                  <span>Ro‘yxatni ochish</span>
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
 

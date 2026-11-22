@@ -108,8 +108,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
     <div
       className="fixed inset-x-0 bottom-0 z-40 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
       style={{
-        top: 'var(--nsb-header-height, 136px)',
-        height: 'calc(100dvh - var(--nsb-header-height, 136px))'
+        top: 'var(--nsb-navbar-height, var(--nsb-header-height, 56px))',
+        height: 'calc(100dvh - var(--nsb-navbar-height, var(--nsb-header-height, 56px)))'
       }}
       onClick={onClose}
     >
