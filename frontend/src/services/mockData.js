@@ -78,6 +78,363 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-ax-1006-5113",
+    "id": "prod_masaj-kreslo-ax-1006-5113",
+    "title": "Masaj kreslo AX-1006",
+    "slug": "masaj-kreslo-ax-1006-5113",
+    "sku": "",
+    "price": 21845000,
+    "oldPrice": 25121750,
+    "old_price": 25121750,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1006-7300_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1006-7300_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1700$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:25.113Z"
+  },
+  {
+    "_id": "prod_taroz-constant-model-4011a-4531",
+    "id": "prod_taroz-constant-model-4011a-4531",
+    "title": "Taroz constant Model 4011a",
+    "slug": "taroz-constant-model-4011a-4531",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-constant-model-4011a-7365_1.jpg",
+      "/uploads/prod_taroz-constant-model-4011a-7365_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model 4011a\nMax ves : 180kg\nNarxi : 35$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.531Z"
+  },
+  {
+    "_id": "prod_taroz-constant-model-175s-4491",
+    "id": "prod_taroz-constant-model-175s-4491",
+    "title": "taroz constant model 175s",
+    "slug": "taroz-constant-model-175s-4491",
+    "sku": "",
+    "price": 385500,
+    "oldPrice": 443325,
+    "old_price": 443325,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-constant-model-175s-7332_1.jpg",
+      "/uploads/prod_taroz-constant-model-175s-7332_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "model 175s\nTelefonga ulanadi\nMax ves : 180kg\nNarxi :30$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.491Z"
+  },
+  {
+    "_id": "prod_taroz-constant-model-190a-4464",
+    "id": "prod_taroz-constant-model-190a-4464",
+    "title": "taroz constant model 190a",
+    "slug": "taroz-constant-model-190a-4464",
+    "sku": "",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-constant-model-190a-7433_1.jpg",
+      "/uploads/prod_taroz-constant-model-190a-7433_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "model 190a\nMax ves : 180kg\nNarxi : 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.464Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-ax-1009-4422",
+    "id": "prod_masaj-kreslo-ax-1009-4422",
+    "title": "Masaj kreslo AX-1009",
+    "slug": "masaj-kreslo-ax-1009-4422",
+    "sku": "",
+    "price": 15163000,
+    "oldPrice": 17437450,
+    "old_price": 17437450,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1009-7228_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1009-7228_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1180$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.422Z"
+  },
+  {
+    "_id": "prod_taroz-smart-body-4389",
+    "id": "prod_taroz-smart-body-4389",
+    "title": "Taroz smart body",
+    "slug": "taroz-smart-body-4389",
+    "sku": "",
+    "price": 578250,
+    "oldPrice": 664988,
+    "old_price": 664988,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-smart-body-7363_1.jpg",
+      "/uploads/prod_taroz-smart-body-7363_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 45$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.389Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-ax-1010-4342",
+    "id": "prod_masaj-kreslo-ax-1010-4342",
+    "title": "Masaj kreslo AX-1010",
+    "slug": "masaj-kreslo-ax-1010-4342",
+    "sku": "",
+    "price": 11051000,
+    "oldPrice": 12708650,
+    "old_price": 12708650,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1010-8700_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1010-8700_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 860$$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:24.342Z"
+  },
+  {
     "_id": "prod_trenajor-aksessuar-st-07-9373",
     "id": "prod_trenajor-aksessuar-st-07-9373",
     "title": "Trenajor aksessuar st-07",
