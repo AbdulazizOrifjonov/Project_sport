@@ -78,6 +78,820 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_ax105-0319",
+    "id": "prod_ax105-0319",
+    "title": "Стол для настольного тенниса AX105",
+    "slug": "ax105-0319",
+    "sku": "",
+    "price": 5654000,
+    "oldPrice": 6502100,
+    "old_price": 6502100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax105-0764_1.jpg",
+      "/uploads/prod_ax105-0764_2.jpg",
+      "/uploads/prod_ax105-0764_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX105\nКод: 0536113\n• Размеры стола: 274 × 152.5 × 76 см\n• Поверхность стола: 18 мм водостойкая плита ASP\n• Вес стола: 59 кг\n• Толщина ножек: 30 × 30 мм\n• Прочная металлическая конструкция\n• В комплекте сетка ✅\n• Подходит для использования в помещении и на улице\nЦена: 440$\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:30.319Z"
+  },
+  {
+    "_id": "prod_ax101-0212",
+    "id": "prod_ax101-0212",
+    "title": "Стол для настольного тенниса AX101",
+    "slug": "ax101-0212",
+    "sku": "",
+    "price": 2505750,
+    "oldPrice": 2881613,
+    "old_price": 2881613,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax101-9339_1.jpg",
+      "/uploads/prod_ax101-9339_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX101\nКод: 5519016\n• Размеры стола: 274 × 152.5 × 76 см\n• Поверхность стола: 15 мм МДФ\n• Вес стола: 70 кг\n• Толщина ножек: 30 × 30 мм\n• Прочная и устойчивая металлическая конструкция\n• Подходит для тренировок и соревнований\n• В комплекте сетка\nЦена: 195 $\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:30.212Z"
+  },
+  {
+    "_id": "prod_fb-kopto-axelus-b-0062",
+    "id": "prod_fb-kopto-axelus-b-0062",
+    "title": "Fb kopto Axelus B",
+    "slug": "fb-kopto-axelus-b-0062",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_fb-kopto-axelus-b-9145_1.jpg",
+      "/uploads/prod_fb-kopto-axelus-b-9145_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 5R\nMade in pakistan\nSifati a'lo to'p\nNarxi: 35$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:30.062Z"
+  },
+  {
+    "_id": "prod_ax108-9750",
+    "id": "prod_ax108-9750",
+    "title": "Стол для настольного тенниса AX108",
+    "slug": "ax108-9750",
+    "sku": "",
+    "price": 5911000,
+    "oldPrice": 6797650,
+    "old_price": 6797650,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax108-4404_1.jpg",
+      "/uploads/prod_ax108-4404_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX108\n• Размеры стола: 274 × 152.5 × 76 см\n• Поверхность стола: 18 мм МДФ\n• Вес стола: 93 кг\n• Прочная и устойчивая металлическая конструкция\n• В комплекте сетка ✅\n• Подходит для профессиональных тренировок и соревнований\n• Высококачественная модель, долговечная\nЦена: 460 $\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.750Z"
+  },
+  {
+    "_id": "prod_taktika-doska-shtativ-1102-9492",
+    "id": "prod_taktika-doska-shtativ-1102-9492",
+    "title": "Taktika doska shtativ 1102",
+    "slug": "taktika-doska-shtativ-1102-9492",
+    "sku": "",
+    "price": 835250,
+    "oldPrice": 960537,
+    "old_price": 960537,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taktika-doska-shtativ-1102-8648_1.jpg",
+      "/uploads/prod_taktika-doska-shtativ-1102-8648_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Doskani razmer: 100*70sm\nNarxi: 65$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.492Z"
+  },
+  {
+    "_id": "prod_vb-setka-mikassa-5mm-politelin-6601-9418",
+    "id": "prod_vb-setka-mikassa-5mm-politelin-6601-9418",
+    "title": "Vb setka mikassa 5mm politelin 6601",
+    "slug": "vb-setka-mikassa-5mm-politelin-6601-9418",
+    "sku": "",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_vb-setka-mikassa-5mm-politelin-6601-3511_1.jpg",
+      "/uploads/prod_vb-setka-mikassa-5mm-politelin-6601-3511_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 40$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.418Z"
+  },
+  {
+    "_id": "prod_taktika-doska-shtativ-1103-9248",
+    "id": "prod_taktika-doska-shtativ-1103-9248",
+    "title": "Taktika doska shtativ 1103",
+    "slug": "taktika-doska-shtativ-1103-9248",
+    "sku": "",
+    "price": 835250,
+    "oldPrice": 960537,
+    "old_price": 960537,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taktika-doska-shtativ-1103-3494_1.jpg",
+      "/uploads/prod_taktika-doska-shtativ-1103-3494_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Doskani razmer: 90*60sm\nNarxi: 65$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.248Z"
+  },
+  {
+    "_id": "prod_setka-fb-bee-7k-9145",
+    "id": "prod_setka-fb-bee-7k-9145",
+    "title": "Setka fb bee 7k",
+    "slug": "setka-fb-bee-7k-9145",
+    "sku": "",
+    "price": 706750,
+    "oldPrice": 812762,
+    "old_price": 812762,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_setka-fb-bee-7k-6964_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 5*2.2m\nNarxi: 55$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.145Z"
+  },
+  {
+    "_id": "prod_setka-vb-mikassa-politelin-6602-9047",
+    "id": "prod_setka-vb-mikassa-politelin-6602-9047",
+    "title": "Setka vb mikassa politelin 6602",
+    "slug": "setka-vb-mikassa-politelin-6602-9047",
+    "sku": "",
+    "price": 488300,
+    "oldPrice": 561545,
+    "old_price": 561545,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_setka-vb-mikassa-politelin-6602-3507_1.jpg",
+      "/uploads/prod_setka-vb-mikassa-politelin-6602-3507_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 38$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:29.047Z"
+  },
+  {
+    "_id": "prod_gira-tosh-8980",
+    "id": "prod_gira-tosh-8980",
+    "title": "Gira tosh",
+    "slug": "gira-tosh-8980",
+    "sku": "",
+    "price": 102800,
+    "oldPrice": 118220,
+    "old_price": 118220,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gira-tosh-0788_1.jpg",
+      "/uploads/prod_gira-tosh-0788_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Mavjud vaznlari va narxlari:\n• 4 kg — 8$\n• 6 kg — 22$\n• 8 kg — 27$\n• 10 kg — 31$\n• 12 kg — 35$\n• 14 kg — 38$\n• 16 kg — 42$\n• 18 kg — 36$\n• 20 kg — 38$\n• 22 kg — 40$\n• 24 kg — 44$\n🎨 Ranglari: 🟦⬛️\n📦 Dona va optom savdo mavjud.\nBuyurtma uchun: @sport_outlet_uz | 970124444\n970160000",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:28.980Z"
+  },
+  {
+    "_id": "prod_lapa-axelus-ax01-8671",
+    "id": "prod_lapa-axelus-ax01-8671",
+    "title": "Lapa Axelus AX01  🆕🆕🆕",
+    "slug": "lapa-axelus-ax01-8671",
+    "sku": "",
+    "price": 578250,
+    "oldPrice": 664988,
+    "old_price": 664988,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_lapa-axelus-ax01-3489_1.jpg",
+      "/uploads/prod_lapa-axelus-ax01-3489_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Material: Koja\nNarxi: 45$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:28.671Z"
+  },
+  {
+    "_id": "prod_valibol-kopto-mikasa-v200w-7977",
+    "id": "prod_valibol-kopto-mikasa-v200w-7977",
+    "title": "Valibol kopto mikasa v200w 🏐",
+    "slug": "valibol-kopto-mikasa-v200w-7977",
+    "sku": "",
+    "price": 1156500,
+    "oldPrice": 1329975,
+    "old_price": 1329975,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_valibol-kopto-mikasa-v200w-9066_1.jpg",
+      "/uploads/prod_valibol-kopto-mikasa-v200w-9066_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Orginal ✅\nNarxi: 90$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:27.977Z"
+  },
+  {
+    "_id": "prod_futbol-jc-249-real-barsa-7719",
+    "id": "prod_futbol-jc-249-real-barsa-7719",
+    "title": "Futbol JC-249 Real Barsa",
+    "slug": "futbol-jc-249-real-barsa-7719",
+    "sku": "",
+    "price": 1477750,
+    "oldPrice": 1699412,
+    "old_price": 1699412,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_futbol-jc-249-real-barsa-8676_1.jpg",
+      "/uploads/prod_futbol-jc-249-real-barsa-8676_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer : 120x61x80\nNarxi : 115$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:27.719Z"
+  },
+  {
+    "_id": "prod_fb-kopto-molten-afc-5000-7636",
+    "id": "prod_fb-kopto-molten-afc-5000-7636",
+    "title": "FB kopto Molten AFC 5000",
+    "slug": "fb-kopto-molten-afc-5000-7636",
+    "sku": "",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_fb-kopto-molten-afc-5000-8723_1.jpg",
+      "/uploads/prod_fb-kopto-molten-afc-5000-8723_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 5r\nOrginal ✅\nNarxi : 95$ 🤩",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:27.636Z"
+  },
+  {
+    "_id": "prod_setka-fb-bee-11k-6539",
+    "id": "prod_setka-fb-bee-11k-6539",
+    "title": "Setka fb bee 11k",
+    "slug": "setka-fb-bee-11k-6539",
+    "sku": "",
+    "price": 835250,
+    "oldPrice": 960537,
+    "old_price": 960537,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_setka-fb-bee-11k-3163_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 7.32*2.44m\nNarxi: 65$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:26.539Z"
+  },
+  {
+    "_id": "prod_press-s-ax040-4886",
+    "id": "prod_press-s-ax040-4886",
+    "title": "Press S AX040",
+    "slug": "press-s-ax040-4886",
+    "sku": "0407729",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-s-ax040-0805_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0407729\nNarxi : 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0407729"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:27:24.886Z"
+  },
+  {
     "_id": "prod_podshtanga-axelus-model-trenajor-ax062-2823",
     "id": "prod_podshtanga-axelus-model-trenajor-ax062-2823",
     "title": "Podshtanga AXELUS Model: Trenajor AX062",
@@ -1835,7 +2649,7 @@ export const defaultProducts = [
   {
     "_id": "prod_lapa-axelus-tortburchak-model-02-4375",
     "id": "prod_lapa-axelus-tortburchak-model-02-4375",
-    "title": "Lapa Axelus tortburchak Model : 03",
+    "title": "Lapa Axelus tortburchak Model : 01",
     "slug": "lapa-axelus-tortburchak-model-02-4375",
     "sku": "8472294",
     "price": 514000,
@@ -1854,15 +2668,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_lapa-axelus-tortburchak-model-03-0877_1.jpg",
-      "/uploads/prod_lapa-axelus-tortburchak-model-03-0877_2.jpg"
+      "/uploads/prod_lapa-axelus-tortburchak-model-01-3477_1.jpg",
+      "/uploads/prod_lapa-axelus-tortburchak-model-01-3477_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Model : 03\nMateriali : matviy koja\nKodi: 8472294\nNarxi : 40$",
+    "description": "Model : 01\nMateriali : koja\nKodi: 8472294\nNarxi : 40$",
     "specifications": [
       {
         "label": "Brend",
@@ -1882,7 +2696,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-22T08:21:04.375Z",
-    "updated_at": "2026-11-22T08:21:08.141Z"
+    "updated_at": "2026-11-22T08:27:28.064Z"
   },
   {
     "_id": "prod_vesagon-st-603-3171",
