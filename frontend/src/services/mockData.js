@@ -78,6 +78,574 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_box-per-rival-02-white-9310",
+    "id": "prod_box-per-rival-02-white-9310",
+    "title": "Box per RIVAL 02 White",
+    "slug": "box-per-rival-02-white-9310",
+    "sku": "",
+    "price": 591100,
+    "oldPrice": 679765,
+    "old_price": 679765,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-rival-02-white-4387_1.jpg",
+      "/uploads/prod_box-per-rival-02-white-4387_2.jpg",
+      "/uploads/prod_box-per-rival-02-white-4387_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: charm\nNarxi: 46$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:09.310Z"
+  },
+  {
+    "_id": "prod_gantel-nabor-30kg-9171",
+    "id": "prod_gantel-nabor-30kg-9171",
+    "title": "Gantel nabor 30kg",
+    "slug": "gantel-nabor-30kg-9171",
+    "sku": "",
+    "price": 989450,
+    "oldPrice": 1137868,
+    "old_price": 1137868,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-nabor-30kg-3845_1.jpg",
+      "/uploads/prod_gantel-nabor-30kg-3845_2.jpg",
+      "/uploads/prod_gantel-nabor-30kg-3845_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Shtanga bóladi ✅\nNarxi: 77$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:09.171Z"
+  },
+  {
+    "_id": "prod_box-per-adidas-9051",
+    "id": "prod_box-per-adidas-9051",
+    "title": "Box per ADIDAS",
+    "slug": "box-per-adidas-9051",
+    "sku": "",
+    "price": 565400,
+    "oldPrice": 650210,
+    "old_price": 650210,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Krossovkalar & Poyabzallar",
+    "category_slug": "krossovkalar",
+    "categorySlug": "krossovkalar",
+    "subcategory": "",
+    "brand": "Adidas",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-adidas-4297_1.jpg",
+      "/uploads/prod_box-per-adidas-4297_2.jpg",
+      "/uploads/prod_box-per-adidas-4297_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Material: Koja\nMadel: AD2\nRazmer: 8,10,12,14,16\nNarxi: 44$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Adidas"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:09.051Z"
+  },
+  {
+    "_id": "prod_box-per-riada-ipli-black-02-8439",
+    "id": "prod_box-per-riada-ipli-black-02-8439",
+    "title": "BOX PER RIADA IPLI BLACK 02",
+    "slug": "box-per-riada-ipli-black-02-8439",
+    "sku": "",
+    "price": 642500,
+    "oldPrice": 738875,
+    "old_price": 738875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-riada-ipli-black-02-3698_1.jpg",
+      "/uploads/prod_box-per-riada-ipli-black-02-3698_2.jpg",
+      "/uploads/prod_box-per-riada-ipli-black-02-3698_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: koja\nNarxi: 50$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:08.439Z"
+  },
+  {
+    "_id": "prod_protektor-everlast-03-7546",
+    "id": "prod_protektor-everlast-03-7546",
+    "title": "Protektor Everlast 03",
+    "slug": "protektor-everlast-03-7546",
+    "sku": "",
+    "price": 835250,
+    "oldPrice": 960537,
+    "old_price": 960537,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Everlast",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_protektor-everlast-03-4317_1.jpg",
+      "/uploads/prod_protektor-everlast-03-4317_2.jpg",
+      "/uploads/prod_protektor-everlast-03-4317_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: Standart\nNarxi: 65$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Everlast"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:07.546Z"
+  },
+  {
+    "_id": "prod_box-per-adidas-aiba-6986",
+    "id": "prod_box-per-adidas-aiba-6986",
+    "title": "Box per ADIDAS AIBA",
+    "slug": "box-per-adidas-aiba-6986",
+    "sku": "",
+    "price": 565400,
+    "oldPrice": 650210,
+    "old_price": 650210,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Krossovkalar & Poyabzallar",
+    "category_slug": "krossovkalar",
+    "categorySlug": "krossovkalar",
+    "subcategory": "",
+    "brand": "Adidas",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-adidas-aiba-4352_1.jpg",
+      "/uploads/prod_box-per-adidas-aiba-4352_2.jpg",
+      "/uploads/prod_box-per-adidas-aiba-4352_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Material: koja\nRazmer: 8,10,12,14,16\nNarxi: 44$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Adidas"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:06.986Z"
+  },
+  {
+    "_id": "prod_gantel-nabor-55kg-6170",
+    "id": "prod_gantel-nabor-55kg-6170",
+    "title": "Gantel nabor 55kg",
+    "slug": "gantel-nabor-55kg-6170",
+    "sku": "",
+    "price": 1567700,
+    "oldPrice": 1802855,
+    "old_price": 1802855,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-nabor-55kg-3677_1.jpg",
+      "/uploads/prod_gantel-nabor-55kg-3677_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Shtanga grif + zig zag grif ✅\nNarxi: 122$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:06.170Z"
+  },
+  {
+    "_id": "prod_box-per-winning-ipli-blue-4881",
+    "id": "prod_box-per-winning-ipli-blue-4881",
+    "title": "Box per Winning ipli blue",
+    "slug": "box-per-winning-ipli-blue-4881",
+    "sku": "",
+    "price": 578250,
+    "oldPrice": 664988,
+    "old_price": 664988,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-winning-ipli-blue-4309_1.jpg",
+      "/uploads/prod_box-per-winning-ipli-blue-4309_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: charm\nNarxi: 45$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:04.881Z"
+  },
+  {
+    "_id": "prod_box-per-winning-ipli-red-4616",
+    "id": "prod_box-per-winning-ipli-red-4616",
+    "title": "Box per Winning ipli Red",
+    "slug": "box-per-winning-ipli-red-4616",
+    "sku": "",
+    "price": 578250,
+    "oldPrice": 664988,
+    "old_price": 664988,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-winning-ipli-red-4330_1.jpg",
+      "/uploads/prod_box-per-winning-ipli-red-4330_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: charm\nNarxi: 45$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:04.616Z"
+  },
+  {
+    "_id": "prod_lapa-axelus-tortburchak-model-02-4375",
+    "id": "prod_lapa-axelus-tortburchak-model-02-4375",
+    "title": "Lapa Axelus tortburchak Model : 03",
+    "slug": "lapa-axelus-tortburchak-model-02-4375",
+    "sku": "8472294",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_lapa-axelus-tortburchak-model-03-0877_1.jpg",
+      "/uploads/prod_lapa-axelus-tortburchak-model-03-0877_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model : 03\nMateriali : matviy koja\nKodi: 8472294\nNarxi : 40$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "8472294"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:04.375Z",
+    "updated_at": "2026-11-22T08:21:08.141Z"
+  },
+  {
+    "_id": "prod_vesagon-st-603-3171",
+    "id": "prod_vesagon-st-603-3171",
+    "title": "Vesagon st-603",
+    "slug": "vesagon-st-603-3171",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_vesagon-st-603-3970_1.jpg",
+      "/uploads/prod_vesagon-st-603-3970_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Rang: ⬛️\nRazmer: XL 2XL 3XL 4XL 5XL\nNarxi: 35$ 🔥",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:21:03.172Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-am183-3735",
     "id": "prod_masaj-kreslo-am183-3735",
     "title": "Masaj kreslo AM183",
