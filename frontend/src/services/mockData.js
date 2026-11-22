@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_kord-raketka-odea-w66-workout-6946",
+    "id": "prod_kord-raketka-odea-w66-workout-6946",
+    "title": "KORD RAKETKA ODEA W66 workout",
+    "slug": "kord-raketka-odea-w66-workout-6946",
+    "sku": "",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kord-raketka-odea-w66-workout-5889_1.jpg",
+      "/uploads/prod_kord-raketka-odea-w66-workout-5889_2.jpg",
+      "/uploads/prod_kord-raketka-odea-w66-workout-5889_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Original✅\nNarxi: 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:26.946Z"
+  },
+  {
     "_id": "prod_fitness-balance-58sm-1-2048",
     "id": "prod_fitness-balance-58sm-1-2048",
     "title": "Fitness balance 58sm 1",
