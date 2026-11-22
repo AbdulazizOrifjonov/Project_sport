@@ -78,6 +78,162 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_kamar-axelus-koja-212-pok-0641",
+    "id": "prod_kamar-axelus-koja-212-pok-0641",
+    "title": "KAMAR AXELUS KOJA 212 POK",
+    "slug": "kamar-axelus-koja-212-pok-0641",
+    "sku": "",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Fitnes & Sport Aksessuarlari",
+    "category_slug": "fitnes-aksessuarlari",
+    "categorySlug": "fitnes-aksessuarlari",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kamar-axelus-koja-212-pok-4046_1.jpg",
+      "/uploads/prod_kamar-axelus-koja-212-pok-4046_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "RAZMER; M L XL\nNARXI. 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:20.641Z"
+  },
+  {
+    "_id": "prod_box-per-riada-ipli-geer-02-0572",
+    "id": "prod_box-per-riada-ipli-geer-02-0572",
+    "title": "BOX PER RIADA IPLI GEER 02",
+    "slug": "box-per-riada-ipli-geer-02-0572",
+    "sku": "",
+    "price": 642500,
+    "oldPrice": 738875,
+    "old_price": 738875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-riada-ipli-geer-02-4214_1.jpg",
+      "/uploads/prod_box-per-riada-ipli-geer-02-4214_2.jpg",
+      "/uploads/prod_box-per-riada-ipli-geer-02-4214_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: koja\nNarxi: 50$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:20.572Z"
+  },
+  {
+    "_id": "prod_box-per-rival-0528",
+    "id": "prod_box-per-rival-0528",
+    "title": "Box per Rival",
+    "slug": "box-per-rival-0528",
+    "sku": "",
+    "price": 591100,
+    "oldPrice": 679765,
+    "old_price": 679765,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-rival-4097_1.jpg",
+      "/uploads/prod_box-per-rival-4097_2.jpg",
+      "/uploads/prod_box-per-rival-4097_3.jpg",
+      "/uploads/prod_box-per-rival-4097_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8  12 14 16R\nMaterial: Charm\nNarxi: 46$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:20.528Z"
+  },
+  {
     "_id": "prod_gantel-gira-55kg-0448",
     "id": "prod_gantel-gira-55kg-0448",
     "title": "Gantel + gira 55kg",
