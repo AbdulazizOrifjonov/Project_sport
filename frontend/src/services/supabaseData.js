@@ -10,10 +10,10 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v6 Sport & Fitness)
+// Local storage collection keys (v7 Clean User Controlled Sport)
 const KEYS = {
   CATEGORIES: 'nsb_categories_v4_sport',
-  PRODUCTS: 'nsb_products_v6_sport',
+  PRODUCTS: 'nsb_products_v7_sport',
   BANNERS: 'nsb_banners_v4_sport',
   COUPONS: 'nsb_coupons_v4_sport',
   REVIEWS: 'nsb_reviews_v4_sport',

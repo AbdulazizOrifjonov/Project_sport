@@ -1,6 +1,7 @@
 /**
  * SPORT OUTLET — Telegram Product Bot
  * Bot Token: 6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w
+ * Bot Username: @Ttxtxtctxtxtxhxhchxhbot
  * 
  * Features:
  * 1. MULTI-PHOTO & ALBUM SUPPORT:
@@ -9,33 +10,23 @@
  * 2. MULTI-VARIANT DETECTION:
  *    If caption has multiple thickness/size options (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm),
  *    creates 1 single product with interactive variant selection and individual prices!
- * 3. SMART PRICE PARSER:
- *    Accurately handles USD ($) and UZS (so'm), ignores model numbers & dimensions.
- * 4. DUPLICATE PREVENTION:
- *    Prevents multiple cards for the same product; updates existing products in place.
- * 5. AUTO-SYNC:
- *    Syncs with mockData.js and pushes to GitHub for instant live deployment!
+ * 3. SMART PRICE & TITLE PARSER:
+ *    Accurately handles USD ($) and UZS (so'm), detects Model/Madel lines,
+ *    and recognizes massage chairs, gym equipment, cardio, etc.
+ * 4. CLEAN GALLERY INTEGRITY:
+ *    Each product gets ONLY its own photos. Never mixes or merges random photos!
+ * 5. DUAL DATABASE SYNC:
+ *    Directly upserts to Supabase cloud database AND mockData.js.
+ * 6. AUTO-DEPLOYMENT:
+ *    Pushes changes to GitHub (Project_sport & next-nout) for live deployment!
+ * 7. /clear or /delete_all COMMAND:
+ *    Allows clearing all products instantly right from Telegram!
  */
 
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const { execSync } = require('child_process');
-
-// Render & Cloud platform health-check listener
-const PORT = process.env.PORT || 3000;
-http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-  res.end('SPORT OUTLET Telegram Bot is running!\n');
-}).listen(PORT, () => {
-  console.log(`Render health check server listening on port ${PORT}`);
-});
-
-const BOT_TOKEN = '6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w';
-const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
-const TELEGRAM_FILE_API = `https://api.telegram.org/file/bot${BOT_TOKEN}`;
-
-const USD_RATE = 12850; // 1 USD = 12,850 UZS
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const FRONTEND_DIR = path.join(ROOT_DIR, 'frontend');
@@ -47,10 +38,34 @@ if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
-// Sport & Fitness Categories
+// Supabase client initialization
+let supabase = null;
+try {
+  const { createClient } = require(path.join(FRONTEND_DIR, 'node_modules', '@supabase/supabase-js'));
+  supabase = createClient('https://xeaiyoiqyrwnhgtwlpga.supabase.co', 'sb_publishable_cAzTbZesi-1Khha3AH1Mcw_EniamLhY');
+} catch (e) {
+  console.warn('Supabase client module loading warning:', e.message);
+}
+
+// Render & Cloud platform health-check listener
+const PORT = process.env.PORT || 5001;
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end('SPORT OUTLET Telegram Bot is running!\n');
+}).listen(PORT, () => {
+  console.log(`Telegram Bot health-check server listening on port ${PORT}`);
+});
+
+const BOT_TOKEN = '6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w';
+const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
+const TELEGRAM_FILE_API = `https://api.telegram.org/file/bot${BOT_TOKEN}`;
+
+const USD_RATE = 12850; // 1 USD = 12,850 UZS
+
+// Sport & Fitness Categories with Massage Chair & Gym Support
 const CATEGORIES = [
+  { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill'] },
   { slug: 'stoykalar', name: 'Podstavka & Skameykalar', keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270', 'ax003', 'an-001'] },
-  { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', keywords: ['trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill'] },
   { slug: 'gantellar', name: 'Gantellar & Shtangalar', keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk'] },
   { slug: 'toplar-oyinlar', name: 'Futbol & To‘plar', keywords: ['tennis', 'stol tennis', 'raketka', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol'] },
   { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzallar', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali', 'snickers'] },
@@ -68,12 +83,12 @@ function detectCategory(text = '') {
       }
     }
   }
-  return { slug: 'stoykalar', name: 'Podstavka & Skameykalar' };
+  return { slug: 'trenajorlar', name: 'Trenajorlar & Kardio' };
 }
 
 function detectBrand(text = '') {
   const lower = text.toLowerCase();
-  const brands = ['Sport Line', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'Gymshark', 'SPORT OUTLET'];
+  const brands = ['Sport Line', 'Anelus', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'Gymshark', 'SPORT OUTLET'];
   for (const b of brands) {
     if (lower.includes(b.toLowerCase())) return b;
   }
@@ -84,13 +99,11 @@ function detectBrand(text = '') {
  * Detects multiple variants/options in caption (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm)
  */
 function extractVariants(text = '') {
-  // Normalize text: if single line with delimiters, split into newlines
   let normalized = text.trim();
   if (!normalized.includes('\n')) {
     normalized = normalized.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
   }
 
-  // Split into blocks by double newlines or lines starting with product variant names
   const blocks = normalized.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
   const variants = [];
   let baseTitle = '';
@@ -117,7 +130,7 @@ function extractVariants(text = '') {
       }
     }
 
-    if (!price) continue; // Skip blocks without prices
+    if (!price) continue;
 
     // Colors
     const colors = [];
@@ -167,7 +180,7 @@ function extractVariants(text = '') {
 function parseProductInfo(text = '') {
   let normalizedText = (text || '').trim();
   if (!normalizedText.includes('\n')) {
-    normalizedText = normalizedText.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
+    normalizedText = normalizedText.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?|madel[i]?)\s*[:=-]/gi, '\n$1:');
   }
 
   const rawLines = normalizedText.split('\n').map(l => l.trim()).filter(Boolean);
@@ -178,7 +191,7 @@ function parseProductInfo(text = '') {
       rawPriceLabel: '500 000 so‘m',
       sku: '',
       description: 'SPORT OUTLET - kafolatli va sifatli sport anjomi.',
-      category: { slug: 'stoykalar', name: 'Podstavka & Skameykalar' },
+      category: { slug: 'trenajorlar', name: 'Trenajorlar & Kardio' },
       brand: 'Sport Line',
       variants: []
     };
@@ -205,8 +218,15 @@ function parseProductInfo(text = '') {
     };
   }
 
-  // Single product parsing
+  // Single product parsing: Combine Title + Model line if present
   let title = rawLines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
+  if (rawLines.length > 1) {
+    const secondLine = rawLines[1].trim();
+    if (/^(?:madel|model|rusum)\s*[:=-]?\s*(.+)/i.test(secondLine)) {
+      title = `${title} ${secondLine}`;
+    }
+  }
+
   let sku = '';
   let price = 0;
   let rawPriceLabel = '';
@@ -299,12 +319,12 @@ async function sendTelegram(method, data) {
     });
     return await res.json();
   } catch (err) {
-    console.error(`Telegram API error (${method}):`, err.message);
+    console.error('Telegram API error:', err.message);
     return null;
   }
 }
 
-async function downloadTelegramPhoto(fileId, targetFileName) {
+async function downloadTelegramPhoto(fileId, destFileName) {
   try {
     const fileRes = await fetch(`${TELEGRAM_API}/getFile?file_id=${fileId}`);
     const fileData = await fileRes.json();
@@ -315,38 +335,48 @@ async function downloadTelegramPhoto(fileId, targetFileName) {
 
     const filePath = fileData.result.file_path;
     const downloadUrl = `${TELEGRAM_FILE_API}/${filePath}`;
-    
-    const imgRes = await fetch(downloadUrl);
-    if (!imgRes.ok) throw new Error(`HTTP ${imgRes.status}`);
-    
-    const arrayBuffer = await imgRes.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    
-    const localPath = path.join(UPLOADS_DIR, targetFileName);
-    fs.writeFileSync(localPath, buffer);
-    console.log(`Saved image to: ${localPath} (${buffer.length} bytes)`);
+    const localDest = path.join(UPLOADS_DIR, destFileName);
 
-    return `/uploads/${targetFileName}`;
+    const imageRes = await fetch(downloadUrl);
+    const arrayBuffer = await imageRes.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    fs.writeFileSync(localDest, buffer);
+    console.log(`Saved photo to: ${localDest}`);
+    return `/uploads/${destFileName}`;
   } catch (err) {
-    console.error('Error downloading telegram photo:', err);
+    console.error('Download photo error:', err.message);
     return null;
   }
 }
 
 function normalizeKey(str = '') {
-  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return str.toLowerCase().replace(/[^a-z0-9]/gi, '');
 }
 
 function loadMockProducts() {
   try {
     const content = fs.readFileSync(MOCK_DATA_PATH, 'utf8');
     const pStart = content.indexOf('export const defaultProducts = [');
-    const bStart = content.indexOf('export const defaultBanners = [');
-    const closingIdx = content.lastIndexOf('];', bStart);
-    if (pStart === -1 || closingIdx === -1) return [];
+    if (pStart === -1) return [];
 
-    const sub = content.slice(pStart + 'export const defaultProducts = '.length, closingIdx + 1);
-    return JSON.parse(sub.trim().replace(/,\s*$/, ''));
+    const arrayStart = content.indexOf('[', pStart);
+    let depth = 0;
+    let arrayEnd = -1;
+    for (let i = arrayStart; i < content.length; i++) {
+      if (content[i] === '[') depth++;
+      else if (content[i] === ']') {
+        depth--;
+        if (depth === 0) {
+          arrayEnd = i + 1;
+          break;
+        }
+      }
+    }
+
+    if (arrayEnd === -1) return [];
+    const jsonStr = content.slice(arrayStart, arrayEnd);
+    return JSON.parse(jsonStr);
   } catch (err) {
     console.error('Failed to parse mock products:', err);
     return [];
@@ -373,9 +403,50 @@ function writeMockProducts(products) {
   }
 }
 
+async function syncProductToSupabase(product) {
+  if (!supabase) return;
+  try {
+    const row = {
+      id: product.id || product._id,
+      title: product.title,
+      slug: product.slug,
+      sku: product.sku || '',
+      price: product.price,
+      old_price: product.oldPrice || product.old_price || 0,
+      discount_percent: product.discountPercent || product.discount_percent || 0,
+      category: product.category,
+      category_slug: product.category_slug || product.categorySlug,
+      subcategory: product.subcategory || '',
+      brand: product.brand || 'SPORT OUTLET',
+      stock: product.stock || 15,
+      in_stock: true,
+      rating: 5.0,
+      reviews_count: 0,
+      images: product.images || [],
+      is_bestseller: true,
+      is_new_arrival: true,
+      is_weekly_deal: false,
+      variant_label: product.variantLabel || '',
+      variants: product.variants || [],
+      description: product.description || '',
+      specifications: product.specifications || []
+    };
+
+    const { error } = await supabase.from('products').upsert(row, { onConflict: 'id' });
+    if (error) {
+      console.warn('Supabase bot upsert warning:', error.message);
+    } else {
+      console.log(`Synced product "${product.title}" to Supabase cloud!`);
+    }
+  } catch (err) {
+    console.warn('Supabase sync exception:', err.message);
+  }
+}
+
 /**
  * SAVE OR UPDATE:
- * Handles multiple images, variants, and duplicate prevention!
+ * Handles multiple images, variants, and strict duplicate prevention!
+ * NEVER combines unrelated images into one product!
  */
 function saveOrUpdateProduct(parsed, imagePaths = []) {
   const products = loadMockProducts();
@@ -389,20 +460,14 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     const normPTitle = normalizeKey(p.title);
     const pSku = (p.sku || '').trim().toLowerCase();
 
-    // 1. SKU match
-    if (newSku && (pSku === newSku || (p.description && p.description.toLowerCase().includes(newSku)))) {
+    // 1. Strict SKU match
+    if (newSku && pSku && newSku === pSku) {
       existingIndex = i;
       break;
     }
 
-    // 2. Exact or close title match
-    if (normNewTitle && normPTitle && (normNewTitle === normPTitle || normNewTitle.includes(normPTitle) || normPTitle.includes(normNewTitle))) {
-      existingIndex = i;
-      break;
-    }
-
-    // 3. Match generic "yangi mahsulot"
-    if (normNewTitle === 'yangimahsulot' && normPTitle === 'yangimahsulot') {
+    // 2. Strict EXACT title match
+    if (normNewTitle && normPTitle && normNewTitle === normPTitle) {
       existingIndex = i;
       break;
     }
@@ -412,8 +477,9 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
   const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
 
   if (existingIndex !== -1) {
-    // UPDATE EXISTING PRODUCT (MERGE IMAGES & VARIANTS)
+    // UPDATE EXISTING PRODUCT
     const existing = products[existingIndex];
+    existing.title = parsed.title;
     existing.price = parsed.price;
     existing.oldPrice = oldPrice;
     existing.old_price = oldPrice;
@@ -429,11 +495,9 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       existing.variantLabel = parsed.variantLabel || 'Qalinlik / O‘lcham';
     }
 
-    // Merge new images into existing images gallery
+    // REPLACE images with newly sent gallery (never accumulate random old photos!)
     if (imagePaths && imagePaths.length > 0) {
-      const mergedImages = [...imagePaths, ...(existing.images || [])];
-      // deduplicate image URLs
-      existing.images = Array.from(new Set(mergedImages));
+      existing.images = imagePaths;
     }
     existing.updated_at = new Date().toISOString();
 
@@ -466,7 +530,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       in_stock: true,
       rating: 5.0,
       reviews_count: 0,
-      images: imagePaths.length > 0 ? imagePaths : ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80'],
+      images: imagePaths.length > 0 ? imagePaths : [],
       is_bestseller: true,
       is_new_arrival: true,
       is_weekly_deal: false,
@@ -490,12 +554,12 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
 
 function pushChangesToGitHub(productTitle, isUpdate) {
   try {
-    console.log('Pushing changes to GitHub...');
+    console.log('Pushing changes to GitHub (Project_sport & next-nout)...');
     execSync('git add frontend/public/uploads frontend/src/services/mockData.js', { cwd: ROOT_DIR });
     const action = isUpdate ? 'update' : 'add';
     execSync(`git commit -m "feat(store): ${action} product '${productTitle}' via Telegram"`, { cwd: ROOT_DIR });
-    execSync('git push origin main', { cwd: ROOT_DIR, timeout: 30000 });
-    console.log('Successfully pushed to GitHub! Vercel/Cloudflare will auto-deploy.');
+    execSync('git push origin main', { cwd: ROOT_DIR, timeout: 45000 });
+    console.log('Successfully pushed to both GitHub repositories! Cloud platforms will auto-deploy.');
     return true;
   } catch (err) {
     console.warn('Git push warning:', err.message);
@@ -503,7 +567,7 @@ function pushChangesToGitHub(productTitle, isUpdate) {
   }
 }
 
-// Media Group (Album) and Consecutive Photos Buffer
+// Media Group (Album) Buffer
 const mediaGroupBuffer = new Map();
 const userSinglePhotoBuffer = new Map();
 
@@ -516,7 +580,7 @@ async function processMediaGroup(key, groupData) {
 
   await sendTelegram('sendMessage', {
     chat_id: chatId,
-    text: `⏳ Albom qabul qilindi (${photos.length} ta rasm)! Barchasi bitta mahsulotga yuklanmoqda...`
+    text: `⏳ Albom qabul qilindi (${photos.length} ta rasm)! Barchasi bitta mahsulotga biriktirilmoqda...`
   });
 
   const parsed = parseProductInfo(caption || 'Sport Mahsuloti');
@@ -536,6 +600,9 @@ async function processMediaGroup(key, groupData) {
   // Save product with full gallery and variants
   const { isUpdate, product } = saveOrUpdateProduct(parsed, downloadedImages);
 
+  // Sync to Supabase cloud database
+  await syncProductToSupabase(product);
+
   // Push to GitHub
   pushChangesToGitHub(parsed.title, isUpdate);
 
@@ -545,7 +612,7 @@ async function processMediaGroup(key, groupData) {
     : '';
 
   const statusTitle = isUpdate
-    ? `🔄 <b>Mavjud mahsulot yangilandi! (Dublikat yaratilmadi)</b>`
+    ? `🔄 <b>Mavjud mahsulot yangilandi!</b>`
     : `✅ <b>Yangi mahsulot do‘konga qo‘shildi!</b>`;
 
   await sendTelegram('sendMessage', {
@@ -558,7 +625,7 @@ async function processMediaGroup(key, groupData) {
           `${variantText}\n` +
           `📂 <b>Toifa:</b> ${product.category}\n` +
           `🏷 <b>Brend:</b> ${product.brand}\n\n` +
-          `🚀 <b>Sayt:</b> 1 ta mahsulot ichida barcha rasmlar va variantlar bilan jonli efirga chiqdi!`
+          `🚀 <b>Saytda jonli chiqdi:</b> Barcha rasmlari va tavsifi bilan bitta mahsulot sifatida ochildi!`
   });
 }
 
@@ -589,23 +656,41 @@ async function handleUpdate(update) {
   if (!msg) return;
 
   const chatId = msg.chat.id;
-  const text = msg.text || msg.caption || '';
+  const text = (msg.text || msg.caption || '').trim();
 
-  // 1. /start command
+  // 1. /clear or /tozala command
+  if (text === '/clear' || text === '/delete_all' || text === '/tozala') {
+    writeMockProducts([]);
+    if (supabase) {
+      try {
+        await supabase.from('products').delete().neq('id', '___non_existent___');
+      } catch (_) {}
+    }
+    pushChangesToGitHub('Barcha mahsulotlar tozalandi', false);
+
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `🗑 <b>Barcha mahsulotlar to‘liq o‘chirildi!</b>\n\nSayt va baza toza holatga keltirildi. Endi yangi mahsulotlaringizni botga jo‘natishingiz mumkin.`
+    });
+    return;
+  }
+
+  // 2. /start command
   if (text.startsWith('/start')) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
       text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>SPORT OUTLET</b> do'koningizga mahsulot qo'shuvchi va yangilovchi rasmiy botman!\n\n` +
-            `📸 <b>Albom / Bir nechta rasm qo'llab-quvvatlanadi:</b>\n` +
-            `• Mahsulotga 2, 3 yoki 6 ta rasm albom qilib tashlasangiz, barchasini <b>1 ta mahsulot</b> ichiga galereya qilib saqlayman!\n` +
-            `• Agar captionda bir nechta razmer/qalinlik bo‘lsa (masalan Tatami 2sm, 2.5sm, 3sm, 4sm), saytda 1 ta mahsulot ochilib, ichida barcha variantlar tanlanadigan bo‘ladi!\n\n` +
-            `🛡 <b>Dublikat yo‘q:</b> Qayta tashlangan tovar dublikat bo‘lmaydi, o‘zi avtomat yangilanadi.`
+            `📸 <b>Albom / Bir nechta rasm yuborish:</b>\n` +
+            `• Mahsulotga 2 tadan 10 tagacha rasm albom qilib tashlasangiz, barchasini <b>1 ta mahsulot</b> ichiga galereya qilib saqlayman!\n` +
+            `• Agar postda bir nechta razmer/qalinlik bo‘lsa (masalan Tatami 2sm, 2.5sm, 3sm, 4sm), saytda 1 ta mahsulot ochilib, ichida barcha variantlar tanlanadigan bo‘ladi!\n\n` +
+            `🗑 <b>Tozalash:</b> Istalgan vaqt /tozala yoki /clear buyrug‘i orqali barcha mahsulotlarni o‘chirib tozalashingiz mumkin.`
     });
     return;
   }
 
-  // 2. Photo received (Single or Album/MediaGroup)
+  // 3. Photo received (Single or Album/MediaGroup)
   if (msg.photo && msg.photo.length > 0) {
     const largestPhoto = msg.photo[msg.photo.length - 1];
     const mediaGroupId = msg.media_group_id;
@@ -631,10 +716,25 @@ async function handleUpdate(update) {
       return;
     }
 
-    // SINGLE PHOTO (with short debounce in case user sends 2-3 photos rapidly)
+    // SINGLE PHOTO
     const userKey = `user_${chatId}`;
     if (userSinglePhotoBuffer.has(userKey)) {
       const buffer = userSinglePhotoBuffer.get(userKey);
+      // If new single photo has its own caption, treat as distinct product!
+      if (msg.caption && buffer.caption) {
+        clearTimeout(buffer.timer);
+        processMediaGroup(userKey, buffer);
+        const newGroup = {
+          chatId,
+          photos: [largestPhoto],
+          caption: msg.caption,
+          timer: null
+        };
+        newGroup.timer = setTimeout(() => processMediaGroup(userKey, newGroup), 1500);
+        userSinglePhotoBuffer.set(userKey, newGroup);
+        return;
+      }
+
       buffer.photos.push(largestPhoto);
       if (msg.caption) buffer.caption = msg.caption;
       clearTimeout(buffer.timer);
@@ -653,7 +753,7 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 3. Text only
+  // 4. Text only
   if (text) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
@@ -664,9 +764,10 @@ async function handleUpdate(update) {
 }
 
 console.log('====================================================');
-console.log('🤖 SPORT OUTLET TELEGRAM BOT (ALBUM & VARIANTS) RUNNING...');
+console.log('🤖 SPORT OUTLET TELEGRAM BOT (ALBUM & SUPABASE SYNC) RUNNING...');
 console.log(`Bot username: @Ttxtxtctxtxtxhxhchxhbot`);
 console.log('Multi-photo albums & Variant detection ACTIVE!');
 console.log('====================================================');
 
+// Start polling
 pollUpdates();

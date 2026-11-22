@@ -121,6 +121,7 @@ export default function ProductCard({ product }) {
     <article
       onClick={(e) => {
         if (e.target.closest('button') || e.target.closest('a')) return;
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         navigate(productUrl);
       }}
       onMouseEnter={() => setIsHovered(true)}

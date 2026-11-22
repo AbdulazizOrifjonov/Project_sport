@@ -106,29 +106,39 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
+      className="fixed inset-0 z-50 md:z-40 md:inset-x-0 md:bottom-0 bg-slate-950/70 md:bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
       style={{
-        top: 'var(--nsb-navbar-height, var(--nsb-header-height, 56px))',
-        height: 'calc(100dvh - var(--nsb-navbar-height, var(--nsb-header-height, 56px)))'
+        top: typeof window !== 'undefined' && window.innerWidth < 768 ? '0px' : 'var(--nsb-navbar-height, var(--nsb-header-height, 136px))',
+        height: typeof window !== 'undefined' && window.innerWidth < 768 ? '100dvh' : 'calc(100dvh - var(--nsb-navbar-height, var(--nsb-header-height, 136px)))'
       }}
       onClick={onClose}
     >
-      {/* Full-Width Mega-Menu Container directly under original navbar */}
+      {/* Mega-Menu Container: Fullscreen on mobile, Under-header on Desktop */}
       <div
-        className="w-full h-full bg-white dark:bg-[#0b0f19] border-t border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col overflow-hidden animate-catalog-enter"
+        className="w-full h-full bg-white dark:bg-[#0b0f19] md:border-t border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col overflow-hidden animate-catalog-enter"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Mobile Header for Category Drawer */}
-        <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-black shrink-0">
-          <div className="flex items-center gap-2 font-black text-sm text-slate-950 dark:text-white">
-            <LayoutGrid className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-            <span>{t('header.catalog', 'Barcha toifalar')}</span>
+        {/* Mobile Fullscreen Header for Category Drawer */}
+        <div className="flex md:hidden items-center justify-between px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-black shrink-0">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 overflow-hidden">
+              <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+            </div>
+            <div>
+              <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none">
+                SPORT OUTLET
+              </div>
+              <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wider mt-0.5">
+                Katalog (Barcha toifalar)
+              </div>
+            </div>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white cursor-pointer"
+            className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
             aria-label="Yopish"
+            title="Yopish"
           >
             <X className="w-5 h-5" />
           </button>

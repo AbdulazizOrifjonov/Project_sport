@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
@@ -6,6 +6,21 @@ import { WishlistProvider } from './context/WishlistContext';
 import { CompareProvider } from './context/CompareContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
+
+// Scroll to top on every route and search navigation
+function ScrollToTop() {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (document.body) {
+      document.body.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [pathname, search]);
+
+  return null;
+}
 
 // Storefront Components
 import Header from './components/storefront/Header';
@@ -34,6 +49,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-clip bg-white dark:bg-black text-slate-900 dark:text-slate-100 transition-colors duration-200">
+      <ScrollToTop />
       {!isAdminRoute && (
         <Header
           onToggleCatalog={() => setCatalogOpen((prev) => !prev)}

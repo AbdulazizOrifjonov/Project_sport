@@ -468,28 +468,20 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               )}
             </div>
 
-            {/* Sidebarni / Katalogni ochadigan buton (=) (o'ng burchakda) */}
+            {/* Sidebarni ochadigan buton (=) (o'ng burchakda - bosilganda yon sidebar ochiladi) */}
             <button
               type="button"
-              onClick={onToggleCatalog}
-              className={`h-10 w-10 flex items-center justify-center rounded-xl transition-all cursor-pointer shrink-0 shadow-2xs border ${
-                isCatalogOpen
-                  ? 'bg-rose-600 text-white border-rose-600 shadow-rose-600/20'
-                  : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white active:scale-95'
-              }`}
-              aria-label="Katalogni ochish"
-              title="Katalogni ochish"
+              onClick={() => setMobileMenuOpen(true)}
+              className="h-10 w-10 flex items-center justify-center rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 border border-slate-900 dark:border-white transition-all cursor-pointer shrink-0 shadow-2xs active:scale-95"
+              aria-label="Menyu va sozlamalar"
+              title="Menyu"
             >
-              {isCatalogOpen ? (
-                <X className="w-5 h-5 text-white" />
-              ) : (
-                <Menu className="w-5 h-5 stroke-[2.5]" />
-              )}
+              <Menu className="w-5 h-5 stroke-[2.5]" />
             </button>
           </div>
         </div>
-        {/* Sub-Navigation Strip (Desktop only - mobilda faqat 1 qator navbar qoladi) */}
-        <div className="hidden md:block border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
+        {/* Sub-Navigation Strip (Kategoriyalar tasmagichi - o'z joyiga qaytarildi) */}
+        <div className="border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
           <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
             <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
             {/* 1. Aksiyalar kuni */}
