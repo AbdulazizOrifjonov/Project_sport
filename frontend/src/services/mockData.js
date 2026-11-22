@@ -78,6 +78,111 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_shaxmat-kasparov-55026c-4397",
+    "id": "prod_shaxmat-kasparov-55026c-4397",
+    "title": "Shaxmat KASPAROV 55026C",
+    "slug": "shaxmat-kasparov-55026c-4397",
+    "sku": "",
+    "price": 1028000,
+    "oldPrice": 1182200,
+    "old_price": 1182200,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_shaxmat-kasparov-55026c-3963_1.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3963_2.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3963_3.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3963_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer : 53x53x8\nNarxi : 80$🔥",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:54.397Z"
+  },
+  {
+    "_id": "prod_box-per-riada-ipli-blue-02-4370",
+    "id": "prod_box-per-riada-ipli-blue-02-4370",
+    "title": "BOX PER RIADA IPLI BLUE 02",
+    "slug": "box-per-riada-ipli-blue-02-4370",
+    "sku": "",
+    "price": 642500,
+    "oldPrice": 738875,
+    "old_price": 738875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-riada-ipli-blue-02-9897_1.jpg",
+      "/uploads/prod_box-per-riada-ipli-blue-02-9897_2.jpg",
+      "/uploads/prod_box-per-riada-ipli-blue-02-9897_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: koja\nNarxi: 50$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:54.370Z"
+  },
+  {
     "_id": "prod_box-per-riada-ipli-1628",
     "id": "prod_box-per-riada-ipli-1628",
     "title": "Box per Riada Ipli",
