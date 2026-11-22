@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_box-per-top-ten-blue-1393",
+    "id": "prod_box-per-top-ten-blue-1393",
+    "title": "Box per TOP TEN blue🔵",
+    "slug": "box-per-top-ten-blue-1393",
+    "sku": "",
+    "price": 552550,
+    "oldPrice": 635433,
+    "old_price": 635433,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-top-ten-blue-4226_1.jpg",
+      "/uploads/prod_box-per-top-ten-blue-4226_2.jpg",
+      "/uploads/prod_box-per-top-ten-blue-4226_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 12R,14R,16R\nMaterial: koja\nNarxi: 43$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:51.393Z"
+  },
+  {
     "_id": "prod_box-per-adidas-ad-7-0747",
     "id": "prod_box-per-adidas-ad-7-0747",
     "title": "Box per Adidas AD-7",
