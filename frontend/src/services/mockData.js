@@ -78,6 +78,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-ax-1001-2150",
+    "id": "prod_masaj-kreslo-ax-1001-2150",
+    "title": "Masaj kreslo AX-1001",
+    "slug": "masaj-kreslo-ax-1001-2150",
+    "sku": "",
+    "price": 7324500,
+    "oldPrice": 8423175,
+    "old_price": 8423175,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1001-5822_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1001-5822_2.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1001-5822_3.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1001-5822_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi:  570$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2. 2 D masaj rejimi\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 8 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:43:02.150Z"
+  },
+  {
     "_id": "prod_box-per-winning-02-white-6681",
     "id": "prod_box-per-winning-02-white-6681",
     "title": "Box per Winning 02 white",
