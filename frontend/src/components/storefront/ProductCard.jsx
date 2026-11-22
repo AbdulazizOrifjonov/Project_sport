@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Heart, ShoppingCart, Plus, Minus, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -7,6 +7,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import ProductFeedbackModal from './ProductFeedbackModal';
 
 export default function ProductCard({ product }) {
+  const navigate = useNavigate();
   const { addToCart, updateQuantity, cartItems } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
   const { t } = useLanguage();
@@ -41,12 +42,9 @@ export default function ProductCard({ product }) {
 
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [dragOffset, setDragOffset] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
-  const pointerStartX = useRef(null);
-  const pointerStartY = useRef(null);
-  const hasSwipedRef = useRef(false);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
 
   // Next image
   const handleNextImage = (e) => {
@@ -68,147 +66,39 @@ export default function ProductCard({ product }) {
     setActiveImgIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Unified Pointer events for Touch Screen (Mobile) & Mouse Drag (Desktop)
-  const handlePointerDown = (e) => {
-    if (!hasMultipleImages) return;
-    if (e.pointerType === 'mouse' && e.button !== 0) return;
-    try {
-      e.target.setPointerCapture(e.pointerId);
-    } catch (_) {}
-    pointerStartX.current = e.clientX;
-    pointerStartY.current = e.clientY;
-    hasSwipedRef.current = false;
-    setIsDragging(true);
-  };
-
-  const handlePointerMove = (e) => {
-    if (pointerStartX.current === null || !hasMultipleImages) return;
-    const diffX = e.clientX - pointerStartX.current;
-    const diffY = e.clientY - (pointerStartY.current ?? e.clientY);
-
-    // If horizontal motion is greater than vertical motion
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-      setDragOffset(diffX);
-      if (Math.abs(diffX) > 8) {
-        hasSwipedRef.current = true;
-      }
-    }
-  };
-
-  const handlePointerUp = (e) => {
-    try {
-      if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
-        e.target.releasePointerCapture(e.pointerId);
-      }
-    } catch (_) {}
-
-    if (pointerStartX.current === null || !hasMultipleImages) {
-      pointerStartX.current = null;
-      pointerStartY.current = null;
-      setDragOffset(0);
-      setIsDragging(false);
-      return;
-    }
-
-    const diffX = e.clientX - pointerStartX.current;
-    const diffY = e.clientY - (pointerStartY.current ?? e.clientY);
-
-    // Minimum swipe threshold 20px
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 20) {
-      if (diffX < 0) {
-        handleNextImage();
-      } else {
-        handlePrevImage();
-      }
-      hasSwipedRef.current = true;
-    }
-
-    pointerStartX.current = null;
-    pointerStartY.current = null;
-    setDragOffset(0);
-    setIsDragging(false);
-  };
-
-  const handlePointerCancel = (e) => {
-    try {
-      if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
-        e.target.releasePointerCapture(e.pointerId);
-      }
-    } catch (_) {}
-    pointerStartX.current = null;
-    pointerStartY.current = null;
-    setDragOffset(0);
-    setIsDragging(false);
-  };
-
-  // Explicit Touch Handlers for mobile browsers
+  // Mobile Touch Swipe Handlers (faqat gorizontal surish > 35px bo'lganda rasm almashadi, tap oddiy ishlaydi)
   const handleTouchStart = (e) => {
     if (!hasMultipleImages) return;
-    const touch = e.touches[0];
-    pointerStartX.current = touch.clientX;
-    pointerStartY.current = touch.clientY;
-    hasSwipedRef.current = false;
-    setIsDragging(true);
-  };
-
-  const handleTouchMove = (e) => {
-    if (pointerStartX.current === null || !hasMultipleImages) return;
-    const touch = e.touches[0];
-    const diffX = touch.clientX - pointerStartX.current;
-    const diffY = touch.clientY - (pointerStartY.current ?? touch.clientY);
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-      setDragOffset(diffX);
-      if (Math.abs(diffX) > 8) {
-        hasSwipedRef.current = true;
-      }
-    }
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = (e) => {
-    if (pointerStartX.current === null || !hasMultipleImages) {
-      pointerStartX.current = null;
-      pointerStartY.current = null;
-      setDragOffset(0);
-      setIsDragging(false);
-      return;
-    }
-    const touch = e.changedTouches[0];
-    const diffX = touch.clientX - pointerStartX.current;
-    const diffY = touch.clientY - (pointerStartY.current ?? touch.clientY);
+    if (touchStartX.current === null || !hasMultipleImages) return;
+    const diffX = e.changedTouches[0].clientX - touchStartX.current;
+    const diffY = e.changedTouches[0].clientY - touchStartY.current;
 
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 20) {
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
       if (diffX < 0) {
         handleNextImage();
       } else {
         handlePrevImage();
       }
-      hasSwipedRef.current = true;
     }
-    pointerStartX.current = null;
-    pointerStartY.current = null;
-    setDragOffset(0);
-    setIsDragging(false);
-  };
-
-  const handleLinkClick = (e) => {
-    // If the user swiped / dragged, do not navigate to product page!
-    if (hasSwipedRef.current) {
-      e.preventDefault();
-      e.stopPropagation();
-      hasSwipedRef.current = false;
-    }
+    touchStartX.current = null;
+    touchStartY.current = null;
   };
 
   // Ko'p rasmli mahsulotlar ustiga sichqoncha kelganda (hover) har 1 sekundda rasmlarni navbat bilan almashtirish
   useEffect(() => {
-    if (!isHovered || !hasMultipleImages || isDragging) return;
+    if (!isHovered || !hasMultipleImages) return;
 
     const timer = setInterval(() => {
       setActiveImgIndex((prev) => (prev + 1) % images.length);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isHovered, hasMultipleImages, isDragging, images.length]);
+  }, [isHovered, hasMultipleImages, images.length]);
 
   // Preload images for instant switching
   useEffect(() => {
@@ -220,7 +110,7 @@ export default function ProductCard({ product }) {
   }, [hasMultipleImages, images]);
 
   const currentImageSrc = images[activeImgIndex] || fallbackImage;
-
+  const productUrl = `/product/${product.slug || product._id || product.id}`;
   const categoryName = product.category || 'Sport Anjomlari';
   const categorySlug = product.categorySlug || 'trenajorlar';
 
@@ -233,17 +123,11 @@ export default function ProductCard({ product }) {
       }}
       className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden"
     >
-      {/* 1. Top Image Area - To'liq va katta rasm with Touch Swipe & Mouse Drag */}
+      {/* 1. Top Image Area - To'liq va katta rasm */}
       <div
-        className="relative w-full aspect-square bg-slate-50 dark:bg-[#0b0f19] overflow-hidden touch-pan-y select-none cursor-pointer"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerCancel}
+        className="relative w-full aspect-square bg-slate-50 dark:bg-[#0b0f19] overflow-hidden select-none cursor-pointer"
         onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onDragStart={(e) => e.preventDefault()}
       >
         {/* Chegirma foizi belgisi */}
         {product.discountPercent > 0 && (
@@ -330,13 +214,10 @@ export default function ProductCard({ product }) {
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
         </button>
 
-        {/* Mahsulot rasmi - Hoverda oldinga kattalashuvchi (Zoom-in) va Swipe / Drag qo'llab-quvvatlash */}
+        {/* Mahsulot rasmi - Bosilganda to'g'ridan-to'g'ri Single Page ochiladi */}
         <Link
-          to={`/product/${product.slug}`}
-          onClick={handleLinkClick}
-          draggable={false}
-          onDragStart={(e) => e.preventDefault()}
-          className="relative block w-full h-full overflow-hidden cursor-pointer select-none"
+          to={productUrl}
+          className="relative block w-full h-full overflow-hidden cursor-pointer"
         >
           <img
             src={currentImageSrc}
@@ -347,12 +228,7 @@ export default function ProductCard({ product }) {
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}
-            style={{
-              transform: isDragging && dragOffset !== 0
-                ? `translateX(${dragOffset * 0.25}px) scale(1.03)`
-                : undefined
-            }}
-            className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform select-none pointer-events-none"
+            className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
           />
         </Link>
       </div>
@@ -372,7 +248,7 @@ export default function ProductCard({ product }) {
         {/* Mahsulot nomi */}
         <h3 className="text-[13px] leading-snug mb-2 font-medium line-clamp-2 h-[2.6em] text-slate-900 dark:text-slate-100">
           <Link
-            to={`/product/${product.slug}`}
+            to={productUrl}
             className="hover:text-slate-900 dark:hover:text-white transition-colors line-clamp-2"
           >
             {product.title}

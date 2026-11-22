@@ -372,7 +372,7 @@ export const dataService = {
     let all = [];
     if (isSupabaseConfigured && supabase) {
       try {
-        const { data, error } = await supabase.from('products').select('*');
+        const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
         if (!error && data && data.length) {
           all = data.map(normalizeProduct);
         }
@@ -385,14 +385,18 @@ export const dataService = {
       all = local.map(normalizeProduct);
     }
 
+    // Har doim eng yangi qo'shilgan mahsulotlar birinchi turishi uchun saralash
+    all.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     const bestsellers = all.filter(p => p.isBestseller);
     const newArrivals = all.filter(p => p.isNewArrival);
     const weeklyDeals = all.filter(p => p.isWeeklyDeal || (p.discountPercent || 0) > 0);
 
     return {
       bestsellers: bestsellers.length ? bestsellers.slice(0, 10) : all.slice(0, 10),
-      newArrivals: newArrivals.length ? newArrivals.slice(0, 10) : all.slice(5, 15),
-      weeklyDeals: weeklyDeals.length ? weeklyDeals.slice(0, 10) : all.slice(10, 20)
+      newArrivals: newArrivals.length ? newArrivals.slice(0, 10) : all.slice(0, 10),
+      weeklyDeals: weeklyDeals.length ? weeklyDeals.slice(0, 10) : all.slice(0, 10),
+      allProducts: all
     };
   },
 
@@ -413,8 +417,18 @@ export const dataService = {
       all = local.map(normalizeProduct);
     }
 
-    const cleanSlug = String(slug || '').toLowerCase().trim();
-    const product = all.find(p => p.slug === cleanSlug || p._id === cleanSlug || p.id === cleanSlug);
+    const raw = String(slug || '').toLowerCase().trim();
+    let decoded = raw;
+    try {
+      decoded = decodeURIComponent(raw).toLowerCase().trim();
+    } catch (_) {}
+
+    const product = all.find(p => {
+      const pSlug = String(p.slug || '').toLowerCase().trim();
+      const pId = String(p.id || p._id || '').toLowerCase().trim();
+      return pSlug === raw || pSlug === decoded || pId === raw || pId === decoded;
+    });
+
     if (!product) return null;
 
     const related = all

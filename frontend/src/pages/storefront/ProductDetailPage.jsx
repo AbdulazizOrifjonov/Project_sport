@@ -350,7 +350,7 @@ export default function ProductDetailPage() {
         </Link>
         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
         <Link
-          to={`/shop/${product.categorySlug || 'kanctovary'}`}
+          to={`/shop/${product.categorySlug || 'trenajorlar'}`}
           className="hover:text-[var(--color-primary-600)] transition-colors"
         >
           {t(`cat.${product.categorySlug}`, product.category)}
@@ -815,7 +815,7 @@ export default function ProductDetailPage() {
                     key={idx}
                     className={`flex justify-between p-3 ${idx % 2 === 0 ? 'bg-slate-50 dark:bg-slate-900/60' : 'bg-white dark:bg-slate-900'}`}
                   >
-                    <span className="text-slate-500 dark:text-slate-400">{s.key}</span>
+                    <span className="text-slate-500 dark:text-slate-400">{s.key || s.label || 'Parametr'}</span>
                     <span className="font-bold text-slate-900 dark:text-white text-right">{s.value}</span>
                   </div>
                 ))}

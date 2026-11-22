@@ -15,6 +15,7 @@ export default function HomePage() {
   const [bestsellers, setBestsellers] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [weeklyDeals, setWeeklyDeals] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function HomePage() {
           setBestsellers(res.data.bestsellers || []);
           setNewArrivals(res.data.newArrivals || []);
           setWeeklyDeals(res.data.weeklyDeals || []);
+          setAllProducts(res.data.allProducts || []);
         }
       })
       .catch(() => {})
@@ -64,7 +66,7 @@ export default function HomePage() {
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {bestsellers.slice(0, 5).map((p) => (
+            {bestsellers.slice(0, 10).map((p) => (
               <ProductCard key={p._id} product={p} />
             ))}
           </div>
@@ -89,7 +91,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-          {newArrivals.slice(0, 5).map((p) => (
+          {newArrivals.slice(0, 10).map((p) => (
             <ProductCard key={p._id} product={p} />
           ))}
         </div>
@@ -97,6 +99,34 @@ export default function HomePage() {
 
       {/* 6. Weekly Deals with Countdown */}
       <WeeklyDeals products={weeklyDeals} />
+
+      {/* 7. Barcha Mahsulotlar Vitrinasi */}
+      {allProducts.length > 0 && (
+        <section className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pb-12">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-5">
+            <div>
+              <h2 className="text-xl md:text-2xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+                Barcha Sport Mahsulotlari
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Do‘konimizdagi barcha original trenajorlar, gantellar, poyabzal va sport inventarlari
+              </p>
+            </div>
+            <Link
+              to="/shop"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] transition-colors"
+            >
+              Katalogni to‘liq ko‘rish <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+            {allProducts.slice(0, 20).map((p) => (
+              <ProductCard key={p._id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* 7. Corporate Reviews & Google Social Proof */}
       <ReviewsSection />
