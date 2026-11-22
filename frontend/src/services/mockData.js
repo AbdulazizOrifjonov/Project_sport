@@ -589,7 +589,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_4-1-nabor-895000-s-m-2570_1.jpg"
+      "/uploads/prod_4-1-nabor-895000-s-m-3385_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -616,7 +616,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-22T16:54:01.593Z",
-    "updated_at": "2026-11-22T16:54:53.845Z"
+    "updated_at": "2026-11-22T16:55:03.049Z"
   },
   {
     "_id": "prod_2-1-569000-s-m-1549",
