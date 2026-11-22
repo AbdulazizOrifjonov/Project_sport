@@ -78,6 +78,159 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_fitness-balance-58sm-1-2048",
+    "id": "prod_fitness-balance-58sm-1-2048",
+    "title": "Fitness balance 58sm 1",
+    "slug": "fitness-balance-58sm-1-2048",
+    "sku": "0443422",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_fitness-balance-58sm-1-5853_1.jpg",
+      "/uploads/prod_fitness-balance-58sm-1-5853_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Randi:🩷💜🩶💙\nKodi: 0443422\nNarxi : 40$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0443422"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:12.048Z"
+  },
+  {
+    "_id": "prod_padel-raketka-dream-1996",
+    "id": "prod_padel-raketka-dream-1996",
+    "title": "Padel raketka dream",
+    "slug": "padel-raketka-dream-1996",
+    "sku": "",
+    "price": 771000,
+    "oldPrice": 886650,
+    "old_price": 886650,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-raketka-dream-6061_1.jpg",
+      "/uploads/prod_padel-raketka-dream-6061_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 60$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:11.996Z"
+  },
+  {
+    "_id": "prod_padel-raketka-odea-12k-carbon-1959",
+    "id": "prod_padel-raketka-odea-12k-carbon-1959",
+    "title": "Padel raketka Odea 12k carbon",
+    "slug": "padel-raketka-odea-12k-carbon-1959",
+    "sku": "",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-raketka-odea-12k-carbon-5880_1.jpg",
+      "/uploads/prod_padel-raketka-odea-12k-carbon-5880_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:11.959Z"
+  },
+  {
     "_id": "prod_kord-kopto-head-reset-4tali-original-5088",
     "id": "prod_kord-kopto-head-reset-4tali-original-5088",
     "title": "Kord kopto HEAD RESET 4tali(Original✅)",
