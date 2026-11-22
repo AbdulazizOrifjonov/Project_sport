@@ -78,6 +78,162 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_kamar-maraton-madel-jkq-wlb210-4923",
+    "id": "prod_kamar-maraton-madel-jkq-wlb210-4923",
+    "title": "Kamar Maraton Madel: JKQ-WLB210",
+    "slug": "kamar-maraton-madel-jkq-wlb210-4923",
+    "sku": "",
+    "price": 475450,
+    "oldPrice": 546768,
+    "old_price": 546768,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kamar-maraton-madel-jkq-wlb210-4080_1.jpg",
+      "/uploads/prod_kamar-maraton-madel-jkq-wlb210-4080_2.jpg",
+      "/uploads/prod_kamar-maraton-madel-jkq-wlb210-4080_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel: JKQ-WLB210\nRazmer:L,XL,2XL\nMaterial: koja\nNarxi: 37$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:14.923Z"
+  },
+  {
+    "_id": "prod_gantel-nabor-20kg-4807",
+    "id": "prod_gantel-nabor-20kg-4807",
+    "title": "Gantel nabor 20kg",
+    "slug": "gantel-nabor-20kg-4807",
+    "sku": "",
+    "price": 732450,
+    "oldPrice": 842317,
+    "old_price": 842317,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-nabor-20kg-4073_1.jpg",
+      "/uploads/prod_gantel-nabor-20kg-4073_2.jpg",
+      "/uploads/prod_gantel-nabor-20kg-4073_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Shtanga bòladi ✅\nNarxi : 57$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:14.807Z"
+  },
+  {
+    "_id": "prod_box-per-top-ten-red-4758",
+    "id": "prod_box-per-top-ten-red-4758",
+    "title": "Box per TOP TEN red 🔴",
+    "slug": "box-per-top-ten-red-4758",
+    "sku": "",
+    "price": 552550,
+    "oldPrice": 635433,
+    "old_price": 635433,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-top-ten-red-3982_1.jpg",
+      "/uploads/prod_box-per-top-ten-red-3982_2.jpg",
+      "/uploads/prod_box-per-top-ten-red-3982_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 12R,14R,16R\nMaterial: koja\nNarxi: 43$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:14.758Z"
+  },
+  {
     "_id": "prod_box-per-rival-02-white-9310",
     "id": "prod_box-per-rival-02-white-9310",
     "title": "Box per RIVAL 02 White",
