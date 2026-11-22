@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_ax104-7639",
+    "id": "prod_ax104-7639",
+    "title": "Стол для настольного тенниса AX104",
+    "slug": "ax104-7639",
+    "sku": "",
+    "price": 4947250,
+    "oldPrice": 5689338,
+    "old_price": 5689338,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax104-9397_1.jpg",
+      "/uploads/prod_ax104-9397_2.jpg",
+      "/uploads/prod_ax104-9397_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX104\n• Поверхность стола: 18 мм МДФ\n• Прочная конструкция из стального профиля\n• В комплекте сетка ✅\n• Оборудован большими колесами, легко перемещается\n• Подходит для профессиональных игр и тренировок\n• Стабильный, качественный и долговечный\nЦена: 385 $\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:28:57.639Z"
+  },
+  {
     "_id": "prod_ax103-6762",
     "id": "prod_ax103-6762",
     "title": "Стол для настольного тенниса AX103",
