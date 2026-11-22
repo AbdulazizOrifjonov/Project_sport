@@ -253,9 +253,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="hidden md:flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
-              <Link to="/" className="flex items-center gap-2.5 group h-12 shrink-0">
-                <div className="w-11 h-11 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 group-hover:border-white transition-all overflow-hidden">
-                  <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+              <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group h-12 shrink-0">
+                <div className="h-11 px-2.5 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all overflow-hidden shrink-0">
+                  <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-7 w-auto max-w-[110px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className="font-black text-[17px] sm:text-[19px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
@@ -407,11 +407,11 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           </div>
 
           {/* 2. MOBILE CLEAN 1-ROW NAVBAR (< md) — [LOGO] + [INPUT] + [= BUTTON] */}
-          <div className="flex md:hidden items-center gap-2.5 h-14 w-full">
+          <div className="flex md:hidden items-center gap-2 h-14 w-full">
             {/* Logo (chapda) */}
             <Link to="/" className="flex items-center shrink-0">
-              <div className="w-9 h-9 rounded-full bg-black border-2 border-white/60 text-white flex items-center justify-center p-0.5 shadow-sm overflow-hidden">
-                <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="h-10 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0">
+                <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-6 w-auto max-w-[85px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
 
@@ -640,11 +640,11 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5"
               >
-                <div className="w-9 h-9 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 shadow-md overflow-hidden">
+                <div className="h-10 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
                   <img
                     src="/logo.png"
-                    alt="SPORT OUTLET"
-                    className="w-full h-full object-cover rounded-full"
+                    alt="WYUE SPORT OUTLET"
+                    className="h-6 w-auto max-w-[85px] object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}

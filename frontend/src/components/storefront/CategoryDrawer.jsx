@@ -127,8 +127,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         {/* Mobile Fullscreen Header for Category Drawer */}
         <div className="flex md:hidden items-center justify-between px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-black shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 overflow-hidden">
-              <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+            <div className="h-8 px-2 rounded-lg bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
+              <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-5 w-auto max-w-[75px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
             </div>
             <div>
               <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none">

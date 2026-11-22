@@ -13,8 +13,8 @@ export default function Footer() {
           {/* Col 1: About & Contacts */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-9 h-9 rounded-full bg-black border border-white/40 text-white flex items-center justify-center p-0.5 shadow-md overflow-hidden">
-                <img src="/logo.png" alt="SPORT OUTLET" className="w-full h-full object-cover rounded-full" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="h-9 px-2.5 rounded-xl bg-white border border-slate-700 text-slate-900 flex items-center justify-center shadow-md overflow-hidden shrink-0">
+                <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-6 w-auto max-w-[90px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <span className="text-white text-lg font-black tracking-tight uppercase font-sans">SPORT OUTLET</span>
             </div>
