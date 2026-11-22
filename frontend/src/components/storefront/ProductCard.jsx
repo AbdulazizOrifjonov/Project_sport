@@ -247,89 +247,58 @@ export default function ProductCard({ product }) {
         </Link>
       </div>
 
-      {/* 2. Mahsulot ma'lumotlari qismi */}
-      <div className="flex flex-col flex-1 p-3 sm:p-3.5 bg-white dark:bg-[#0a0a0c] transition-colors duration-200">
-        {/* Kategoriya */}
-        <div className="mb-1">
-          <Link
-            to={`/shop/${categorySlug}`}
-            className="truncate block text-[11px] text-slate-400 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors"
-          >
-            {categoryName}
-          </Link>
-        </div>
+      {/* 2. Mahsulot ma'lumotlari qismi - Tartibli va ixcham */}
+      <div className="flex flex-col flex-1 p-2.5 sm:p-3 bg-white dark:bg-[#0a0a0c] transition-colors duration-200">
+        {/* Toifa (Kategoriya) - Ixcham */}
+        <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider truncate mb-0.5 block">
+          {categoryName}
+        </span>
 
-        {/* Mahsulot nomi */}
-        <h3 className="text-[13px] leading-snug mb-2 font-medium line-clamp-2 h-[2.6em] text-slate-900 dark:text-slate-100">
+        {/* Mahsulot nomi - 2 qatorda tekis */}
+        <h3 className="text-xs sm:text-[13px] leading-snug font-bold text-slate-900 dark:text-slate-100 line-clamp-2 h-[2.5em] mb-1">
           <Link
             to={productUrl}
-            className="hover:text-slate-900 dark:hover:text-white transition-colors line-clamp-2"
+            className="hover:text-slate-950 dark:hover:text-white transition-colors"
           >
             {product.title}
           </Link>
         </h3>
 
-        {/* Narx va Baholash (⭐⭐⭐⭐⭐) qismi */}
-        <div className="mt-auto pt-2">
-          {/* Yuqori qator: Eski narx (yoki Mavjudlik holati) VA ⭐⭐⭐⭐⭐ Baholash tugmasi */}
-          <div className="flex items-center justify-between gap-1 mb-1">
-            {product.oldPrice > product.price ? (
-              <span className="text-[11px] text-slate-400 dark:text-slate-500 line-through block leading-tight">
-                {formatPrice(product.oldPrice)}
-              </span>
-            ) : (
-              <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-                {t('product.inStock', 'Mavjud')}
-              </span>
-            )}
+        {/* Reyting va Sharhlar - Ixcham 1 qator */}
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowFeedbackModal(true);
+          }}
+          className="inline-flex items-center gap-1 text-[11px] mb-1.5 cursor-pointer hover:opacity-80 transition-opacity w-fit"
+          title="Fikr bildirish"
+        >
+          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 shrink-0" />
+          <span className="font-extrabold text-slate-800 dark:text-slate-200">
+            {Number(currentRating || 5.0).toFixed(1)}
+          </span>
+          <span className="text-slate-400 text-[10px]">
+            ({currentReviewsCount || 0})
+          </span>
+        </div>
 
-            {/* ⭐⭐⭐⭐⭐ Baholash va Sharh qoldirish tugmasi */}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowFeedbackModal(true);
-              }}
-              className="flex items-center gap-1 px-1.5 py-0.5 rounded-md hover:bg-amber-50 dark:hover:bg-amber-950/40 border border-transparent hover:border-amber-200 dark:hover:border-amber-800/80 transition-all cursor-pointer group/rate"
-              title="Mahsulotni baholash va fikr bildirish"
-            >
-              <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`w-3 h-3 ${
-                      star <= Math.round(currentRating)
-                        ? 'fill-amber-400 text-amber-400'
-                        : 'text-slate-300 dark:text-slate-600'
-                    }`}
-                  />
-                ))}
-              </div>
-              <span className="text-[11px] font-extrabold text-slate-700 dark:text-slate-200">
-                {Number(currentRating).toFixed(1)}
-              </span>
-              <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500">
-                ({currentReviewsCount})
-              </span>
-            </button>
-          </div>
-
-          <div className="flex items-baseline gap-1 text-[14px] sm:text-[15px] font-extrabold text-slate-950 dark:text-white tracking-tight leading-tight">
-            <span>{formatPrice(product.price)}</span>
-            {product.variants && product.variants.length > 0 && (
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">dan</span>
-            )}
-            <span className="text-[10px] font-normal text-slate-400 ml-auto">{t('product.vat')}</span>
-          </div>
-          {product.variants && product.variants.length > 0 && (
-            <div className="mt-1 flex items-center gap-1.5">
-              <span className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-black text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                {product.variants.length} xil qalinlik
-              </span>
+        {/* Narx qismi - Qatordan tushib ketmaydigan, toza va aniq */}
+        <div className="mt-auto pt-1">
+          {/* Eski narx (faqat chegirma bo'lsa) */}
+          {product.oldPrice > product.price && (
+            <div className="text-[11px] text-slate-400 dark:text-slate-500 line-through leading-none mb-1 whitespace-nowrap">
+              {formatPrice(product.oldPrice)}
             </div>
           )}
+
+          {/* Asosiy narx - bitta qatorda, qalin */}
+          <div className="text-[14px] sm:text-[15px] font-black text-slate-950 dark:text-white leading-tight whitespace-nowrap">
+            {formatPrice(product.price)}
+            {product.variants && product.variants.length > 0 && (
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 ml-1">dan</span>
+            )}
+          </div>
         </div>
 
         {/* 3. Pastdagi uzun savatcha tugmasi va - 1 + boshqaruvi */}
