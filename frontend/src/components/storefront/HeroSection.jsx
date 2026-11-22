@@ -75,68 +75,68 @@ export default function HeroSection() {
       gradient: "from-[#0a0a0c]/95 via-[#121217]/85 to-black/35"
     },
     {
-      id: 'kardio-treadmill',
+      id: 'yol-xavfsizlik-main',
       badge: {
-        uz: "KARDIO TRENAJORLAR",
-        ru: "КАРДИОТРЕНАЖЕРЫ",
-        en: "CARDIO WORKOUT EQUIPMENT"
+        uz: "YO‘L & HARAKAT XAVFSIZLIGI",
+        ru: "ДОРОЖНАЯ БЕЗОПАСНОСТЬ",
+        en: "ROAD & TRAFFIC SAFETY"
       },
       title: {
-        uz: "Yugurish Yo‘lakchalari va Velotrenajorlar",
-        ru: "Беговые Дорожки и Спин-Байки",
-        en: "Treadmills & Professional Exercise Bikes"
+        uz: "Yo‘l Konuslari, To‘siqlar va Belgilar",
+        ru: "Дорожные Конусы, Ограждения и Знаки",
+        en: "Traffic Cones, Barriers & Signs"
       },
       desc: {
-        uz: "Shovqinsiz kuchli dvigatel, ko‘p pog‘onali amortizatsiya tizimi va yurak urish sensori bilan jihozlangan kardiomashinalar.",
-        ru: "Бесшумные мощные двигатели, многоуровневая амортизация суставов и сенсорные датчики пульса.",
-        en: "Quiet high-torque motors, advanced joint-protection cushioning and smart LED display consoles."
+        uz: "Yuqori sifatli elastik yo‘l konuslari, svetootrajatelli xavfsizlik to‘siqlari, lejachiy politseyskiy va yo‘l belgilari. Tezkor yetkazib berish.",
+        ru: "Высококачественные эластичные дорожные конусы, светоотражающие ограждения, лежачие полицейские и дорожные знаки.",
+        en: "High-grade flexible traffic safety cones, reflective barriers, speed bumps and regulatory traffic signs."
       },
-      image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1579294800821-694d95e86143?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Yugurish yo‘lakchalari",
-        ru: "Беговые дорожки",
-        en: "Treadmills"
+        uz: "Yo‘l konuslari",
+        ru: "Дорожные конусы",
+        en: "Traffic Cones"
       },
-      btnPrimaryLink: "/shop?category=trenajorlar",
+      btnPrimaryLink: "/shop?category=yol-konuslari",
       btnSecondaryText: {
-        uz: "Yetkazib berish",
-        ru: "Доставка",
-        en: "Delivery"
+        uz: "Barcha to‘siqlar",
+        ru: "Все ограждения",
+        en: "All Barriers"
       },
-      btnSecondaryLink: "/delivery",
-      gradient: "from-[#08080a]/95 via-[#18181f]/85 to-black/35"
+      btnSecondaryLink: "/shop?category=yol-belgilari",
+      gradient: "from-[#08080a]/95 via-[#1a120b]/85 to-black/35"
     },
     {
-      id: 'kuch-stansiyalari',
+      id: 'uskunalar-main',
       badge: {
-        uz: "KUCH & FITNES STANSIYALARI",
-        ru: "СИЛОВЫЕ СТАНЦИИ И СКАМЬИ",
-        en: "STRENGTH STATIONS & BENCHES"
+        uz: "ASBOB-USKUNALAR & QURILISH",
+        ru: "ИНСТРУМЕНТЫ И ОБОРУДОВАНИЕ",
+        en: "POWER TOOLS & EQUIPMENT"
       },
       title: {
-        uz: "Ko‘p Funksiyali Kuch Trenajorlari va Skameykalar",
-        ru: "Многофункциональные Силовые Станции",
-        en: "Multi-Gym Weight Stations & Adjustable Benches"
+        uz: "Drellar, Balgarkalar va Svarka Apparatlari",
+        ru: "Дрели, Болгарки и Сварочные Аппараты",
+        en: "Power Drills, Angle Grinders & Welding Machines"
       },
       desc: {
-        uz: "Barcha mushak guruhlari uchun universal kuch bloklari, sozlanuvchi skameykalar, turnik va devoriy komplekslar.",
-        ru: "Универсальные блочные тренажеры для всех групп мышц, регулируемые скамьи и настенные комплексы.",
-        en: "Multi-functional cable weight stations, adjustable incline benches and wall pullup stations."
+        uz: "Makita, DeWalt, Total professional elektr asboblari: zarbli drellar, burchakli silliqlash mashinalari (balgarka), invertor svarka va asboblar to‘plami.",
+        ru: "Профессиональные электроинструменты: ударные дрели, болгарки, сварочные инверторы и наборы инструментов.",
+        en: "Heavy-duty power tools: impact drills, angle grinders, inverter welders and comprehensive toolkit sets."
       },
-      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&auto=format&fit=crop&q=85",
+      image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1600&auto=format&fit=crop&q=85",
       btnPrimaryText: {
-        uz: "Kuch trenajorlari",
-        ru: "Силовые тренажеры",
-        en: "Strength Equipment"
+        uz: "Drellar & Balgarkalar",
+        ru: "Дрели и Болгарки",
+        en: "Drills & Grinders"
       },
-      btnPrimaryLink: "/shop?category=trenajorlar",
+      btnPrimaryLink: "/shop?category=drellar-shurupovyort",
       btnSecondaryText: {
-        uz: "Barcha tovarlar",
-        ru: "Все товары",
-        en: "All Products"
+        uz: "Svarka & Asboblar",
+        ru: "Сварка и Инструменты",
+        en: "Welders & Tools"
       },
-      btnSecondaryLink: "/shop",
-      gradient: "from-[#0a0a0d]/95 via-[#14141a]/85 to-black/35"
+      btnSecondaryLink: "/shop?category=payvandlash-svarka",
+      gradient: "from-[#08080a]/95 via-[#0b1724]/85 to-black/35"
     }
   ];
 

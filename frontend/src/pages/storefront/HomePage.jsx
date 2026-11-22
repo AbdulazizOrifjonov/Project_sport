@@ -106,10 +106,10 @@ export default function HomePage() {
           <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-5">
             <div>
               <h2 className="text-xl md:text-2xl font-extrabold text-slate-950 dark:text-white tracking-tight">
-                Barcha Sport Mahsulotlari
+                Barcha Mahsulotlar Katalogi
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                Do‘konimizdagi barcha original trenajorlar, gantellar, poyabzal va sport inventarlari
+                Sport &amp; Fitnes, Yo‘l Harakati Xavfsizligi va Professional Asbob-Uskunalar
               </p>
             </div>
             <Link

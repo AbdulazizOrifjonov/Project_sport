@@ -1,26 +1,21 @@
 /**
- * SPORT OUTLET — Telegram Product Bot
+ * SPORT OUTLET & MULTI-DEPARTMENT STORE — Telegram Product Bot
  * Bot Token: 6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w
  * Bot Username: @Ttxtxtctxtxtxhxhchxhbot
  * 
- * Features:
- * 1. MULTI-PHOTO & ALBUM SUPPORT:
- *    Automatically detects Telegram media groups (albums) and consecutive photos.
- *    Downloads ALL photos and attaches them to ONE single product as a gallery!
- * 2. MULTI-VARIANT DETECTION:
- *    If caption has multiple thickness/size options (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm),
- *    creates 1 single product with interactive variant selection and individual prices!
- * 3. SMART PRICE & TITLE PARSER:
- *    Accurately handles USD ($) and UZS (so'm), detects Model/Madel lines,
- *    and recognizes massage chairs, gym equipment, cardio, etc.
- * 4. CLEAN GALLERY INTEGRITY:
- *    Each product gets ONLY its own photos. Never mixes or merges random photos!
- * 5. DUAL DATABASE SYNC:
- *    Directly upserts to Supabase cloud database AND mockData.js.
- * 6. AUTO-DEPLOYMENT:
- *    Pushes changes to GitHub (Project_sport & next-nout) for live deployment!
- * 7. /clear or /delete_all COMMAND:
- *    Allows clearing all products instantly right from Telegram!
+ * 3 TA ASOSIY YO'NALISH:
+ * 1. 🏆 SPORT & FITNES (Trenajorlar, Gantellar, Podstavkalar, Boks/Tatami, To'plar, Fitnes)
+ * 2. 🚧 YO'L & HARAKAT XAVFSIZLIGI (Yo'l konuslari, Belgilar, To'siqlar, Lejachiy politseyskiy)
+ * 3. 🛠️ ASBOB-USKUNALAR & QURILISH (Drellar, Balgarkalar, Perforatorlar, Svarka apparatlari, Arralar)
+ * 
+ * QAT'IY QOIDALAR:
+ * - Faqat rasm bo'lsa (tagida narxi bo'lmasa) -> QABUL QILMAYDI!
+ * - Faqat matn bo'lsa (rasm biriktirilmagan bo'lsa) -> QABUL QILMAYDI!
+ * - Rasm + Narx bo'lsa -> Qabul qiladi! Rasmga qarab AI Vision / aqlli tahlilchi orqali toifasi va nomini qo'yadi!
+ * 
+ * BUYRUQLAR:
+ * - /clear yoki /tozala: Barcha eski mahsulotlarni tozalaydi
+ * - /key <GEMINI_API_KEY>: Rasmga qarab AI mahsulot nomini aniqlashi uchun bepul Gemini API kalitini kiritish
  */
 
 const fs = require('fs');
@@ -32,6 +27,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const FRONTEND_DIR = path.join(ROOT_DIR, 'frontend');
 const UPLOADS_DIR = path.join(FRONTEND_DIR, 'public', 'uploads');
 const MOCK_DATA_PATH = path.join(FRONTEND_DIR, 'src', 'services', 'mockData.js');
+const CONFIG_FILE = path.join(__dirname, 'bot_config.json');
 
 // Ensure uploads folder exists
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -51,7 +47,7 @@ try {
 const PORT = process.env.PORT || 5001;
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-  res.end('SPORT OUTLET Telegram Bot is running!\n');
+  res.end('SPORT OUTLET Multi-Department Telegram Bot is running!\n');
 }).listen(PORT, () => {
   console.log(`Telegram Bot health-check server listening on port ${PORT}`);
 });
@@ -62,16 +58,159 @@ const TELEGRAM_FILE_API = `https://api.telegram.org/file/bot${BOT_TOKEN}`;
 
 const USD_RATE = 12850; // 1 USD = 12,850 UZS
 
-// Sport & Fitness Categories with Massage Chair & Gym Support
+function getGeminiKey() {
+  if (process.env.GEMINI_API_KEY) return process.env.GEMINI_API_KEY.trim();
+  if (fs.existsSync(CONFIG_FILE)) {
+    try {
+      const cfg = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+      if (cfg.gemini_key) return cfg.gemini_key.trim();
+    } catch (_) {}
+  }
+  return '';
+}
+
+function saveGeminiKey(key) {
+  try {
+    let cfg = {};
+    if (fs.existsSync(CONFIG_FILE)) {
+      cfg = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    }
+    cfg.gemini_key = key.trim();
+    fs.writeFileSync(CONFIG_FILE, JSON.stringify(cfg, null, 2), 'utf8');
+    return true;
+  } catch (e) {
+    console.error('Failed to save config:', e);
+    return false;
+  }
+}
+
+// 3 TA KATTA YO'NALISH TOIFALARI (Sport, Yo'l Xavfsizligi, Asbob-Uskunalar)
 const CATEGORIES = [
-  { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill'] },
-  { slug: 'stoykalar', name: 'Podstavka & Skameykalar', keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270', 'ax003', 'an-001'] },
-  { slug: 'gantellar', name: 'Gantellar & Shtangalar', keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk'] },
-  { slug: 'toplar-oyinlar', name: 'Futbol & To‘plar', keywords: ['tennis', 'stol tennis', 'raketka', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol'] },
-  { slug: 'krossovkalar', name: 'Krossovkalar & Poyabzallar', keywords: ['krossovka', 'poyabzal', 'keda', 'butsa', 'nike', 'jordan', 'adidas', 'sneaker', 'yugurish poyabzali', 'snickers'] },
-  { slug: 'sport-kiyimlari', name: 'Sport Kiyimlari', keywords: ['kiyim', 'kostyum', 'futbolka', 'shortik', 'hudi', 'triko', 'rashgard', 'under armour', 'puma', 'gymshark', 'leggins'] },
-  { slug: 'boks-yakka-kurash', name: 'Boks & Yakka Kurash', keywords: ['tatami', 'mat', 'boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast', 'dzyudo', 'karate', 'sambo'] },
-  { slug: 'fitnes-aksessuarlari', name: 'Fitnes & Sport Aksessuarlari', keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'gilamcha', 'kamar', 'tasma', 'suv idish'] }
+  // 1. SPORT & FITNES
+  {
+    slug: 'trenajorlar',
+    name: 'Trenajorlar & Kardio',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Activity',
+    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill']
+  },
+  {
+    slug: 'gantellar',
+    name: 'Gantellar & Shtangalar',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Dumbbell',
+    keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk']
+  },
+  {
+    slug: 'stoykalar',
+    name: 'Podstavka & Skameykalar',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Layers',
+    keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270', 'ax003', 'an-001']
+  },
+  {
+    slug: 'boks-yakka-kurash',
+    name: 'Boks & Yakka Kurash',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Shield',
+    keywords: ['tatami', 'mat', 'boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast', 'dzyudo', 'karate', 'sambo', 'lapa', 'perchatka', 'perchatkalar']
+  },
+  {
+    slug: 'toplar-oyinlar',
+    name: 'To‘plar & Sport O‘yinlari',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Trophy',
+    keywords: ['tennis', 'stol tennis', 'raketka', 'padel', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol']
+  },
+  {
+    slug: 'fitnes-aksessuarlari',
+    name: 'Fitnes & Sport Aksessuarlari',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Award',
+    keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'gilamcha', 'kamar', 'tasma', 'suv idish']
+  },
+
+  // 2. YO'L VA HARAKAT XAVFSIZLIGI (Ko'cha / Yo'l anjomlari)
+  {
+    slug: 'yol-konuslari',
+    name: 'Yo‘l Konuslari & To‘siqlar',
+    department: 'yol-harakati',
+    departmentName: 'Yo‘l & Harakat Xavfsizligi',
+    icon: 'Cone',
+    keywords: ['konus', 'konis', 'dorojniy konus', 'yo‘l konusi', 'yol konusi', 'rezina konus', 'reflektor', 'svetootrajatel', 'to‘siq', 'tosiq', 'barrikada', 'fexting', 'fensing', 'lentasi', 'xavfsizlik lentasi']
+  },
+  {
+    slug: 'yol-belgilari',
+    name: 'Yo‘l Belgilari & Ko‘zgular',
+    department: 'yol-harakati',
+    departmentName: 'Yo‘l & Harakat Xavfsizligi',
+    icon: 'AlertTriangle',
+    keywords: ['yo‘l belgisi', 'yol belgisi', 'znak', 'znaki', 'ko‘zgu', 'sferik', 'sfericheskoye', 'ogohlantiruvchi', 'yo‘l ko‘rsatkich', 'shchit']
+  },
+  {
+    slug: 'suniy-notekislik',
+    name: 'Sun‘iy Notekislik & Ustunlar',
+    department: 'yol-harakati',
+    departmentName: 'Yo‘l & Harakat Xavfsizligi',
+    icon: 'Construction',
+    keywords: ['notekislik', 'lejachiy', 'politseyskiy', 'leja', 'suniy', 'sun‘iy', 'rezina politseyskiy', 'stolbik', 'ustun', 'deliniator', 'katofot', 'signal chiroq']
+  },
+
+  // 3. ASBOB-USKUNALAR & QURILISH TEXNIKASI (Drel, Balgarka va h.k.)
+  {
+    slug: 'drellar-shurupovyort',
+    name: 'Drellar & Shurupovyortlar',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'Wrench',
+    keywords: ['drel', 'drill', 'shurupovert', 'shurupovyort', 'gaykavyort', 'gaykovert', 'vintovyort', 'shurupavort', 'drel-shurupovyort', 'akkumulyator drel', 'zarbli drel', 'mikser']
+  },
+  {
+    slug: 'balgarkalar-ushm',
+    name: 'Balgarka & Shlifovka',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'HardHat',
+    keywords: ['balgarka', 'bolgarka', 'ushm', 'burchakli silliqlash', 'shlifovka', 'rezak', 'diska', 'ugloshlifovalnaya', 'shlifovalniy']
+  },
+  {
+    slug: 'perforator-otboynik',
+    name: 'Perforatorlar & Otboyniklar',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'Hammer',
+    keywords: ['perforator', 'otboynik', 'bolg‘a', 'zarbli bolg‘a', 'beton', 'otboyniy', 'pik', 'zubilo', 'sds']
+  },
+  {
+    slug: 'payvandlash-svarka',
+    name: 'Payvandlash & Generatorlar',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'Zap',
+    keywords: ['svarka', 'payvandlash', 'invertor', 'svarochniy', 'elektrod', 'maska', 'xameleon', 'generator', 'kompressor', 'aragon', 'yarimavtomat']
+  },
+  {
+    slug: 'arralar-uskunalar',
+    name: 'Arralar & Elektr Uskunalar',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'Construction',
+    keywords: ['arra', 'pila', 'diskoviy', 'sirkulyarka', 'lobzik', 'frez', 'stanok', 'torsovka', 'benzopila', 'elektr arra']
+  },
+  {
+    slug: 'lazer-qol-asboblari',
+    name: 'Lazer Uroven & Asbob Naborlari',
+    department: 'uskunalar',
+    departmentName: 'Asbob-Uskunalar & Qurilish',
+    icon: 'Wrench',
+    keywords: ['uroven', 'lazer', 'lazerniy', 'rulyetka', 'nabor', 'to‘plam', 'kalit', 'otvyortka', 'asboblar', 'chemodan', 'klyuch']
+  }
 ];
 
 function detectCategory(text = '') {
@@ -83,177 +222,141 @@ function detectCategory(text = '') {
       }
     }
   }
-  return { slug: 'trenajorlar', name: 'Trenajorlar & Kardio' };
+  return { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', department: 'sport', departmentName: 'Sport & Fitnes' };
 }
 
 function detectBrand(text = '') {
   const lower = text.toLowerCase();
-  const brands = ['Sport Line', 'Anelus', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'Gymshark', 'SPORT OUTLET'];
+  const brands = [
+    // Tools
+    'Makita', 'DeWalt', 'Bosch', 'Total', 'Crown', 'Ingco', 'Dnepr-M', 'Denzel', 'Resanta', 'Edon', 'Huter', 'Stanley', 'Metabo',
+    // Road & Safety
+    'Yo‘l Standart', 'RoadSafety', 'ProRoad', 'AutoSafety',
+    // Sport
+    'WYUE', 'Sport Line', 'Anelus', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'SPORT OUTLET'
+  ];
   for (const b of brands) {
     if (lower.includes(b.toLowerCase())) return b;
   }
-  return 'Sport Line';
+  return 'Original Brand';
 }
 
 /**
- * Detects multiple variants/options in caption (e.g. Tatami 2sm, 2.5sm, 3sm, 4sm)
+ * AI Vision Analysis: Sends image to Gemini Vision to automatically determine product name, brand and category
  */
-function extractVariants(text = '') {
-  let normalized = text.trim();
-  if (!normalized.includes('\n')) {
-    normalized = normalized.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?)\s*[:=-]/gi, '\n$1:');
-  }
+async function analyzeProductImageWithAI(imageRelativePath, userCaption = '') {
+  const apiKey = getGeminiKey();
+  if (!apiKey) return null;
 
-  const blocks = normalized.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
-  const variants = [];
-  let baseTitle = '';
+  try {
+    const fullLocalPath = path.isAbsolute(imageRelativePath)
+      ? imageRelativePath
+      : path.join(FRONTEND_DIR, 'public', imageRelativePath.replace(/^\//, ''));
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i];
-    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
-    if (lines.length === 0) continue;
+    if (!fs.existsSync(fullLocalPath)) return null;
 
-    // Price
-    let price = 0;
-    let priceUSD = 0;
-    const priceLine = lines.find(l => /(?:narx[i]?|baho[si]?|price|\$)/i.test(l));
-    if (priceLine) {
-      const dMatch = priceLine.match(/(\d+(?:[.,]\d+)?)\s*\$/);
-      if (dMatch) {
-        priceUSD = parseFloat(dMatch[1].replace(',', '.'));
-        price = Math.round(priceUSD * USD_RATE);
-      } else {
-        const uzsDigits = priceLine.replace(/[^\d]/g, '');
-        if (uzsDigits.length >= 4) {
-          price = parseInt(uzsDigits, 10);
+    const imgBuffer = fs.readFileSync(fullLocalPath);
+    const base64Data = imgBuffer.toString('base64');
+    const mimeType = fullLocalPath.endsWith('.png') ? 'image/png' : 'image/jpeg';
+
+    const promptText = `Sen internet-do'kon uchun professional tovar mutaxassisisan. Rasmda ko'rsatilgan mahsulotni aniqla.
+Do'konda 3 ta katta yo'nalish bor:
+1) Sport & Fitnes:
+   - trenajorlar (yugurish yo'lakchasi, velotrenajor, massaj kreslo)
+   - gantellar (gantellar, shtangalar, disklar)
+   - stoykalar (podstavkalar, skameykalar, turniklar)
+   - boks-yakka-kurash (tatami, boks qo'lqop, qop, kimono)
+   - toplar-oyinlar (futbol, tennis, padel, raketka)
+   - fitnes-aksessuarlari (rezinkalar, gilamcha, kamar)
+2) Yo'l Harakati & Xavfsizlik jihozlari:
+   - yol-konuslari (yo'l konuslari, to'siqlar, barrikadalar)
+   - yol-belgilari (yo'l belgilari, ko'zgular, shchitlar)
+   - suniy-notekislik (lejachiy politseyskiy, to'siq ustunlar/stolbik, katofot)
+3) Asbob-Uskunalar & Qurilish:
+   - drellar-shurupovyort (drel, shurupovyort, gaykavyort)
+   - balgarkalar-ushm (balgarka, burchakli silliqlash)
+   - perforator-otboynik (perforator, otboynik)
+   - payvandlash-svarka (svarka apparati, generator, kompressor)
+   - arralar-uskunalar (diskoviy arra, lobzik, frezer)
+   - lazer-qol-asboblari (lazer sath o'lchagich, asbob naborlari)
+
+Foydalanuvchi yozgan qo'shimcha izoh: "${userCaption || ''}"
+
+Faqat quyidagi JSON formatida javob ber (hech qanday qo'shimcha matnsiz va markdown teglarsiz, to'g'ridan-to'g'ri JSON):
+{
+  "title": "Mahsulotning o'zbek tilidagi to'liq va aniq nomi (masalan: Yo'l Xavfsizlik Konusi 75sm yoki Makita Zarbli Drel HP1630 yoki Masaj Kreslo AX-1007)",
+  "brand": "Aniqlangan brend (masalan: Makita, DeWalt, Total, Crown, Sport Line, WYUE yoki Yo'l Standart)",
+  "categorySlug": "yuqoridagi sluglardan eng mos keladigani",
+  "description": "Mahsulot haqida 1-2 jumlali o'zbekcha tavsif"
+}`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              { text: promptText },
+              {
+                inline_data: {
+                  mime_type: mimeType,
+                  data: base64Data
+                }
+              }
+            ]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.1,
+          maxOutputTokens: 400
         }
-      }
-    }
-
-    if (!price) continue;
-
-    // Colors
-    const colors = [];
-    const colorLine = lines.find(l => /(?:rang[i]?|color)/i.test(l));
-    if (colorLine) {
-      const parts = colorLine.replace(/^[^:]*:\s*/i, '')
-        .split(/[,;]+/)
-        .map(p => p.replace(/[✅✔]/g, '').trim())
-        .filter(Boolean);
-      colors.push(...parts);
-    }
-
-    // Name / Size
-    const rawName = lines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
-    const sizeMatch = rawName.match(/(\d+(?:[.,]\d+)?\s*(?:sm|mm|kg|m\b))/i);
-    const shortName = sizeMatch ? sizeMatch[1].trim() : rawName;
-
-    if (!baseTitle) {
-      baseTitle = rawName.replace(/[-–—]?\s*\d+(?:[.,]\d+)?\s*(?:sm|mm|kg)\b/i, '').trim();
-    }
-
-    variants.push({
-      id: 'var_' + (shortName.replace(/[^a-z0-9]/gi, '_').toLowerCase() || i),
-      name: shortName,
-      fullName: rawName,
-      price,
-      oldPrice: Math.round(price * 1.15),
-      priceUSD,
-      colors
+      })
     });
-  }
 
-  if (variants.length >= 2) {
-    return {
-      hasVariants: true,
-      baseTitle: baseTitle || 'Sport Mahsuloti',
-      variants
-    };
+    const data = await response.json();
+    if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+      const rawText = data.candidates[0].content.parts[0].text.trim()
+        .replace(/^```json\s*/i, '')
+        .replace(/```$/i, '')
+        .trim();
+      const parsed = JSON.parse(rawText);
+      console.log('🤖 Gemini AI recognized product:', parsed);
+      return parsed;
+    }
+  } catch (err) {
+    console.warn('Gemini Vision AI exception:', err.message);
   }
-
-  return { hasVariants: false };
+  return null;
 }
 
 /**
- * Intelligent parser for Telegram product captions
+ * Extracts price from caption
  */
-function parseProductInfo(text = '') {
-  let normalizedText = (text || '').trim();
-  if (!normalizedText.includes('\n')) {
-    normalizedText = normalizedText.replace(/\s+(narx[i]?|kodi?|sku|artikul|rangi|sig[i]?mi|model[i]?|madel[i]?)\s*[:=-]/gi, '\n$1:');
-  }
+function extractPrice(text = '') {
+  let normalized = (text || '').trim();
+  const rawLines = normalized.split('\n').map(l => l.trim()).filter(Boolean);
 
-  const rawLines = normalizedText.split('\n').map(l => l.trim()).filter(Boolean);
-  if (rawLines.length === 0) {
-    return {
-      title: 'Yangi Sport Mahsuloti',
-      price: 500000,
-      rawPriceLabel: '500 000 so‘m',
-      sku: '',
-      description: 'SPORT OUTLET - kafolatli va sifatli sport anjomi.',
-      category: { slug: 'trenajorlar', name: 'Trenajorlar & Kardio' },
-      brand: 'Sport Line',
-      variants: []
-    };
-  }
-
-  // Check if text has multiple variants (e.g. Tatami thicknesses)
-  const variantResult = extractVariants(normalizedText);
-  if (variantResult.hasVariants) {
-    const minPrice = Math.min(...variantResult.variants.map(v => v.price));
-    const category = detectCategory(normalizedText);
-    const brand = detectBrand(normalizedText);
-    const variantTitles = variantResult.variants.map(v => v.name).join(', ');
-
-    return {
-      title: `${variantResult.baseTitle} (Sport Qoplamasi)`,
-      sku: '',
-      price: minPrice,
-      rawPriceLabel: `${new Intl.NumberFormat('uz-UZ').format(minPrice)} so'mdan`,
-      description: `${variantResult.baseTitle} professional sport qoplamasi. Variantlar: ${variantTitles}. Boks, yakka kurash va fitnes zallari uchun maxsus qoplama.`,
-      category,
-      brand,
-      variantLabel: 'Qalinlik / O‘lchamni tanlang',
-      variants: variantResult.variants
-    };
-  }
-
-  // Single product parsing: Combine Title + Model line if present
-  let title = rawLines[0].replace(/^(nomi|mahsulot|title)\s*:\s*/i, '').trim();
-  if (rawLines.length > 1) {
-    const secondLine = rawLines[1].trim();
-    if (/^(?:madel|model|rusum)\s*[:=-]?\s*(.+)/i.test(secondLine)) {
-      title = `${title} ${secondLine}`;
-    }
-  }
-
-  let sku = '';
   let price = 0;
+  let priceUSD = 0;
   let rawPriceLabel = '';
 
   for (const line of rawLines) {
-    const skuMatch = line.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
-    if (skuMatch && !sku) {
-      sku = skuMatch[1];
-    }
-  }
-
-  // Parse Price accurately
-  for (let i = 0; i < rawLines.length; i++) {
-    const line = rawLines[i];
-    const isPriceLine = /(?:narx[i]?|baho[si]?|price)/i.test(line);
+    const isPriceLine = /(?:narx[i]?|baho[si]?|price|\$)/i.test(line);
 
     // Dollar price
     const dollarMatch = line.match(/(?:narx[i]?|baho[si]?|price)?\s*[:=-]?\s*\$?\s*(\d+(?:[.,]\d+)?)\s*(?:\$|usd)/i) ||
-                       (isPriceLine && line.match(/(\d+(?:[.,]\d+)?)\s*\$/i)) ||
-                       (isPriceLine && line.match(/\$\s*(\d+(?:[.,]\d+)?)/i));
+                        (isPriceLine && line.match(/(\d+(?:[.,]\d+)?)\s*\$/i)) ||
+                        (isPriceLine && line.match(/\$\s*(\d+(?:[.,]\d+)?)/i));
 
     if (dollarMatch) {
       const num = parseFloat(dollarMatch[1].replace(',', '.'));
       if (num > 0) {
+        priceUSD = num;
         price = Math.round(num * USD_RATE);
         rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
-        break;
+        return { price, priceUSD, rawPriceLabel };
       }
     }
 
@@ -263,46 +366,118 @@ function parseProductInfo(text = '') {
       if (uzsDigits.length >= 4) {
         price = parseInt(uzsDigits, 10);
         rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
-        break;
+        return { price, priceUSD: 0, rawPriceLabel };
       }
     }
   }
 
-  if (!price) {
-    for (const line of rawLines) {
-      const standAloneDollar = line.match(/(\d{2,5})\s*\$/) || line.match(/\$\s*(\d{2,5})/);
-      if (standAloneDollar) {
-        const num = parseInt(standAloneDollar[1], 10);
-        price = Math.round(num * USD_RATE);
-        rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
-        break;
+  // Standalone numbers in caption
+  for (const line of rawLines) {
+    const standAloneDollar = line.match(/(\d{1,5})\s*\$/) || line.match(/\$\s*(\d{1,5})/);
+    if (standAloneDollar) {
+      const num = parseInt(standAloneDollar[1], 10);
+      priceUSD = num;
+      price = Math.round(num * USD_RATE);
+      rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
+      return { price, priceUSD, rawPriceLabel };
+    }
+
+    const somMatch = line.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sum|ming)/i);
+    if (somMatch) {
+      let digits = somMatch[1].replace(/[^\d]/g, '');
+      if (/ming/i.test(line)) {
+        digits = digits + '000';
       }
-      const somMatch = line.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sum)/i);
-      if (somMatch) {
-        const digits = somMatch[1].replace(/[^\d]/g, '');
-        if (digits.length >= 4) {
-          price = parseInt(digits, 10);
-          rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
-          break;
-        }
+      if (digits.length >= 4) {
+        price = parseInt(digits, 10);
+        rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+        return { price, priceUSD: 0, rawPriceLabel };
       }
     }
   }
 
-  if (!price) {
-    price = 750000;
-    rawPriceLabel = '750 000 so‘m';
+  // If user just typed a 4+ digit number
+  for (const line of rawLines) {
+    const rawDigits = line.replace(/[^\d]/g, '');
+    if (rawDigits.length >= 4 && rawDigits.length <= 9) {
+      price = parseInt(rawDigits, 10);
+      rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+      return { price, priceUSD: 0, rawPriceLabel };
+    }
   }
 
-  const description = rawLines.slice(1).join('\n') || `${title} - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.`;
-  const category = detectCategory(normalizedText);
-  const brand = detectBrand(normalizedText);
+  return null;
+}
+
+/**
+ * Intelligent parser for Telegram captions
+ */
+function parseProductInfo(text = '', aiResult = null) {
+  let normalizedText = (text || '').trim();
+  const rawLines = normalizedText.split('\n').map(l => l.trim()).filter(Boolean);
+
+  const priceData = extractPrice(normalizedText) || {
+    price: 350000,
+    priceUSD: 0,
+    rawPriceLabel: '350 000 so‘m'
+  };
+
+  // Determine Title, Brand, Category, Description
+  let title = '';
+  let brand = '';
+  let category = null;
+  let description = '';
+
+  if (aiResult) {
+    // If Gemini Vision AI recognized the product
+    title = aiResult.title || '';
+    brand = aiResult.brand || '';
+    description = aiResult.description || '';
+    if (aiResult.categorySlug) {
+      category = CATEGORIES.find(c => c.slug === aiResult.categorySlug);
+    }
+  }
+
+  if (!title) {
+    // Fallback: extract title from caption
+    // Remove price-related lines
+    const titleCandidates = rawLines.filter(l => !extractPrice(l) && !/(?:narx|baho|price|\$)/i.test(l));
+    if (titleCandidates.length > 0) {
+      title = titleCandidates[0].replace(/^(nomi|mahsulot|title)\s*[:=-]\s*/i, '').trim();
+      if (titleCandidates.length > 1) {
+        title = `${title} ${titleCandidates[1]}`.trim();
+      }
+    }
+  }
+
+  if (!category) {
+    category = detectCategory(`${title} ${normalizedText}`);
+  }
+
+  if (!brand) {
+    brand = detectBrand(`${title} ${normalizedText}`) || 'Original Brand';
+  }
+
+  if (!title) {
+    title = `${category.name} Mahsuloti`;
+  }
+
+  if (!description) {
+    description = `${title} - kafolatli, yuqori sifatli mahsulot. Buxoro va O'zbekiston bo'ylab tezkor yetkazib beriladi.`;
+  }
+
+  let sku = '';
+  for (const line of rawLines) {
+    const skuMatch = line.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
+    if (skuMatch && !sku) sku = skuMatch[1];
+  }
 
   return {
     title,
     sku,
-    price,
-    rawPriceLabel,
+    price: priceData.price,
+    priceUSD: priceData.priceUSD,
+    rawPriceLabel: priceData.rawPriceLabel,
     description,
     category,
     brand,
@@ -417,8 +592,8 @@ async function syncProductToSupabase(product) {
       category: product.category,
       category_slug: product.category_slug || product.categorySlug,
       subcategory: product.subcategory || '',
-      brand: product.brand || 'SPORT OUTLET',
-      stock: product.stock || 15,
+      brand: product.brand || 'Original Brand',
+      stock: product.stock || 20,
       in_stock: true,
       rating: 5.0,
       reviews_count: 0,
@@ -443,11 +618,6 @@ async function syncProductToSupabase(product) {
   }
 }
 
-/**
- * SAVE OR UPDATE:
- * Handles multiple images, variants, and strict duplicate prevention!
- * NEVER combines unrelated images into one product!
- */
 function saveOrUpdateProduct(parsed, imagePaths = []) {
   const products = loadMockProducts();
   const normNewTitle = normalizeKey(parsed.title);
@@ -460,13 +630,10 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     const normPTitle = normalizeKey(p.title);
     const pSku = (p.sku || '').trim().toLowerCase();
 
-    // 1. Strict SKU match
     if (newSku && pSku && newSku === pSku) {
       existingIndex = i;
       break;
     }
-
-    // 2. Strict EXACT title match
     if (normNewTitle && normPTitle && normNewTitle === normPTitle) {
       existingIndex = i;
       break;
@@ -477,7 +644,6 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
   const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
 
   if (existingIndex !== -1) {
-    // UPDATE EXISTING PRODUCT
     const existing = products[existingIndex];
     existing.title = parsed.title;
     existing.price = parsed.price;
@@ -489,13 +655,8 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     existing.category_slug = parsed.category.slug;
     existing.categorySlug = parsed.category.slug;
     existing.description = parsed.description;
+    existing.brand = parsed.brand;
     if (parsed.sku) existing.sku = parsed.sku;
-    if (parsed.variants && parsed.variants.length > 0) {
-      existing.variants = parsed.variants;
-      existing.variantLabel = parsed.variantLabel || 'Qalinlik / O‘lcham';
-    }
-
-    // REPLACE images with newly sent gallery (never accumulate random old photos!)
     if (imagePaths && imagePaths.length > 0) {
       existing.images = imagePaths;
     }
@@ -504,7 +665,6 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     writeMockProducts(products);
     return { isUpdate: true, product: existing };
   } else {
-    // CREATE NEW PRODUCT WITH FULL GALLERY & VARIANTS
     const slug = (parsed.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
@@ -523,9 +683,11 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       category: parsed.category.name,
       category_slug: parsed.category.slug,
       categorySlug: parsed.category.slug,
+      department: parsed.category.department || 'sport',
+      departmentName: parsed.category.departmentName || 'Sport & Fitnes',
       subcategory: '',
       brand: parsed.brand,
-      stock: 15,
+      stock: 20,
       inStock: true,
       in_stock: true,
       rating: 5.0,
@@ -534,14 +696,15 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       is_bestseller: true,
       is_new_arrival: true,
       is_weekly_deal: false,
-      variantLabel: parsed.variantLabel || '',
-      variants: parsed.variants || [],
+      variantLabel: '',
+      variants: [],
       description: parsed.description,
       specifications: [
+        { label: 'Yo‘nalish', value: parsed.category.departmentName || 'Do‘kon mahsuloti' },
+        { label: 'Toifa', value: parsed.category.name },
         { label: 'Brend', value: parsed.brand },
-        { label: 'Kodi', value: parsed.sku || 'SPORT-OUTLET' },
-        { label: 'Kafolat', value: '1 yil rasmiy kafolat' },
-        { label: 'Yetkazib berish', value: 'Buxoro bo‘ylab bepul' }
+        { label: 'Holati', value: 'Yangi / Kafolatli' },
+        { label: 'Yetkazib berish', value: 'Buxoro bo‘ylab tezkor' }
       ],
       created_at: new Date().toISOString()
     };
@@ -554,12 +717,12 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
 
 function pushChangesToGitHub(productTitle, isUpdate) {
   try {
-    console.log('Pushing changes to GitHub (Project_sport & next-nout)...');
-    execSync('git add frontend/public/uploads frontend/src/services/mockData.js', { cwd: ROOT_DIR });
+    console.log('Pushing changes to GitHub...');
+    execSync('git add frontend/public/uploads frontend/src/services/mockData.js tools/bot_config.json', { cwd: ROOT_DIR });
     const action = isUpdate ? 'update' : 'add';
     execSync(`git commit -m "feat(store): ${action} product '${productTitle}' via Telegram"`, { cwd: ROOT_DIR });
     execSync('git push origin main', { cwd: ROOT_DIR, timeout: 45000 });
-    console.log('Successfully pushed to both GitHub repositories! Cloud platforms will auto-deploy.');
+    console.log('Successfully pushed to GitHub! Render will auto-deploy.');
     return true;
   } catch (err) {
     console.warn('Git push warning:', err.message);
@@ -567,7 +730,7 @@ function pushChangesToGitHub(productTitle, isUpdate) {
   }
 }
 
-// Media Group (Album) Buffer
+// Media Group Buffer
 const mediaGroupBuffer = new Map();
 const userSinglePhotoBuffer = new Map();
 
@@ -576,56 +739,71 @@ async function processMediaGroup(key, groupData) {
   mediaGroupBuffer.delete(key);
   userSinglePhotoBuffer.delete(key);
 
-  console.log(`Processing media group ${key} with ${photos.length} photos...`);
+  console.log(`Processing media group with ${photos.length} photos...`);
 
   await sendTelegram('sendMessage', {
     chat_id: chatId,
-    text: `⏳ Albom qabul qilindi (${photos.length} ta rasm)! Barchasi bitta mahsulotga biriktirilmoqda...`
+    text: `⏳ Mahsulot qabul qilinmoqda (${photos.length} ta rasm)... Rasm tahlil qilinmoqda...`
   });
 
-  const parsed = parseProductInfo(caption || 'Sport Mahsuloti');
-  const baseSlug = (parsed.title.toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
+  const baseSlug = 'prod-' + Date.now().toString().slice(-6);
 
-  // Download all photos in the album
+  // Download all photos
   const downloadedImages = [];
   for (let i = 0; i < photos.length; i++) {
     const photo = photos[i];
-    const fileName = `prod_${baseSlug}_${i + 1}.jpg`;
+    const fileName = `${baseSlug}_${i + 1}.jpg`;
     const imagePath = await downloadTelegramPhoto(photo.file_id, fileName);
     if (imagePath) downloadedImages.push(imagePath);
   }
 
-  // Save product with full gallery and variants
+  if (downloadedImages.length === 0) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      text: `❌ Rasmlarni yuklab olishda xatolik yuz berdi. Iltimos qaytadan yuboring.`
+    });
+    return;
+  }
+
+  // 1. Try AI Vision recognition
+  let aiResult = null;
+  const geminiKey = getGeminiKey();
+  if (geminiKey) {
+    aiResult = await analyzeProductImageWithAI(downloadedImages[0], caption);
+  }
+
+  // 2. Parse product info
+  const parsed = parseProductInfo(caption, aiResult);
+
+  // 3. Save or update product
   const { isUpdate, product } = saveOrUpdateProduct(parsed, downloadedImages);
 
-  // Sync to Supabase cloud database
+  // 4. Sync to Supabase
   await syncProductToSupabase(product);
 
-  // Push to GitHub
+  // 5. Push to GitHub
   pushChangesToGitHub(parsed.title, isUpdate);
 
   const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
-  const variantText = product.variants && product.variants.length > 0
-    ? `\n🔀 <b>Variantlar (${product.variants.length} xil):</b>\n` + product.variants.map(v => `• ${v.name}: ${new Intl.NumberFormat('uz-UZ').format(v.price)} so'm ($${v.priceUSD || '-'})`).join('\n')
-    : '';
+  const deptEmoji = product.department === 'yol-harakati' ? '🚧' : (product.department === 'uskunalar' ? '🛠️' : '🏆');
 
   const statusTitle = isUpdate
     ? `🔄 <b>Mavjud mahsulot yangilandi!</b>`
     : `✅ <b>Yangi mahsulot do‘konga qo‘shildi!</b>`;
+
+  const aiNote = aiResult ? `\n🤖 <i>(Gemini AI rasmdan mahsulotni avtomatik aniqladi)</i>` : '';
 
   await sendTelegram('sendMessage', {
     chat_id: chatId,
     parse_mode: 'HTML',
     text: `${statusTitle}\n\n` +
           `📦 <b>Nomi:</b> ${product.title}\n` +
-          `🖼 <b>Rasmlar:</b> ${downloadedImages.length} ta rasm to‘liq bitta galereyaga biriktirildi\n` +
-          `💰 <b>Boshlang‘ich narx:</b> ${formattedPrice} so'mdan\n` +
-          `${variantText}\n` +
-          `📂 <b>Toifa:</b> ${product.category}\n` +
-          `🏷 <b>Brend:</b> ${product.brand}\n\n` +
-          `🚀 <b>Saytda jonli chiqdi:</b> Barcha rasmlari va tavsifi bilan bitta mahsulot sifatida ochildi!`
+          `💰 <b>Narxi:</b> ${formattedPrice} so‘m\n` +
+          `${deptEmoji} <b>Toifa:</b> ${product.category}\n` +
+          `🏷 <b>Brend:</b> ${product.brand}\n` +
+          `🖼 <b>Galereya:</b> ${downloadedImages.length} ta rasm to‘liq biriktirildi\n` +
+          `${aiNote}\n\n` +
+          `🚀 <b>Saytda jonli chiqdi:</b> Barcha rasmlari va tavsifi bilan mahsulot kartochkasi ochildi!`
   });
 }
 
@@ -656,10 +834,11 @@ async function handleUpdate(update) {
   if (!msg) return;
 
   const chatId = msg.chat.id;
-  const text = (msg.text || msg.caption || '').trim();
+  const rawText = (msg.text || '').trim();
+  const caption = (msg.caption || '').trim();
 
   // 1. /clear or /tozala command
-  if (text === '/clear' || text === '/delete_all' || text === '/tozala') {
+  if (rawText === '/clear' || rawText === '/delete_all' || rawText === '/tozala') {
     writeMockProducts([]);
     if (supabase) {
       try {
@@ -676,97 +855,144 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 2. /start command
-  if (text.startsWith('/start')) {
+  // 2. /key command for Gemini Vision AI
+  if (rawText.startsWith('/key') || rawText.startsWith('/gemini')) {
+    const parts = rawText.split(/\s+/);
+    if (parts.length >= 2 && parts[1].length > 10) {
+      saveGeminiKey(parts[1]);
+      await sendTelegram('sendMessage', {
+        chat_id: chatId,
+        parse_mode: 'HTML',
+        text: `✅ <b>Gemini Vision AI muvaffaqiyatli faollashtirildi!</b>\n\nEndi botga mahsulot rasmi va narxini yuborganingizda, AI rasmga qarab tovar nomi, brendi va toifasini (Sport, Yo'l, Uskunalar) avtomatik aniqlab kiritadi!`
+      });
+    } else {
+      const current = getGeminiKey() ? 'Faol (ulangan)' : 'Ulanmagan';
+      await sendTelegram('sendMessage', {
+        chat_id: chatId,
+        parse_mode: 'HTML',
+        text: `🔑 <b>Gemini Vision AI sozlamasi:</b>\n\nHolat: <b>${current}</b>\n\nAI kalitingizni ulash uchun: <code>/key AIzaSy...</code> deb yuboring.\n(Google AI Studio saytidan bepul olinadi)`
+      });
+    }
+    return;
+  }
+
+  // 3. /start command
+  if (rawText.startsWith('/start') || rawText.startsWith('/help')) {
+    const aiStatus = getGeminiKey() ? '🟢 Faol' : '⚪ Ulanmagan (/key orqali ulanadi)';
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `👋 <b>Assalomu alaykum!</b>\n\nMen <b>SPORT OUTLET</b> do'koningizga mahsulot qo'shuvchi va yangilovchi rasmiy botman!\n\n` +
-            `📸 <b>Albom / Bir nechta rasm yuborish:</b>\n` +
-            `• Mahsulotga 2 tadan 10 tagacha rasm albom qilib tashlasangiz, barchasini <b>1 ta mahsulot</b> ichiga galereya qilib saqlayman!\n` +
-            `• Agar postda bir nechta razmer/qalinlik bo‘lsa (masalan Tatami 2sm, 2.5sm, 3sm, 4sm), saytda 1 ta mahsulot ochilib, ichida barcha variantlar tanlanadigan bo‘ladi!\n\n` +
-            `🗑 <b>Tozalash:</b> Istalgan vaqt /tozala yoki /clear buyrug‘i orqali barcha mahsulotlarni o‘chirib tozalashingiz mumkin.`
+      text: `👋 <b>Assalomu alaykum!</b>\n\nDo‘koningizga mahsulot qo‘shuvchi rasmiy botga xush kelibsiz!\n\n` +
+            `📂 <b>Do‘konda 3 ta katta yo‘nalish mavjud:</b>\n` +
+            `1. 🏆 <b>Sport & Fitnes:</b> Trenajorlar, Gantellar, Stoykalar, Boks, Tatami, To‘plar\n` +
+            `2. 🚧 <b>Yo‘l & Harakat Xavfsizligi:</b> Yo‘l konuslari, Belgilar, To‘siqlar, Lejachiy politseyskiy\n` +
+            `3. 🛠️ <b>Asbob-Uskunalar & Qurilish:</b> Drellar, Balgarkalar, Perforatorlar, Svarka, Arralar\n\n` +
+            `📌 <b>QAT'IY QOIDALAR:</b>\n` +
+            `❌ Faqat rasm (narxsiz) yuborsangiz — qabul qilinmaydi!\n` +
+            `❌ Faqat matn (rasmsiz) yuborsangiz — qabul qilinmaydi!\n` +
+            `✅ <b>Rasm + Tagiga narxi (va qisqa nomi)</b> yuborilganda — mahsulot avtomatik saytga qo‘shiladi!\n\n` +
+            `🤖 <b>Gemini Vision AI:</b> ${aiStatus}\n` +
+            `🗑 <b>Tozalash:</b> /tozala yoki /clear buyrug‘i orqali barcha mahsulotlarni o‘chirish mumkin.`
     });
     return;
   }
 
-  // 3. Photo received (Single or Album/MediaGroup)
-  if (msg.photo && msg.photo.length > 0) {
-    const largestPhoto = msg.photo[msg.photo.length - 1];
-    const mediaGroupId = msg.media_group_id;
+  // 4. CHECK STRICT RULE: TEXT ONLY (NO PHOTO)
+  if (!msg.photo || msg.photo.length === 0) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `❌ <b>Faqat matn qabul qilinmaydi!</b>\n\nIltimos, mahsulot <b>rasmini</b> narxi bilan birga yuboring.`
+    });
+    return;
+  }
 
-    if (mediaGroupId) {
-      // TELEGRAM MEDIA GROUP (ALBUM) BUFFERING
-      if (mediaGroupBuffer.has(mediaGroupId)) {
-        const group = mediaGroupBuffer.get(mediaGroupId);
-        group.photos.push(largestPhoto);
-        if (msg.caption) group.caption = msg.caption;
-        clearTimeout(group.timer);
-        group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
-      } else {
-        const group = {
-          chatId,
-          photos: [largestPhoto],
-          caption: msg.caption || '',
-          timer: null
-        };
-        group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
-        mediaGroupBuffer.set(mediaGroupId, group);
-      }
-      return;
+  // 5. CHECK STRICT RULE: PHOTO WITHOUT CAPTION
+  if (!caption) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> (va qisqa nomini) yozib yuboring (masalan: <code>450 000 so‘m</code> yoki <code>$35</code>).`
+    });
+    return;
+  }
+
+  // 6. CHECK STRICT RULE: CAPTION MUST HAVE A PRICE
+  const priceCheck = extractPrice(caption);
+  if (!priceCheck || priceCheck.price <= 0) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>250 000 so‘m</code> yoki <code>$20</code>).`
+    });
+    return;
+  }
+
+  // 7. PHOTO IS VALID AND HAS PRICE -> PROCESS!
+  const largestPhoto = msg.photo[msg.photo.length - 1];
+  const mediaGroupId = msg.media_group_id;
+
+  if (mediaGroupId) {
+    // TELEGRAM MEDIA GROUP (ALBUM) BUFFERING
+    if (mediaGroupBuffer.has(mediaGroupId)) {
+      const group = mediaGroupBuffer.get(mediaGroupId);
+      group.photos.push(largestPhoto);
+      if (caption) group.caption = caption;
+      clearTimeout(group.timer);
+      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+    } else {
+      const group = {
+        chatId,
+        photos: [largestPhoto],
+        caption: caption,
+        timer: null
+      };
+      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+      mediaGroupBuffer.set(mediaGroupId, group);
     }
+    return;
+  }
 
-    // SINGLE PHOTO
-    const userKey = `user_${chatId}`;
-    if (userSinglePhotoBuffer.has(userKey)) {
-      const buffer = userSinglePhotoBuffer.get(userKey);
-      // If new single photo has its own caption, treat as distinct product!
-      if (msg.caption && buffer.caption) {
-        clearTimeout(buffer.timer);
-        processMediaGroup(userKey, buffer);
-        const newGroup = {
-          chatId,
-          photos: [largestPhoto],
-          caption: msg.caption,
-          timer: null
-        };
-        newGroup.timer = setTimeout(() => processMediaGroup(userKey, newGroup), 1500);
-        userSinglePhotoBuffer.set(userKey, newGroup);
-        return;
-      }
-
-      buffer.photos.push(largestPhoto);
-      if (msg.caption) buffer.caption = msg.caption;
+  // SINGLE PHOTO WITH VALID CAPTION
+  const userKey = `user_${chatId}`;
+  if (userSinglePhotoBuffer.has(userKey)) {
+    const buffer = userSinglePhotoBuffer.get(userKey);
+    if (caption && buffer.caption) {
       clearTimeout(buffer.timer);
-      buffer.timer = setTimeout(() => processMediaGroup(userKey, buffer), 1500);
+      processMediaGroup(userKey, buffer);
+      const newGroup = {
+        chatId,
+        photos: [largestPhoto],
+        caption: caption,
+        timer: null
+      };
+      newGroup.timer = setTimeout(() => processMediaGroup(userKey, newGroup), 1500);
+      userSinglePhotoBuffer.set(userKey, newGroup);
       return;
     }
 
-    const singleGroup = {
-      chatId,
-      photos: [largestPhoto],
-      caption: msg.caption || '',
-      timer: null
-    };
-    singleGroup.timer = setTimeout(() => processMediaGroup(userKey, singleGroup), 1500);
-    userSinglePhotoBuffer.set(userKey, singleGroup);
+    buffer.photos.push(largestPhoto);
+    if (caption) buffer.caption = caption;
+    clearTimeout(buffer.timer);
+    buffer.timer = setTimeout(() => processMediaGroup(userKey, buffer), 1500);
     return;
   }
 
-  // 4. Text only
-  if (text) {
-    await sendTelegram('sendMessage', {
-      chat_id: chatId,
-      parse_mode: 'HTML',
-      text: `⚠️ <b>Rasm topilmadi!</b>\n\nIltimos, mahsulotning rasmini (yoki albomini) yuboring va tagiga nomi hamda narxini yozing.`
-    });
-  }
+  const singleGroup = {
+    chatId,
+    photos: [largestPhoto],
+    caption: caption,
+    timer: null
+  };
+  singleGroup.timer = setTimeout(() => processMediaGroup(userKey, singleGroup), 1500);
+  userSinglePhotoBuffer.set(userKey, singleGroup);
 }
 
 console.log('====================================================');
-console.log('🤖 SPORT OUTLET TELEGRAM BOT (ALBUM & SUPABASE SYNC) RUNNING...');
+console.log('🤖 MULTI-DEPARTMENT STORE TELEGRAM BOT RUNNING...');
 console.log(`Bot username: @Ttxtxtctxtxtxhxhchxhbot`);
-console.log('Multi-photo albums & Variant detection ACTIVE!');
+console.log('3 Categories: Sport | Yo\'l Xavfsizligi | Asbob-Uskunalar');
+console.log('Strict validation: Only Photo+Price accepted!');
 console.log('====================================================');
 
 // Start polling

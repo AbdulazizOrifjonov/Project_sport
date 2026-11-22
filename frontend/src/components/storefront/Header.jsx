@@ -23,7 +23,10 @@ import {
   Shirt,
   Trophy,
   Activity,
-  MapPin
+  MapPin,
+  Cone,
+  Wrench,
+  Hammer
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -503,7 +506,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               );
             })()}
 
-            {/* 2. Trenajorlar & Kardio */}
+            {/* 2. Trenajorlar & Kardio (Sport) */}
             {(() => {
               const isActive = currentCategory === 'trenajorlar';
               return (
@@ -522,13 +525,51 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               );
             })()}
 
-            {/* 3. Gantellar & Podstavkalar */}
+            {/* 3. Yo'l Harakati & Konuslar (Ko'cha/Yo'l jihozlari) */}
+            {(() => {
+              const isActive = currentCategory === 'yol-konuslari' || currentCategory === 'yol-belgilari' || currentCategory === 'suniy-notekislik';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=yol-konuslari"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-orange-600 text-white shadow-md ring-2 ring-orange-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Cone className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-orange-500'}`} />
+                  <span>Yo‘l Xavfsizligi &amp; Konuslar</span>
+                </Link>
+              );
+            })()}
+
+            {/* 4. Asbob-Uskunalar (Drellar, Balgarkalar) */}
+            {(() => {
+              const isActive = currentCategory === 'drellar-shurupovyort' || currentCategory === 'balgarkalar-ushm' || currentCategory === 'perforator-otboynik' || currentCategory === 'payvandlash-svarka';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=drellar-shurupovyort"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Wrench className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-500'}`} />
+                  <span>Drellar &amp; Balgarkalar</span>
+                </Link>
+              );
+            })()}
+
+            {/* 5. Gantellar & Shtangalar */}
             {(() => {
               const isActive = currentCategory === 'stoykalar' || currentCategory === 'gantellar';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=stoykalar"
+                  to="/shop?category=gantellar"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
@@ -536,45 +577,26 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   }`}
                 >
                   <Dumbbell className={`w-4 h-4 shrink-0 ${isActive ? 'text-blue-400' : 'text-blue-500'}`} />
-                  <span>Gantellar &amp; Podstavkalar</span>
+                  <span>Gantellar &amp; Shtangalar</span>
                 </Link>
               );
             })()}
 
-            {/* 4. Krossovkalar */}
+            {/* 6. Boks & Yakka Kurash */}
             {(() => {
-              const isActive = currentCategory === 'krossovkalar';
+              const isActive = currentCategory === 'boks-yakka-kurash';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=krossovkalar"
+                  to="/shop?category=boks-yakka-kurash"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
                       : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
                   }`}
                 >
-                  <Footprints className={`w-4 h-4 shrink-0 ${isActive ? 'text-indigo-400' : 'text-indigo-500'}`} />
-                  <span>{t('nav.sneakers', 'Krossovkalar')}</span>
-                </Link>
-              );
-            })()}
-
-            {/* 5. Sport Kiyimlari */}
-            {(() => {
-              const isActive = currentCategory === 'sport-kiyimlari';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=sport-kiyimlari"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Shirt className={`w-4 h-4 shrink-0 ${isActive ? 'text-emerald-400' : 'text-emerald-500'}`} />
-                  <span>{t('nav.sportswear', 'Sport Kiyimlari')}</span>
+                  <Trophy className={`w-4 h-4 shrink-0 ${isActive ? 'text-amber-400' : 'text-amber-500'}`} />
+                  <span>Boks &amp; Yakka Kurash</span>
                 </Link>
               );
             })()}
@@ -793,49 +815,61 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   </Link>
 
                   <Link
-                    to="/shop/krossovkalar"
+                    to="/shop?category=trenajorlar"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Footprints className="w-4 h-4 text-emerald-500" />
-                      <span>{t('cat.krossovkalar', 'Krossovkalar & Poyabzallar')}</span>
+                      <Activity className="w-4 h-4 text-emerald-500" />
+                      <span>Trenajorlar &amp; Kardio (Sport)</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/erkaklar-sport"
+                    to="/shop?category=yol-konuslari"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-50/70 dark:bg-orange-950/20 border border-orange-200/80 dark:border-orange-900/50"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Shirt className="w-4 h-4 text-blue-500" />
-                      <span>{t('cat.erkaklar-sport', 'Erkaklar Sport Kiyimlari')}</span>
+                      <Cone className="w-4 h-4" />
+                      <span>Yo‘l Xavfsizligi &amp; Konuslar</span>
                     </span>
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                    <ChevronRight className="w-4 h-4 text-orange-400" />
                   </Link>
 
                   <Link
-                    to="/shop/ayollar-sport"
+                    to="/shop?category=drellar-shurupovyort"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-900/50"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Shirt className="w-4 h-4 text-rose-500" />
-                      <span>{t('cat.ayollar-sport', 'Ayollar Sport Kiyimlari')}</span>
+                      <Wrench className="w-4 h-4" />
+                      <span>Drellar, Balgarkalar &amp; Uskunalar</span>
                     </span>
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                    <ChevronRight className="w-4 h-4 text-blue-400" />
                   </Link>
 
                   <Link
-                    to="/shop/fitnes-trenajor"
+                    to="/shop?category=gantellar"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
                       <Dumbbell className="w-4 h-4 text-amber-500" />
-                      <span>{t('cat.fitnes-trenajor', 'Fitnes & Mashg‘ulot Jihozlari')}</span>
+                      <span>Gantellar &amp; Shtangalar</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </Link>
+
+                  <Link
+                    to="/shop?category=boks-yakka-kurash"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Trophy className="w-4 h-4 text-rose-500" />
+                      <span>Boks &amp; Yakka Kurash (Tatami)</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>

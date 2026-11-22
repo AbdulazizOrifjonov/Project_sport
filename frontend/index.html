@@ -12,13 +12,14 @@
     <script>
       (function() {
         try {
-          ['nsb_products_v3_sport', 'nsb_products_v2_sport', 'nsb_products_v1_sport', 'nsb_products_sport', 'nsb_products'].forEach(function(k) {
+          [
+            'nsb_products_v7_sport', 'nsb_products_v6_sport', 'nsb_products_v5_sport',
+            'nsb_products_v4_sport', 'nsb_products_v3_sport', 'nsb_products_v2_sport',
+            'nsb_products_v1_sport', 'nsb_products_sport', 'nsb_products',
+            'nsb_categories_v4_sport', 'nsb_categories_v3_sport', 'nsb_categories_v2_sport'
+          ].forEach(function(k) {
             localStorage.removeItem(k);
           });
-          var p = localStorage.getItem('nsb_products_v4_sport');
-          if (p && (p.indexOf('yangi-mahsulot') !== -1 || p.indexOf('Yangi Mahsulot') !== -1)) {
-            localStorage.removeItem('nsb_products_v4_sport');
-          }
         } catch (e) {}
       })();
     </script>

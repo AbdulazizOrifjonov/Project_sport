@@ -10,10 +10,10 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v7 Clean User Controlled Sport)
+// Local storage collection keys (v8 Clean Multi-Department Store: Sport, Yo'l, Uskunalar)
 const KEYS = {
-  CATEGORIES: 'nsb_categories_v4_sport',
-  PRODUCTS: 'nsb_products_v7_sport',
+  CATEGORIES: 'nsb_categories_v8_multidept',
+  PRODUCTS: 'nsb_products_v8_multidept',
   BANNERS: 'nsb_banners_v4_sport',
   COUPONS: 'nsb_coupons_v4_sport',
   REVIEWS: 'nsb_reviews_v4_sport',

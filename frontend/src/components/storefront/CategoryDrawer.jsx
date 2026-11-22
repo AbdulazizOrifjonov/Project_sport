@@ -15,7 +15,14 @@ import {
   ArrowRight,
   PhoneCall,
   LayoutGrid,
-  X
+  X,
+  Cone,
+  AlertTriangle,
+  Construction,
+  Wrench,
+  HardHat,
+  Hammer,
+  Zap
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
@@ -30,7 +37,14 @@ const iconMap = {
   Trophy: <Trophy className="w-5 h-5 text-amber-400" />,
   Activity: <Activity className="w-5 h-5 text-sky-400" />,
   Layers: <Layers className="w-5 h-5 text-indigo-400" />,
-  Award: <Award className="w-5 h-5 text-amber-500" />
+  Award: <Award className="w-5 h-5 text-amber-500" />,
+  Cone: <Cone className="w-5 h-5 text-orange-500" />,
+  AlertTriangle: <AlertTriangle className="w-5 h-5 text-amber-500" />,
+  Construction: <Construction className="w-5 h-5 text-yellow-500" />,
+  Wrench: <Wrench className="w-5 h-5 text-blue-500" />,
+  HardHat: <HardHat className="w-5 h-5 text-teal-500" />,
+  Hammer: <Hammer className="w-5 h-5 text-indigo-500" />,
+  Zap: <Zap className="w-5 h-5 text-red-500" />
 };
 
 export default function CategoryDrawer({ isOpen, onClose }) {
