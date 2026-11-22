@@ -78,6 +78,56 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_sport-mahsuloti-8621",
+    "id": "prod_sport-mahsuloti-8621",
+    "title": "Sport Mahsuloti",
+    "slug": "sport-mahsuloti-8621",
+    "sku": "",
+    "price": 750000,
+    "oldPrice": 862500,
+    "old_price": 862500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_sport-mahsuloti-9265_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Sport Mahsuloti - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:28:18.621Z"
+  },
+  {
     "_id": "prod_ax105-0319",
     "id": "prod_ax105-0319",
     "title": "Стол для настольного тенниса AX105",
