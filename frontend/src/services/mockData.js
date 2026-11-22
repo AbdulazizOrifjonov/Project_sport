@@ -161,6 +161,158 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_chax-135000-s-m-2543",
+    "id": "prod_chax-135000-s-m-2543",
+    "title": "Chax 135000 sōm",
+    "slug": "chax-135000-s-m-2543",
+    "sku": "",
+    "price": 750000,
+    "oldPrice": 862500,
+    "old_price": 862500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_chax-135000-s-m-8873_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Chax 135000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T16:54:22.543Z"
+  },
+  {
+    "_id": "prod_169000-s-m-2520",
+    "id": "prod_169000-s-m-2520",
+    "title": "169000 sōm",
+    "slug": "169000-s-m-2520",
+    "sku": "",
+    "price": 750000,
+    "oldPrice": 862500,
+    "old_price": 862500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_169000-s-m-6729_1.jpg",
+      "/uploads/prod_169000-s-m-6729_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "169000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T16:54:22.520Z"
+  },
+  {
+    "_id": "prod_825000-2511",
+    "id": "prod_825000-2511",
+    "title": "825000",
+    "slug": "825000-2511",
+    "sku": "",
+    "price": 750000,
+    "oldPrice": 862500,
+    "old_price": 862500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_825000-6683_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "825000 - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T16:54:22.511Z",
+    "updated_at": "2026-11-22T16:54:22.534Z"
+  },
+  {
     "_id": "prod_trimmer-maysa-kaltalagich-440000-s-m-3500",
     "id": "prod_trimmer-maysa-kaltalagich-440000-s-m-3500",
     "title": "Trimmer ( maysa kaltalagich) 440000 sōm",
