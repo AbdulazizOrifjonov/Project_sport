@@ -78,6 +78,521 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_blin-tosh-axelus-3106",
+    "id": "prod_blin-tosh-axelus-3106",
+    "title": "Blin tosh axelus",
+    "slug": "blin-tosh-axelus-3106",
+    "sku": "",
+    "price": 33410,
+    "oldPrice": 38422,
+    "old_price": 38422,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_blin-tosh-axelus-0737_1.jpg",
+      "/uploads/prod_blin-tosh-axelus-0737_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "2.5kg —\n5kg —\n10kg —\n15kg —\n20kg —\n25kg -\nNarxi : kilosi 2.6$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:23.106Z"
+  },
+  {
+    "_id": "prod_press-s-ax048-3in1-3052",
+    "id": "prod_press-s-ax048-3in1-3052",
+    "title": "Press S ax048 3in1 🤩",
+    "slug": "press-s-ax048-3in1-3052",
+    "sku": "",
+    "price": 1156500,
+    "oldPrice": 1329975,
+    "old_price": 1329975,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-s-ax048-3in1-0919_1.jpg",
+      "/uploads/prod_press-s-ax048-3in1-0919_2.jpg",
+      "/uploads/prod_press-s-ax048-3in1-0919_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 90$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:23.052Z"
+  },
+  {
+    "_id": "prod_ax100-3016",
+    "id": "prod_ax100-3016",
+    "title": "Стол для настольного тенниса AX100",
+    "slug": "ax100-3016",
+    "sku": "",
+    "price": 2557150,
+    "oldPrice": 2940723,
+    "old_price": 2940723,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax100-9466_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX100\nКод: 5519001\n• Размеры стола: 274 × 152.5 × 76 см\n• Поверхность стола: 15 мм МДФ\n• Вес стола: 68 кг\n• Толщина ножек: 30 × 30 мм\n• Прочная и устойчивая металлическая конструкция\n• Подходит для тренировок и любительских соревнований\n• Складной, удобен для хранения\nЦена: 199 $\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:23.016Z"
+  },
+  {
+    "_id": "prod_press-ax055-2970",
+    "id": "prod_press-ax055-2970",
+    "title": "Press AX055",
+    "slug": "press-ax055-2970",
+    "sku": "",
+    "price": 2441500,
+    "oldPrice": 2807725,
+    "old_price": 2807725,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-ax055-9438_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer:125*135*60sm\nNarxi narxi: 190$❌\nNarxi: 165$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.970Z"
+  },
+  {
+    "_id": "prod_foot-masajor-qim-sapog-model-hj-50026-2936",
+    "id": "prod_foot-masajor-qim-sapog-model-hj-50026-2936",
+    "title": "Foot masajor qim ( sapog ) Model: HJ-50026",
+    "slug": "foot-masajor-qim-sapog-model-hj-50026-2936",
+    "sku": "0641978",
+    "price": 1156500,
+    "oldPrice": 1329975,
+    "old_price": 1329975,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-0772_1.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-0772_2.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-0772_3.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-0772_4.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-0772_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model: HJ-50026\n3 funksiyali\nRangi: ⚪️⚫️🔴🟡🟤\nKodi: 0641978\nNarxi: 90$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0641978"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.936Z"
+  },
+  {
+    "_id": "prod_vb-kopto-mikasa-v300w-2879",
+    "id": "prod_vb-kopto-mikasa-v300w-2879",
+    "title": "VB kopto Mikasa v300w 🏐",
+    "slug": "vb-kopto-mikasa-v300w-2879",
+    "sku": "",
+    "price": 835250,
+    "oldPrice": 960537,
+    "old_price": 960537,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_vb-kopto-mikasa-v300w-8737_1.jpg",
+      "/uploads/prod_vb-kopto-mikasa-v300w-8737_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Orginal ✅\nNarxi : 65$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.879Z"
+  },
+  {
+    "_id": "prod_trenajor-ax073-giperextenziya-2818",
+    "id": "prod_trenajor-ax073-giperextenziya-2818",
+    "title": "Trenajor AX073 (giperextenziya)",
+    "slug": "trenajor-ax073-giperextenziya-2818",
+    "sku": "",
+    "price": 2955500,
+    "oldPrice": 3398825,
+    "old_price": 3398825,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-ax073-giperextenziya-6123_1.jpg",
+      "/uploads/prod_trenajor-ax073-giperextenziya-6123_2.jpg",
+      "/uploads/prod_trenajor-ax073-giperextenziya-6123_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer:\nNarxi: 230$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.818Z"
+  },
+  {
+    "_id": "prod_futbol-oyin-sbt-113-2676",
+    "id": "prod_futbol-oyin-sbt-113-2676",
+    "title": "Futbol oyin SBT-113",
+    "slug": "futbol-oyin-sbt-113-2676",
+    "sku": "",
+    "price": 3983500,
+    "oldPrice": 4581025,
+    "old_price": 4581025,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_futbol-oyin-sbt-113-8807_1.jpg",
+      "/uploads/prod_futbol-oyin-sbt-113-8807_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer : 140x76x88\nNarxi : 310$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.676Z"
+  },
+  {
+    "_id": "prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-2641",
+    "id": "prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-2641",
+    "title": "Foot masajor qim ( sapog ) Model: HJ-50026+vibratsiya",
+    "slug": "foot-masajor-qim-sapog-model-hj-50026-vibratsiya-2641",
+    "sku": "7606259",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-0752_1.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-0752_2.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-0752_3.jpg",
+      "/uploads/prod_foot-masajor-qim-sapog-model-hj-50026-vibratsiya-0752_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model: HJ-50026+vibratsiya\nRamgi: 🔴🟡⚫️⚪️\nFunksiyasi: 4tali\nKodi: 7606259\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "7606259"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.641Z"
+  },
+  {
+    "_id": "prod_press-ax057-2589",
+    "id": "prod_press-ax057-2589",
+    "title": "Press AX057",
+    "slug": "press-ax057-2589",
+    "sku": "",
+    "price": 3598000,
+    "oldPrice": 4137700,
+    "old_price": 4137700,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-ax057-9325_1.jpg",
+      "/uploads/prod_press-ax057-9325_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer:\nEski narxi: 280$❌\nNarxi: 255$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:22.589Z"
+  },
+  {
     "_id": "prod_ax104-7639",
     "id": "prod_ax104-7639",
     "title": "Стол для настольного тенниса AX104",
