@@ -78,6 +78,112 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-gira-55kg-0448",
+    "id": "prod_gantel-gira-55kg-0448",
+    "title": "Gantel + gira 55kg",
+    "slug": "gantel-gira-55kg-0448",
+    "sku": "",
+    "price": 1734750,
+    "oldPrice": 1994962,
+    "old_price": 1994962,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-gira-55kg-4012_1.jpg",
+      "/uploads/prod_gantel-gira-55kg-4012_2.jpg",
+      "/uploads/prod_gantel-gira-55kg-4012_3.jpg",
+      "/uploads/prod_gantel-gira-55kg-4012_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 135$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:00.448Z"
+  },
+  {
+    "_id": "prod_kamar-axelus-koja-wlb-777-0430",
+    "id": "prod_kamar-axelus-koja-wlb-777-0430",
+    "title": "Kamar AXELUS koja WLB 777",
+    "slug": "kamar-axelus-koja-wlb-777-0430",
+    "sku": "",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Fitnes & Sport Aksessuarlari",
+    "category_slug": "fitnes-aksessuarlari",
+    "categorySlug": "fitnes-aksessuarlari",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kamar-axelus-koja-wlb-777-3975_1.jpg",
+      "/uploads/prod_kamar-axelus-koja-wlb-777-3975_2.jpg",
+      "/uploads/prod_kamar-axelus-koja-wlb-777-3975_3.jpg",
+      "/uploads/prod_kamar-axelus-koja-wlb-777-3975_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: L,XL,2XL\nNarxi: 40$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:24:00.430Z"
+  },
+  {
     "_id": "prod_box-per-top-ten-blue-1393",
     "id": "prod_box-per-top-ten-blue-1393",
     "title": "Box per TOP TEN blue🔵",
