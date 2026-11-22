@@ -131,9 +131,9 @@ export default function ProductCard({ product }) {
       }}
       className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden cursor-pointer"
     >
-      {/* 1. Top Image Area - To'liq va katta rasm */}
+      {/* 1. Top Image Area - To'liq va katta rasm (3:4 zamonaviy format) */}
       <div
-        className="relative w-full aspect-square bg-slate-50 dark:bg-[#0b0f19] overflow-hidden select-none cursor-pointer"
+        className="relative w-full aspect-[3/4] bg-white dark:bg-slate-900 overflow-hidden select-none cursor-pointer"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -231,7 +231,7 @@ export default function ProductCard({ product }) {
               hasSwipedRef.current = false;
             }
           }}
-          className="absolute inset-0 flex items-center justify-center p-2 sm:p-2.5 overflow-hidden cursor-pointer"
+          className="relative block w-full h-full overflow-hidden cursor-pointer"
         >
           <img
             src={currentImageSrc}
@@ -242,7 +242,7 @@ export default function ProductCard({ product }) {
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}
-            className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+            className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
           />
         </Link>
       </div>

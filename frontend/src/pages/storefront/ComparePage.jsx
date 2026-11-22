@@ -60,11 +60,11 @@ export default function ComparePage() {
                     >
                       <X className="w-4 h-4" />
                     </button>
-                    <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1 mb-3">
+                    <div className="w-24 aspect-[3/4] rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-3">
                       <img
                         src={p.images?.[0] || 'https://via.placeholder.com/80'}
                         alt={p.title}
-                        className="max-w-full max-h-full w-auto h-auto object-contain"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug">{p.title}</div>

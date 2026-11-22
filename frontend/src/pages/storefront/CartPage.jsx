@@ -84,7 +84,7 @@ export default function CartPage() {
                 <div className="flex items-center gap-4 w-full sm:w-auto flex-1 min-w-0">
                   <Link
                     to={`/product/${item.slug}`}
-                    className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shrink-0 shadow-2xs group flex items-center justify-center p-1.5"
+                    className="relative w-20 aspect-[3/4] sm:w-24 rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 shrink-0 shadow-2xs group block"
                   >
                     <img
                       src={imgSrc}
@@ -93,7 +93,7 @@ export default function CartPage() {
                         e.target.onerror = null;
                         e.target.src = fallbackImage;
                       }}
-                      className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </Link>
 
