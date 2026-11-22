@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-an-001-8899",
+    "id": "prod_gantel-podstavka-an-001-8899",
+    "title": "Gantel podstavka an-001",
+    "slug": "gantel-podstavka-an-001-8899",
+    "sku": "0455407",
+    "price": 3726500,
+    "oldPrice": 4285475,
+    "old_price": 4285475,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-an-001-3431_1.jpg",
+      "/uploads/prod_gantel-podstavka-an-001-3431_2.jpg",
+      "/uploads/prod_gantel-podstavka-an-001-3431_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmeri: 2.2x78 sm\nKodi: 0455407\nNarxi: 290$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0455407"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:37:28.899Z"
+  },
+  {
     "_id": "prod_grif-trep-6842",
     "id": "prod_grif-trep-6842",
     "title": "Grif  Trep",
