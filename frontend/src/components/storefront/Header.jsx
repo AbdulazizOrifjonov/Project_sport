@@ -164,93 +164,93 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
   return (
     <>
-      {/* 1. Top Utility Contact Bar - Skroll bilan birga ketadi (qizil hoshiyadan tashqarida) */}
-      <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
-        <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {/* Demo Admin Panel Quick Button */}
-            <Link
-              to="/admin"
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 font-bold text-[11px] sm:text-xs shadow-xs transition-all border border-slate-900 dark:border-white group"
-              title="Admin boshqaruv paneliga demo kirish"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
-              <span>Admin Panel</span>
-              <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-500/20 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 tracking-wider">
-                Demo
-              </span>
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-semibold">
-            {/* Multi-language Selector (UZ | RU | EN) */}
-            <div className="h-7.5 inline-flex items-center p-0.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 border border-slate-300/70 dark:border-slate-700/70 shadow-2xs box-border transition-colors">
-              {['uz', 'ru', 'en'].map((l) => (
-                <button
-                  key={l}
-                  type="button"
-                  onClick={() => setLang(l)}
-                  className={`h-full px-2.5 flex items-center justify-center rounded-md text-[11px] uppercase cursor-pointer transition-all duration-150 ${
-                    lang === l
-                      ? 'bg-white dark:bg-slate-900 text-slate-950 dark:text-white font-black shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
-
-            {/* Kun / Tun Segmented Theme Switcher */}
-            <div className="h-7.5 inline-flex items-center p-0.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 border border-slate-300/70 dark:border-slate-700/70 shadow-2xs box-border transition-colors">
-              <button
-                type="button"
-                onClick={() => isDark && toggleTheme()}
-                className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-[11px] cursor-pointer transition-all duration-150 ${
-                  !isDark
-                    ? 'bg-white dark:bg-slate-900 text-amber-600 dark:text-amber-400 font-black shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
-                }`}
-                title={t('topbar.day', 'Kun')}
-                aria-label={t('topbar.day', 'Kun')}
-              >
-                <Sun className="w-3.5 h-3.5 fill-amber-500/20" />
-                <span className="hidden sm:inline">{t('topbar.day', 'Kun')}</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => !isDark && toggleTheme()}
-                className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-[11px] cursor-pointer transition-all duration-150 ${
-                  isDark
-                    ? 'bg-white dark:bg-slate-900 text-indigo-400 font-black shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
-                }`}
-                title={t('topbar.night', 'Tun')}
-                aria-label={t('topbar.night', 'Tun')}
-              >
-                <Moon className="w-3.5 h-3.5 fill-indigo-400/20" />
-                <span className="hidden sm:inline">{t('topbar.night', 'Tun')}</span>
-              </button>
-            </div>
-
-            <a
-              href="tel:+998951554500"
-              className="hidden sm:inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              <span>+998 (95) 155-45-00</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Sticky Active Navbar Header (Mana shu qizil hoshiya ichidagi butun joy: Logo, Search, Savat + Kategoriyalar) */}
+      {/* Sticky Active Navbar Header (Topbar + Main Header + Kategoriyalar tasmagichi) */}
       <header
         ref={headerRef}
         className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200"
       >
-        {/* Main Header Row - Spacious, Stable & Fixed */}
+        {/* 1. Top Utility Contact Bar */}
+        <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
+          <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {/* Demo Admin Panel Quick Button */}
+              <Link
+                to="/admin"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 font-bold text-[11px] sm:text-xs shadow-xs transition-all border border-slate-900 dark:border-white group"
+                title="Admin boshqaruv paneliga demo kirish"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 dark:bg-emerald-600 animate-pulse" />
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
+                <span>Admin Panel</span>
+                <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-500/20 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 tracking-wider">
+                  Demo
+                </span>
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-semibold">
+              {/* Multi-language Selector (UZ | RU | EN) */}
+              <div className="h-7.5 inline-flex items-center p-0.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 border border-slate-300/70 dark:border-slate-700/70 shadow-2xs box-border transition-colors">
+                {['uz', 'ru', 'en'].map((l) => (
+                  <button
+                    key={l}
+                    type="button"
+                    onClick={() => setLang(l)}
+                    className={`h-full px-2.5 flex items-center justify-center rounded-md text-[11px] uppercase cursor-pointer transition-all duration-150 ${
+                      lang === l
+                        ? 'bg-white dark:bg-slate-900 text-slate-950 dark:text-white font-black shadow-xs'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
+                    }`}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+
+              {/* Kun / Tun Segmented Theme Switcher */}
+              <div className="h-7.5 inline-flex items-center p-0.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 border border-slate-300/70 dark:border-slate-700/70 shadow-2xs box-border transition-colors">
+                <button
+                  type="button"
+                  onClick={() => isDark && toggleTheme()}
+                  className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-[11px] cursor-pointer transition-all duration-150 ${
+                    !isDark
+                      ? 'bg-white dark:bg-slate-900 text-amber-600 dark:text-amber-400 font-black shadow-xs'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
+                  }`}
+                  title={t('topbar.day', 'Kun')}
+                  aria-label={t('topbar.day', 'Kun')}
+                >
+                  <Sun className="w-3.5 h-3.5 fill-amber-500/20" />
+                  <span className="hidden sm:inline">{t('topbar.day', 'Kun')}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => !isDark && toggleTheme()}
+                  className={`h-full px-2.5 flex items-center gap-1.5 rounded-md text-[11px] cursor-pointer transition-all duration-150 ${
+                    isDark
+                      ? 'bg-white dark:bg-slate-900 text-indigo-400 font-black shadow-xs'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white font-semibold hover:bg-slate-300/40 dark:hover:bg-slate-700/50'
+                  }`}
+                  title={t('topbar.night', 'Tun')}
+                  aria-label={t('topbar.night', 'Tun')}
+                >
+                  <Moon className="w-3.5 h-3.5 fill-indigo-400/20" />
+                  <span className="hidden sm:inline">{t('topbar.night', 'Tun')}</span>
+                </button>
+              </div>
+
+              <a
+                href="tel:+998951554500"
+                className="hidden sm:inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                <span>+998 (95) 155-45-00</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Main Header Row - Spacious, Stable & Fixed */}
         <div className="mx-auto max-w-[1820px] px-3 sm:px-6 lg:px-8 xl:px-10">
           {/* 1. DESKTOP HEADER ROW (md+) */}
           <div className="hidden md:flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">

@@ -96,8 +96,22 @@ export default function CategoryDrawer({ isOpen, onClose }) {
   // Lock body scroll and fetch categories on open
   useEffect(() => {
     if (isOpen) {
-      const originalOverflow = document.body.style.overflow;
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+
+      const updateNavbarHeight = () => {
+        const headerEl = document.querySelector('header');
+        if (headerEl) {
+          const h = headerEl.getBoundingClientRect().height || headerEl.offsetHeight;
+          if (h > 0) {
+            document.documentElement.style.setProperty('--nsb-navbar-height', `${h}px`);
+            document.documentElement.style.setProperty('--nsb-header-height', `${h}px`);
+          }
+        }
+      };
+      updateNavbarHeight();
 
       api
         .get('/categories')
@@ -112,10 +126,9 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         .catch(() => {});
 
       return () => {
-        document.body.style.overflow = originalOverflow || 'unset';
+        document.body.style.overflow = originalBodyOverflow || '';
+        document.documentElement.style.overflow = originalHtmlOverflow || '';
       };
-    } else {
-      document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
 
@@ -166,8 +179,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
       style={
         isDesktop
           ? {
-              top: 'var(--nsb-navbar-height, 136px)',
-              height: 'calc(100dvh - var(--nsb-navbar-height, 136px))'
+              top: 'var(--nsb-navbar-height, 168px)',
+              height: 'calc(100dvh - var(--nsb-navbar-height, 168px))'
             }
           : undefined
       }
