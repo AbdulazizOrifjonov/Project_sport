@@ -182,8 +182,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_130000-s-m-3335_1.jpg",
-      "/uploads/prod_130000-s-m-3335_2.jpg"
+      "/uploads/prod_130000-s-m-8894_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -209,7 +208,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:55:31.873Z"
+    "created_at": "2026-11-22T16:55:31.873Z",
+    "updated_at": "2026-11-22T16:55:45.222Z"
   },
   {
     "_id": "prod_339000-2632",
