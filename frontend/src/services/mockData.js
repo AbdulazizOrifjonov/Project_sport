@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_box-per-riada-ipli-red-02-7209",
+    "id": "prod_box-per-riada-ipli-red-02-7209",
+    "title": "BOX PER RIADA IPLI RED 02",
+    "slug": "box-per-riada-ipli-red-02-7209",
+    "sku": "",
+    "price": 642500,
+    "oldPrice": 738875,
+    "old_price": 738875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-riada-ipli-red-02-7877_1.jpg",
+      "/uploads/prod_box-per-riada-ipli-red-02-7877_2.jpg",
+      "/uploads/prod_box-per-riada-ipli-red-02-7877_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8, 10, 12, 14, 16R\nMaterial: koja\nNarxi: 50$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:25:17.209Z"
+  },
+  {
     "_id": "prod_gantel-nabor-15kg-5524",
     "id": "prod_gantel-nabor-15kg-5524",
     "title": "Gantel nabor 15kg",
