@@ -4659,9 +4659,9 @@ export const defaultProducts = [
     "title": "MASAJ KRESLO A31A",
     "slug": "masaj-kreslo-a31a-1543",
     "sku": "",
-    "price": 7324500,
-    "oldPrice": 8423175,
-    "old_price": 8423175,
+    "price": 7196000,
+    "oldPrice": 8275400,
+    "old_price": 8275400,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -4675,20 +4675,16 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-a31a-5881_1.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_2.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_3.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_4.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_5.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_6.jpg",
-      "/uploads/prod_masaj-kreslo-a31a-5881_7.jpg"
+      "/uploads/prod_masaj-kreslo-a31a-6076_1.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-6076_2.jpg",
+      "/uploads/prod_masaj-kreslo-a31a-6076_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi : 570$\n1. O’rindiqlarda massaj roliklari mavjud\n2. 3D vaznsizlik rejimi: ko'tarilish burchagi 95-175 darajagacha qiyalik\n3. Bluethooth orqali Musiqa tinglash mumkin\n4. Butun tana uchun 8D va havoli massaj funksiyasi\n5. Oyoqlarni va belni Isituvchi massaj funksiyasi\n6. Smar Boshqaruv.\n7. Foydalanuvchi Maks. Vazni: 150 kg\n8. 6 ta massaj dasturlari va 5 xil qol rejimlar",
+    "description": "Narxi : 560$\n1. O’rindiqlarda massaj roliklari mavjud\n2. 3D vaznsizlik rejimi: ko'tarilish burchagi 95-175 darajagacha qiyalik\n3. Bluethooth orqali Musiqa tinglash mumkin\n4. Butun tana uchun 8D va havoli massaj funksiyasi\n5. Oyoqlarni va belni Isituvchi massaj funksiyasi\n6. Smar Boshqaruv.\n7. Foydalanuvchi Maks. Vazni: 150 kg\n8. 6 ta massaj dasturlari va 5 xil qol rejimlar",
     "specifications": [
       {
         "label": "Brend",
@@ -4708,7 +4704,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-22T08:17:41.543Z",
-    "updated_at": "2026-11-22T08:17:41.582Z"
+    "updated_at": "2026-11-22T08:35:11.817Z"
   },
   {
     "_id": "prod_taroz-constant-model-365a-2629",
