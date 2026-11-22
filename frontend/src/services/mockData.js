@@ -78,6 +78,61 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_padel-raketka-2650-arz-sariq-0310",
+    "id": "prod_padel-raketka-2650-arz-sariq-0310",
+    "title": "Padel raketka 2650 arz sariq",
+    "slug": "padel-raketka-2650-arz-sariq-0310",
+    "sku": "",
+    "price": 321250,
+    "oldPrice": 369438,
+    "old_price": 369438,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_1.jpg",
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_2.jpg",
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_3.jpg",
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_4.jpg",
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_5.jpg",
+      "/uploads/prod_padel-raketka-2650-arz-sariq-5726_6.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 25$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:40.310Z"
+  },
+  {
     "_id": "prod_kord-raketka-dream-9183",
     "id": "prod_kord-raketka-dream-9183",
     "title": "KORD RAKETKA DREAM",
