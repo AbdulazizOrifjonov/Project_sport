@@ -78,6 +78,109 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_tatami-1x1m-sport-qoplamasi-3681",
+    "id": "prod_tatami-1x1m-sport-qoplamasi-3681",
+    "title": "Tatami 1x1m (Sport Qoplamasi)",
+    "slug": "tatami-1x1m-sport-qoplamasi-3681",
+    "sku": "",
+    "price": 160625,
+    "oldPrice": 184719,
+    "old_price": 184719,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Boks & Yakka Kurash",
+    "category_slug": "boks-yakka-kurash",
+    "categorySlug": "boks-yakka-kurash",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_tatami-1x1m-sport-qoplamasi-3417_1.jpg",
+      "/uploads/prod_tatami-1x1m-sport-qoplamasi-3417_2.jpg",
+      "/uploads/prod_tatami-1x1m-sport-qoplamasi-3417_3.jpg",
+      "/uploads/prod_tatami-1x1m-sport-qoplamasi-3417_4.jpg",
+      "/uploads/prod_tatami-1x1m-sport-qoplamasi-3417_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "Qalinlik / O‘lchamni tanlang",
+    "variants": [
+      {
+        "id": "var_1m",
+        "name": "1m",
+        "fullName": "Tatami 1x1m-2 sm",
+        "price": 160625,
+        "oldPrice": 184719,
+        "priceUSD": 12.5,
+        "colors": [
+          "qizik-ko’k"
+        ]
+      },
+      {
+        "id": "var_1m",
+        "name": "1m",
+        "fullName": "Tatami 1x1m- 2.5 sm",
+        "price": 173475,
+        "oldPrice": 199496,
+        "priceUSD": 13.5,
+        "colors": [
+          "sariq-yashil",
+          "qizil-ko’k",
+          "seriy-qora"
+        ]
+      },
+      {
+        "id": "var_3_sm",
+        "name": "3 sm",
+        "fullName": "Tatami 1x1-3 sm",
+        "price": 179900,
+        "oldPrice": 206885,
+        "priceUSD": 14,
+        "colors": [
+          "qizil-ko’k"
+        ]
+      },
+      {
+        "id": "var_1m",
+        "name": "1m",
+        "fullName": "Tatami 1x1m-4 sm",
+        "price": 218450,
+        "oldPrice": 251217,
+        "priceUSD": 17,
+        "colors": [
+          "qizil-ko’k",
+          "sariq-yashil",
+          "seri-qora"
+        ]
+      }
+    ],
+    "description": "Tatami 1x1m professional sport qoplamasi. Variantlar: 1m, 1m, 3 sm, 1m. Boks, yakka kurash va fitnes zallari uchun maxsus qoplama.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:46:43.681Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-ax-1001-2150",
     "id": "prod_masaj-kreslo-ax-1001-2150",
     "title": "Masaj kreslo AX-1001",
