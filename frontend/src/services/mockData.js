@@ -161,6 +161,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_339000-2632",
+    "id": "prod_339000-2632",
+    "title": "339000",
+    "slug": "339000-2632",
+    "sku": "",
+    "price": 750000,
+    "oldPrice": 862500,
+    "old_price": 862500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_339000-3382_1.jpg",
+      "/uploads/prod_339000-3382_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "339000 - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T16:55:12.632Z"
+  },
+  {
     "_id": "prod_330000-s-m-3378",
     "id": "prod_330000-s-m-3378",
     "title": "330000 sōm",
@@ -487,7 +538,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_164000-s-m-8930_1.jpg"
+      "/uploads/prod_164000-s-m-1861_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -513,7 +564,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:03.288Z"
+    "created_at": "2026-11-22T16:54:03.288Z",
+    "updated_at": "2026-11-22T16:55:13.009Z"
   },
   {
     "_id": "prod_460000-s-m-3213",
