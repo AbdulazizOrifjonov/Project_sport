@@ -78,6 +78,377 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-sc80267-3450",
+    "id": "prod_gantel-podstavka-sc80267-3450",
+    "title": "Gantel podstavka SC80267",
+    "slug": "gantel-podstavka-sc80267-3450",
+    "sku": "0456095",
+    "price": 1734750,
+    "oldPrice": 1994962,
+    "old_price": 1994962,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-sc80267-2453_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0456095\nNarxi: 135$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0456095"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.451Z"
+  },
+  {
+    "_id": "prod_grif-zig-zag-sc-80188-120cm-3405",
+    "id": "prod_grif-zig-zag-sc-80188-120cm-3405",
+    "title": "Grif zig zag sc-80188 120cm",
+    "slug": "grif-zig-zag-sc-80188-120cm-3405",
+    "sku": "",
+    "price": 257000,
+    "oldPrice": 295550,
+    "old_price": 295550,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-sc-80188-120cm-2555_1.jpg",
+      "/uploads/prod_grif-zig-zag-sc-80188-120cm-2555_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uzunligi : 1.2m\nNarxi : 20$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.405Z"
+  },
+  {
+    "_id": "prod_grif-zig-zag-sc-80189-150cm-3357",
+    "id": "prod_grif-zig-zag-sc-80189-150cm-3357",
+    "title": "Grif zig zag sc-80189 150cm",
+    "slug": "grif-zig-zag-sc-80189-150cm-3357",
+    "sku": "",
+    "price": 308400,
+    "oldPrice": 354660,
+    "old_price": 354660,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-sc-80189-150cm-2547_1.jpg",
+      "/uploads/prod_grif-zig-zag-sc-80189-150cm-2547_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uzunligi: 1.5m\nNarxi : 24$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.357Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-madel-g9-brown-wooden-3303",
+    "id": "prod_masaj-kreslo-madel-g9-brown-wooden-3303",
+    "title": "Masaj kreslo Madel: G9 BROWN WOODEN",
+    "slug": "masaj-kreslo-madel-g9-brown-wooden-3303",
+    "sku": "",
+    "price": 11822000,
+    "oldPrice": 13595300,
+    "old_price": 13595300,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_6.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-brown-wooden-5930_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel: G9 BROWN WOODEN\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Al (suniy intelskt) orqali  ovozli boshqaruv",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.303Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-madel-a002-black-brown-3258",
+    "id": "prod_masaj-kreslo-madel-a002-black-brown-3258",
+    "title": "Masaj kreslo Madel: A002 black brown",
+    "slug": "masaj-kreslo-madel-a002-black-brown-3258",
+    "sku": "",
+    "price": 9380500,
+    "oldPrice": 10787575,
+    "old_price": 10787575,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_6.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-black-brown-5923_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel: A002 black brown\nNarxi : 730$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ To'liq tana massaji havo bosimi orqali masaj qlinadi  va 16 etapda  intensivligi sozlanadi\n➖ Tovonlarni rolik orqaki masaj qilish\n➖ Belni qizdirish orqali masaj qilish funksiyasi.\n➖ Havo yostig'ini siqish orqali oyoq va tovonlar masaji.\n➖ Oyoq va bel  isitish funksiyasi.\n➖Yelkaning holatini aniqlash va masaj qilish funksiyasi\n➖16 ta avto masaj va 4 ta qolda boshqariladgan masaj turi",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.258Z"
+  },
+  {
+    "_id": "prod_kord-raketka-bomber-3217",
+    "id": "prod_kord-raketka-bomber-3217",
+    "title": "KORD RAKETKA BOMBER",
+    "slug": "kord-raketka-bomber-3217",
+    "sku": "",
+    "price": 706750,
+    "oldPrice": 812762,
+    "old_price": 812762,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kord-raketka-bomber-7081_1.jpg",
+      "/uploads/prod_kord-raketka-bomber-7081_2.jpg",
+      "/uploads/prod_kord-raketka-bomber-7081_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Original✅\nNarxi: 55$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.217Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-madel-a002-brown-coffee-3054",
+    "id": "prod_masaj-kreslo-madel-a002-brown-coffee-3054",
+    "title": "Masaj kreslo Madel: A002 brown+coffee",
+    "slug": "masaj-kreslo-madel-a002-brown-coffee-3054",
+    "sku": "",
+    "price": 9380500,
+    "oldPrice": 10787575,
+    "old_price": 10787575,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-a002-brown-coffee-5928_6.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel: A002 brown+coffee\nNarxi: 730$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ To'liq tana massaji havo bosimi orqali masaj qlinadi  va 16 etapda  intensivligi sozlanadi\n➖ Tovonlarni rolik orqaki masaj qilish\n➖ Belni qizdirish orqali masaj qilish funksiyasi.\n➖ Havo yostig'ini siqish orqali oyoq va tovonlar masaji.\n➖ Oyoq va bel  isitish funksiyasi.\n➖Yelkaning holatini aniqlash va masaj qilish funksiyasi\n➖16 ta avto masaj va 4 ta qolda boshqariladgan masaj turi",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:13.054Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-xitoy-model-md6244-4496",
     "id": "prod_gantel-podstavka-xitoy-model-md6244-4496",
     "title": "Gantel podstavka xitoy Model: MD6244",
@@ -5747,9 +6118,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo AX-1007",
     "slug": "masaj-kreslo-ax-1007-9819",
     "sku": "",
-    "price": 21845000,
-    "oldPrice": 25121750,
-    "old_price": 25121750,
+    "price": 19917500,
+    "oldPrice": 22905125,
+    "old_price": 22905125,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -5763,15 +6134,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-ax-1007-7326_1.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1007-7326_2.jpg"
+      "/uploads/prod_masaj-kreslo-ax-1007-2567_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1007-2567_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi: 1700$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi: 1550$\n➖Tanani skanerlash va moslashib massaj qilish\n➖ Barmoq orqali salomatlik diagnozi\n➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo'shatish\n➖ Tailandcha chigal yozish rejimi mavjud.\n➖ Belni qizdirish\n➖ Simsiz telefonni quvvatlash\n➖ Maks foydalanuvchi vazni: 150kg\n➖  Bluetooth orqali audio musiqa eshitish",
     "specifications": [
       {
         "label": "Brend",
@@ -5790,7 +6161,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:16:39.819Z"
+    "created_at": "2026-11-22T08:16:39.819Z",
+    "updated_at": "2026-11-22T08:36:13.382Z"
   },
   {
     "_id": "prod_masaj-kreslo-ax-1006-5113",
@@ -6853,9 +7225,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo G6",
     "slug": "masaj-kreslo-g6-3312",
     "sku": "",
-    "price": 13492500,
-    "oldPrice": 15516375,
-    "old_price": 15516375,
+    "price": 13235500,
+    "oldPrice": 15220825,
+    "old_price": 15220825,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -6869,14 +7241,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-g6-0266_1.jpg"
+      "/uploads/prod_masaj-kreslo-g6-4794_2.jpg",
+      "/uploads/prod_masaj-kreslo-g6-4794_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi: 1050$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 135 smlik butun tana uchun SL massaj relyesi\n➖  2D massaj roliklari\n➖  Gravitasiya rejimi (tepaga ko'taradi)\n➖  Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va tiktokda video ko'rish mumkin ulab\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin\n➖ Barmoq orqali salomatlik diagnozi\n➖  12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
+    "description": "Narxi: 1030$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 135 smlik butun tana uchun SL massaj relyesi\n➖  2D massaj roliklari\n➖  Gravitasiya rejimi (tepaga ko'taradi)\n➖  Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖  12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
     "specifications": [
       {
         "label": "Brend",
@@ -6895,7 +7268,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:14:23.313Z"
+    "created_at": "2026-11-22T08:14:23.313Z",
+    "updated_at": "2026-11-22T08:36:13.077Z"
   },
   {
     "_id": "prod_trenajor-aksessuar-st-09-3242",
