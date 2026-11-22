@@ -78,6 +78,166 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_trenajor-aksessuar-st-01-90sm-2055",
+    "id": "prod_trenajor-aksessuar-st-01-90sm-2055",
+    "title": "Trenajor aksessuar st-01 90sm",
+    "slug": "trenajor-aksessuar-st-01-90sm-2055",
+    "sku": "0543184",
+    "price": 154200,
+    "oldPrice": 177330,
+    "old_price": 177330,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-01-90sm-0992_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0543184\nNarxi: 12$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0543184"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:17:22.055Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-m11b-2035",
+    "id": "prod_masaj-kreslo-m11b-2035",
+    "title": "Masaj kreslo M11B",
+    "slug": "masaj-kreslo-m11b-2035",
+    "sku": "",
+    "price": 7196000,
+    "oldPrice": 8275400,
+    "old_price": 8275400,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-m11b-5954_1.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5954_2.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5954_3.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5954_4.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5954_5.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5954_6.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 560$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:17:22.035Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-ax-1002-1882",
+    "id": "prod_masaj-kreslo-ax-1002-1882",
+    "title": "Masaj kreslo AX-1002",
+    "slug": "masaj-kreslo-ax-1002-1882",
+    "sku": "",
+    "price": 7967000,
+    "oldPrice": 9162050,
+    "old_price": 9162050,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_2.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_3.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_4.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_5.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-5965_6.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 620$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:17:21.882Z"
+  },
+  {
     "_id": "prod_trenajor-aksessuar-set-0491",
     "id": "prod_trenajor-aksessuar-set-0491",
     "title": "TRENAJOR AKSESSUAR SET",
