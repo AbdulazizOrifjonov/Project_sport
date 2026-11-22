@@ -78,6 +78,110 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_bb-stand-m026-0085",
+    "id": "prod_bb-stand-m026-0085",
+    "title": "BB STAND M026",
+    "slug": "bb-stand-m026-0085",
+    "sku": "",
+    "price": 2827000,
+    "oldPrice": 3251050,
+    "old_price": 3251050,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_bb-stand-m026-9541_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Balandligi 2.30m dan 3.05m gacha\nDoska razmeri 110x70sm\nNarxi: 220$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:40.085Z"
+  },
+  {
+    "_id": "prod_foot-masajor-qim-hf-1010-8994",
+    "id": "prod_foot-masajor-qim-hf-1010-8994",
+    "title": "Foot masajor qim HF-1010",
+    "slug": "foot-masajor-qim-hf-1010-8994",
+    "sku": "",
+    "price": 1542000,
+    "oldPrice": 1773300,
+    "old_price": 1773300,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_foot-masajor-qim-hf-1010-5297_1.jpg",
+      "/uploads/prod_foot-masajor-qim-hf-1010-5297_2.jpg",
+      "/uploads/prod_foot-masajor-qim-hf-1010-5297_3.jpg",
+      "/uploads/prod_foot-masajor-qim-hf-1010-5297_4.jpg",
+      "/uploads/prod_foot-masajor-qim-hf-1010-5297_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Funksiyasi : 6tali\nVibratsa, isitish, taymer, avto, yovon, boldir masaj funkiyalariga ega\nRangi: 🟡⚪️⚫️🔴🟤\nNarxi : 120$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:33:38.994Z"
+  },
+  {
     "_id": "prod_kord-raketka-odea-w66-workout-6946",
     "id": "prod_kord-raketka-odea-w66-workout-6946",
     "title": "KORD RAKETKA ODEA W66 workout",
@@ -1683,7 +1787,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_sport-mahsuloti-9265_1.jpg"
+      "/uploads/prod_sport-mahsuloti-5892_1.jpg",
+      "/uploads/prod_sport-mahsuloti-5892_2.jpg",
+      "/uploads/prod_sport-mahsuloti-5892_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1709,7 +1815,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:28:18.621Z"
+    "created_at": "2026-11-22T08:28:18.621Z",
+    "updated_at": "2026-11-22T08:33:39.042Z"
   },
   {
     "_id": "prod_ax105-0319",
@@ -4819,9 +4926,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo AX-1008",
     "slug": "masaj-kreslo-ax-1008-9987",
     "sku": "",
-    "price": 16062500,
-    "oldPrice": 18471875,
-    "old_price": 18471875,
+    "price": 15548500,
+    "oldPrice": 17880775,
+    "old_price": 17880775,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -4835,15 +4942,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-ax-1008-7274_1.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1008-7274_2.jpg"
+      "/uploads/prod_masaj-kreslo-ax-1008-4507_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1008-4507_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi: 1250$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi: 1210$\n➖Tanani skanerlash va moslashib massaj qilish\n➖ Barmoq orqali salomatlik diagnozi\n➖ Belni qizdirish\n➖ Tailandcha chigal yozish rejimi mavjud.\n➖ Simsiz telefonni quvvatlash\n➖ Maks foydalanuvchi vazni: 150kg\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin1. Foydalanuvchi Maks.",
     "specifications": [
       {
         "label": "Brend",
@@ -4862,7 +4969,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:16:39.987Z"
+    "created_at": "2026-11-22T08:16:39.987Z",
+    "updated_at": "2026-11-22T08:33:39.079Z"
   },
   {
     "_id": "prod_taroz-2017b-rangli-9961",
