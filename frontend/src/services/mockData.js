@@ -260,7 +260,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:55:12.632Z"
+    "created_at": "2026-11-22T16:55:12.632Z",
+    "updated_at": "2026-11-22T16:56:01.236Z"
   },
   {
     "_id": "prod_330000-s-m-3378",
