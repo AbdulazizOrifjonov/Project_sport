@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_ax103-6762",
+    "id": "prod_ax103-6762",
+    "title": "Стол для настольного тенниса AX103",
+    "slug": "ax103-6762",
+    "sku": "",
+    "price": 3726500,
+    "oldPrice": 4285475,
+    "old_price": 4285475,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_ax103-9448_1.jpg",
+      "/uploads/prod_ax103-9448_2.jpg",
+      "/uploads/prod_ax103-9448_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Модель: AX103\n• Поверхность стола: 15 мм МДФ\n• Прочная конструкция из металлического профиля\n• В комплекте сетка ✅\n• Оборудован большими колесами, легко перемещается\n• Высокое качество, обеспечивающее стабильность и долговечность\n• Подходит для дома, спортивных залов и учебных заведений\nЦена: 290$\nДля заказа: @sport_outlet_uz | 970124444",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:28:46.762Z"
+  },
+  {
     "_id": "prod_press-ax042-9569",
     "id": "prod_press-ax042-9569",
     "title": "Press AX042",
@@ -386,9 +438,9 @@ export const defaultProducts = [
   {
     "_id": "prod_fb-kopto-axelus-afc-9310",
     "id": "prod_fb-kopto-axelus-afc-9310",
-    "title": "FB kopto  Axelus AFC",
+    "title": "FB kopto Axelus AFC",
     "slug": "fb-kopto-axelus-afc-9310",
-    "sku": "6344348",
+    "sku": "6344363",
     "price": 449750,
     "oldPrice": 517212,
     "old_price": 517212,
@@ -405,15 +457,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_fb-kopto-axelus-afc-8765_1.jpg",
-      "/uploads/prod_fb-kopto-axelus-afc-8765_2.jpg"
+      "/uploads/prod_fb-kopto-axelus-afc-9257_1.jpg",
+      "/uploads/prod_fb-kopto-axelus-afc-9257_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Made in pakistan 🇵🇰\nKodi: 6344348\nRazmer: 5r\nNarxi: 35$",
+    "description": "Made in pakistan 🇵🇰\nKodi: 6344363\nRazmer: 4r\nNarxi: 35$",
     "specifications": [
       {
         "label": "Brend",
@@ -432,7 +484,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:28:29.310Z"
+    "created_at": "2026-11-22T08:28:29.310Z",
+    "updated_at": "2026-11-22T08:28:46.586Z"
   },
   {
     "_id": "prod_sport-mahsuloti-8621",
