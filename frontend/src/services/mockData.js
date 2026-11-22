@@ -78,6 +78,306 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_trenajor-aksessuar-st-11-8980",
+    "id": "prod_trenajor-aksessuar-st-11-8980",
+    "title": "Trenajor aksessuar st-11",
+    "slug": "trenajor-aksessuar-st-11-8980",
+    "sku": "",
+    "price": 385500,
+    "oldPrice": 443325,
+    "old_price": 443325,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-11-0522_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 30$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.980Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-05-8905",
+    "id": "prod_trenajor-aksessuar-st-05-8905",
+    "title": "Trenajor aksessuar st-05",
+    "slug": "trenajor-aksessuar-st-05-8905",
+    "sku": "0541495",
+    "price": 321250,
+    "oldPrice": 369438,
+    "old_price": 369438,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-05-0565_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0541495\nNarxi : 25$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0541495"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.905Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-10-8773",
+    "id": "prod_trenajor-aksessuar-st-10-8773",
+    "title": "Trenajor aksessuar st-10",
+    "slug": "trenajor-aksessuar-st-10-8773",
+    "sku": "",
+    "price": 385500,
+    "oldPrice": 443325,
+    "old_price": 443325,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-10-0216_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 30$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.773Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-17-8661",
+    "id": "prod_trenajor-aksessuar-st-17-8661",
+    "title": "Trenajor aksessuar st-17",
+    "slug": "trenajor-aksessuar-st-17-8661",
+    "sku": "",
+    "price": 282700,
+    "oldPrice": 325105,
+    "old_price": 325105,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-17-0271_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 22$$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.661Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-15-8502",
+    "id": "prod_trenajor-aksessuar-st-15-8502",
+    "title": "Trenajor aksessuar st-15",
+    "slug": "trenajor-aksessuar-st-15-8502",
+    "sku": "",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-15-0177_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.502Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-08-8482",
+    "id": "prod_trenajor-aksessuar-st-08-8482",
+    "title": "Trenajor aksessuar st-08",
+    "slug": "trenajor-aksessuar-st-08-8482",
+    "sku": "",
+    "price": 128500,
+    "oldPrice": 147775,
+    "old_price": 147775,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-08-0287_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 10$😍",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:15:28.482Z"
+  },
+  {
     "_id": "prod_trenajor-aksessuar-st-14-5649",
     "id": "prod_trenajor-aksessuar-st-14-5649",
     "title": "Trenajor aksessuar st-14",
