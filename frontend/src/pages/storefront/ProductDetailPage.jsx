@@ -57,6 +57,10 @@ export default function ProductDetailPage() {
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const thumbnailContainerRef = useRef(null);
   const thumbnailRefs = useRef([]);
+  const detailPointerStartX = useRef(null);
+  const detailPointerStartY = useRef(null);
+  const detailHasSwipedRef = useRef(false);
+
 
   // Auto-scroll active thumbnail into view
   useEffect(() => {
@@ -82,6 +86,7 @@ export default function ProductDetailPage() {
   const [selectedColor, setSelectedColor] = useState('');
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     setLoading(true);
     const fetchProduct = async () => {
       try {
@@ -198,13 +203,10 @@ export default function ProductDetailPage() {
     setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Pointer & Touch Swipe handlers for detail page gallery and lightbox
-  const detailPointerStartX = useRef(null);
-  const detailPointerStartY = useRef(null);
-  const detailHasSwipedRef = useRef(false);
 
   const handlePointerDown = (e) => {
     if (images.length <= 1) return;
+    if (e.pointerType === 'touch') return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     try {
       e.target.setPointerCapture(e.pointerId);
@@ -215,6 +217,7 @@ export default function ProductDetailPage() {
   };
 
   const handlePointerMove = (e) => {
+    if (e.pointerType === 'touch') return;
     if (detailPointerStartX.current === null || images.length <= 1) return;
     const diffX = e.clientX - detailPointerStartX.current;
     const diffY = e.clientY - (detailPointerStartY.current ?? e.clientY);
@@ -224,6 +227,7 @@ export default function ProductDetailPage() {
   };
 
   const handlePointerUp = (e) => {
+    if (e.pointerType === 'touch') return;
     try {
       if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
         e.target.releasePointerCapture(e.pointerId);
@@ -251,6 +255,7 @@ export default function ProductDetailPage() {
   };
 
   const handlePointerCancel = (e) => {
+    if (e.pointerType === 'touch') return;
     try {
       if (e.target.hasPointerCapture && e.target.hasPointerCapture(e.pointerId)) {
         e.target.releasePointerCapture(e.pointerId);

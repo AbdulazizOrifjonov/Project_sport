@@ -45,6 +45,7 @@ export default function ProductCard({ product }) {
 
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
+  const hasSwipedRef = useRef(false);
 
   // Next image
   const handleNextImage = (e) => {
@@ -66,11 +67,12 @@ export default function ProductCard({ product }) {
     setActiveImgIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Mobile Touch Swipe Handlers (faqat gorizontal surish > 35px bo'lganda rasm almashadi, tap oddiy ishlaydi)
+  // Mobile Touch Swipe Handlers (faqat gorizontal surish > 30px bo'lganda rasm almashadi, tap esa to'g'ri single pagega olib o'tadi)
   const handleTouchStart = (e) => {
     if (!hasMultipleImages) return;
     touchStartX.current = e.touches[0].clientX;
     touchStartY.current = e.touches[0].clientY;
+    hasSwipedRef.current = false;
   };
 
   const handleTouchEnd = (e) => {
@@ -78,7 +80,8 @@ export default function ProductCard({ product }) {
     const diffX = e.changedTouches[0].clientX - touchStartX.current;
     const diffY = e.changedTouches[0].clientY - touchStartY.current;
 
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+      hasSwipedRef.current = true;
       if (diffX < 0) {
         handleNextImage();
       } else {
@@ -116,12 +119,16 @@ export default function ProductCard({ product }) {
 
   return (
     <article
+      onClick={(e) => {
+        if (e.target.closest('button') || e.target.closest('a')) return;
+        navigate(productUrl);
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         setActiveImgIndex(0);
       }}
-      className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden"
+      className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden cursor-pointer"
     >
       {/* 1. Top Image Area - To'liq va katta rasm */}
       <div
@@ -217,6 +224,12 @@ export default function ProductCard({ product }) {
         {/* Mahsulot rasmi - Bosilganda to'g'ridan-to'g'ri Single Page ochiladi */}
         <Link
           to={productUrl}
+          onClick={(e) => {
+            if (hasSwipedRef.current) {
+              e.preventDefault();
+              hasSwipedRef.current = false;
+            }
+          }}
           className="relative block w-full h-full overflow-hidden cursor-pointer"
         >
           <img

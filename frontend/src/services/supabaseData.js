@@ -264,7 +264,7 @@ export const dataService = {
     let all = [];
     if (isSupabaseConfigured && supabase) {
       try {
-        let query = supabase.from('products').select('*');
+        let query = supabase.from('products').select('*').order('created_at', { ascending: false });
         if (params.categorySlug) {
           query = query.eq('category_slug', params.categorySlug);
         }
@@ -288,6 +288,9 @@ export const dataService = {
       const local = getLocalCollection(KEYS.PRODUCTS, defaultProducts);
       all = local.map(normalizeProduct);
     }
+
+    // Har doim yangi mahsulotlar oldinda turishi uchun saralash
+    all.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     // Client-side filtering & sorting for full search / price range support
     let filtered = [...all];
@@ -356,7 +359,7 @@ export const dataService = {
 
     const total = filtered.length;
     const page = Number(params.page || 1);
-    const limit = Number(params.limit || 20);
+    const limit = Number(params.limit || 100);
     const skip = (page - 1) * limit;
     const products = filtered.slice(skip, skip + limit);
 
@@ -401,6 +404,38 @@ export const dataService = {
   },
 
   async getProductBySlug(slug) {
+    const raw = String(slug || '').toLowerCase().trim();
+    let decoded = raw;
+    try {
+      decoded = decodeURIComponent(raw).toLowerCase().trim();
+    } catch (_) {}
+
+    // 1. Direct Supabase query (blazing fast single item fetch)
+    if (isSupabaseConfigured && supabase) {
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .or(`slug.eq.${raw},slug.eq.${decoded},id.eq.${raw},id.eq.${decoded}`)
+          .maybeSingle();
+
+        if (!error && data) {
+          const product = normalizeProduct(data);
+          const { data: relData } = await supabase
+            .from('products')
+            .select('*')
+            .eq('category_slug', product.categorySlug)
+            .neq('id', product.id)
+            .limit(5);
+          const related = (relData || []).map(normalizeProduct);
+          return { product, related };
+        }
+      } catch (e) {
+        console.warn('Supabase getProductBySlug direct query error:', e);
+      }
+    }
+
+    // 2. Fallback: fetch all and match
     let all = [];
     if (isSupabaseConfigured && supabase) {
       try {
@@ -417,17 +452,39 @@ export const dataService = {
       all = local.map(normalizeProduct);
     }
 
-    const raw = String(slug || '').toLowerCase().trim();
-    let decoded = raw;
-    try {
-      decoded = decodeURIComponent(raw).toLowerCase().trim();
-    } catch (_) {}
-
-    const product = all.find(p => {
+    let product = all.find(p => {
       const pSlug = String(p.slug || '').toLowerCase().trim();
       const pId = String(p.id || p._id || '').toLowerCase().trim();
       return pSlug === raw || pSlug === decoded || pId === raw || pId === decoded;
     });
+
+    // If not found in Supabase list, check local collection
+    if (!product) {
+      const local = getLocalCollection(KEYS.PRODUCTS, defaultProducts);
+      const localNormalized = local.map(normalizeProduct);
+      product = localNormalized.find(p => {
+        const pSlug = String(p.slug || '').toLowerCase().trim();
+        const pId = String(p.id || p._id || '').toLowerCase().trim();
+        return pSlug === raw || pSlug === decoded || pId === raw || pId === decoded;
+      });
+      if (product) {
+        all = [...all, ...localNormalized];
+      }
+    }
+
+    // Fuzzy title slug match fallback
+    if (!product) {
+      const slugify = (str) => String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const local = getLocalCollection(KEYS.PRODUCTS, defaultProducts);
+      const combined = [...all, ...local.map(normalizeProduct)];
+      product = combined.find(p => {
+        const titleSlug = slugify(p.title);
+        return titleSlug === raw || titleSlug === decoded || titleSlug.includes(raw) || raw.includes(titleSlug);
+      });
+      if (product) {
+        all = combined;
+      }
+    }
 
     if (!product) return null;
 
@@ -457,8 +514,8 @@ export const dataService = {
       price,
       old_price: oldPrice,
       discount_percent: discountPercent,
-      category: productData.category || 'Krossovkalar & Poyabzallar',
-      category_slug: productData.categorySlug || productData.category_slug || 'krossovkalar',
+      category: productData.category || 'Trenajorlar & Kardio',
+      category_slug: productData.categorySlug || productData.category_slug || 'trenajorlar',
       subcategory: productData.subcategory || '',
       brand: productData.brand || 'SPORT OUTLET',
       stock,
@@ -475,7 +532,16 @@ export const dataService = {
     if (isSupabaseConfigured && supabase) {
       try {
         const { data, error } = await supabase.from('products').insert(newProd).select().single();
-        if (!error && data) return normalizeProduct(data);
+        if (!error && data) {
+          const normalized = normalizeProduct(data);
+          const local = getLocalCollection(KEYS.PRODUCTS, defaultProducts);
+          local.unshift(normalized);
+          saveLocalCollection(KEYS.PRODUCTS, local);
+          return normalized;
+        }
+        if (error) {
+          console.error('Supabase createProduct DB error:', error);
+        }
       } catch (e) {
         console.warn('Supabase createProduct error:', e);
       }
