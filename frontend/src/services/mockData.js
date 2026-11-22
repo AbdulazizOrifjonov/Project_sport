@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_fb-kopto-futsal-4r-star-5687",
+    "id": "prod_fb-kopto-futsal-4r-star-5687",
+    "title": "FB kopto futsal 4r Star ⭐️",
+    "slug": "fb-kopto-futsal-4r-star-5687",
+    "sku": "",
+    "price": 321250,
+    "oldPrice": 369438,
+    "old_price": 369438,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_fb-kopto-futsal-4r-star-9611_1.jpg",
+      "/uploads/prod_fb-kopto-futsal-4r-star-9611_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer : 4r\nSakramaydi ✅\nKarobkada: 36ta\nNarxi: 25$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:29:35.687Z"
+  },
+  {
     "_id": "prod_blin-tosh-axelus-3106",
     "id": "prod_blin-tosh-axelus-3106",
     "title": "Blin tosh axelus",
