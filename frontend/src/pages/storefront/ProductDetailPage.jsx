@@ -415,7 +415,7 @@ export default function ProductDetailPage() {
                         e.target.onerror = null;
                         e.target.src = fallbackImage;
                       }}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115 will-change-transform"
+                      className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-115 will-change-transform"
                     />
                   </button>
                 ))}
@@ -499,7 +499,7 @@ export default function ProductDetailPage() {
                         transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
                         transition: isZooming ? 'transform 0.1s ease-out' : 'transform 0.3s ease-out'
                       }}
-                      className="w-full h-full object-cover will-change-transform"
+                      className="w-full h-full object-contain p-2 sm:p-4 will-change-transform"
                     />
                   </div>
                 ))}
