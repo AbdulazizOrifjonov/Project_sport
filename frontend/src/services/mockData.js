@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-nabor-15kg-5524",
+    "id": "prod_gantel-nabor-15kg-5524",
+    "title": "Gantel nabor 15kg",
+    "slug": "gantel-nabor-15kg-5524",
+    "sku": "",
+    "price": 526850,
+    "oldPrice": 605878,
+    "old_price": 605878,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-nabor-15kg-3657_2.jpg",
+      "/uploads/prod_gantel-nabor-15kg-3657_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Shtanga bòladi✅\nNarxi: 41$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:25:05.524Z"
+  },
+  {
     "_id": "prod_shaxmat-kasparov-55026c-4397",
     "id": "prod_shaxmat-kasparov-55026c-4397",
     "title": "Shaxmat KASPAROV 55026C",
@@ -99,10 +150,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_shaxmat-kasparov-55026c-3963_1.jpg",
-      "/uploads/prod_shaxmat-kasparov-55026c-3963_2.jpg",
-      "/uploads/prod_shaxmat-kasparov-55026c-3963_3.jpg",
-      "/uploads/prod_shaxmat-kasparov-55026c-3963_4.jpg"
+      "/uploads/prod_shaxmat-kasparov-55026c-3990_1.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3990_2.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3990_3.jpg",
+      "/uploads/prod_shaxmat-kasparov-55026c-3990_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -128,7 +179,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:24:54.397Z"
+    "created_at": "2026-11-22T08:24:54.397Z",
+    "updated_at": "2026-11-22T08:25:05.554Z"
   },
   {
     "_id": "prod_box-per-riada-ipli-blue-02-4370",
@@ -1092,9 +1144,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_box-per-adidas-aiba-4352_1.jpg",
-      "/uploads/prod_box-per-adidas-aiba-4352_2.jpg",
-      "/uploads/prod_box-per-adidas-aiba-4352_3.jpg"
+      "/uploads/prod_box-per-adidas-aiba-4148_1.jpg",
+      "/uploads/prod_box-per-adidas-aiba-4148_2.jpg",
+      "/uploads/prod_box-per-adidas-aiba-4148_3.jpg",
+      "/uploads/prod_box-per-adidas-aiba-4148_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1120,7 +1173,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:21:06.986Z"
+    "created_at": "2026-11-22T08:21:06.986Z",
+    "updated_at": "2026-11-22T08:25:05.538Z"
   },
   {
     "_id": "prod_gantel-nabor-55kg-6170",
