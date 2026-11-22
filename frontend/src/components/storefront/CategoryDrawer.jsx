@@ -58,6 +58,26 @@ export default function CategoryDrawer({ isOpen, onClose }) {
   const [previewProducts, setPreviewProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [catSearch, setCatSearch] = useState('');
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth >= 750 : true
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 750);
+      const headerEl = document.querySelector('header');
+      if (headerEl) {
+        const h = headerEl.getBoundingClientRect().height || headerEl.offsetHeight;
+        if (h > 0) {
+          document.documentElement.style.setProperty('--nsb-navbar-height', `${h}px`);
+          document.documentElement.style.setProperty('--nsb-header-height', `${h}px`);
+        }
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Sahifa o'zgarganda katalogni avtomatik yopish
   useEffect(() => {
@@ -138,85 +158,82 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] w-screen h-screen bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn"
+      className={`fixed inset-x-0 bottom-0 ${
+        isDesktop
+          ? 'z-40'
+          : 'top-0 z-[100] h-[100dvh] w-screen'
+      } bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn`}
+      style={
+        isDesktop
+          ? {
+              top: 'var(--nsb-navbar-height, 136px)',
+              height: 'calc(100dvh - var(--nsb-navbar-height, 136px))'
+            }
+          : undefined
+      }
       onClick={(e) => e.stopPropagation()}
     >
-      {/* 1. Fullscreen Top Header: Logo, Yopish (Navbar slotida), Search, Barcha mahsulotlar */}
-      <div className="h-16 md:h-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#080c14] flex items-center justify-between shrink-0 shadow-xs z-10 gap-3">
-        {/* Brand Logo & Title */}
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="h-10 sm:h-11 px-2.5 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
-            <img
-              src="/logo.png"
-              alt="SPORT OUTLET"
-              className="h-6 sm:h-7 w-auto max-w-[95px] object-contain"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
-          <div>
-            <div className="font-black text-base sm:text-lg text-slate-950 dark:text-white uppercase leading-none tracking-tight">
-              SPORT OUTLET
+      {/* 1. Mobile-only Top Header (< 750px) */}
+      {!isDesktop && (
+        <div className="h-14 sm:h-16 px-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#080c14] flex items-center justify-between shrink-0 shadow-xs z-10 gap-3">
+          {/* Brand Logo & Title */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            <div className="h-9 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
+              <img
+                src="/logo.png"
+                alt="SPORT OUTLET"
+                className="h-5.5 w-auto max-w-[85px] object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
             </div>
-            <div className="text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wider mt-0.5">
-              Katalog (Barcha toifalar)
+            <div>
+              <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none tracking-tight">
+                SPORT OUTLET
+              </div>
+              <div className="text-[9px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wider mt-0.5">
+                Katalog
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Yopish (Esc) Button - Navbardagi Katalog o'rnida turadi */}
-        <button
-          type="button"
-          onClick={onClose}
-          className="inline-flex items-center gap-2 h-11 sm:h-12 px-4 sm:px-5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white text-xs sm:text-sm font-black transition-all cursor-pointer shadow-md shadow-rose-600/20 shrink-0"
-          aria-label="Katalogni yopish"
-          title="Katalogni yopish (Esc)"
-        >
-          <X className="w-5 h-5 stroke-[2.5]" />
-          <span>Yopish</span>
-          <span className="text-[10px] opacity-80 font-mono hidden lg:inline">(Esc)</span>
-        </button>
-
-        {/* Quick Search within Categories */}
-        <div className="hidden sm:flex items-center flex-1 max-w-md mx-3 lg:mx-6 relative">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-          <input
-            type="text"
-            value={catSearch}
-            onChange={(e) => setCatSearch(e.target.value)}
-            placeholder="Toifalar bo‘yicha qidirish..."
-            className="w-full h-10 pl-10 pr-9 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-slate-900 dark:focus:border-white focus:ring-2 focus:ring-slate-900/10 transition-all"
-          />
-          {catSearch && (
-            <button
-              type="button"
-              onClick={() => setCatSearch('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-0.5 cursor-pointer"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
-        </div>
-
-        {/* Right Actions: All Products Button */}
-        <div className="flex items-center gap-2.5 shrink-0">
+          {/* Mobile Yopish Button */}
           <button
             type="button"
-            onClick={() => {
-              onClose();
-              navigate('/shop');
-            }}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-xs font-black transition-all cursor-pointer shadow-2xs border border-slate-200 dark:border-slate-700"
+            onClick={onClose}
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-900 dark:text-white text-xs font-bold transition-all cursor-pointer shadow-2xs shrink-0"
+            aria-label="Katalogni yopish"
           >
-            <LayoutGrid className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>Barcha mahsulotlar</span>
+            <X className="w-4 h-4 stroke-[2.5]" />
+            <span>Yopish</span>
           </button>
         </div>
-      </div>
+      )}
 
-      {/* 2. Fullscreen Content Area */}
+      {/* 2. Content Area */}
       <div className="flex-1 w-full max-w-[1920px] mx-auto flex overflow-hidden">
         {/* Left Categories List: Responsive, full width on mobile (< md), sidebar on desktop (md+) */}
         <div className="w-full md:w-80 lg:w-96 shrink-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800 overflow-y-auto p-3 sm:p-4 bg-slate-50/70 dark:bg-black/60 space-y-1.5 pb-24 md:pb-4">
+          {/* Category Search Input */}
+          <div className="relative mb-2 shrink-0">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            <input
+              type="text"
+              value={catSearch}
+              onChange={(e) => setCatSearch(e.target.value)}
+              placeholder="Toifalar bo‘yicha qidirish..."
+              className="w-full h-10 pl-9 pr-8 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-slate-900 dark:focus:border-white transition-all shadow-2xs"
+            />
+            {catSearch && (
+              <button
+                type="button"
+                onClick={() => setCatSearch('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-0.5 cursor-pointer"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
           {/* Mobile All Products shortcut */}
           <button
             type="button"
@@ -296,12 +313,25 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                     {t('drawer.categoryBanner', "Toifaga tegishli barcha saralangan mahsulotlar")}
                   </p>
                 </div>
-                <button
-                  onClick={() => handleCategoryClick(activeCategory.slug)}
-                  className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
-                >
-                  {t('drawer.viewAll', "Ushbu toifaga o‘tish")} <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="flex items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      navigate('/shop');
+                    }}
+                    className="shrink-0 inline-flex items-center gap-2 px-3.5 py-2 sm:py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-xs sm:text-sm font-bold transition-all cursor-pointer border border-slate-200 dark:border-slate-700"
+                  >
+                    <LayoutGrid className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>Barcha mahsulotlar</span>
+                  </button>
+                  <button
+                    onClick={() => handleCategoryClick(activeCategory.slug)}
+                    className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
+                  >
+                    {t('drawer.viewAll', "Ushbu toifaga o‘tish")} <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
 
               {/* Subcategories Tags */}

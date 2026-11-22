@@ -274,20 +274,16 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               <button
                 type="button"
                 onClick={onToggleCatalog}
-                className={`hidden md:inline-flex h-12 items-center gap-2.5 px-5 rounded-xl text-[14px] font-black active:scale-98 transition-all cursor-pointer shadow-md shrink-0 ${
-                  isCatalogOpen
-                    ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/20'
-                    : 'bg-slate-950 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 shadow-slate-950/20 dark:shadow-white/10'
-                }`}
+                className="hidden md:inline-flex h-12 items-center gap-2.5 px-5 rounded-xl text-[14px] font-black active:scale-98 transition-all cursor-pointer shadow-md shrink-0 bg-slate-950 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 shadow-slate-950/20 dark:shadow-white/10"
                 aria-expanded={isCatalogOpen}
-                aria-label={isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
+                aria-label={t('header.catalog', 'Katalog')}
               >
                 {isCatalogOpen ? (
-                  <X className="w-4.5 h-4.5 text-white" />
+                  <X className="w-5 h-5 text-white dark:text-slate-950 stroke-[2.5]" />
                 ) : (
-                  <LayoutGrid className="w-4.5 h-4.5 text-white dark:text-slate-950" />
+                  <Menu className="w-5 h-5 text-white dark:text-slate-950 stroke-[2.5]" />
                 )}
-                {isCatalogOpen ? t('header.close', 'Yopish') : t('header.catalog')}
+                <span>{t('header.catalog', 'Katalog')}</span>
               </button>
             </div>
 
