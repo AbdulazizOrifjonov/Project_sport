@@ -78,6 +78,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_eplikator-yostiq-4509",
+    "id": "prod_eplikator-yostiq-4509",
+    "title": "Eplikator yostiq",
+    "slug": "eplikator-yostiq-4509",
+    "sku": "",
+    "price": 167050,
+    "oldPrice": 192107,
+    "old_price": 192107,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_eplikator-yostiq-0951_2.jpg",
+      "/uploads/prod_eplikator-yostiq-0951_3.jpg",
+      "/uploads/prod_eplikator-yostiq-0951_4.jpg",
+      "/uploads/prod_eplikator-yostiq-0951_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "4 xil rang chexolli\nNarxi: 13$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:47:54.509Z"
+  },
+  {
     "_id": "prod_tatami-1x1m-sport-qoplamasi-3681",
     "id": "prod_tatami-1x1m-sport-qoplamasi-3681",
     "title": "Tatami 1x1m (Sport Qoplamasi)",
