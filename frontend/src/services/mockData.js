@@ -78,6 +78,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_grif-trep-6842",
+    "id": "prod_grif-trep-6842",
+    "title": "Grif  Trep",
+    "slug": "grif-trep-6842",
+    "sku": "",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-trep-3528_1.jpg",
+      "/uploads/prod_grif-trep-3528_2.jpg",
+      "/uploads/prod_grif-trep-3528_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Vazni : 22.5kg\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:37:06.842Z"
+  },
+  {
     "_id": "prod_gantel-lb-podstavka-5279",
     "id": "prod_gantel-lb-podstavka-5279",
     "title": "Gantel lb podstavka",
@@ -182,12 +234,12 @@ export const defaultProducts = [
   {
     "_id": "prod_grif-olimpiski-5170",
     "id": "prod_grif-olimpiski-5170",
-    "title": "Grif olimpiski",
+    "title": "Grif Olimpiski",
     "slug": "grif-olimpiski-5170",
-    "sku": "",
-    "price": 1028000,
-    "oldPrice": 1182200,
-    "old_price": 1182200,
+    "sku": "8444261",
+    "price": 1542000,
+    "oldPrice": 1773300,
+    "old_price": 1773300,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Gantellar & Shtangalar",
@@ -201,15 +253,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_grif-olimpiski-3305_1.jpg",
-      "/uploads/prod_grif-olimpiski-3305_2.jpg"
+      "/uploads/prod_grif-olimpiski-3027_1.jpg",
+      "/uploads/prod_grif-olimpiski-3027_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "uzunligi 2.2m\nSof ogirligi : 20.9kg\nko'tarish og'irligi 500LB (220kg)\nnarxi : 80$",
+    "description": "Kodi: 8444261\nUzunligi 2.2m\nKo'tarish og'irligi 1500LB ( 680kg )\nO'zini vazni : 20kg\nPodchivnikli\nNarxi : 120$",
     "specifications": [
       {
         "label": "Brend",
@@ -228,7 +280,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:36:25.170Z"
+    "created_at": "2026-11-22T08:36:25.170Z",
+    "updated_at": "2026-11-22T08:37:06.895Z"
   },
   {
     "_id": "prod_grif-zig-zag-1-2m-sc-80187-5132",
@@ -6006,9 +6059,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo M11B",
     "slug": "masaj-kreslo-m11b-2035",
     "sku": "",
-    "price": 7196000,
-    "oldPrice": 8275400,
-    "old_price": 8275400,
+    "price": 7067500,
+    "oldPrice": 8127625,
+    "old_price": 8127625,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -6022,19 +6075,19 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-m11b-5954_1.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5954_2.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5954_3.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5954_4.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5954_5.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5954_6.jpg"
+      "/uploads/prod_masaj-kreslo-m11b-5857_1.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5857_2.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5857_3.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5857_4.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5857_5.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5857_7.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi : 560$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi : 550$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
     "specifications": [
       {
         "label": "Brend",
@@ -6053,7 +6106,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:17:22.035Z"
+    "created_at": "2026-11-22T08:17:22.035Z",
+    "updated_at": "2026-11-22T08:37:07.125Z"
   },
   {
     "_id": "prod_masaj-kreslo-ax-1002-1882",
