@@ -6111,9 +6111,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo M11B",
     "slug": "masaj-kreslo-m11b-2035",
     "sku": "",
-    "price": 7067500,
-    "oldPrice": 8127625,
-    "old_price": 8127625,
+    "price": 7196000,
+    "oldPrice": 8275400,
+    "old_price": 8275400,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -6127,19 +6127,18 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-m11b-5857_1.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5857_2.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5857_3.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5857_4.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5857_5.jpg",
-      "/uploads/prod_masaj-kreslo-m11b-5857_7.jpg"
+      "/uploads/prod_masaj-kreslo-m11b-5802_1.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5802_3.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5802_4.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5802_5.jpg",
+      "/uploads/prod_masaj-kreslo-m11b-5802_6.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi : 550$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi : 560$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 16 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4.Massaj roliklari uchta rejimda ishlashi mumkin - shiatsu, tuina va dam oldiruvchi.\n5. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n6. 5 ta qo’shimcha rejim - shiatsu, mushtlash, silash, cho’zish va shapaloqlash. Ushbu rejimlarda siz ma'lum bir massaj maydonini tanlashingiz, roliklarning tezligini va havo yostiqlarining intensivligini sozlashingiz mumkin. 12 ta aralash massaj uslubi\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
     "specifications": [
       {
         "label": "Brend",
@@ -6159,7 +6158,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-22T08:17:22.035Z",
-    "updated_at": "2026-11-22T08:37:07.125Z"
+    "updated_at": "2026-11-22T08:37:44.819Z"
   },
   {
     "_id": "prod_masaj-kreslo-ax-1002-1882",
