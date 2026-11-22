@@ -78,6 +78,159 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-ax-1008-9987",
+    "id": "prod_masaj-kreslo-ax-1008-9987",
+    "title": "Masaj kreslo AX-1008",
+    "slug": "masaj-kreslo-ax-1008-9987",
+    "sku": "",
+    "price": 16062500,
+    "oldPrice": 18471875,
+    "old_price": 18471875,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1008-7274_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1008-7274_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1250$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:39.987Z"
+  },
+  {
+    "_id": "prod_taroz-2017b-rangli-9961",
+    "id": "prod_taroz-2017b-rangli-9961",
+    "title": "Taroz 2017B rangli",
+    "slug": "taroz-2017b-rangli-9961",
+    "sku": "",
+    "price": 102800,
+    "oldPrice": 118220,
+    "old_price": 118220,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-2017b-rangli-8819_1.jpg",
+      "/uploads/prod_taroz-2017b-rangli-8819_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Max ves : 180kg\nNarxi : 8$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:39.961Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-ax-1007-9819",
+    "id": "prod_masaj-kreslo-ax-1007-9819",
+    "title": "Masaj kreslo AX-1007",
+    "slug": "masaj-kreslo-ax-1007-9819",
+    "sku": "",
+    "price": 21845000,
+    "oldPrice": 25121750,
+    "old_price": 25121750,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-ax-1007-7326_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1007-7326_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1700$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:16:39.819Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-ax-1006-5113",
     "id": "prod_masaj-kreslo-ax-1006-5113",
     "title": "Masaj kreslo AX-1006",
