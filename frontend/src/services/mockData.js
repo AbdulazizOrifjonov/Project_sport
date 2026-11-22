@@ -78,6 +78,456 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_trenajor-aksessuar-st-14-5649",
+    "id": "prod_trenajor-aksessuar-st-14-5649",
+    "title": "Trenajor aksessuar st-14",
+    "slug": "trenajor-aksessuar-st-14-5649",
+    "sku": "0542511",
+    "price": 346950,
+    "oldPrice": 398992,
+    "old_price": 398992,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-14-0396_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0542511\nNarxi: 27$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0542511"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:25.649Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-12-5057",
+    "id": "prod_trenajor-aksessuar-st-12-5057",
+    "title": "Trenajor aksessuar st-12",
+    "slug": "trenajor-aksessuar-st-12-5057",
+    "sku": "",
+    "price": 334100,
+    "oldPrice": 384215,
+    "old_price": 384215,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-12-0421_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi 26$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:25.057Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-02-120sm-4083",
+    "id": "prod_trenajor-aksessuar-st-02-120sm-4083",
+    "title": "Trenajor aksessuar st-02 120sm",
+    "slug": "trenajor-aksessuar-st-02-120sm-4083",
+    "sku": "0542168",
+    "price": 257000,
+    "oldPrice": 295550,
+    "old_price": 295550,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-02-120sm-0436_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0542168\nNarxi: 20$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0542168"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:24.083Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-06-3913",
+    "id": "prod_trenajor-aksessuar-st-06-3913",
+    "title": "Trenajor aksessuar st-06",
+    "slug": "trenajor-aksessuar-st-06-3913",
+    "sku": "0543019",
+    "price": 295550,
+    "oldPrice": 339883,
+    "old_price": 339883,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-06-0318_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0543019\nNarxi: 23$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0543019"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.913Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-03-3689",
+    "id": "prod_trenajor-aksessuar-st-03-3689",
+    "title": "Trenajor aksessuar st-03",
+    "slug": "trenajor-aksessuar-st-03-3689",
+    "sku": "",
+    "price": 269850,
+    "oldPrice": 310328,
+    "old_price": 310328,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-03-0346_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 21$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.689Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-04-3436",
+    "id": "prod_trenajor-aksessuar-st-04-3436",
+    "title": "Trenajor aksessuar st-04",
+    "slug": "trenajor-aksessuar-st-04-3436",
+    "sku": "",
+    "price": 289125,
+    "oldPrice": 332494,
+    "old_price": 332494,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-04-0307_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 22.5$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.437Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-g6-3312",
+    "id": "prod_masaj-kreslo-g6-3312",
+    "title": "Masaj kreslo G6",
+    "slug": "masaj-kreslo-g6-3312",
+    "sku": "",
+    "price": 13492500,
+    "oldPrice": 15516375,
+    "old_price": 15516375,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-g6-0266_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 1050$\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 135 smlik butun tana uchun SL massaj relyesi\n➖  2D massaj roliklari\n➖  Gravitasiya rejimi (tepaga ko'taradi)\n➖  Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va tiktokda video ko'rish mumkin ulab\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin\n➖ Barmoq orqali salomatlik diagnozi\n➖  12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Ovozli va sensor displeyli boshqaruv",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.313Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-09-3242",
+    "id": "prod_trenajor-aksessuar-st-09-3242",
+    "title": "Trenajor aksessuar st-09",
+    "slug": "trenajor-aksessuar-st-09-3242",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-09-0253_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 35$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.242Z"
+  },
+  {
+    "_id": "prod_trenajor-aksessuar-st-13-3032",
+    "id": "prod_trenajor-aksessuar-st-13-3032",
+    "title": "Trenajor aksessuar st-13",
+    "slug": "trenajor-aksessuar-st-13-3032",
+    "sku": "",
+    "price": 334100,
+    "oldPrice": 384215,
+    "old_price": 384215,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-aksessuar-st-13-0243_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 26$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:14:23.033Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-madel-g9-white-brown-1020",
     "id": "prod_masaj-kreslo-madel-g9-white-brown-1020",
     "title": "Masaj kreslo Madel G9 WHITE BROWN",
