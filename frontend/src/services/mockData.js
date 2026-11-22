@@ -78,6 +78,566 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-podstavka-xitoy-model-md6244-4496",
+    "id": "prod_gantel-podstavka-xitoy-model-md6244-4496",
+    "title": "Gantel podstavka xitoy Model: MD6244",
+    "slug": "gantel-podstavka-xitoy-model-md6244-4496",
+    "sku": "",
+    "price": 4304750,
+    "oldPrice": 4950463,
+    "old_price": 4950463,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-xitoy-model-md6244-0360_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model: MD6244\nNarxi: 335$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:54.496Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-y12l-y10l-4432",
+    "id": "prod_masaj-kreslo-y12l-y10l-4432",
+    "title": "Masaj kreslo Y12L/Y10L",
+    "slug": "masaj-kreslo-y12l-y10l-4432",
+    "sku": "",
+    "price": 15420000,
+    "oldPrice": 17733000,
+    "old_price": 17733000,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-y12l-y10l-0420_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 1200$\n➖Tanani skanerlash va moslashib massaj qilish\n➖ 2.Massaj texnologiyasi 4D\n➖ SL shaklidagi o’rindiq uzunligi 135 sm\n➖ Belni qizdirish\n➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo'shatish\n➖ O’lchami: 125x77x117\n➖ Maks foydalanuvchi vazni: 150kg\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:54.432Z"
+  },
+  {
+    "_id": "prod_gantel-podstavka-sc80262-4266",
+    "id": "prod_gantel-podstavka-sc80262-4266",
+    "title": "Gantel podstavka SC80262",
+    "slug": "gantel-podstavka-sc80262-4266",
+    "sku": "0455598",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-sc80262-0400_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0455598\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0455598"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:54.266Z"
+  },
+  {
+    "_id": "prod_stol-tennis-k2008-4182",
+    "id": "prod_stol-tennis-k2008-4182",
+    "title": "Stol Tennis: K2008",
+    "slug": "stol-tennis-k2008-4182",
+    "sku": "",
+    "price": 9637500,
+    "oldPrice": 11083125,
+    "old_price": 11083125,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_stol-tennis-k2008-2531_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "ITTF standartidan o'tgan\n25 mm MDF ustki qismi\nRamka 60 mm\nOyoqlari 50x50 mm\n100 mm diametrli g'ildiraklar\nNarxi: 750$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:54.182Z"
+  },
+  {
+    "_id": "prod_grif-to-rtburchak-4069",
+    "id": "prod_grif-to-rtburchak-4069",
+    "title": "Grif to'rtburchak",
+    "slug": "grif-to-rtburchak-4069",
+    "sku": "0462884",
+    "price": 552550,
+    "oldPrice": 635433,
+    "old_price": 635433,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-to-rtburchak-0432_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0462884\nVazni : 7.7kg\nNarxi: 43$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0462884"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:54.069Z"
+  },
+  {
+    "_id": "prod_gantel-podstavka-sc80263-3966",
+    "id": "prod_gantel-podstavka-sc80263-3966",
+    "title": "Gantel podstavka SC80263",
+    "slug": "gantel-podstavka-sc80263-3966",
+    "sku": "0455763",
+    "price": 963750,
+    "oldPrice": 1108313,
+    "old_price": 1108313,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-sc80263-0453_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0455763\nNarxi: 75$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0455763"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:53.966Z"
+  },
+  {
+    "_id": "prod_grif-podstavka-3842",
+    "id": "prod_grif-podstavka-3842",
+    "title": "GRIF PODSTAVKA",
+    "slug": "grif-podstavka-3842",
+    "sku": "",
+    "price": 2955500,
+    "oldPrice": 3398825,
+    "old_price": 3398825,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-podstavka-0142_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 230$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:53.842Z"
+  },
+  {
+    "_id": "prod_gantel-podstavka-ax003-3605",
+    "id": "prod_gantel-podstavka-ax003-3605",
+    "title": "Gantel podstavka AX003",
+    "slug": "gantel-podstavka-ax003-3605",
+    "sku": "",
+    "price": 2505750,
+    "oldPrice": 2881613,
+    "old_price": 2881613,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-podstavka-ax003-0457_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 135*77*75sm\nSigimi: 6 par gantel\nNarxi: 195$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:53.605Z"
+  },
+  {
+    "_id": "prod_kord-raketka-at77-1705",
+    "id": "prod_kord-raketka-at77-1705",
+    "title": "KORD RAKETKA AT77",
+    "slug": "kord-raketka-at77-1705",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kord-raketka-at77-5885_1.jpg",
+      "/uploads/prod_kord-raketka-at77-5885_2.jpg",
+      "/uploads/prod_kord-raketka-at77-5885_3.jpg",
+      "/uploads/prod_kord-raketka-at77-5885_4.jpg",
+      "/uploads/prod_kord-raketka-at77-5885_5.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 27in (68.6sm)\nOgirligi: 285gr\nOriginal✅\nNarxi: 35$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:51.705Z"
+  },
+  {
+    "_id": "prod_taroz-constant-model-302a-0029",
+    "id": "prod_taroz-constant-model-302a-0029",
+    "title": "taroz constant model 302a",
+    "slug": "taroz-constant-model-302a-0029",
+    "sku": "",
+    "price": 436900,
+    "oldPrice": 502435,
+    "old_price": 502435,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_taroz-constant-model-302a-7377_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "model 302a\nMax ves : 180kg\nNarxi : 34$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:50.029Z"
+  },
+  {
+    "_id": "prod_masaj-kreslo-madel-g9-black-9816",
+    "id": "prod_masaj-kreslo-madel-g9-black-9816",
+    "title": "Masaj kreslo Madel G9 BLACK",
+    "slug": "masaj-kreslo-madel-g9-black-9816",
+    "sku": "",
+    "price": 11822000,
+    "oldPrice": 13595300,
+    "old_price": 13595300,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_6.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-black-5934_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel G9 BLACK\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari\n➖  Al (suniy intelskt) orqali  ovozli boshqaruv",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:35:49.817Z"
+  },
+  {
     "_id": "prod_padel-raketka-2650-arz-sariq-0310",
     "id": "prod_padel-raketka-2650-arz-sariq-0310",
     "title": "Padel raketka 2650 arz sariq",
@@ -6459,13 +7019,13 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_1.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_2.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_3.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_4.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_5.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_6.jpg",
-      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_7.jpg"
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_6.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-5926_7.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -6491,7 +7051,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:09:21.021Z"
+    "created_at": "2026-11-22T08:09:21.021Z",
+    "updated_at": "2026-11-22T08:35:54.337Z"
   }
 ];
 
