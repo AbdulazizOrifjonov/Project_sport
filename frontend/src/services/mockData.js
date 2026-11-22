@@ -76,7 +76,64 @@ export const defaultCategories = [
   }
 ];
 
-export const defaultProducts = [];
+export const defaultProducts = [
+  {
+    "_id": "prod_masaj-kreslo-madel-g9-white-brown-1020",
+    "id": "prod_masaj-kreslo-madel-g9-white-brown-1020",
+    "title": "Masaj kreslo Madel G9 WHITE BROWN",
+    "slug": "masaj-kreslo-madel-g9-white-brown-1020",
+    "sku": "",
+    "price": 11822000,
+    "oldPrice": 13595300,
+    "old_price": 13595300,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_1.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_2.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_3.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_4.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_5.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_6.jpg",
+      "/uploads/prod_masaj-kreslo-madel-g9-white-brown-6585_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Madel G9 WHITE BROWN\nNarxi: 920$✅\n➖ Maks foydalanuvchi vazni: 150kg\n➖ 3D massaj roliklari\n➖ Gravitasiya rejimi (vazinsizlik)\n➖ Tanani skanerlash va mos massaj qilish tizimi\n➖ Belni isitadi\n➖ Simsiz telefonni quvvatlash va smartfonda vide ko'rish mumkin\n➖  Bluetooth orqali yon tomonlarida audio eshitish\n➖ Barmoq orqali salomatlik diagnozi\n➖ 12 ta avtomatik va 8 ta ruchnoy massaj rejimlari\n➖ Havoli massaj yostiqchalari",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:09:21.021Z"
+  }
+];
 
 export const defaultBanners = [
   {
