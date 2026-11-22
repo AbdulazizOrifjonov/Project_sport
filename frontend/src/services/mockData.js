@@ -78,6 +78,110 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_box-per-adidas-ad-7-0747",
+    "id": "prod_box-per-adidas-ad-7-0747",
+    "title": "Box per Adidas AD-7",
+    "slug": "box-per-adidas-ad-7-0747",
+    "sku": "",
+    "price": 565400,
+    "oldPrice": 650210,
+    "old_price": 650210,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Krossovkalar & Poyabzallar",
+    "category_slug": "krossovkalar",
+    "categorySlug": "krossovkalar",
+    "subcategory": "",
+    "brand": "Adidas",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_box-per-adidas-ad-7-4268_1.jpg",
+      "/uploads/prod_box-per-adidas-ad-7-4268_2.jpg",
+      "/uploads/prod_box-per-adidas-ad-7-4268_3.jpg",
+      "/uploads/prod_box-per-adidas-ad-7-4268_4.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 8 10 12 14R\nMaterial: Charm\nNarxi: 44$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Adidas"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:40.747Z"
+  },
+  {
+    "_id": "prod_gantel-nabor-50-kg-0731",
+    "id": "prod_gantel-nabor-50-kg-0731",
+    "title": "Gantel nabor 50 kg",
+    "slug": "gantel-nabor-50-kg-0731",
+    "sku": "",
+    "price": 1477750,
+    "oldPrice": 1699412,
+    "old_price": 1699412,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-nabor-50-kg-6398_1.jpg",
+      "/uploads/prod_gantel-nabor-50-kg-6398_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Shtanga grif bo’ladi ✅\nNarxi: 115$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:23:40.731Z"
+  },
+  {
     "_id": "prod_kamar-maraton-madel-jkq-wlb210-4923",
     "id": "prod_kamar-maraton-madel-jkq-wlb210-4923",
     "title": "Kamar Maraton Madel: JKQ-WLB210",
