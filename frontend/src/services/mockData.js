@@ -78,6 +78,210 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_gantel-lb-podstavka-5279",
+    "id": "prod_gantel-lb-podstavka-5279",
+    "title": "Gantel lb podstavka",
+    "slug": "gantel-lb-podstavka-5279",
+    "sku": "0449641",
+    "price": 2056000,
+    "oldPrice": 2364400,
+    "old_price": 2364400,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_gantel-lb-podstavka-3535_1.jpg",
+      "/uploads/prod_gantel-lb-podstavka-3535_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0449641\nNarxi: 160$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0449641"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:25.279Z"
+  },
+  {
+    "_id": "prod_grif-zig-zag-1-2m-sc-80186-5226",
+    "id": "prod_grif-zig-zag-1-2m-sc-80186-5226",
+    "title": "Grif zig zag  1.2m sc-80186",
+    "slug": "grif-zig-zag-1-2m-sc-80186-5226",
+    "sku": "0462910",
+    "price": 411200,
+    "oldPrice": 472880,
+    "old_price": 472880,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80186-2583_1.jpg",
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80186-2583_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0462910\nNarxi : 32$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0462910"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:25.226Z"
+  },
+  {
+    "_id": "prod_grif-olimpiski-5170",
+    "id": "prod_grif-olimpiski-5170",
+    "title": "Grif olimpiski",
+    "slug": "grif-olimpiski-5170",
+    "sku": "",
+    "price": 1028000,
+    "oldPrice": 1182200,
+    "old_price": 1182200,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-olimpiski-3305_1.jpg",
+      "/uploads/prod_grif-olimpiski-3305_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "uzunligi 2.2m\nSof ogirligi : 20.9kg\nko'tarish og'irligi 500LB (220kg)\nnarxi : 80$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:25.170Z"
+  },
+  {
+    "_id": "prod_grif-zig-zag-1-2m-sc-80187-5132",
+    "id": "prod_grif-zig-zag-1-2m-sc-80187-5132",
+    "title": "Grif zig zag 1.2m sc-80187",
+    "slug": "grif-zig-zag-1-2m-sc-80187-5132",
+    "sku": "0463075",
+    "price": 424050,
+    "oldPrice": 487657,
+    "old_price": 487657,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Gantellar & Shtangalar",
+    "category_slug": "gantellar",
+    "categorySlug": "gantellar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80187-3300_1.jpg",
+      "/uploads/prod_grif-zig-zag-1-2m-sc-80187-3300_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0463075\nNarxi: 33$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0463075"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:36:25.132Z"
+  },
+  {
     "_id": "prod_gantel-podstavka-sc80267-3450",
     "id": "prod_gantel-podstavka-sc80267-3450",
     "title": "Gantel podstavka SC80267",
@@ -6170,9 +6374,9 @@ export const defaultProducts = [
     "title": "Masaj kreslo AX-1006",
     "slug": "masaj-kreslo-ax-1006-5113",
     "sku": "",
-    "price": 21845000,
-    "oldPrice": 25121750,
-    "old_price": 25121750,
+    "price": 20945500,
+    "oldPrice": 24087325,
+    "old_price": 24087325,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -6186,15 +6390,15 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-ax-1006-7300_1.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1006-7300_2.jpg"
+      "/uploads/prod_masaj-kreslo-ax-1006-2538_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1006-2538_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi: 1700$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi: 1630$\n➖Tanani skanerlash va moslashib massaj qilish\n➖ Barmoq orqali salomatlik diagnozi\n➖ Vaznsizlik rejimi: tanadagi bosimni butunlay bo'shatish\n➖ Tailandcha chigal yozish rejimi mavjud.\n➖ Belni qizdirish\n➖ Simsiz telefonni quvvatlash\n➖ Maks foydalanuvchi vazni: 150kg\n➖  Bluetooth orqali yon tomonlarida audio musiqa eshitish mumkin",
     "specifications": [
       {
         "label": "Brend",
@@ -6213,7 +6417,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:16:25.113Z"
+    "created_at": "2026-11-22T08:16:25.113Z",
+    "updated_at": "2026-11-22T08:36:25.013Z"
   },
   {
     "_id": "prod_taroz-constant-model-4011a-4531",
