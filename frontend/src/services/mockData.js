@@ -78,6 +78,62 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_masaj-kreslo-am183-3735",
+    "id": "prod_masaj-kreslo-am183-3735",
+    "title": "Masaj kreslo AM183",
+    "slug": "masaj-kreslo-am183-3735",
+    "sku": "",
+    "price": 13492500,
+    "oldPrice": 15516375,
+    "old_price": 15516375,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_masaj-kreslo-am183-8741_1.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_2.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_3.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_4.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_5.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_6.jpg",
+      "/uploads/prod_masaj-kreslo-am183-8741_7.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi : 1050$ Black\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.Massaj texnologiyasi 3D, mushaklarning ishlashi uchun roliklarni turli burchaklarda aylantirish mumkin. Terapevtining harakatlarini taqlid qiluvchi 4 ta massaj roliklari.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:18:03.735Z"
+  },
+  {
     "_id": "prod_masaj-kreslo-a31a-1543",
     "id": "prod_masaj-kreslo-a31a-1543",
     "title": "MASAJ KRESLO A31A",
@@ -315,19 +371,17 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_1.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_2.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_3.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_4.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_5.jpg",
-      "/uploads/prod_masaj-kreslo-ax-1002-5965_6.jpg"
+      "/uploads/prod_masaj-kreslo-ax-1002-7260_1.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-7260_2.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-7260_3.jpg",
+      "/uploads/prod_masaj-kreslo-ax-1002-7260_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Narxi: 620$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2.\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 5 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
+    "description": "Narxi: 620$\n1. Foydalanuvchi Maks. Vazni: 150 kg\n2. 2 D masaj rejimi\n3. Havoli-kompression massaj uchun qo’l, yelka, boldir va tovon sohalarida 12 ta havo yostiqchalari o’rnatilgan, ularni ta’sir intensivligini sozlash mumkin.\n4. 8 ta avtomatik dastur mavjud - komfort, uyqu, dam olish, yangilanish va tiklanish. Tailandcha chigal yozish alohida rejimi mavjud.\n7. Massaj sohalari: bo’yin, yelkalar, qo’llar, bel, son, dumba, boldir, tovonlar",
     "specifications": [
       {
         "label": "Brend",
@@ -346,7 +400,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T08:17:21.882Z"
+    "created_at": "2026-11-22T08:17:21.882Z",
+    "updated_at": "2026-11-22T08:18:04.186Z"
   },
   {
     "_id": "prod_trenajor-aksessuar-set-0491",
