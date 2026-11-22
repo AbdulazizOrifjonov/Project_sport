@@ -232,7 +232,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_chax-135000-s-m-8873_1.jpg"
+      "/uploads/prod_chax-135000-s-m-2444_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -258,7 +258,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:22.543Z"
+    "created_at": "2026-11-22T16:54:22.543Z",
+    "updated_at": "2026-11-22T16:54:43.252Z"
   },
   {
     "_id": "prod_169000-s-m-2520",
@@ -384,7 +385,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_trimmer-maysa-kaltalagich-440000-s-m-8751_1.jpg"
+      "/uploads/prod_trimmer-maysa-kaltalagich-440000-s-m-2510_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -410,7 +411,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:03.500Z"
+    "created_at": "2026-11-22T16:54:03.500Z",
+    "updated_at": "2026-11-22T16:54:43.238Z"
   },
   {
     "_id": "prod_turbo-fen-92000-s-m-3484",
@@ -434,7 +436,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_turbo-fen-92000-s-m-8711_1.jpg"
+      "/uploads/prod_turbo-fen-92000-s-m-2483_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -460,7 +462,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:03.484Z"
+    "created_at": "2026-11-22T16:54:03.484Z",
+    "updated_at": "2026-11-22T16:54:43.215Z"
   },
   {
     "_id": "prod_164000-s-m-3288",
@@ -635,7 +638,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_2-1-569000-s-m-7450_1.jpg"
+      "/uploads/prod_2-1-569000-s-m-1574_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -661,7 +664,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:01.549Z"
+    "created_at": "2026-11-22T16:54:01.549Z",
+    "updated_at": "2026-11-22T16:54:43.303Z"
   },
   {
     "_id": "prod_130000-1496",
