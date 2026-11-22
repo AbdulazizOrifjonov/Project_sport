@@ -335,7 +335,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                         <img
                           src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
                           alt={p.title}
-                          className="w-10 h-10 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                          className="w-10 h-10 object-contain p-0.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-[10px] uppercase font-bold text-slate-400">{p.category}</div>
@@ -455,7 +455,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                         <img
                           src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200'}
                           alt={p.title}
-                          className="w-9 h-9 object-cover rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0"
+                          className="w-9 h-9 object-contain p-0.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0"
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-[12px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>

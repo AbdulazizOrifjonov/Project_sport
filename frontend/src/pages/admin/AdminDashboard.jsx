@@ -1599,11 +1599,11 @@ export default function AdminDashboard() {
                     {productForm.images && productForm.images.filter(Boolean).length > 0 ? (
                       <div className="space-y-3">
                         {/* Katta asosiy rasm (1-rasm) */}
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xs">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xs flex items-center justify-center p-3">
                           <img
                             src={productForm.images.filter(Boolean)[0]}
                             alt="Asosiy rasm"
-                            className="w-full h-full object-cover"
+                            className="max-w-full max-h-full w-auto h-auto object-contain"
                           />
                           <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/75 text-white text-[10px] font-black backdrop-blur-xs">
                             1-Asosiy rasm
@@ -1627,8 +1627,8 @@ export default function AdminDashboard() {
                         {productForm.images.filter(Boolean).length > 1 && (
                           <div className="grid grid-cols-4 gap-2 pt-1">
                             {productForm.images.filter(Boolean).slice(1).map((img, idx) => (
-                              <div key={idx} className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group">
-                                <img src={img} alt={`Rasm ${idx + 2}`} className="w-full h-full object-cover" />
+                              <div key={idx} className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group flex items-center justify-center p-1.5">
+                                <img src={img} alt={`Rasm ${idx + 2}`} className="max-w-full max-h-full w-auto h-auto object-contain" />
                                 <button
                                   type="button"
                                   onClick={() => {
@@ -1750,11 +1750,11 @@ export default function AdminDashboard() {
                           <tr key={p._id} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors">
                             {/* FULL SIZED SQUARE IMAGE */}
                             <td className="p-3">
-                              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0 flex items-center justify-center">
+                              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0 flex items-center justify-center p-1">
                                 <img
                                   src={p.images?.[0] || 'https://via.placeholder.com/80'}
                                   alt={p.title}
-                                  className="w-full h-full object-cover"
+                                  className="max-w-full max-h-full w-auto h-auto object-contain"
                                   onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
@@ -1953,11 +1953,11 @@ export default function AdminDashboard() {
                   <div className="divide-y divide-slate-100 dark:divide-slate-800">
                     {selectedOrder.items?.map((it, idx) => (
                       <div key={idx} className="py-3.5 flex items-center gap-4">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0 flex items-center justify-center">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0 flex items-center justify-center p-1">
                           <img
                             src={it.image || 'https://via.placeholder.com/80'}
                             alt={it.title}
-                            className="w-full h-full object-cover"
+                            className="max-w-full max-h-full w-auto h-auto object-contain"
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';

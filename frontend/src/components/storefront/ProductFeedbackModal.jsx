@@ -223,11 +223,13 @@ export default function ProductFeedbackModal({ isOpen, onClose, product, onRevie
           <form onSubmit={handleSubmit} className="p-5 space-y-4">
             {/* Product Mini Preview */}
             <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
-              <img
-                src={imageSrc}
-                alt={product.title}
-                className="w-12 h-12 rounded-lg object-cover border border-slate-200 dark:border-slate-700 shrink-0"
-              />
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0 flex items-center justify-center p-0.5">
+                <img
+                  src={imageSrc}
+                  alt={product.title}
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                />
+              </div>
               <div className="min-w-0 flex-1">
                 <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
                   {product.category || 'Mahsulot'}

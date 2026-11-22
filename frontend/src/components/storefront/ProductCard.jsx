@@ -231,7 +231,7 @@ export default function ProductCard({ product }) {
               hasSwipedRef.current = false;
             }
           }}
-          className="relative block w-full h-full overflow-hidden cursor-pointer"
+          className="absolute inset-0 flex items-center justify-center p-2 sm:p-2.5 overflow-hidden cursor-pointer"
         >
           <img
             src={currentImageSrc}
@@ -242,7 +242,7 @@ export default function ProductCard({ product }) {
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}
-            className="w-full h-full object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+            className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
           />
         </Link>
       </div>
