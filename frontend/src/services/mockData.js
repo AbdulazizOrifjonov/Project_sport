@@ -537,8 +537,8 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_460000-s-m-6575_1.jpg",
-      "/uploads/prod_460000-s-m-6575_2.jpg"
+      "/uploads/prod_460000-s-m-8558_1.jpg",
+      "/uploads/prod_460000-s-m-8558_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -564,7 +564,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:03.213Z"
+    "created_at": "2026-11-22T16:54:03.213Z",
+    "updated_at": "2026-11-22T16:54:53.856Z"
   },
   {
     "_id": "prod_4-1-nabor-895000-s-m-1593",
@@ -588,7 +589,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod_4-1-nabor-895000-s-m-6633_1.jpg"
+      "/uploads/prod_4-1-nabor-895000-s-m-2570_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -614,7 +615,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab bepul"
       }
     ],
-    "created_at": "2026-11-22T16:54:01.593Z"
+    "created_at": "2026-11-22T16:54:01.593Z",
+    "updated_at": "2026-11-22T16:54:53.845Z"
   },
   {
     "_id": "prod_2-1-569000-s-m-1549",
