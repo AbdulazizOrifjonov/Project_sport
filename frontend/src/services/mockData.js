@@ -78,6 +78,406 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_podshtanga-axelus-model-trenajor-ax062-2823",
+    "id": "prod_podshtanga-axelus-model-trenajor-ax062-2823",
+    "title": "Podshtanga AXELUS Model: Trenajor AX062",
+    "slug": "podshtanga-axelus-model-trenajor-ax062-2823",
+    "sku": "0482233",
+    "price": 3019750,
+    "oldPrice": 3472712,
+    "old_price": 3472712,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_podshtanga-axelus-model-trenajor-ax062-9448_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model: Trenajor AX062\nKodi: 0482233\nNarxi : 235$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0482233"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.823Z"
+  },
+  {
+    "_id": "prod_giproekstenziya-axelus-model-ax069-giperextenziya-2710",
+    "id": "prod_giproekstenziya-axelus-model-ax069-giperextenziya-2710",
+    "title": "Giproekstenziya AXELUS Model : AX069 (giperextenziya)",
+    "slug": "giproekstenziya-axelus-model-ax069-giperextenziya-2710",
+    "sku": "0482259",
+    "price": 1413500,
+    "oldPrice": 1625525,
+    "old_price": 1625525,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_giproekstenziya-axelus-model-ax069-giperextenziya-9760_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Model : AX069 (giperextenziya)\nKodi: 0482259\nNarxi : 110$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0482259"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.710Z"
+  },
+  {
+    "_id": "prod_press-s-ax045-2691",
+    "id": "prod_press-s-ax045-2691",
+    "title": "Press S AX045",
+    "slug": "press-s-ax045-2691",
+    "sku": "0407874",
+    "price": 1156500,
+    "oldPrice": 1329975,
+    "old_price": 1329975,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-s-ax045-9692_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0407874\nNarxi: 90$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0407874"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.691Z"
+  },
+  {
+    "_id": "prod_press-s-ax049-2669",
+    "id": "prod_press-s-ax049-2669",
+    "title": "Press S AX049",
+    "slug": "press-s-ax049-2669",
+    "sku": "0408164",
+    "price": 2184500,
+    "oldPrice": 2512175,
+    "old_price": 2512175,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_press-s-ax049-9747_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Kodi: 0408164\nEski narxi: 170$❌\nNarxi: 155$✅",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "0408164"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.669Z"
+  },
+  {
+    "_id": "prod_futbol-oyin-sbt-104-2348",
+    "id": "prod_futbol-oyin-sbt-104-2348",
+    "title": "Futbol oyin SBT-104",
+    "slug": "futbol-oyin-sbt-104-2348",
+    "sku": "",
+    "price": 3341000,
+    "oldPrice": 3842150,
+    "old_price": 3842150,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_futbol-oyin-sbt-104-9180_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer : 140x76x88\nNarxi : 260$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.348Z"
+  },
+  {
+    "_id": "prod_setka-fb-kvadrat-11k-original-2322",
+    "id": "prod_setka-fb-kvadrat-11k-original-2322",
+    "title": "Setka fb kvadrat 11K ORIGINAL✅",
+    "slug": "setka-fb-kvadrat-11k-original-2322",
+    "sku": "",
+    "price": 1220750,
+    "oldPrice": 1403863,
+    "old_price": 1403863,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_setka-fb-kvadrat-11k-original-9279_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Razmer: 7.32*2.44m\nNarxi: 95$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:52.322Z"
+  },
+  {
+    "_id": "prod_turnik-stoyka-ax01-9890",
+    "id": "prod_turnik-stoyka-ax01-9890",
+    "title": "Turnik stoyka AX01 🆕 🆕🆕",
+    "slug": "turnik-stoyka-ax01-9890",
+    "sku": "",
+    "price": 2505750,
+    "oldPrice": 2881613,
+    "old_price": 2881613,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Podstavka & Skameykalar",
+    "category_slug": "stoykalar",
+    "categorySlug": "stoykalar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_turnik-stoyka-ax01-9299_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Max vazn: 200kg mustaxkam korpus Turnik+bryus+press+ anjimaniya\nRazmer:\nNarxi: 195$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:49.890Z"
+  },
+  {
+    "_id": "prod_trenajor-ax065-podshtanga-9664",
+    "id": "prod_trenajor-ax065-podshtanga-9664",
+    "title": "Trenajor AX065 podshtanga",
+    "slug": "trenajor-ax065-podshtanga-9664",
+    "sku": "",
+    "price": 3662250,
+    "oldPrice": 4211588,
+    "old_price": 4211588,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_trenajor-ax065-podshtanga-9303_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 285$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:26:49.664Z"
+  },
+  {
     "_id": "prod_box-per-rival-03-ipli-7624",
     "id": "prod_box-per-rival-03-ipli-7624",
     "title": "Box per RIVAL 03 ipli",
