@@ -78,6 +78,256 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_padel-koptok-odea-3-tali-5751",
+    "id": "prod_padel-koptok-odea-3-tali-5751",
+    "title": "PADEL KOPTOK ODEA 3 TALI",
+    "slug": "padel-koptok-odea-3-tali-5751",
+    "sku": "",
+    "price": 102800,
+    "oldPrice": 118220,
+    "old_price": 118220,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-koptok-odea-3-tali-5292_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Original✅\nNarxi 8$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:15.751Z"
+  },
+  {
+    "_id": "prod_bb-shit-m030-5241",
+    "id": "prod_bb-shit-m030-5241",
+    "title": "BB SHIT M030",
+    "slug": "bb-shit-m030-5241",
+    "sku": "",
+    "price": 2698500,
+    "oldPrice": 3103275,
+    "old_price": 3103275,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_bb-shit-m030-2351_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Doska 140x80sm\nNarxi: 210$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:15.241Z"
+  },
+  {
+    "_id": "prod_padel-koptok-odea-5206",
+    "id": "prod_padel-koptok-odea-5206",
+    "title": "PADEL KOPTOK ODEA",
+    "slug": "padel-koptok-odea-5206",
+    "sku": "",
+    "price": 128500,
+    "oldPrice": 147775,
+    "old_price": 147775,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Futbol & To‘plar",
+    "category_slug": "toplar-oyinlar",
+    "categorySlug": "toplar-oyinlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_padel-koptok-odea-2369_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Original✅\nNarxi: 10$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:15.206Z"
+  },
+  {
+    "_id": "prod_bb-stand-m027-5167",
+    "id": "prod_bb-stand-m027-5167",
+    "title": "BB STAND M027",
+    "slug": "bb-stand-m027-5167",
+    "sku": "",
+    "price": 5075750,
+    "oldPrice": 5837113,
+    "old_price": 5837113,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_bb-stand-m027-2401_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Balandligi; 2.30m 3.05m\nDoskasi 140x82sm\nNarxi: 395$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:15.167Z"
+  },
+  {
+    "_id": "prod_bb-stand-m0182-5084",
+    "id": "prod_bb-stand-m0182-5084",
+    "title": "BB STAND M0182",
+    "slug": "bb-stand-m0182-5084",
+    "sku": "",
+    "price": 1285000,
+    "oldPrice": 1477750,
+    "old_price": 1477750,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_bb-stand-m0182-2262_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Balandligi 1.6m dan 2.1 gacha\nDoskasi 82x58sm\nNarxi: 100$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:15.084Z"
+  },
+  {
     "_id": "prod_fb-kopto-futsal-4r-star-5687",
     "id": "prod_fb-kopto-futsal-4r-star-5687",
     "title": "FB kopto futsal 4r Star ⭐️",
