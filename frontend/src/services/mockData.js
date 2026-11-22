@@ -78,6 +78,57 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_kord-kopto-head-reset-4tali-original-5088",
+    "id": "prod_kord-kopto-head-reset-4tali-original-5088",
+    "title": "Kord kopto HEAD RESET 4tali(Original✅)",
+    "slug": "kord-kopto-head-reset-4tali-original-5088",
+    "sku": "",
+    "price": 321250,
+    "oldPrice": 369438,
+    "old_price": 369438,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 15,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod_kord-kopto-head-reset-4tali-original-6051_1.jpg",
+      "/uploads/prod_kord-kopto-head-reset-4tali-original-6051_2.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Narxi: 25$",
+    "specifications": [
+      {
+        "label": "Brend",
+        "value": "Sport Line"
+      },
+      {
+        "label": "Kodi",
+        "value": "SPORT-OUTLET"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab bepul"
+      }
+    ],
+    "created_at": "2026-11-22T08:32:55.088Z"
+  },
+  {
     "_id": "prod_fitness-balance-58sm-2-5910",
     "id": "prod_fitness-balance-58sm-2-5910",
     "title": "Fitness balance 58sm 2",
