@@ -32,9 +32,9 @@ export default function AppSplashScreen() {
         {/* WYUE Official Squircle Icon */}
         <div className="relative group">
           <img
-            src="/wyue-app-icon.png?v=6"
+            src="/wyue-app-icon.png?v=7"
             alt="WYUE"
-            className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-contain shadow-2xl animate-pulse"
+            className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl object-contain shadow-2xl animate-pulse"
           />
         </div>
 

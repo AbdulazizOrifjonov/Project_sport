@@ -193,11 +193,11 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         <div className="h-14 sm:h-16 px-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#080c14] flex items-center justify-between shrink-0 shadow-xs z-10 gap-3">
           {/* Brand Logo & Title */}
           <div className="flex items-center gap-2.5 shrink-0">
-            <div className="h-9 w-9 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0 p-0.5">
+            <div className="h-10 px-2.5 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
               <img
-                src="/wyue-app-icon.png?v=6"
+                src="/wyue-logo.png?v=7"
                 alt="WYUE"
-                className="h-full w-full object-contain rounded-xl"
+                className="h-7 w-auto max-w-[95px] object-contain"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>

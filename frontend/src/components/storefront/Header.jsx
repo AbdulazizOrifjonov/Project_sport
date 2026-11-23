@@ -257,14 +257,14 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
               <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group h-12 shrink-0">
-                <div className="h-11 w-11 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all overflow-hidden shrink-0 p-0.5">
-                  <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="h-11 px-3 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all overflow-hidden shrink-0">
+                  <img src="/wyue-logo.png?v=7" alt="WYUE" className="h-8 w-auto max-w-[130px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <span className="font-black text-[18px] sm:text-[20px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
+                  <span className="font-black text-[19px] sm:text-[21px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
                     WYUE
                   </span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
                     Rasmiy do‘kon
                   </span>
                 </div>
@@ -413,8 +413,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="flex md:hidden items-center gap-2 h-14 w-full">
             {/* Logo (chapda) */}
             <Link to="/" className="flex items-center shrink-0">
-              <div className="h-10 w-10 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0 p-0.5">
-                <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="h-10.5 px-2.5 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0">
+                <img src="/wyue-logo.png?v=7" alt="WYUE" className="h-7.5 w-auto max-w-[95px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
 
@@ -662,21 +662,21 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5"
               >
-                <div className="h-10 w-10 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0 p-0.5">
+                <div className="h-11 px-3 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
                   <img
-                    src="/wyue-app-icon.png?v=6"
+                    src="/wyue-logo.png?v=7"
                     alt="WYUE"
-                    className="h-full w-full object-contain rounded-xl"
+                    className="h-7.5 w-auto max-w-[105px] object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                 </div>
                 <div>
-                  <div className="font-black text-[16px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
+                  <div className="font-black text-[17px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
                     WYUE
                   </div>
-                  <div className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
                     Rasmiy do‘kon
                   </div>
                 </div>
