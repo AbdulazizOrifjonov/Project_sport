@@ -171,10 +171,10 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 ${
+      className={`fixed inset-x-0 ${
         isDesktop
-          ? 'z-40'
-          : 'top-0 z-[100] h-[100dvh] w-screen'
+          ? 'bottom-0 z-40'
+          : 'top-0 bottom-[calc(68px+max(env(safe-area-inset-bottom,0px),8px))] z-[100] w-screen'
       } bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn`}
       style={
         isDesktop
@@ -182,7 +182,9 @@ export default function CategoryDrawer({ isOpen, onClose }) {
               top: 'var(--nsb-navbar-height, 168px)',
               height: 'calc(100dvh - var(--nsb-navbar-height, 168px))'
             }
-          : undefined
+          : {
+              height: 'calc(100dvh - 68px - max(env(safe-area-inset-bottom, 0px), 8px))'
+            }
       }
       onClick={(e) => e.stopPropagation()}
     >
