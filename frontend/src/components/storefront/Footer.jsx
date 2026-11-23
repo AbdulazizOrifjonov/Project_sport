@@ -13,8 +13,8 @@ export default function Footer() {
           {/* Col 1: About & Contacts */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="h-10 px-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-900 flex items-center justify-center shadow-md overflow-hidden shrink-0">
-                <img src="/wyue-logo.png?v=7" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain brightness-0 invert" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="flex items-center justify-center shrink-0">
+                <img src="/wyue-logo-dark.png?v=8" alt="WYUE" className="h-8 w-auto max-w-[110px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <span className="text-white text-lg font-black tracking-tight uppercase font-sans">WYUE</span>
             </div>

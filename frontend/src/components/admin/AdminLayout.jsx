@@ -125,7 +125,8 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           <div className="p-3.5 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10 gap-2">
             <Link to="/" className="flex items-center gap-2.5 group min-w-0">
               <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-all overflow-hidden shrink-0">
-                <img src="/wyue-logo.png?v=7" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain dark:brightness-0 dark:invert" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo.png?v=8" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain dark:hidden" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo-dark.png?v=8" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain hidden dark:block" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="min-w-0">
                 <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans whitespace-nowrap block leading-tight">

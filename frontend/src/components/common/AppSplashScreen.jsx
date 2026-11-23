@@ -29,12 +29,17 @@ export default function AppSplashScreen() {
       aria-hidden="true"
     >
       <div className="flex flex-col items-center">
-        {/* WYUE Official Squircle Icon */}
-        <div className="relative group">
+        {/* WYUE Official Logo */}
+        <div className="relative group flex items-center justify-center">
           <img
-            src="/wyue-app-icon.png?v=7"
+            src="/wyue-logo.png?v=8"
             alt="WYUE"
-            className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl object-contain shadow-2xl animate-pulse"
+            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse dark:hidden"
+          />
+          <img
+            src="/wyue-logo-dark.png?v=8"
+            alt="WYUE"
+            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse hidden dark:block"
           />
         </div>
 

@@ -195,9 +195,15 @@ export default function CategoryDrawer({ isOpen, onClose }) {
           <div className="flex items-center gap-2.5 shrink-0">
             <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
               <img
-                src="/wyue-logo.png?v=7"
+                src="/wyue-logo.png?v=8"
                 alt="WYUE"
-                className="h-6 w-auto max-w-[85px] object-contain dark:brightness-0 dark:invert"
+                className="h-6 w-auto max-w-[85px] object-contain dark:hidden"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+              <img
+                src="/wyue-logo-dark.png?v=8"
+                alt="WYUE"
+                className="h-6 w-auto max-w-[85px] object-contain hidden dark:block"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
