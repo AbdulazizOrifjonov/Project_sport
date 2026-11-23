@@ -391,7 +391,7 @@ export default function ProductDetailPage() {
               {/* Thumbnails list - 100% tayoqsiz, scrollbar yo'q qilingan */}
               <div
                 ref={thumbnailContainerRef}
-                className="flex sm:flex-col gap-2.5 overflow-x-auto sm:overflow-y-auto max-h-[460px] w-full sm:w-20 scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shrink-0 py-0.5"
+                className="flex sm:flex-col gap-2.5 overflow-x-auto sm:overflow-y-auto max-h-[460px] sm:max-h-[560px] w-full sm:w-20 scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shrink-0 py-0.5"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {images.map((img, i) => (
@@ -401,7 +401,7 @@ export default function ProductDetailPage() {
                     type="button"
                     onClick={() => setSelectedImage(i)}
                     onMouseEnter={() => setSelectedImage(i)}
-                    className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
+                    className={`group relative w-16 sm:w-20 aspect-[3/4] rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
                       selectedImage === i
                         ? 'border-slate-950 dark:border-white shadow-md ring-2 ring-slate-900/40 dark:ring-white/40 scale-102'
                         : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
@@ -415,7 +415,7 @@ export default function ProductDetailPage() {
                         e.target.onerror = null;
                         e.target.src = fallbackImage;
                       }}
-                      className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-115 will-change-transform"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 will-change-transform"
                     />
                   </button>
                 ))}
@@ -441,7 +441,7 @@ export default function ProductDetailPage() {
           )}
 
           {/* Main Selected Image - Smooth Hover Zoom (oldinga kattalashadi) */}
-          <div className="relative flex-1 w-full aspect-square rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
+          <div className="relative flex-1 w-full aspect-[3/4] rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
             {/* Discount Badge */}
             {product.discountPercent > 0 && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg text-xs font-black bg-red-600 text-white shadow-xs pointer-events-none">
@@ -486,7 +486,7 @@ export default function ProductDetailPage() {
                 style={{ transform: `translateX(-${selectedImage * 100}%)` }}
               >
                 {images.map((img, i) => (
-                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-white dark:bg-slate-900 overflow-hidden">
                     <img
                       src={img}
                       alt={`${product.title} ${i + 1}`}
@@ -499,7 +499,7 @@ export default function ProductDetailPage() {
                         transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
                         transition: isZooming ? 'transform 0.1s ease-out' : 'transform 0.3s ease-out'
                       }}
-                      className="w-full h-full object-contain p-2 sm:p-4 will-change-transform"
+                      className="w-full h-full object-cover will-change-transform"
                     />
                   </div>
                 ))}
@@ -1062,13 +1062,13 @@ export default function ProductDetailPage() {
                     e.stopPropagation();
                     setSelectedImage(idx);
                   }}
-                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 p-1 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
+                  className={`w-14 aspect-[3/4] sm:w-16 rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all cursor-pointer ${
                     selectedImage === idx
                       ? 'border-white scale-110 shadow-2xl ring-2 ring-white opacity-100'
                       : 'border-white/30 opacity-60 hover:opacity-100 hover:scale-105 hover:border-white/80'
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-contain" />
+                  <img src={img} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
