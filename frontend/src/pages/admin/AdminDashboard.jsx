@@ -1728,81 +1728,173 @@ export default function AdminDashboard() {
                 />
               </div>
 
-              {/* Products Table with LARGE FULL IMAGES */}
-              <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs transition-colors animate-admin-card-3">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs text-left">
-                    <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
-                      <tr>
-                        <th className="p-3.5">Rasm</th>
-                        <th className="p-3.5">Nomi & SKU</th>
-                        <th className="p-3.5">Kategoriya</th>
-                        <th className="p-3.5">Narx</th>
-                        <th className="p-3.5">Qoldiq</th>
-                        <th className="p-3.5">Holat</th>
-                        <th className="p-3.5 text-right">Amallar</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-900 dark:text-slate-200">
-                      {products
-                        .filter(p => p.title.toLowerCase().includes((productSearch || searchTerm).toLowerCase()))
-                        .map((p) => (
-                          <tr key={p._id} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors">
-                            {/* FULL SIZED SQUARE IMAGE */}
-                            <td className="p-3">
-                              <div className="w-16 aspect-[3/4] sm:w-20 rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0">
-                                <img
-                                  src={p.images?.[0] || 'https://via.placeholder.com/80'}
-                                  alt={p.title}
-                                  className="w-full h-full object-cover"
-                                  onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
-                                  }}
-                                />
+              {/* Products List & Table Container */}
+              {(() => {
+                const filteredProducts = products.filter(p => {
+                  const q = (productSearch || searchTerm || '').toLowerCase().trim();
+                  if (!q) return true;
+                  return (
+                    (p.title && p.title.toLowerCase().includes(q)) ||
+                    (p.sku && p.sku.toLowerCase().includes(q)) ||
+                    (p.category && p.category.toLowerCase().includes(q))
+                  );
+                });
+
+                return (
+                  <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs transition-colors animate-admin-card-3">
+                    {/* 1. Mobile & Compact 1-Row List View (Telefon va planshetlar uchun: Rasm, Nomi, Narxi, Edit, Delete bir qatorda) */}
+                    <div className="block lg:hidden divide-y divide-slate-100 dark:divide-slate-800">
+                      {filteredProducts.length === 0 ? (
+                        <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-xs">
+                          Mahsulot topilmadi
+                        </div>
+                      ) : (
+                        filteredProducts.map((p) => (
+                          <div
+                            key={p._id}
+                            className="flex items-center gap-2.5 p-2.5 sm:p-3 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors w-full"
+                          >
+                            {/* 1. Rasm (48x48 kvadrat) */}
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0 shadow-2xs">
+                              <img
+                                src={p.images?.[0] || 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80'}
+                                alt={p.title}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
+                                }}
+                              />
+                            </div>
+
+                            {/* 2. Mahsulot Nomi va Kategoriya/Qoldiq */}
+                            <div className="flex-1 min-w-0 pr-1">
+                              <h4 className="font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white truncate" title={p.title}>
+                                {p.title}
+                              </h4>
+                              <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-400 font-medium truncate mt-0.5">
+                                <span className="truncate">{p.category || 'Sport'}</span>
+                                <span>•</span>
+                                <span className={p.stock > 0 ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-rose-500 font-bold'}>
+                                  {p.stock > 0 ? `${p.stock} ta` : '0 ta'}
+                                </span>
+                                {p.isBestseller && (
+                                  <span className="px-1.5 py-0.2 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-[9px] font-black">XIT</span>
+                                )}
                               </div>
-                            </td>
-                            <td className="p-3">
-                              <div className="font-extrabold text-sm text-slate-900 dark:text-white line-clamp-2 max-w-sm">{p.title}</div>
-                              <div className="text-[11px] text-slate-400 font-mono mt-0.5">SKU: {p.sku || 'N/A'} • {p.brand || 'NSB'}</div>
-                            </td>
-                            <td className="p-3 font-semibold text-slate-600 dark:text-slate-300">{p.category}</td>
-                            <td className="p-3 font-black text-slate-950 dark:text-white whitespace-nowrap">{formatPrice(p.price)} so‘m</td>
-                            <td className="p-3">
-                              <span className={`px-2.5 py-1 rounded-full font-black text-[11px] ${
-                                p.stock > 5 ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 animate-pulse'
-                              }`}>
-                                {p.stock} dona
-                              </span>
-                            </td>
-                            <td className="p-3 whitespace-nowrap">
-                              {p.isBestseller && <span className="mr-1 px-2 py-0.5 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 rounded-md font-black text-[10px]">XIT</span>}
-                              {p.isWeeklyDeal && <span className="px-2 py-0.5 bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-200 rounded-md font-black text-[10px]">AKSIYA</span>}
-                            </td>
-                            <td className="p-3 text-right space-x-2 whitespace-nowrap">
+                            </div>
+
+                            {/* 3. Narxi */}
+                            <div className="shrink-0 text-right pr-1">
+                              <div className="font-black text-xs sm:text-sm text-slate-950 dark:text-white whitespace-nowrap">
+                                {formatPrice(p.price)}
+                              </div>
+                              {p.oldPrice > p.price && (
+                                <div className="text-[10px] text-slate-400 line-through">
+                                  {formatPrice(p.oldPrice)}
+                                </div>
+                              )}
+                            </div>
+
+                            {/* 4. Edit va Delete tugmalari (Bir qatorda, qulay) */}
+                            <div className="flex items-center gap-1 shrink-0">
                               <button
                                 type="button"
                                 onClick={() => handleOpenProductForm(p)}
-                                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[var(--color-primary-600)] dark:text-white transition-colors cursor-pointer"
+                                className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/60 text-blue-600 dark:text-blue-400 transition-colors cursor-pointer"
                                 title="Tahrirlash"
+                                aria-label="Tahrirlash"
                               >
-                                <Edit className="w-4 h-4" />
+                                <Edit className="w-3.5 h-3.5" />
                               </button>
                               <button
                                 type="button"
                                 onClick={() => handleDeleteProduct(p._id)}
-                                className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900 text-rose-600 dark:text-white transition-colors cursor-pointer"
+                                className="w-8 h-8 flex items-center justify-center rounded-lg bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900 text-rose-600 dark:text-rose-400 transition-colors cursor-pointer"
                                 title="O‘chirish"
+                                aria-label="O‘chirish"
                               >
-                                <Trash2 className="w-4 h-4" />
+                                <Trash2 className="w-3.5 h-3.5" />
                               </button>
-                            </td>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+
+                    {/* 2. Desktop Katta Ekran Jadvali (lg:block) */}
+                    <div className="hidden lg:block overflow-x-auto">
+                      <table className="w-full text-xs text-left">
+                        <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-extrabold uppercase text-[10px] tracking-wider">
+                          <tr>
+                            <th className="p-3.5">Rasm</th>
+                            <th className="p-3.5">Nomi & SKU</th>
+                            <th className="p-3.5">Kategoriya</th>
+                            <th className="p-3.5">Narx</th>
+                            <th className="p-3.5">Qoldiq</th>
+                            <th className="p-3.5">Holat</th>
+                            <th className="p-3.5 text-right">Amallar</th>
                           </tr>
-                        ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-900 dark:text-slate-200">
+                          {filteredProducts.map((p) => (
+                            <tr key={p._id} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors">
+                              <td className="p-3">
+                                <div className="w-14 h-14 rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs shrink-0">
+                                  <img
+                                    src={p.images?.[0] || 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80'}
+                                    alt={p.title}
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                      e.target.onerror = null;
+                                      e.target.src = 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80';
+                                    }}
+                                  />
+                                </div>
+                              </td>
+                              <td className="p-3">
+                                <div className="font-extrabold text-sm text-slate-900 dark:text-white line-clamp-2 max-w-sm">{p.title}</div>
+                                <div className="text-[11px] text-slate-400 font-mono mt-0.5">SKU: {p.sku || 'N/A'} • {p.brand || 'NSB'}</div>
+                              </td>
+                              <td className="p-3 font-semibold text-slate-600 dark:text-slate-300">{p.category}</td>
+                              <td className="p-3 font-black text-slate-950 dark:text-white whitespace-nowrap">{formatPrice(p.price)}</td>
+                              <td className="p-3">
+                                <span className={`px-2.5 py-1 rounded-full font-black text-[11px] ${
+                                  p.stock > 5 ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 animate-pulse'
+                                }`}>
+                                  {p.stock} dona
+                                </span>
+                              </td>
+                              <td className="p-3 whitespace-nowrap">
+                                {p.isBestseller && <span className="mr-1 px-2 py-0.5 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 rounded-md font-black text-[10px]">XIT</span>}
+                                {p.isWeeklyDeal && <span className="px-2 py-0.5 bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-200 rounded-md font-black text-[10px]">AKSIYA</span>}
+                              </td>
+                              <td className="p-3 text-right space-x-2 whitespace-nowrap">
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenProductForm(p)}
+                                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400 transition-colors cursor-pointer"
+                                  title="Tahrirlash"
+                                >
+                                  <Edit className="w-4 h-4" />
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteProduct(p._id)}
+                                  className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900 text-rose-600 dark:text-white transition-colors cursor-pointer"
+                                  title="O‘chirish"
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           )}
         </div>

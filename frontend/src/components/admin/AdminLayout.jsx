@@ -105,7 +105,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
   const formatPrice = (n) => `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} so‘m`;
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 flex transition-colors duration-200">
+    <div className="min-h-screen w-full max-w-full overflow-x-clip bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 flex transition-colors duration-200">
       {/* Sidebar Overlay (Mobile) */}
       {sidebarOpen && (
         <div
@@ -125,11 +125,11 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="h-9 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 transition-all overflow-hidden shrink-0">
-                <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-6 w-auto max-w-[85px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo.png?v=2" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div>
                 <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans">
-                  SPORT OUTLET ADMIN
+                  WYUE ADMIN
                 </span>
                 <span className="block text-[10px] text-slate-400 font-bold tracking-wider uppercase">
                   Boshqaruv Paneli
@@ -205,9 +205,9 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
       </aside>
 
       {/* Main Content Area (padded on left by sidebar width on desktop) */}
-      <div className="lg:pl-64 flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-hidden">
-        {/* Top Navbar */}
-        <header className="sticky top-0 z-30 bg-white dark:bg-[#111827] border-b border-slate-200 dark:border-slate-800 px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-3 shadow-2xs transition-colors duration-200 h-16 w-full max-w-full">
+      <div className="lg:pl-64 flex-1 flex flex-col min-w-0 w-full max-w-full overflow-x-clip">
+        {/* Top Navbar - Sticky Pinned Header */}
+        <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-3 shadow-sm transition-colors duration-200 h-16 w-full max-w-full">
           {/* Left: Mobile hamburger & Breadcrumb */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
@@ -337,7 +337,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
                   {isSupabaseConfigured ? "Bog'langan" : "Tayyor (Online)"}
                 </span>
               </div>
-              <div className="h-10 w-10 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center font-black text-sm shadow-2xs shrink-0 cursor-default" title="Admin (SPORT OUTLET)">
+              <div className="h-10 w-10 rounded-xl bg-black border border-white/20 text-white flex items-center justify-center font-black text-sm shadow-2xs shrink-0 cursor-default" title="Admin (WYUE)">
                 A
               </div>
             </div>
@@ -345,7 +345,7 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
         </header>
 
         {/* Dynamic Page Content with Animated Page Entrance */}
-        <main className="p-3 sm:p-4 md:p-6 lg:p-8 flex-1 w-full max-w-full min-w-0 overflow-x-hidden bg-slate-50 dark:bg-[#000000] transition-colors duration-200">
+        <main className="p-3 sm:p-4 md:p-6 lg:p-8 flex-1 w-full max-w-full min-w-0 overflow-x-clip bg-slate-50 dark:bg-[#000000] transition-colors duration-200">
           <div key={activeTab} className="animate-admin-page-enter w-full max-w-full min-w-0">
             {children}
           </div>
