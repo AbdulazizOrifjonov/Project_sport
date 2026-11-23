@@ -382,7 +382,10 @@ function extractPrice(text = '') {
       return { price, priceUSD, rawPriceLabel };
     }
 
-    const somMatch = line.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sum|ming)/i);
+    // Clean line of model patterns like 4&1, 2&1, 3in1 before checking for standalone digits
+    const cleanedLine = line.replace(/\b\d+\s*&\s*\d+\b/g, '').replace(/\b\d+\s*in\s*\d+\b/gi, '');
+
+    const somMatch = cleanedLine.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sōm|sum|ming|uzs)/i);
     if (somMatch) {
       let digits = somMatch[1].replace(/[^\d]/g, '');
       if (/ming/i.test(line)) {
@@ -398,9 +401,10 @@ function extractPrice(text = '') {
 
   // If user just typed a 4+ digit number
   for (const line of rawLines) {
-    const rawDigits = line.replace(/[^\d]/g, '');
-    if (rawDigits.length >= 4 && rawDigits.length <= 9) {
-      price = parseInt(rawDigits, 10);
+    const cleanedLine = line.replace(/\b\d+\s*&\s*\d+\b/g, '').replace(/\b\d+\s*in\s*\d+\b/gi, '');
+    const somMatch = cleanedLine.match(/(\d{4,9})/);
+    if (somMatch) {
+      price = parseInt(somMatch[1], 10);
       rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
       return { price, priceUSD: 0, rawPriceLabel };
     }
