@@ -256,18 +256,10 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="hidden md:flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
-              <Link to="/" className="flex items-center gap-3 group h-12 shrink-0">
+              <Link to="/" className="flex items-center group h-12 shrink-0">
                 <div className="h-12 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 flex items-center justify-center shadow-none group-hover:scale-105 transition-all overflow-hidden shrink-0">
                   <img src="/wyue-logo.png?v=21" alt="WYUE" className="h-7.5 w-auto max-w-[120px] object-contain dark:hidden" onError={(e) => { e.target.style.display = 'none'; }} />
                   <img src="/wyue-logo-dark.png?v=21" alt="WYUE" className="h-7.5 w-auto max-w-[120px] object-contain hidden dark:block" onError={(e) => { e.target.style.display = 'none'; }} />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <span className="font-black text-[19px] sm:text-[21px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
-                    WYUE
-                  </span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
-                    Rasmiy do‘kon
-                  </span>
                 </div>
               </Link>
 
