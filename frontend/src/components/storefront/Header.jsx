@@ -352,42 +352,42 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             <div className="hidden md:flex items-center gap-2 ml-auto md:ml-0 flex-shrink-0">
               <Link
                 to="/compare"
-                className="hidden xl:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+                className="hidden xl:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-950 dark:text-white hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
                 title={t('header.compare')}
               >
                 <span className="relative">
-                  <GitCompare className="w-4.5 h-4.5 text-slate-700 dark:text-slate-300" />
+                  <GitCompare className="w-4 h-4 text-slate-950 dark:text-white stroke-[2.2]" />
                   {compareList.length > 0 && (
                     <span className="absolute -top-1.5 -right-2 min-w-[17px] h-[17px] px-1 rounded-full bg-emerald-500 text-slate-950 text-[9px] font-black flex items-center justify-center shadow-xs">
                       {compareList.length}
                     </span>
                   )}
                 </span>
-                <span className="text-[10px] font-bold leading-none">{t('header.compare')}</span>
+                <span className="text-[10px] font-extrabold text-slate-950 dark:text-white leading-none tracking-tight">{t('header.compare')}</span>
               </Link>
 
               <Link
                 to="/account"
-                className="hidden md:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+                className="hidden md:inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-950 dark:text-white hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
               >
-                <User className="w-4.5 h-4.5 text-slate-700 dark:text-slate-300" />
-                <span className="text-[10px] font-bold leading-none">{user ? user.name.split(' ')[0] : t('header.login')}</span>
+                <User className="w-4 h-4 text-slate-950 dark:text-white stroke-[2.2]" />
+                <span className="text-[10px] font-extrabold text-slate-950 dark:text-white leading-none tracking-tight">{user ? user.name.split(' ')[0] : t('header.login')}</span>
               </Link>
 
               <Link
                 to="/wishlist"
-                className="inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
+                className="inline-flex h-12 px-3.5 flex-col items-center justify-center gap-0.5 text-slate-950 dark:text-white hover:text-slate-950 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700/80 transition-all shadow-xs box-border active:scale-95"
                 aria-label={t('header.wishlist')}
               >
                 <span className="relative">
-                  <Heart className="w-4.5 h-4.5 text-slate-700 dark:text-slate-300" />
+                  <Heart className="w-4 h-4 text-slate-950 dark:text-white stroke-[2.2]" />
                   {wishlist.length > 0 && (
                     <span className="absolute -top-1.5 -right-2 min-w-[17px] h-[17px] px-1 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
                       {wishlist.length}
                     </span>
                   )}
                 </span>
-                <span className="text-[10px] font-bold leading-none">{t('header.wishlist')}</span>
+                <span className="text-[10px] font-extrabold text-slate-950 dark:text-white leading-none tracking-tight">{t('header.wishlist')}</span>
               </Link>
 
               <Link
