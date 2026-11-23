@@ -59,18 +59,18 @@ export default function CategoryDrawer({ isOpen, onClose }) {
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [catSearch, setCatSearch] = useState('');
   const [isDesktop, setIsDesktop] = useState(
-    typeof window !== 'undefined' ? window.innerWidth >= 750 : true
+    typeof window !== 'undefined' ? window.innerWidth >= 768 : true
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 750);
+      setIsDesktop(window.innerWidth >= 768);
       const headerEl = document.querySelector('header');
       if (headerEl) {
         const h = headerEl.getBoundingClientRect().height || headerEl.offsetHeight;
         if (h > 0) {
-          document.documentElement.style.setProperty('--nsb-navbar-height', `${h}px`);
-          document.documentElement.style.setProperty('--nsb-header-height', `${h}px`);
+          document.documentElement.style.setProperty('--nsb-navbar-height', `${Math.round(h)}px`);
+          document.documentElement.style.setProperty('--nsb-header-height', `${Math.round(h)}px`);
         }
       }
     };
@@ -93,21 +93,21 @@ export default function CategoryDrawer({ isOpen, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Lock body scroll and fetch categories on open
+  // Lock body scroll safely and fetch categories on open
   useEffect(() => {
     if (isOpen) {
       const originalBodyOverflow = document.body.style.overflow;
-      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalBodyOverscroll = document.body.style.overscrollBehavior;
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overscrollBehavior = 'contain';
 
       const updateNavbarHeight = () => {
         const headerEl = document.querySelector('header');
         if (headerEl) {
           const h = headerEl.getBoundingClientRect().height || headerEl.offsetHeight;
           if (h > 0) {
-            document.documentElement.style.setProperty('--nsb-navbar-height', `${h}px`);
-            document.documentElement.style.setProperty('--nsb-header-height', `${h}px`);
+            document.documentElement.style.setProperty('--nsb-navbar-height', `${Math.round(h)}px`);
+            document.documentElement.style.setProperty('--nsb-header-height', `${Math.round(h)}px`);
           }
         }
       };
@@ -116,7 +116,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
       api
         .get('/categories')
         .then((res) => {
-          if (res.data.success && res.data.categories.length > 0) {
+          if (res.data.success && res.data.categories && res.data.categories.length > 0) {
             setCategories(res.data.categories);
             if (!activeCategory) {
               setActiveCategory(res.data.categories[0]);
@@ -127,7 +127,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
       return () => {
         document.body.style.overflow = originalBodyOverflow || '';
-        document.documentElement.style.overflow = originalHtmlOverflow || '';
+        document.body.style.overscrollBehavior = originalBodyOverscroll || '';
       };
     }
   }, [isOpen]);
@@ -171,60 +171,32 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className={`fixed inset-x-0 ${
-        isDesktop
-          ? 'bottom-0 z-40'
-          : 'top-0 bottom-[calc(68px+max(env(safe-area-inset-bottom,0px),8px))] z-[100] w-screen'
-      } bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn`}
-      style={
-        isDesktop
-          ? {
-              top: 'var(--nsb-navbar-height, 168px)',
-              height: 'calc(100dvh - var(--nsb-navbar-height, 168px))'
-            }
-          : {
-              height: 'calc(100dvh - 68px - max(env(safe-area-inset-bottom, 0px), 8px))'
-            }
-      }
+      className="fixed inset-x-0 z-40 bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn border-t border-slate-200/80 dark:border-slate-800/80"
+      style={{
+        top: 'var(--nsb-navbar-height, 104px)',
+        bottom: isDesktop
+          ? '0px'
+          : 'calc(64px + max(env(safe-area-inset-bottom, 0px), 8px))',
+        overscrollBehavior: 'contain'
+      }}
       onClick={(e) => e.stopPropagation()}
     >
-      {/* 1. Mobile-only Top Header (< 750px) */}
+      {/* 1. Mobile-only Compact Bar (< 768px) - Clean title without duplicate logo */}
       {!isDesktop && (
-        <div className="h-14 sm:h-16 px-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#080c14] flex items-center justify-between shrink-0 shadow-xs z-10 gap-3">
-          {/* Brand Logo & Title */}
-          <div className="flex items-center gap-2.5 shrink-0">
-            <div className="flex items-center justify-center shrink-0 bg-transparent border-none shadow-none">
-              <img
-                src="/wyue-logo-clean.png?v=30"
-                alt="WYUE"
-                className="h-7 w-auto max-w-[95px] object-contain dark:hidden shadow-none border-none"
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-              <img
-                src="/wyue-logo-clean-dark.png?v=30"
-                alt="WYUE"
-                className="h-7 w-auto max-w-[95px] object-contain hidden dark:block shadow-none border-none"
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-            </div>
-            <div>
-              <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none tracking-tight">
-                WYUE
-              </div>
-              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-extrabold uppercase tracking-wider mt-0.5">
-                Katalog
-              </div>
-            </div>
+        <div className="h-10 px-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/90 dark:bg-slate-900/80 flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2">
+            <LayoutGrid className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-200">
+              {t('header.catalog', 'Mahsulotlar katalogi')}
+            </span>
           </div>
-
-          {/* Mobile Yopish Button */}
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-900 dark:text-white text-xs font-bold transition-all cursor-pointer shadow-2xs shrink-0"
+            className="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white cursor-pointer px-2 py-1 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 active:scale-95 transition-all"
             aria-label="Katalogni yopish"
           >
-            <X className="w-4 h-4 stroke-[2.5]" />
+            <X className="w-3.5 h-3.5 stroke-[2.5]" />
             <span>Yopish</span>
           </button>
         </div>
@@ -233,7 +205,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
       {/* 2. Content Area */}
       <div className="flex-1 w-full max-w-[1920px] mx-auto flex overflow-hidden">
         {/* Left Categories List: Responsive, full width on mobile (< md), sidebar on desktop (md+) */}
-        <div className="w-full md:w-80 lg:w-96 shrink-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800 overflow-y-auto p-3 sm:p-4 bg-slate-50/70 dark:bg-black/60 space-y-1.5 pb-24 md:pb-4">
+        <div className="w-full md:w-80 lg:w-96 shrink-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800 overflow-y-auto p-3 sm:p-4 bg-slate-50/70 dark:bg-black/60 space-y-1.5 pb-10 md:pb-4 overscroll-contain">
           {/* Category Search Input */}
           <div className="relative mb-2 shrink-0">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
@@ -321,7 +293,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         </div>
 
         {/* Right Content Area: Stretches across all remaining screen width (Desktop only) */}
-        <div className="hidden md:flex flex-1 min-w-0 overflow-y-auto p-6 lg:p-8 flex-col justify-between bg-white dark:bg-[#000000]">
+        <div className="hidden md:flex flex-1 min-w-0 overflow-y-auto p-6 lg:p-8 flex-col justify-between bg-white dark:bg-[#000000] overscroll-contain">
           {activeCategory ? (
             <div className="space-y-6">
               {/* Category Header Row */}

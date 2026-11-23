@@ -465,15 +465,25 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               )}
             </div>
 
-            {/* Sidebarni ochadigan buton (=) (o'ng burchakda - bosilganda yon sidebar ochiladi) */}
+            {/* Sidebarni ochadigan buton (=) / Katalogni yopadigan buton (X) */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={() => {
+                if (isCatalogOpen && onToggleCatalog) {
+                  onToggleCatalog();
+                } else {
+                  setMobileMenuOpen(true);
+                }
+              }}
               className="h-10 w-10 flex items-center justify-center rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 border border-slate-900 dark:border-white transition-all cursor-pointer shrink-0 shadow-2xs active:scale-95"
-              aria-label="Menyu va sozlamalar"
-              title="Menyu"
+              aria-label={isCatalogOpen ? "Katalogni yopish" : "Menyu va sozlamalar"}
+              title={isCatalogOpen ? "Katalogni yopish" : "Menyu"}
             >
-              <Menu className="w-5 h-5 stroke-[2.5]" />
+              {isCatalogOpen ? (
+                <X className="w-5 h-5 stroke-[2.5]" />
+              ) : (
+                <Menu className="w-5 h-5 stroke-[2.5]" />
+              )}
             </button>
           </div>
         </div>
