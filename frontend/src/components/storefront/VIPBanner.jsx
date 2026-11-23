@@ -18,7 +18,7 @@ export default function VIPBanner() {
           className="flex-1 text-center flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
         >
           <span className="font-extrabold bg-white/20 dark:bg-white/20 px-2 py-0.5 rounded-md text-[11px] uppercase tracking-wider text-white">
-            {t('vip.badge', 'SPORT OUTLET')}
+            {t('vip.badge', 'WYUE')}
           </span>
           <span className="hidden sm:inline font-semibold">
             {t('vip.text', 'Professional trenajorlar, gantel podstavkalari va fitnes anjomlariga outlet chegirmalari!')}

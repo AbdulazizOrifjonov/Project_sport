@@ -258,14 +258,14 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             <div className="flex items-center gap-3 md:gap-4">
               <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group h-12 shrink-0">
                 <div className="h-11 px-2.5 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all overflow-hidden shrink-0">
-                  <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-7 w-auto max-w-[110px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <img src="/wyue-logo.png?v=2" alt="WYUE" className="h-7 w-auto max-w-[120px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <span className="font-black text-[17px] sm:text-[19px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
-                    SPORT OUTLET
+                  <span className="font-black text-[18px] sm:text-[20px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
+                    WYUE
                   </span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-extrabold -mt-0.5">
-                    Sport &amp; Fitness Store
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
+                    Rasmiy do‘kon
                   </span>
                 </div>
               </Link>
@@ -414,7 +414,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Logo (chapda) */}
             <Link to="/" className="flex items-center shrink-0">
               <div className="h-10 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0">
-                <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-6 w-auto max-w-[85px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo.png?v=2" alt="WYUE" className="h-6 w-auto max-w-[95px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
 
@@ -664,20 +664,20 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               >
                 <div className="h-10 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
                   <img
-                    src="/logo.png"
-                    alt="WYUE SPORT OUTLET"
-                    className="h-6 w-auto max-w-[85px] object-contain"
+                    src="/wyue-logo.png?v=2"
+                    alt="WYUE"
+                    className="h-6 w-auto max-w-[90px] object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                 </div>
                 <div>
-                  <div className="font-black text-[15px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
-                    SPORT OUTLET
+                  <div className="font-black text-[16px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
+                    WYUE
                   </div>
-                  <div className="text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
-                    Sport &amp; Fitness Store
+                  <div className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
+                    Rasmiy do‘kon
                   </div>
                 </div>
               </Link>

@@ -193,17 +193,17 @@ export default function CategoryDrawer({ isOpen, onClose }) {
           <div className="flex items-center gap-2.5 shrink-0">
             <div className="h-9 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
               <img
-                src="/logo.png"
-                alt="SPORT OUTLET"
+                src="/wyue-logo.png?v=2"
+                alt="WYUE"
                 className="h-5.5 w-auto max-w-[85px] object-contain"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
             <div>
               <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none tracking-tight">
-                SPORT OUTLET
+                WYUE
               </div>
-              <div className="text-[9px] text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wider mt-0.5">
+              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-extrabold uppercase tracking-wider mt-0.5">
                 Katalog
               </div>
             </div>

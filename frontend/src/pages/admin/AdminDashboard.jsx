@@ -272,7 +272,7 @@ export default function AdminDashboard() {
       _id: 'ban-1',
       title: 'Original Sport Kiyimlari va Poyabzallar',
       subtitle: 'Nike, Adidas, Jordan, Under Armour va Gymshark mahsulotlari eng yaxshi narxlarda.',
-      badge: 'SPORT OUTLET RASMIY KOLLEKSIYASI',
+      badge: 'WYUE RASMIY KOLLEKSIYASI',
       link: '/shop',
       type: 'hero',
       image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1600&auto=format&fit=crop&q=80',
@@ -341,7 +341,7 @@ export default function AdminDashboard() {
       userName: 'Bekzod Karimov',
       rating: 5,
       productTitle: 'Nike Air Jordan 1 Retro High OG',
-      comment: 'Nike Air Jordan 1 original sifati ajoyib, oyoqqa juda qulay o‘tirdi. SPORT OUTLET ga tezkor yetkazib berish uchun rahmat!',
+      comment: 'Nike Air Jordan 1 original sifati ajoyib, oyoqqa juda qulay o‘tirdi. WYUE ga tezkor yetkazib berish uchun rahmat!',
       createdAt: '2026-03-01',
       status: 'approved'
     },
@@ -619,7 +619,7 @@ export default function AdminDashboard() {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  SPORT OUTLET E-Commerce Tizimi — Savdo hajmi, tushumlar dinamikasi, ombor qoldiqlari va mijozlar tahlili.
+                  WYUE E-Commerce Tizimi — Savdo hajmi, tushumlar dinamikasi, ombor qoldiqlari va mijozlar tahlili.
                 </p>
               </div>
 
@@ -1405,7 +1405,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.brand}
                           onChange={(e) => setProductForm({ ...productForm, brand: e.target.value })}
-                          placeholder="Sport Line, Nike, Everlast, SPORT OUTLET..."
+                          placeholder="Sport Line, Nike, Everlast, WYUE..."
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold text-slate-900 dark:text-white outline-none"
                         />
                       </div>

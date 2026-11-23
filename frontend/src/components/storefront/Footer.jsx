@@ -14,9 +14,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <div className="h-9 px-2.5 rounded-xl bg-white border border-slate-700 text-slate-900 flex items-center justify-center shadow-md overflow-hidden shrink-0">
-                <img src="/logo.png" alt="WYUE SPORT OUTLET" className="h-6 w-auto max-w-[90px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo.png?v=2" alt="WYUE" className="h-6 w-auto max-w-[90px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <span className="text-white text-lg font-black tracking-tight uppercase font-sans">SPORT OUTLET</span>
+              <span className="text-white text-lg font-black tracking-tight uppercase font-sans">WYUE</span>
             </div>
             <p className="text-xs leading-relaxed text-slate-400 mb-4">
               {t('footer.desc')}
@@ -169,7 +169,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 "SPORT OUTLET" Do‘koni. {t('footer.rights')}</p>
+          <p>© 2026 "WYUE" Do‘koni. {t('footer.rights')}</p>
           <p className="flex items-center gap-2">
             <span>{t('footer.inn')}: 308941258</span>
             <span>•</span>

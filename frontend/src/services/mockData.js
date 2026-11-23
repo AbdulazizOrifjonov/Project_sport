@@ -189,7 +189,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "130000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "130000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -241,7 +241,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "339000 - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "339000 - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -292,7 +292,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "330000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "330000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -342,7 +342,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Chax 135000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "Chax 135000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -394,7 +394,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "169000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "169000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -445,7 +445,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "825000 - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "825000 - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -496,7 +496,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Trimmer ( maysa kaltalagich) 440000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "Trimmer ( maysa kaltalagich) 440000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -547,7 +547,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Turbo fen 92000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "Turbo fen 92000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -598,7 +598,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "164000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "164000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -650,7 +650,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "460000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "460000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -701,7 +701,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "4&1 nabor 895000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "4&1 nabor 895000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -752,7 +752,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "2&1-569000 sōm - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "2&1-569000 sōm - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
@@ -803,7 +803,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "130000 - SPORT OUTLET kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
+    "description": "130000 - WYUE kafolatli original mahsuloti. Buxoro bo'ylab tezkor yetkazib berish.",
     "specifications": [
       {
         "label": "Brend",
