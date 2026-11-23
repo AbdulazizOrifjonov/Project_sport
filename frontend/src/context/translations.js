@@ -38,7 +38,7 @@ export const translations = {
     "nav.b2b": "Ulgurji savdo (B2B)",
 
     // Hero Section
-    "hero.badge": "WYUE — Rasmiy kafolat",
+    "hero.badge": "SPORT OUTLET — Rasmiy kafolat",
     "hero.title": "Original sport kiyimlari va krossovkalar",
     "hero.desc": "Nike, Adidas, Puma, Jordan, Under Armour original krossovkalari, sport kiyimlari va fitnes aksessuarlari. 100% original, rasmiy kafolat bilan.",
     "hero.btnCatalog": "Katalogga o‘tish",
@@ -236,7 +236,7 @@ export const translations = {
     "drawer.monSat": "Dush - Shanba: 09:00 - 19:00",
 
     // Footer
-    "footer.desc": "WYUE — original sport kiyimlari, krossovkalar, fitnes aksessuarlari va sifatli sport anjomlari do‘koni.",
+    "footer.desc": "SPORT OUTLET — original sport kiyimlari, krossovkalar, fitnes aksessuarlari va sifatli sport anjomlari do‘koni.",
     "footer.catalog": "Katalog",
     "footer.company": "Kompaniya",
     "footer.customers": "Xaridorlarga",
@@ -286,7 +286,7 @@ export const translations = {
     "nav.b2b": "Оптовые заказы (B2B)",
 
     // Hero Section
-    "hero.badge": "WYUE — 100% Оригинал",
+    "hero.badge": "SPORT OUTLET — 100% Оригинал",
     "hero.title": "Оригинальная спортивная одежда и кроссовки",
     "hero.desc": "Кроссовки, спортивная одежда и фитнес-аксессуары Nike, Adidas, Puma, Jordan, Under Armour с гарантией оригинальности.",
     "hero.btnCatalog": "В каталог",
@@ -484,7 +484,7 @@ export const translations = {
     "drawer.monSat": "Пн - Сб: 09:00 - 19:00",
 
     // Footer
-    "footer.desc": "WYUE — магазин оригинальной спортивной одежды, кроссовок, фитнес-аксессуаров и качественного спортинвентаря.",
+    "footer.desc": "SPORT OUTLET — магазин оригинальной спортивной одежды, кроссовок, фитнес-аксессуаров и качественного спортинвентаря.",
     "footer.catalog": "Каталог",
     "footer.company": "Компания",
     "footer.customers": "Покупателям",
@@ -534,7 +534,7 @@ export const translations = {
     "nav.b2b": "Wholesale (B2B)",
 
     // Hero Section
-    "hero.badge": "WYUE — 100% Authentic",
+    "hero.badge": "SPORT OUTLET — 100% Authentic",
     "hero.title": "Original Sportswear & Sneakers",
     "hero.desc": "Nike, Adidas, Puma, Jordan, Under Armour original sneakers, athletic apparel and workout accessories with authentic warranty.",
     "hero.btnCatalog": "Browse Catalog",
@@ -732,7 +732,7 @@ export const translations = {
     "drawer.monSat": "Mon - Sat: 09:00 - 19:00",
 
     // Footer
-    "footer.desc": "WYUE — authentic athletic apparel, sneakers, training gear and premium sports accessories with fast delivery.",
+    "footer.desc": "SPORT OUTLET — authentic athletic apparel, sneakers, training gear and premium sports accessories with fast delivery.",
     "footer.catalog": "Catalog",
     "footer.company": "Company",
     "footer.customers": "Customers",

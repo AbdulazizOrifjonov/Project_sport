@@ -517,7 +517,7 @@ export const dataService = {
       category: productData.category || 'Trenajorlar & Kardio',
       category_slug: productData.categorySlug || productData.category_slug || 'trenajorlar',
       subcategory: productData.subcategory || '',
-      brand: productData.brand || 'WYUE',
+      brand: productData.brand || 'SPORT OUTLET',
       stock,
       in_stock: inStock,
       rating: 5.0,

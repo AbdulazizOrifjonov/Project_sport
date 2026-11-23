@@ -11,7 +11,7 @@ export default function ReviewsSection() {
         author: 'Aziz Raximov',
         role: 'Yugurish klubi a’zosi, Buxoro',
         date: '3 noyabr 2026',
-        comment: 'WYUE dan Nike Air Jordan 1 va Air Force 1 krossovkalarini xarid qildik. Mahsulot 100% original, sifati va qulayligi juda ajoyib. Tezkor yetkazib berishdi!',
+        comment: 'SPORT OUTLET dan Nike Air Jordan 1 va Air Force 1 krossovkalarini xarid qildik. Mahsulot 100% original, sifati va qulayligi juda ajoyib. Tezkor yetkazib berishdi!',
         rating: 5,
       },
       {
@@ -41,14 +41,14 @@ export default function ReviewsSection() {
         author: 'Азиз Рахимов',
         role: 'Член бегового клуба, Бухара',
         date: '3 ноября 2026',
-        comment: 'Заказали в WYUE оригинальные кроссовки Nike Air Jordan 1 и Air Force 1. Качество 100% оригинальное, коробки в идеале, доставка очень быстрая!',
+        comment: 'Заказали в SPORT OUTLET оригинальные кроссовки Nike Air Jordan 1 и Air Force 1. Качество 100% оригинальное, коробки в идеале, доставка очень быстрая!',
         rating: 5,
       },
       {
         author: 'Нодира Салимова',
         role: 'Фитнес-тренер, "FitLife Bukhara"',
         date: '28 октября 2026',
-        comment: 'Заказали для нашего фитнес-клуба форму Gymshark и фитнес-резинки. Ткань дышащая, швы прочные, сидит идеально. Спасибо WYUE!',
+        comment: 'Заказали для нашего фитнес-клуба форму Gymshark и фитнес-резинки. Ткань дышащая, швы прочные, сидит идеально. Спасибо SPORT OUTLET!',
         rating: 5,
       },
       {
@@ -71,7 +71,7 @@ export default function ReviewsSection() {
         author: 'Aziz Rakhimov',
         role: 'Running Club Member, Bukhara',
         date: 'November 3, 2026',
-        comment: 'Ordered authentic Nike Air Jordan 1 and Air Force 1 sneakers from WYUE. 100% original quality, perfect packaging and rapid delivery.',
+        comment: 'Ordered authentic Nike Air Jordan 1 and Air Force 1 sneakers from SPORT OUTLET. 100% original quality, perfect packaging and rapid delivery.',
         rating: 5,
       },
       {

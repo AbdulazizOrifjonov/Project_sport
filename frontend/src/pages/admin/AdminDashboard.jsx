@@ -341,7 +341,7 @@ export default function AdminDashboard() {
       userName: 'Bekzod Karimov',
       rating: 5,
       productTitle: 'Nike Air Jordan 1 Retro High OG',
-      comment: 'Nike Air Jordan 1 original sifati ajoyib, oyoqqa juda qulay o‘tirdi. WYUE ga tezkor yetkazib berish uchun rahmat!',
+      comment: 'Nike Air Jordan 1 original sifati ajoyib, oyoqqa juda qulay o‘tirdi. SPORT OUTLET ga tezkor yetkazib berish uchun rahmat!',
       createdAt: '2026-03-01',
       status: 'approved'
     },
@@ -1405,7 +1405,7 @@ export default function AdminDashboard() {
                           type="text"
                           value={productForm.brand}
                           onChange={(e) => setProductForm({ ...productForm, brand: e.target.value })}
-                          placeholder="Sport Line, Nike, Everlast, WYUE..."
+                          placeholder="Sport Line, Nike, Everlast, SPORT OUTLET..."
                           className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold text-slate-900 dark:text-white outline-none"
                         />
                       </div>

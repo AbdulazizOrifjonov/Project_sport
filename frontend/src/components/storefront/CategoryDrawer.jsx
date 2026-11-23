@@ -193,17 +193,17 @@ export default function CategoryDrawer({ isOpen, onClose }) {
         <div className="h-14 sm:h-16 px-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#080c14] flex items-center justify-between shrink-0 shadow-xs z-10 gap-3">
           {/* Brand Logo & Title */}
           <div className="flex items-center gap-2.5 shrink-0">
-            <div className="h-9 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0">
+            <div className="h-9 w-9 rounded-xl bg-black border border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0 p-0.5">
               <img
-                src="/wyue-logo.png?v=2"
-                alt="WYUE"
-                className="h-5.5 w-auto max-w-[85px] object-contain"
+                src="/sport-outlet-logo.png?v=5"
+                alt="SPORT OUTLET"
+                className="h-full w-full object-contain rounded-lg"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
             <div>
               <div className="font-black text-sm text-slate-950 dark:text-white uppercase leading-none tracking-tight">
-                WYUE
+                SPORT OUTLET
               </div>
               <div className="text-[9px] text-slate-500 dark:text-slate-400 font-extrabold uppercase tracking-wider mt-0.5">
                 Katalog
