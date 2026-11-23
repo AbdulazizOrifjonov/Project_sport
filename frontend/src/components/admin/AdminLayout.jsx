@@ -122,23 +122,24 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
       >
         <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
           {/* Logo Brand Header */}
-          <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="h-9 w-9 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 transition-all overflow-hidden shrink-0 p-0.5">
-                <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
+          <div className="p-3.5 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10 gap-2">
+            <Link to="/" className="flex items-center gap-2.5 group min-w-0">
+              <div className="h-9 px-2 rounded-xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-all overflow-hidden shrink-0">
+                <img src="/wyue-logo.png?v=7" alt="WYUE" className="h-5.5 w-auto max-w-[80px] object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <div>
-                <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans">
+              <div className="min-w-0">
+                <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans whitespace-nowrap block leading-tight">
                   WYUE ADMIN
                 </span>
-                <span className="block text-[10px] text-slate-400 font-bold tracking-wider uppercase">
+                <span className="block text-[10px] text-slate-400 font-bold tracking-wider uppercase whitespace-nowrap mt-0.5">
                   Boshqaruv Paneli
                 </span>
               </div>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              className="lg:hidden p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer shrink-0"
+              aria-label="Yopish"
             >
               <X className="w-5 h-5" />
             </button>

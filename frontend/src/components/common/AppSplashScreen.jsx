@@ -5,7 +5,6 @@ export default function AppSplashScreen() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Only show on fresh page/app launch
     const timer1 = setTimeout(() => {
       setFading(true);
     }, 600);
