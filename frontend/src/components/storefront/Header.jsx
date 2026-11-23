@@ -654,7 +654,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2.5"
+                className="flex items-center"
               >
                 <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-none overflow-hidden shrink-0">
                   <img
@@ -673,14 +673,6 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                       e.target.style.display = 'none';
                     }}
                   />
-                </div>
-                <div>
-                  <div className="font-black text-[17px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
-                    WYUE
-                  </div>
-                  <div className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-extrabold -mt-0.5">
-                    Rasmiy do‘kon
-                  </div>
                 </div>
               </Link>
               <button
