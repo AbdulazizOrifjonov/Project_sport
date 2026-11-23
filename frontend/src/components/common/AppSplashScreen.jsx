@@ -32,12 +32,12 @@ export default function AppSplashScreen() {
         {/* WYUE Official Logo */}
         <div className="relative group flex items-center justify-center">
           <img
-            src="/wyue-logo.png?v=8"
+            src="/wyue-logo.png?v=9"
             alt="WYUE"
             className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse dark:hidden"
           />
           <img
-            src="/wyue-logo-dark.png?v=8"
+            src="/wyue-logo-dark.png?v=9"
             alt="WYUE"
             className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse hidden dark:block"
           />
