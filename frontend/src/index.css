@@ -269,4 +269,19 @@ html.dark .hover-glow-red:hover {
   100% { transform: translateX(250%); }
 }
 
+/* Permanent Clean Rule: Absolutely No Shadows, Filters, or Borders on WYUE Logo */
+.wyue-logo-clean,
+img[src*="wyue-logo"],
+img[src*="logo-clean"],
+img[alt="WYUE"] {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+
 

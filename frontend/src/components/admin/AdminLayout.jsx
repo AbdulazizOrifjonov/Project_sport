@@ -124,9 +124,9 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           {/* Logo Brand Header */}
           <div className="p-3.5 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10 gap-2">
             <Link to="/" className="flex items-center group min-w-0">
-              <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-none group-hover:scale-105 transition-all overflow-hidden shrink-0">
-                <img src="/wyue-logo.png?v=21" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain dark:hidden" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img src="/wyue-logo-dark.png?v=21" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain hidden dark:block" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform bg-transparent border-none shadow-none">
+                <img src="/wyue-logo-clean.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain dark:hidden shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo-clean-dark.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain hidden dark:block shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
             <button

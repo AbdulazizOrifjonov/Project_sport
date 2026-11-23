@@ -257,9 +257,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
               <Link to="/" className="flex items-center group h-12 shrink-0">
-                <div className="h-12 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 flex items-center justify-center shadow-none group-hover:scale-105 transition-all overflow-hidden shrink-0">
-                  <img src="/wyue-logo.png?v=21" alt="WYUE" className="h-7.5 w-auto max-w-[120px] object-contain dark:hidden" onError={(e) => { e.target.style.display = 'none'; }} />
-                  <img src="/wyue-logo-dark.png?v=21" alt="WYUE" className="h-7.5 w-auto max-w-[120px] object-contain hidden dark:block" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform bg-transparent border-none shadow-none">
+                  <img src="/wyue-logo-clean.png?v=30" alt="WYUE" className="h-9 w-auto max-w-[140px] object-contain dark:hidden shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <img src="/wyue-logo-clean-dark.png?v=30" alt="WYUE" className="h-9 w-auto max-w-[140px] object-contain hidden dark:block shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
               </Link>
 
@@ -406,9 +406,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="flex md:hidden items-center gap-2 h-14 w-full">
             {/* Logo (chapda) */}
             <Link to="/" className="flex items-center shrink-0 pr-1">
-              <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-none overflow-hidden active:scale-95 transition-all shrink-0">
-                <img src="/wyue-logo.png?v=21" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain dark:hidden" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img src="/wyue-logo-dark.png?v=21" alt="WYUE" className="h-6 w-auto max-w-[85px] object-contain hidden dark:block" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="flex items-center justify-center shrink-0 active:scale-95 transition-transform bg-transparent border-none shadow-none">
+                <img src="/wyue-logo-clean.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain dark:hidden shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/wyue-logo-clean-dark.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain hidden dark:block shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
 
@@ -656,19 +656,19 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center"
               >
-                <div className="h-10 px-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-none overflow-hidden shrink-0">
+                <div className="flex items-center justify-center shrink-0 bg-transparent border-none shadow-none">
                   <img
-                    src="/wyue-logo.png?v=21"
+                    src="/wyue-logo-clean.png?v=30"
                     alt="WYUE"
-                    className="h-6 w-auto max-w-[85px] object-contain dark:hidden"
+                    className="h-7 w-auto max-w-[95px] object-contain dark:hidden shadow-none border-none"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
                   />
                   <img
-                    src="/wyue-logo-dark.png?v=21"
+                    src="/wyue-logo-clean-dark.png?v=30"
                     alt="WYUE"
-                    className="h-6 w-auto max-w-[85px] object-contain hidden dark:block"
+                    className="h-7 w-auto max-w-[95px] object-contain hidden dark:block shadow-none border-none"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
