@@ -124,12 +124,12 @@ export default function AdminLayout({ activeTab, setActiveTab, searchTerm = '', 
           {/* Logo Brand Header */}
           <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-[#000000] z-10">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="h-9 w-9 rounded-xl bg-black border border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 transition-all overflow-hidden shrink-0 p-0.5">
-                <img src="/sport-outlet-logo.png?v=5" alt="SPORT OUTLET" className="h-full w-full object-contain rounded-lg" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="h-9 w-9 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 transition-all overflow-hidden shrink-0 p-0.5">
+                <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div>
                 <span className="font-black text-sm text-slate-900 dark:text-white tracking-tight uppercase font-sans">
-                  SPORT OUTLET ADMIN
+                  WYUE ADMIN
                 </span>
                 <span className="block text-[10px] text-slate-400 font-bold tracking-wider uppercase">
                   Boshqaruv Paneli

@@ -27,6 +27,7 @@ import Header from './components/storefront/Header';
 import Footer from './components/storefront/Footer';
 import CategoryDrawer from './components/storefront/CategoryDrawer';
 import MobileBottomNav from './components/storefront/MobileBottomNav';
+import AppSplashScreen from './components/common/AppSplashScreen';
 
 // Storefront Pages
 import HomePage from './pages/storefront/HomePage';
@@ -54,6 +55,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-clip bg-white dark:bg-black text-slate-900 dark:text-slate-100 transition-colors duration-200">
+      <AppSplashScreen />
       <ScrollToTop />
       {!isAdminRoute && (
         <Header

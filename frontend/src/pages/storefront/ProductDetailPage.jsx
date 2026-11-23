@@ -578,7 +578,7 @@ export default function ProductDetailPage() {
                 {t('detail.sku', 'SKU')}: <strong className="text-slate-900 dark:text-white font-mono">{product.sku || 'NSB-001'}</strong>
               </span>
               <span>
-                {t('detail.brand', 'Brend')}: <strong className="text-slate-950 dark:text-white font-extrabold">{product.brand || 'SPORT OUTLET'}</strong>
+                {t('detail.brand', 'Brend')}: <strong className="text-slate-950 dark:text-white font-extrabold">{product.brand || 'WYUE'}</strong>
               </span>
             </div>
 

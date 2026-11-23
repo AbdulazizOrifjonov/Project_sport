@@ -87,7 +87,7 @@ export default function CatalogPage() {
     setSearchParams({});
   };
 
-  const brands = ['SPORT OUTLET', 'Nike', 'Adidas', 'Jordan', 'Puma', 'Under Armour', 'Gymshark', 'Reebok', 'New Balance', 'Venum', 'Everlast', 'Asics', 'WYUE'];
+  const brands = ['WYUE', 'Nike', 'Adidas', 'Jordan', 'Puma', 'Under Armour', 'Gymshark', 'Reebok', 'New Balance', 'Venum', 'Everlast', 'Asics'];
 
   return (
     <div className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6">

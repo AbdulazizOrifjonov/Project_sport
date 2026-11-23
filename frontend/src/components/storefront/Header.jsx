@@ -257,15 +257,15 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
               <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group h-12 shrink-0">
-                <div className="h-11 w-11 rounded-xl bg-black border border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-600 transition-all overflow-hidden shrink-0 p-0.5">
-                  <img src="/sport-outlet-logo.png?v=5" alt="SPORT OUTLET" className="h-full w-full object-contain rounded-lg" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="h-11 w-11 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all overflow-hidden shrink-0 p-0.5">
+                  <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className="font-black text-[18px] sm:text-[20px] leading-tight tracking-tight text-slate-950 dark:text-white flex items-center gap-1.5 uppercase font-sans">
-                    SPORT OUTLET
+                    WYUE
                   </span>
                   <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
-                    Sport & Fitness Store
+                    Rasmiy do‘kon
                   </span>
                 </div>
               </Link>
@@ -413,8 +413,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="flex md:hidden items-center gap-2 h-14 w-full">
             {/* Logo (chapda) */}
             <Link to="/" className="flex items-center shrink-0">
-              <div className="h-10 w-10 rounded-xl bg-black border border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0 p-0.5">
-                <img src="/sport-outlet-logo.png?v=5" alt="SPORT OUTLET" className="h-full w-full object-contain rounded-lg" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div className="h-10 w-10 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden active:scale-95 transition-transform shrink-0 p-0.5">
+                <img src="/wyue-app-icon.png?v=6" alt="WYUE" className="h-full w-full object-contain rounded-xl" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
             </Link>
 
@@ -662,11 +662,11 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5"
               >
-                <div className="h-10 w-10 rounded-xl bg-black border border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0 p-0.5">
+                <div className="h-10 w-10 rounded-2xl bg-white border border-slate-200 dark:border-slate-800 text-slate-900 flex items-center justify-center shadow-2xs overflow-hidden shrink-0 p-0.5">
                   <img
-                    src="/sport-outlet-logo.png?v=5"
-                    alt="SPORT OUTLET"
-                    className="h-full w-full object-contain rounded-lg"
+                    src="/wyue-app-icon.png?v=6"
+                    alt="WYUE"
+                    className="h-full w-full object-contain rounded-xl"
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
@@ -674,10 +674,10 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 </div>
                 <div>
                   <div className="font-black text-[16px] tracking-tight text-slate-950 dark:text-white uppercase font-sans">
-                    SPORT OUTLET
+                    WYUE
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold -mt-0.5">
-                    Sport & Fitness Do‘koni
+                    Rasmiy do‘kon
                   </div>
                 </div>
               </Link>
