@@ -38,7 +38,8 @@ import {
   Image as ImageIcon,
   Star,
   MessageSquare,
-  Upload
+  Upload,
+  X
 } from 'lucide-react';
 import AdminLayout from '../../components/admin/AdminLayout';
 import api from '../../services/api';
@@ -1550,6 +1551,7 @@ export default function AdminDashboard() {
                               }
                             } finally {
                               setUploadingImage(false);
+                              e.target.value = '';
                             }
                           }}
                         />
@@ -1605,8 +1607,8 @@ export default function AdminDashboard() {
                             alt="Asosiy rasm"
                             className="w-full h-full object-cover"
                           />
-                          <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/75 text-white text-[10px] font-black backdrop-blur-xs">
-                            1-Asosiy rasm
+                          <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-emerald-600 text-white text-[11px] font-black shadow-md flex items-center gap-1">
+                            ★ 1-Asosiy rasm
                           </span>
                           <button
                             type="button"
@@ -1623,43 +1625,178 @@ export default function AdminDashboard() {
                           </button>
                         </div>
 
-                        {/* Qo'shimcha rasmlar (agar 1 tadan ko'p bo'lsa) */}
-                        {productForm.images.filter(Boolean).length > 1 && (
-                          <div className="grid grid-cols-4 gap-2 pt-1">
-                            {productForm.images.filter(Boolean).slice(1).map((img, idx) => (
-                              <div key={idx} className="relative aspect-[3/4] rounded-xl overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group">
-                                <img src={img} alt={`Rasm ${idx + 2}`} className="w-full h-full object-cover" />
+                        {/* Yana qo'shimcha rasm yuklash tugmasi - Aniq va ko'zga ko'rinarli */}
+                        <label className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-dashed border-emerald-500/60 hover:border-emerald-600 dark:border-emerald-500/40 dark:hover:border-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/30 hover:bg-emerald-100/80 dark:hover:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 text-xs font-bold transition-all cursor-pointer shadow-2xs active:scale-98">
+                          <Plus className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                          <span>
+                            {uploadingImage
+                              ? 'Rasm yuklanmoqda...'
+                              : `+ Yana qo‘shimcha rasm yuklash (${productForm.images.filter(Boolean).length} ta mavjud)`}
+                          </span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            className="hidden"
+                            disabled={uploadingImage}
+                            onChange={async (e) => {
+                              const files = Array.from(e.target.files || []);
+                              if (!files.length) return;
+                              setUploadingImage(true);
+                              try {
+                                const uploadedUrls = [];
+                                for (const file of files) {
+                                  const url = await uploadProductImage(file);
+                                  if (url) uploadedUrls.push(url);
+                                }
+                                if (uploadedUrls.length) {
+                                  setProductForm(prev => ({
+                                    ...prev,
+                                    images: [...(prev.images || []).filter(Boolean), ...uploadedUrls]
+                                  }));
+                                }
+                              } finally {
+                                setUploadingImage(false);
+                                e.target.value = '';
+                              }
+                            }}
+                          />
+                        </label>
+
+                        {/* Barcha rasmlar galereyasi va thumbnail strip */}
+                        <div className="space-y-1.5 pt-1">
+                          <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 dark:text-slate-400">
+                            <span>Galereya ({productForm.images.filter(Boolean).length} ta rasm):</span>
+                            <span className="font-normal text-[10px] text-slate-400">Bosib asosiy qilib oling</span>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-2">
+                            {productForm.images.filter(Boolean).map((img, idx) => (
+                              <div
+                                key={idx}
+                                onClick={() => {
+                                  if (idx !== 0) {
+                                    setProductForm(prev => {
+                                      const valid = (prev.images || []).filter(Boolean);
+                                      const selected = valid[idx];
+                                      const rest = valid.filter((_, i) => i !== idx);
+                                      return { ...prev, images: [selected, ...rest] };
+                                    });
+                                  }
+                                }}
+                                className={`relative aspect-[3/4] rounded-xl overflow-hidden bg-white dark:bg-slate-800 border-2 cursor-pointer group transition-all duration-200 ${
+                                  idx === 0
+                                    ? 'border-emerald-600 dark:border-emerald-400 ring-2 ring-emerald-500/30'
+                                    : 'border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500'
+                                }`}
+                                title={idx === 0 ? 'Asosiy rasm (1-o‘rinda)' : 'Bosing — 1-Asosiy rasmga aylanadi'}
+                              >
+                                <img src={img} alt={`Rasm ${idx + 1}`} className="w-full h-full object-cover" />
+                                {idx === 0 ? (
+                                  <span className="absolute top-1 left-1 px-1.5 py-0.5 rounded-md bg-emerald-600 text-white text-[9px] font-black">
+                                    Asosiy
+                                  </span>
+                                ) : (
+                                  <span className="absolute top-1 left-1 px-1.5 py-0.5 rounded-md bg-black/65 text-white text-[9px] font-bold">
+                                    {idx + 1}
+                                  </span>
+                                )}
                                 <button
                                   type="button"
-                                  onClick={() => {
+                                  onClick={(e) => {
+                                    e.stopPropagation();
                                     setProductForm(prev => ({
                                       ...prev,
-                                      images: prev.images.filter((_, i) => i !== idx + 1)
+                                      images: prev.images.filter((_, i) => i !== idx)
                                     }));
                                   }}
-                                  className="absolute top-1 right-1 w-5 h-5 rounded bg-red-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-xs"
+                                  className="absolute top-1 right-1 w-5 h-5 rounded-md bg-red-600 hover:bg-red-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-xs"
                                   title="O‘chirish"
                                 >
                                   <X className="w-3 h-3" />
                                 </button>
                               </div>
                             ))}
+
+                            {/* + Qo'shimcha rasm kartochkasi */}
+                            <label className="relative aspect-[3/4] rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 bg-slate-50 dark:bg-slate-800/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 flex flex-col items-center justify-center cursor-pointer transition-all group">
+                              <Plus className="w-5 h-5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 mb-1 transition-colors" />
+                              <span className="text-[10px] font-bold text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 text-center leading-tight">
+                                + Qo‘shish
+                              </span>
+                              <input
+                                type="file"
+                                accept="image/*"
+                                multiple
+                                className="hidden"
+                                disabled={uploadingImage}
+                                onChange={async (e) => {
+                                  const files = Array.from(e.target.files || []);
+                                  if (!files.length) return;
+                                  setUploadingImage(true);
+                                  try {
+                                    const uploadedUrls = [];
+                                    for (const file of files) {
+                                      const url = await uploadProductImage(file);
+                                      if (url) uploadedUrls.push(url);
+                                    }
+                                    if (uploadedUrls.length) {
+                                      setProductForm(prev => ({
+                                        ...prev,
+                                        images: [...(prev.images || []).filter(Boolean), ...uploadedUrls]
+                                      }));
+                                    }
+                                  } finally {
+                                    setUploadingImage(false);
+                                    e.target.value = '';
+                                  }
+                                }}
+                              />
+                            </label>
                           </div>
-                        )}
+                        </div>
                       </div>
                     ) : (
-                      /* Butkul bo'sh holat (Pustoy) */
-                      <div className="w-full aspect-square rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center p-6 text-center text-slate-400 bg-slate-50/50 dark:bg-slate-800/30">
-                        <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 text-slate-400">
-                          <ImageIcon className="w-7 h-7 opacity-40" />
+                      /* Butkul bo'sh holat (Pustoy) - To'liq bosiluvchi yuklash oynasi */
+                      <label className="w-full aspect-[3/4] max-h-[320px] rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 flex flex-col items-center justify-center p-6 text-center text-slate-400 bg-slate-50/50 dark:bg-slate-800/30 hover:bg-emerald-50/30 dark:hover:bg-emerald-950/20 transition-all cursor-pointer group">
+                        <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-950/50 flex items-center justify-center mb-3 text-slate-400 group-hover:text-emerald-600 transition-colors">
+                          <Upload className="w-7 h-7" />
                         </div>
-                        <span className="font-extrabold text-xs text-slate-700 dark:text-slate-300 mb-1">
-                          Hozircha rasm yo‘q (bo‘sh)
+                        <span className="font-extrabold text-xs text-slate-800 dark:text-slate-200 mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                          {uploadingImage ? 'Rasm yuklanmoqda...' : 'Rasm yuklash uchun bosing'}
                         </span>
-                        <p className="text-[11px] text-slate-400 max-w-[200px]">
-                          Yuqoridagi «Fayl tanlash» yoki havola orqali rasm qo‘shing
+                        <p className="text-[11px] text-slate-400 max-w-[220px]">
+                          Bir nechta rasmni birdaniga tanlashingiz mumkin (Galereya)
                         </p>
-                      </div>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          className="hidden"
+                          disabled={uploadingImage}
+                          onChange={async (e) => {
+                            const files = Array.from(e.target.files || []);
+                            if (!files.length) return;
+                            setUploadingImage(true);
+                            try {
+                              const uploadedUrls = [];
+                              for (const file of files) {
+                                const url = await uploadProductImage(file);
+                                if (url) uploadedUrls.push(url);
+                              }
+                              if (uploadedUrls.length) {
+                                setProductForm(prev => ({
+                                  ...prev,
+                                  images: [...(prev.images || []).filter(Boolean), ...uploadedUrls]
+                                }));
+                              }
+                            } finally {
+                              setUploadingImage(false);
+                              e.target.value = '';
+                            }
+                          }}
+                        />
+                      </label>
                     )}
                   </div>
 

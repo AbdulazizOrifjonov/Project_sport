@@ -61,10 +61,43 @@ export async function uploadProductImage(file) {
     }
   }
 
-  // Fallback: Read as base64 DataURL
+  // Fallback: Read and compress image as base64 DataURL (optimized for web & storage)
   return new Promise((resolve) => {
     const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
+    reader.onloadend = () => {
+      try {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            const maxDim = 1200;
+            if (width > maxDim || height > maxDim) {
+              if (width > height) {
+                height = Math.round((height * maxDim) / width);
+                width = maxDim;
+              } else {
+                width = Math.round((width * maxDim) / height);
+                height = maxDim;
+              }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            const compressed = canvas.toDataURL('image/jpeg', 0.82);
+            resolve(compressed);
+          } catch (_) {
+            resolve(reader.result);
+          }
+        };
+        img.onerror = () => resolve(reader.result);
+        img.src = reader.result;
+      } catch (_) {
+        resolve(reader.result);
+      }
+    };
     reader.onerror = () => resolve(null);
     reader.readAsDataURL(file);
   });
