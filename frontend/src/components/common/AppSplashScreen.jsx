@@ -30,16 +30,18 @@ export default function AppSplashScreen() {
     >
       <div className="flex flex-col items-center">
         {/* WYUE Official Logo */}
-        <div className="relative group flex items-center justify-center">
+        <div className="relative flex items-center justify-center p-0 m-0 bg-transparent border-none shadow-none">
           <img
-            src="/wyue-logo.png?v=9"
+            src="/wyue-logo.png?v=21"
             alt="WYUE"
-            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse dark:hidden"
+            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse dark:hidden shadow-none border-none outline-none"
+            style={{ boxShadow: 'none', filter: 'none', WebkitFilter: 'none', border: 'none', outline: 'none', background: 'transparent' }}
           />
           <img
-            src="/wyue-logo-dark.png?v=9"
+            src="/wyue-logo-dark.png?v=21"
             alt="WYUE"
-            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse hidden dark:block"
+            className="h-16 sm:h-20 w-auto max-w-[240px] object-contain animate-pulse hidden dark:block shadow-none border-none outline-none"
+            style={{ boxShadow: 'none', filter: 'none', WebkitFilter: 'none', border: 'none', outline: 'none', background: 'transparent' }}
           />
         </div>
 
