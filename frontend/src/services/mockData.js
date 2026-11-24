@@ -75,7 +75,7 @@ export const defaultCategories = [
     "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "icon": "Cone",
     "description": "Yo‘l konuslari (dorojniy konuslar), rezinali va qaytaruvchi lentalar, signal to‘siqlari",
-    "image": "https://images.unsplash.com/photo-1579294800821-694d95e86143?w=600&auto=format&fit=crop&q=80",
+    "image": "/uploads/konus-tpu-75sm.jpg",
     "order": 6,
     "active": true
   },
@@ -160,6 +160,135 @@ export const defaultCategories = [
 ];
 
 export const defaultProducts = [
+  {
+    "_id": "prod_konus-tpu-75sm",
+    "id": "prod_konus-tpu-75sm",
+    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "slug": "konus-tpu-75sm",
+    "sku": "NSB-YOL-001",
+    "price": 130000,
+    "oldPrice": 155000,
+    "old_price": 155000,
+    "discountPercent": 16,
+    "discount_percent": 16,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "subcategory": "Signal konuslari",
+    "brand": "Road Safety Pro",
+    "stock": 45,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 4,
+    "images": [
+      "/uploads/konus-tpu-75sm.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "Balandligi",
+    "variants": [
+      {
+        "name": "75 sm",
+        "price": 130000,
+        "inStock": true
+      }
+    ],
+    "description": "TPU (termoplastik poliuretan) materialidan tayyorlangan 75 sm balandlikdagi yuqori elastiklikka ega professional yo‘l harakati xavfsizlik konusi. Avtomobil g‘ildiraklari bosib o‘tganda ham sinmaydi, yorilmaydi va bir necha soniyada o‘z asl shakliga to‘liq qaytadi. Kechasi va noqulay ob-havo (tuman, yomg‘ir) sharoitida 360 daraja uzoq masofadan ko‘rinuvchi 2 qator nur qaytaruvchi (svetootrajayushchiy) tasmalar bilan jihozlangan.",
+    "specifications": [
+      {
+        "label": "Balandligi",
+        "value": "75 sm"
+      },
+      {
+        "label": "Asosiy material",
+        "value": "Yuqori sifatli TPU (Termoplastik poliuretan)"
+      },
+      {
+        "label": "Xususiyati",
+        "value": "100% egiluvchan, mashina ezsa ham buzilmaydi"
+      },
+      {
+        "label": "Nur qaytarish",
+        "value": "2 qator mikro-prizmatik yorug‘lik qaytaruvchi lenta"
+      },
+      {
+        "label": "Harorat chidamliligi",
+        "value": "-40°C dan +70°C gacha"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "O‘zbekiston va Buxoro bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T08:00:00.000Z"
+  },
+  {
+    "_id": "prod_taktil-plitka-pvc",
+    "id": "prod_taktil-plitka-pvc",
+    "title": "PVX Taktil plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
+    "slug": "taktil-plitka-pvc",
+    "sku": "NSB-YOL-002",
+    "price": 16000,
+    "oldPrice": 22000,
+    "old_price": 22000,
+    "discountPercent": 27,
+    "discount_percent": 27,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "subcategory": "Taktil qoplamalar",
+    "brand": "SafeWay",
+    "stock": 250,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 8,
+    "images": [
+      "/uploads/taktil-plitka-pvc.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "Turi",
+    "variants": [
+      {
+        "name": "Yo‘naltiruvchi (Chiziqli)",
+        "price": 16000,
+        "inStock": true
+      },
+      {
+        "name": "Ogohlantiruvchi (Nuqtali)",
+        "price": 16000,
+        "inStock": true
+      }
+    ],
+    "description": "Ko‘rish qobiliyati cheklangan (ko‘zi ojiz va zaif ko‘ruvchi) insonlarning xavfsiz va to‘siqlarsiz harakatlanishini ta’minlash uchun mo‘ljallangan sariq PVX taktil plitka (300x300 mm). Plitka xalqaro standartlarga mos ikki xil teksturada ishlab chiqariladi: to‘g‘ri yo‘nalishni ko‘rsatuvchi bo‘ylama chiziqli qovurg‘alar hamda xavf, burilish va to‘siqlar oldidan ogohlantiruvchi konussimon nuqtalar.",
+    "specifications": [
+      {
+        "label": "O‘lchami",
+        "value": "300 x 300 x 7 mm"
+      },
+      {
+        "label": "Material",
+        "value": "Sifatli elastik PVX (Polivinilxlorid)"
+      },
+      {
+        "label": "Turi",
+        "value": "Yo‘naltiruvchi (chiziqli) va Ogohlantiruvchi (nuqtali)"
+      },
+      {
+        "label": "Rangi",
+        "value": "Yorqin signal sariq (Signal Yellow)"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Ulgurji va chakana butun O‘zbekiston bo‘ylab"
+      }
+    ],
+    "created_at": "2026-11-24T08:00:00.000Z"
+  },
   {
     "_id": "prod_130000-s-m-1873",
     "id": "prod_130000-s-m-1873",
