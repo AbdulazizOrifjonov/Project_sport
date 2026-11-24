@@ -1,21 +1,12 @@
 /**
- * SPORT OUTLET & MULTI-DEPARTMENT STORE — Telegram Product Bot
+ * SPORT OUTLET & MULTI-DEPARTMENT STORE — Telegram Product Bot v2.0
  * Bot Token: 6814682488:AAEVVON2MzlrCnsT5ru5q5Byepj4HnzzR_w
  * Bot Username: @Ttxtxtctxtxtxhxhchxhbot
  * 
  * 3 TA ASOSIY YO'NALISH:
  * 1. 🏆 SPORT & FITNES (Trenajorlar, Gantellar, Podstavkalar, Boks/Tatami, To'plar, Fitnes)
- * 2. 🚧 YO'L & HARAKAT XAVFSIZLIGI (Yo'l konuslari, Belgilar, To'siqlar, Lejachiy politseyskiy)
- * 3. 🛠️ ASBOB-USKUNALAR & QURILISH (Drellar, Balgarkalar, Perforatorlar, Svarka apparatlari, Arralar)
- * 
- * QAT'IY QOIDALAR:
- * - Faqat rasm bo'lsa (tagida narxi bo'lmasa) -> QABUL QILMAYDI!
- * - Faqat matn bo'lsa (rasm biriktirilmagan bo'lsa) -> QABUL QILMAYDI!
- * - Rasm + Narx bo'lsa -> Qabul qiladi! Rasmga qarab AI Vision / aqlli tahlilchi orqali toifasi va nomini qo'yadi!
- * 
- * BUYRUQLAR:
- * - /clear yoki /tozala: Barcha eski mahsulotlarni tozalaydi
- * - /key <GEMINI_API_KEY>: Rasmga qarab AI mahsulot nomini aniqlashi uchun bepul Gemini API kalitini kiritish
+ * 2. 🚧 YO'L & HARAKAT XAVFSIZLIGI (Yo'l konuslari, Belgilar, To'siqlar, Lejachiy politseyskiy, Ustunlar, To'xtatgichlar)
+ * 3. 🛠️ ASBOB-USKUNALAR & QURILISH (Drellar, Balgarkalar, Perforatorlar, Svarka apparatlari, Arralar, Naborlar)
  */
 
 const fs = require('fs');
@@ -29,7 +20,6 @@ const UPLOADS_DIR = path.join(FRONTEND_DIR, 'public', 'uploads');
 const MOCK_DATA_PATH = path.join(FRONTEND_DIR, 'src', 'services', 'mockData.js');
 const CONFIG_FILE = path.join(__dirname, 'bot_config.json');
 
-// Ensure uploads folder exists
 if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
@@ -84,74 +74,21 @@ function saveGeminiKey(key) {
   }
 }
 
-// 3 TA KATTA YO'NALISH TOIFALARI (Sport, Yo'l Xavfsizligi, Asbob-Uskunalar)
+// 3 TA KATTA YO'NALISH TOIFALARI (Bilingual: Uzbek + Russian + Cyrillic)
 const CATEGORIES = [
-  // 1. SPORT & FITNES
-  {
-    slug: 'trenajorlar',
-    name: 'Trenajorlar & Kardio',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Activity',
-    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill']
-  },
-  {
-    slug: 'gantellar',
-    name: 'Gantellar & Shtangalar',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Dumbbell',
-    keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk']
-  },
-  {
-    slug: 'stoykalar',
-    name: 'Podstavka & Skameykalar',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Layers',
-    keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'sc80263', 'sc80270', 'ax003', 'an-001']
-  },
-  {
-    slug: 'boks-yakka-kurash',
-    name: 'Boks & Yakka Kurash',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Shield',
-    keywords: ['tatami', 'mat', 'boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast', 'dzyudo', 'karate', 'sambo', 'lapa', 'perchatka', 'perchatkalar']
-  },
-  {
-    slug: 'toplar-oyinlar',
-    name: 'To‘plar & Sport O‘yinlari',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Trophy',
-    keywords: ['tennis', 'stol tennis', 'raketka', 'padel', 'k2008', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol']
-  },
-  {
-    slug: 'fitnes-aksessuarlari',
-    name: 'Fitnes & Sport Aksessuarlari',
-    department: 'sport',
-    departmentName: 'Sport & Fitnes',
-    icon: 'Award',
-    keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'gilamcha', 'kamar', 'tasma', 'suv idish']
-  },
-
-  // 2. YO'L VA HARAKAT XAVFSIZLIGI (Ko'cha / Yo'l anjomlari)
+  // 1. YO'L VA HARAKAT XAVFSIZLIGI (Yo'l Jihozlari)
   {
     slug: 'yol-konuslari',
     name: 'Yo‘l Konuslari & To‘siqlar',
     department: 'yol-harakati',
     departmentName: 'Yo‘l & Harakat Xavfsizligi',
     icon: 'Cone',
-    keywords: ['konus', 'konis', 'dorojniy konus', 'yo‘l konusi', 'yol konusi', 'rezina konus', 'reflektor', 'svetootrajatel', 'to‘siq', 'tosiq', 'barrikada', 'fexting', 'fensing', 'lentasi', 'xavfsizlik lentasi']
-  },
-  {
-    slug: 'yol-belgilari',
-    name: 'Yo‘l Belgilari & Ko‘zgular',
-    department: 'yol-harakati',
-    departmentName: 'Yo‘l & Harakat Xavfsizligi',
-    icon: 'AlertTriangle',
-    keywords: ['yo‘l belgisi', 'yol belgisi', 'znak', 'znaki', 'ko‘zgu', 'sferik', 'sfericheskoye', 'ogohlantiruvchi', 'yo‘l ko‘rsatkich', 'shchit']
+    keywords: [
+      'konus', 'konis', 'конус', 'конусы', 'dorojniy konus', 'yo‘l konusi', 'yol konusi', 'rezina konus', 'tpu', 'тпу',
+      'reflektor', 'svetootrajatel', 'to‘siq', 'tosiq', 'bariyer', 'barier', 'barrikada', 'fexting', 'fensing', 'lentasi',
+      'гармошка', 'видвижной', 'выдвижной', 'garmoshka', 'vidvijnoy', 'плитка', 'тактильный', 'тактильная', 'taktil', 'taktilniy',
+      'plitka', 'pvc', 'пвх', 'водоналивной', 'vodonalivnoy', 'zabor', 'panjara', 'сетка'
+    ]
   },
   {
     slug: 'suniy-notekislik',
@@ -159,17 +96,36 @@ const CATEGORIES = [
     department: 'yol-harakati',
     departmentName: 'Yo‘l & Harakat Xavfsizligi',
     icon: 'Construction',
-    keywords: ['notekislik', 'lejachiy', 'politseyskiy', 'leja', 'suniy', 'sun‘iy', 'rezina politseyskiy', 'stolbik', 'ustun', 'deliniator', 'katofot', 'signal chiroq']
+    keywords: [
+      'notekislik', 'неровность', 'искусственная неровность', 'lejachiy', 'politseyskiy', 'лежачий', 'полицейский', 'leja',
+      'stolbik', 'ustun', 'столбик', 'делиниатор', 'deliniator', 'katofot', 'катафот', 'демурун',
+      'otboynik', 'отбойник', 'колесоотбойник', 'kolesootboynik', 'колесо', 'башмак', 'подколесник', 'boshmoq', 'podkolyosnik', 'wheel chock', 'chock'
+    ]
+  },
+  {
+    slug: 'yol-belgilari',
+    name: 'Yo‘l Belgilari & Ko‘zgular',
+    department: 'yol-harakati',
+    departmentName: 'Yo‘l & Harakat Xavfsizligi',
+    icon: 'AlertTriangle',
+    keywords: [
+      'yo‘l belgisi', 'yol belgisi', 'znak', 'znaki', 'знак', 'знаки', 'дорожный знак', 'ko‘zgu', 'sferik', 'sfericheskoye', 'зеркало', 'сферическое',
+      'ogohlantiruvchi', 'yo‘l ko‘rsatkich', 'shchit', 'табличка',
+      'стойка ограждения', 'столбик с лентой', 'turniket ustun', 'turniket', 'to‘siq ustun', 'tosiq ustun', 'lentali ustun', 'arqonli ustun', 'stanchion', 'plastina', 'пластина'
+    ]
   },
 
-  // 3. ASBOB-USKUNALAR & QURILISH TEXNIKASI (Drel, Balgarka va h.k.)
+  // 2. ASBOB-USKUNALAR & QURILISH TEXNIKASI
   {
     slug: 'drellar-shurupovyort',
     name: 'Drellar & Shurupovyortlar',
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'Wrench',
-    keywords: ['drel', 'drill', 'shurupovert', 'shurupovyort', 'gaykavyort', 'gaykovert', 'vintovyort', 'shurupavort', 'drel-shurupovyort', 'akkumulyator drel', 'zarbli drel', 'mikser']
+    keywords: [
+      'drel', 'drill', 'дрель', 'shurupovert', 'shurupovyort', 'шуруповерт', 'gaykavyort', 'gaykovert', 'гайковерт',
+      'vintovyort', 'shurupavort', 'drel-shurupovyort', 'akkumulyator drel', 'аккумуляторная дрель', 'zarbli drel', 'mikser'
+    ]
   },
   {
     slug: 'balgarkalar-ushm',
@@ -177,7 +133,10 @@ const CATEGORIES = [
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'HardHat',
-    keywords: ['balgarka', 'bolgarka', 'ushm', 'burchakli silliqlash', 'shlifovka', 'rezak', 'diska', 'ugloshlifovalnaya', 'shlifovalniy']
+    keywords: [
+      'balgarka', 'bolgarka', 'болгарка', 'ushm', 'ушм', 'burchakli silliqlash', 'shlifovka', 'шлифмашина', 'rezak',
+      'ugloshlifovalnaya', 'shlifovalniy', 'charx', 'tochilo', 'точило', 'точильный', 'slj'
+    ]
   },
   {
     slug: 'perforator-otboynik',
@@ -185,7 +144,7 @@ const CATEGORIES = [
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'Hammer',
-    keywords: ['perforator', 'otboynik', 'bolg‘a', 'zarbli bolg‘a', 'beton', 'otboyniy', 'pik', 'zubilo', 'sds']
+    keywords: ['perforator', 'перфоратор', 'otboynik', 'отбойный', 'bolg‘a', 'zarbli bolg‘a', 'beton', 'otboyniy', 'pik', 'zubilo', 'sds']
   },
   {
     slug: 'payvandlash-svarka',
@@ -193,7 +152,7 @@ const CATEGORIES = [
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'Zap',
-    keywords: ['svarka', 'payvandlash', 'invertor', 'svarochniy', 'elektrod', 'maska', 'xameleon', 'generator', 'kompressor', 'aragon', 'yarimavtomat']
+    keywords: ['svarka', 'сварка', 'payvandlash', 'invertor', 'инвертор', 'svarochniy', 'elektrod', 'электрод', 'maska', 'xameleon', 'хамелеон', 'generator', 'генератор', 'kompressor', 'компрессор', 'aragon', 'yarimavtomat', 'полуавтомат']
   },
   {
     slug: 'arralar-uskunalar',
@@ -201,7 +160,7 @@ const CATEGORIES = [
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'Construction',
-    keywords: ['arra', 'pila', 'diskoviy', 'sirkulyarka', 'lobzik', 'frez', 'stanok', 'torsovka', 'benzopila', 'elektr arra']
+    keywords: ['arra', 'пила', 'pila', 'diskoviy', 'дисковая', 'sirkulyarka', 'циркулярка', 'lobzik', 'лобзик', 'frez', 'фрезер', 'stanok', 'станок', 'torsovka', 'торцовка', 'benzopila', 'бензопила', 'elektr arra', 'цепная пила', 'trimmer', 'триммер', 'maysa']
   },
   {
     slug: 'lazer-qol-asboblari',
@@ -209,7 +168,57 @@ const CATEGORIES = [
     department: 'uskunalar',
     departmentName: 'Asbob-Uskunalar & Qurilish',
     icon: 'Wrench',
-    keywords: ['uroven', 'lazer', 'lazerniy', 'rulyetka', 'nabor', 'to‘plam', 'kalit', 'otvyortka', 'asboblar', 'chemodan', 'klyuch']
+    keywords: ['uroven', 'уровень', 'lazer', 'лазер', 'lazerniy', 'лазерный', 'rulyetka', 'рулетка', 'nabor', 'набор', 'to‘plam', 'kalit', 'otvyortka', 'отвертка', 'asboblar', 'chemodan', 'klyuch', 'ключи', 'fen', 'фен', 'turbo fen', 'технический фен']
+  },
+
+  // 3. SPORT & FITNES
+  {
+    slug: 'trenajorlar',
+    name: 'Trenajorlar & Kardio',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Activity',
+    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'yo‘lakcha', 'yolakcha', 'velo', 'velotrenajor', 'bike', 'kardio', 'kuch trenajori', 'multi-gym', 'treadmill', 'беговая дорожка', 'тренажер', 'велотренажер', 'массажное кресло']
+  },
+  {
+    slug: 'gantellar',
+    name: 'Gantellar & Shtangalar',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Dumbbell',
+    keywords: ['gantel', 'shtanga', 'grif', 'disk', 'blin', 'ogirlik', 'og‘irlik', 'dumbel', 'dumbbell', 'barbell', 'kauchuk', 'гантель', 'штанга', 'диск', 'блин', 'гриф', 'гантели']
+  },
+  {
+    slug: 'stoykalar',
+    name: 'Podstavka & Skameykalar',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Layers',
+    keywords: ['podstavka', 'stoyka', 'skameyka', 'bench', 'turnik', 'brus', 'стойка', 'подставка', 'скамейка', 'турник', 'брусья']
+  },
+  {
+    slug: 'boks-yakka-kurash',
+    name: 'Boks & Yakka Kurash',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Shield',
+    keywords: ['tatami', 'mat', 'boks', 'qop', 'grusha', 'kurash', 'kimono', 'bint', 'venum', 'everlast', 'dzyudo', 'karate', 'sambo', 'lapa', 'perchatka', 'perchatkalar', 'бокс', 'перчатки', 'груша', 'кимоно', 'татами']
+  },
+  {
+    slug: 'toplar-oyinlar',
+    name: 'To‘plar & Sport O‘yinlari',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Trophy',
+    keywords: ['tennis', 'stol tennis', 'raketka', 'padel', 'futbol', 'top', 'to‘p', 'koptok', 'voleybol', 'basketbol', 'мяч', 'футбол', 'теннис']
+  },
+  {
+    slug: 'fitnes-aksessuarlari',
+    name: 'Fitnes & Sport Aksessuarlari',
+    department: 'sport',
+    departmentName: 'Sport & Fitnes',
+    icon: 'Award',
+    keywords: ['rezinka', 'espander', 'qolqop', 'qo‘lqop', 'sumka', 'gilamcha', 'kamar', 'tasma', 'suv idish', 'эспандер', 'коврик', 'резинка']
   }
 ];
 
@@ -222,7 +231,14 @@ function detectCategory(text = '') {
       }
     }
   }
-  return { slug: 'trenajorlar', name: 'Trenajorlar & Kardio', department: 'sport', departmentName: 'Sport & Fitnes' };
+
+  // Smart department heuristics if no direct keyword matched:
+  if (/(?:sm|mm|metr|kg|xavfsiz|yo'l|yo‘l|qurilish|asbob)/i.test(lower)) {
+    return CATEGORIES.find(c => c.slug === 'yol-konuslari');
+  }
+
+  // Default to Road Safety if road terms or generic
+  return CATEGORIES.find(c => c.slug === 'yol-konuslari');
 }
 
 function detectBrand(text = '') {
@@ -231,9 +247,9 @@ function detectBrand(text = '') {
     // Tools
     'Makita', 'DeWalt', 'Bosch', 'Total', 'Crown', 'Ingco', 'Dnepr-M', 'Denzel', 'Resanta', 'Edon', 'Huter', 'Stanley', 'Metabo',
     // Road & Safety
-    'Yo‘l Standart', 'RoadSafety', 'ProRoad', 'AutoSafety',
+    'RoadSafety Pro', 'Yo‘l Standart', 'AutoSafety', 'TrafficPro', 'Uzbekistan Airports', 'SafeRoad',
     // Sport
-    'WYUE', 'Sport Line', 'Anelus', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum', 'SPORT OUTLET'
+    'WYUE', 'Sport Line', 'Anelus', 'IronPower', 'ProForm', 'Nike', 'Under Armour', 'Adidas', 'Puma', 'Jordan', 'Everlast', 'Venum'
   ];
   for (const b of brands) {
     if (lower.includes(b.toLowerCase())) return b;
@@ -242,175 +258,92 @@ function detectBrand(text = '') {
 }
 
 /**
- * AI Vision Analysis: Sends image to Gemini Vision to automatically determine product name, brand and category
+ * Extracts price and clean title from caption
  */
-async function analyzeProductImageWithAI(imageRelativePath, userCaption = '') {
-  const apiKey = getGeminiKey();
-  if (!apiKey) return null;
-
-  try {
-    const fullLocalPath = path.isAbsolute(imageRelativePath)
-      ? imageRelativePath
-      : path.join(FRONTEND_DIR, 'public', imageRelativePath.replace(/^\//, ''));
-
-    if (!fs.existsSync(fullLocalPath)) return null;
-
-    const imgBuffer = fs.readFileSync(fullLocalPath);
-    const base64Data = imgBuffer.toString('base64');
-    const mimeType = fullLocalPath.endsWith('.png') ? 'image/png' : 'image/jpeg';
-
-    const promptText = `Sen internet-do'kon uchun professional tovar mutaxassisisan. Rasmda ko'rsatilgan mahsulotni aniqla.
-Do'konda 3 ta katta yo'nalish bor:
-1) Sport & Fitnes:
-   - trenajorlar (yugurish yo'lakchasi, velotrenajor, massaj kreslo)
-   - gantellar (gantellar, shtangalar, disklar)
-   - stoykalar (podstavkalar, skameykalar, turniklar)
-   - boks-yakka-kurash (tatami, boks qo'lqop, qop, kimono)
-   - toplar-oyinlar (futbol, tennis, padel, raketka)
-   - fitnes-aksessuarlari (rezinkalar, gilamcha, kamar)
-2) Yo'l Harakati & Xavfsizlik jihozlari:
-   - yol-konuslari (yo'l konuslari, to'siqlar, barrikadalar)
-   - yol-belgilari (yo'l belgilari, ko'zgular, shchitlar)
-   - suniy-notekislik (lejachiy politseyskiy, to'siq ustunlar/stolbik, katofot)
-3) Asbob-Uskunalar & Qurilish:
-   - drellar-shurupovyort (drel, shurupovyort, gaykavyort)
-   - balgarkalar-ushm (balgarka, burchakli silliqlash)
-   - perforator-otboynik (perforator, otboynik)
-   - payvandlash-svarka (svarka apparati, generator, kompressor)
-   - arralar-uskunalar (diskoviy arra, lobzik, frezer)
-   - lazer-qol-asboblari (lazer sath o'lchagich, asbob naborlari)
-
-Foydalanuvchi yozgan qo'shimcha izoh: "${userCaption || ''}"
-
-Faqat quyidagi JSON formatida javob ber (hech qanday qo'shimcha matnsiz va markdown teglarsiz, to'g'ridan-to'g'ri JSON):
-{
-  "title": "Mahsulotning o'zbek tilidagi to'liq va aniq nomi (masalan: Yo'l Xavfsizlik Konusi 75sm yoki Makita Zarbli Drel HP1630 yoki Masaj Kreslo AX-1007)",
-  "brand": "Aniqlangan brend (masalan: Makita, DeWalt, Total, Crown, Sport Line, WYUE yoki Yo'l Standart)",
-  "categorySlug": "yuqoridagi sluglardan eng mos keladigani",
-  "description": "Mahsulot haqida 1-2 jumlali o'zbekcha tavsif"
-}`;
-
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              { text: promptText },
-              {
-                inline_data: {
-                  mime_type: mimeType,
-                  data: base64Data
-                }
-              }
-            ]
-          }
-        ],
-        generationConfig: {
-          temperature: 0.1,
-          maxOutputTokens: 400
-        }
-      })
-    });
-
-    const data = await response.json();
-    if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
-      const rawText = data.candidates[0].content.parts[0].text.trim()
-        .replace(/^```json\s*/i, '')
-        .replace(/```$/i, '')
-        .trim();
-      const parsed = JSON.parse(rawText);
-      console.log('🤖 Gemini AI recognized product:', parsed);
-      return parsed;
-    }
-  } catch (err) {
-    console.warn('Gemini Vision AI exception:', err.message);
-  }
-  return null;
-}
-
-/**
- * Extracts price from caption
- */
-function extractPrice(text = '') {
-  let normalized = (text || '').trim();
-  const rawLines = normalized.split('\n').map(l => l.trim()).filter(Boolean);
+function extractPriceAndTitle(caption = '') {
+  let text = (caption || '').trim();
+  const rawLines = text.split('\n').map(l => l.trim()).filter(Boolean);
 
   let price = 0;
   let priceUSD = 0;
   let rawPriceLabel = '';
+  let priceSubstr = '';
 
+  // 1. Check for Dollar prices ($10, 10$, 35 USD)
   for (const line of rawLines) {
-    const isPriceLine = /(?:narx[i]?|baho[si]?|price|\$)/i.test(line);
-
-    // Dollar price
-    const dollarMatch = line.match(/(?:narx[i]?|baho[si]?|price)?\s*[:=-]?\s*\$?\s*(\d+(?:[.,]\d+)?)\s*(?:\$|usd)/i) ||
-                        (isPriceLine && line.match(/(\d+(?:[.,]\d+)?)\s*\$/i)) ||
-                        (isPriceLine && line.match(/\$\s*(\d+(?:[.,]\d+)?)/i));
-
+    const dollarMatch = line.match(/(?:\$)\s*(\d+(?:[.,]\d+)?)/i) ||
+                        line.match(/(\d+(?:[.,]\d+)?)\s*(?:\$|usd|долл)/i);
     if (dollarMatch) {
       const num = parseFloat(dollarMatch[1].replace(',', '.'));
       if (num > 0) {
         priceUSD = num;
         price = Math.round(num * USD_RATE);
         rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
-        return { price, priceUSD, rawPriceLabel };
-      }
-    }
-
-    // UZS price
-    if (isPriceLine) {
-      const uzsDigits = line.replace(/[^\d]/g, '');
-      if (uzsDigits.length >= 4) {
-        price = parseInt(uzsDigits, 10);
-        rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
-        return { price, priceUSD: 0, rawPriceLabel };
+        priceSubstr = dollarMatch[0];
+        break;
       }
     }
   }
 
-  // Standalone numbers in caption
-  for (const line of rawLines) {
-    const standAloneDollar = line.match(/(\d{1,5})\s*\$/) || line.match(/\$\s*(\d{1,5})/);
-    if (standAloneDollar) {
-      const num = parseInt(standAloneDollar[1], 10);
-      priceUSD = num;
-      price = Math.round(num * USD_RATE);
-      rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
-      return { price, priceUSD, rawPriceLabel };
-    }
-
-    // Clean line of model patterns like 4&1, 2&1, 3in1 before checking for standalone digits
-    const cleanedLine = line.replace(/\b\d+\s*&\s*\d+\b/g, '').replace(/\b\d+\s*in\s*\d+\b/gi, '');
-
-    const somMatch = cleanedLine.match(/(\d[\d\s.,]{3,})\s*(?:so'?m|sōm|sum|ming|uzs)/i);
-    if (somMatch) {
-      let digits = somMatch[1].replace(/[^\d]/g, '');
-      if (/ming/i.test(line)) {
-        digits = digits + '000';
-      }
-      if (digits.length >= 4) {
-        price = parseInt(digits, 10);
-        rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
-        return { price, priceUSD: 0, rawPriceLabel };
+  // 2. Check for UZS prices with currency word (so'm, sum, uzs, ming, etc.)
+  if (!price) {
+    for (const line of rawLines) {
+      const somMatch = line.match(/\b(\d{1,3}(?:[\s.,]\d{3})+|\d{4,9})\s*(?:so'?m|sōm|sum|ming|uzs|сум)\b/i);
+      if (somMatch) {
+        let digits = somMatch[1].replace(/[^\d]/g, '');
+        if (/ming/i.test(somMatch[0])) {
+          digits = digits + '000';
+        }
+        if (digits.length >= 4) {
+          price = parseInt(digits, 10);
+          rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+          priceSubstr = somMatch[0];
+          break;
+        }
       }
     }
   }
 
-  // If user just typed a 4+ digit number
-  for (const line of rawLines) {
-    const cleanedLine = line.replace(/\b\d+\s*&\s*\d+\b/g, '').replace(/\b\d+\s*in\s*\d+\b/gi, '');
-    const somMatch = cleanedLine.match(/(\d{4,9})/);
-    if (somMatch) {
-      price = parseInt(somMatch[1], 10);
-      rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
-      return { price, priceUSD: 0, rawPriceLabel };
+  // 3. Check for standalone 4-8 digit number that isn't dimensions or model
+  if (!price) {
+    for (const line of rawLines) {
+      const matches = [...line.matchAll(/(?<![a-zA-Z*xX\d])(\d{4,8})(?![a-zA-Z*xX\d])/g)];
+      for (const m of matches) {
+        const val = parseInt(m[1], 10);
+        if (val >= 1000) {
+          price = val;
+          rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+          priceSubstr = m[0];
+          break;
+        }
+      }
+      if (price) break;
     }
   }
 
-  return null;
+  // Clean Title by removing only the matched price substring
+  let titleText = text;
+  if (priceSubstr) {
+    titleText = titleText.replace(priceSubstr, ' ');
+  }
+
+  titleText = titleText
+    .replace(/(?:narxi?|baho[si]?|price|цена)\s*[:=-]?/gi, ' ')
+    .replace(/^[:=\-–—\s*]+|[:=\-–—\s*]+$/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+
+  const lines = titleText.split('\n').map(l => l.trim()).filter(Boolean);
+  let title = lines[0] || '';
+  title = title.replace(/^(?:nomi|mahsulot|tovar|title|наименование)\s*[:=-]\s*/i, '').trim();
+
+  return {
+    title,
+    price,
+    priceUSD,
+    rawPriceLabel,
+    priceSubstr
+  };
 }
 
 /**
@@ -418,22 +351,14 @@ function extractPrice(text = '') {
  */
 function parseProductInfo(text = '', aiResult = null) {
   let normalizedText = (text || '').trim();
-  const rawLines = normalizedText.split('\n').map(l => l.trim()).filter(Boolean);
+  const { title: rawTitle, price, priceUSD, rawPriceLabel } = extractPriceAndTitle(normalizedText);
 
-  const priceData = extractPrice(normalizedText) || {
-    price: 350000,
-    priceUSD: 0,
-    rawPriceLabel: '350 000 so‘m'
-  };
-
-  // Determine Title, Brand, Category, Description
   let title = '';
   let brand = '';
   let category = null;
   let description = '';
 
   if (aiResult) {
-    // If Gemini Vision AI recognized the product
     title = aiResult.title || '';
     brand = aiResult.brand || '';
     description = aiResult.description || '';
@@ -443,15 +368,7 @@ function parseProductInfo(text = '', aiResult = null) {
   }
 
   if (!title) {
-    // Fallback: extract title from caption
-    // Remove price-related lines
-    const titleCandidates = rawLines.filter(l => !extractPrice(l) && !/(?:narx|baho|price|\$)/i.test(l));
-    if (titleCandidates.length > 0) {
-      title = titleCandidates[0].replace(/^(nomi|mahsulot|title)\s*[:=-]\s*/i, '').trim();
-      if (titleCandidates.length > 1) {
-        title = `${title} ${titleCandidates[1]}`.trim();
-      }
-    }
+    title = rawTitle;
   }
 
   if (!category) {
@@ -459,29 +376,39 @@ function parseProductInfo(text = '', aiResult = null) {
   }
 
   if (!brand) {
-    brand = detectBrand(`${title} ${normalizedText}`) || 'Original Brand';
+    brand = detectBrand(`${title} ${normalizedText}`);
   }
 
-  if (!title) {
+  // Polish title if it is in Russian or short
+  const lowerTitle = title.toLowerCase();
+  if (lowerTitle.includes('конус') || lowerTitle.includes('konus')) {
+    title = title.replace(/конус/i, 'Yo‘l harakati xavfsizlik konusi');
+  } else if (lowerTitle.includes('плитка') || lowerTitle.includes('тактильн')) {
+    title = title.replace(/тактильный\s*плитка/i, 'PVX Taktil plitka (300x300 mm)');
+  } else if (lowerTitle.includes('гармошка')) {
+    title = title.replace(/гармошка\s*видвижной/i, 'Garmoshka suriluvchi metall yo‘l to‘sig‘i');
+  } else if (lowerTitle.includes('отбойник') || lowerTitle.includes('колесо')) {
+    title = title.replace(/колесо\s*отбойник/i, 'Kolesootboynik - Avtomobil to‘xtatuvchi rezina');
+  }
+
+  if (!title || title.length < 3) {
     title = `${category.name} Mahsuloti`;
   }
 
   if (!description) {
-    description = `${title} - kafolatli, yuqori sifatli mahsulot. Buxoro va O'zbekiston bo'ylab tezkor yetkazib beriladi.`;
+    description = `${title} - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.`;
   }
 
   let sku = '';
-  for (const line of rawLines) {
-    const skuMatch = line.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
-    if (skuMatch && !sku) sku = skuMatch[1];
-  }
+  const skuMatch = normalizedText.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
+  if (skuMatch) sku = skuMatch[1];
 
   return {
     title,
     sku,
-    price: priceData.price,
-    priceUSD: priceData.priceUSD,
-    rawPriceLabel: priceData.rawPriceLabel,
+    price: price || 150000,
+    priceUSD,
+    rawPriceLabel,
     description,
     category,
     brand,
@@ -623,23 +550,19 @@ async function syncProductToSupabase(product) {
 
 function saveOrUpdateProduct(parsed, imagePaths = []) {
   const products = loadMockProducts();
-  const normNewTitle = normalizeKey(parsed.title);
   const newSku = (parsed.sku || '').trim().toLowerCase();
 
   let existingIndex = -1;
 
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    const normPTitle = normalizeKey(p.title);
-    const pSku = (p.sku || '').trim().toLowerCase();
-
-    if (newSku && pSku && newSku === pSku) {
-      existingIndex = i;
-      break;
-    }
-    if (normNewTitle && normPTitle && normNewTitle === normPTitle) {
-      existingIndex = i;
-      break;
+  // Only update existing product if SKU matches or if explicit update was requested
+  if (newSku) {
+    for (let i = 0; i < products.length; i++) {
+      const p = products[i];
+      const pSku = (p.sku || '').trim().toLowerCase();
+      if (pSku && newSku === pSku) {
+        existingIndex = i;
+        break;
+      }
     }
   }
 
@@ -657,6 +580,8 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     existing.category = parsed.category.name;
     existing.category_slug = parsed.category.slug;
     existing.categorySlug = parsed.category.slug;
+    existing.department = parsed.category.department;
+    existing.departmentName = parsed.category.departmentName;
     existing.description = parsed.description;
     existing.brand = parsed.brand;
     if (parsed.sku) existing.sku = parsed.sku;
@@ -668,6 +593,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     writeMockProducts(products);
     return { isUpdate: true, product: existing };
   } else {
+    // Generate fresh unique slug and ID for every new product
     const slug = (parsed.title.toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
@@ -677,7 +603,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       id: `prod_${slug}`,
       title: parsed.title,
       slug: slug,
-      sku: parsed.sku || '',
+      sku: parsed.sku || `NSB-${Date.now().toString().slice(-6)}`,
       price: parsed.price,
       oldPrice: oldPrice,
       old_price: oldPrice,
@@ -686,11 +612,11 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       category: parsed.category.name,
       category_slug: parsed.category.slug,
       categorySlug: parsed.category.slug,
-      department: parsed.category.department || 'sport',
-      departmentName: parsed.category.departmentName || 'Sport & Fitnes',
+      department: parsed.category.department || 'yol-harakati',
+      departmentName: parsed.category.departmentName || 'Yo‘l & Harakat Xavfsizligi',
       subcategory: '',
       brand: parsed.brand,
-      stock: 20,
+      stock: 25,
       inStock: true,
       in_stock: true,
       rating: 5.0,
@@ -707,7 +633,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
         { label: 'Toifa', value: parsed.category.name },
         { label: 'Brend', value: parsed.brand },
         { label: 'Holati', value: 'Yangi / Kafolatli' },
-        { label: 'Yetkazib berish', value: 'Buxoro bo‘ylab tezkor' }
+        { label: 'Yetkazib berish', value: 'Buxoro va O‘zbekiston bo‘ylab tezkor' }
       ],
       created_at: new Date().toISOString()
     };
@@ -752,7 +678,7 @@ async function processMediaGroup(key, groupData) {
 
   await sendTelegram('sendMessage', {
     chat_id: chatId,
-    text: `⏳ Mahsulot qabul qilinmoqda (${photos.length} ta rasm)... Rasm tahlil qilinmoqda...`
+    text: `⏳ Mahsulot qabul qilinmoqda (${photos.length} ta rasm)... Tahlil qilinmoqda...`
   });
 
   const baseSlug = 'prod-' + Date.now().toString().slice(-6);
@@ -774,23 +700,16 @@ async function processMediaGroup(key, groupData) {
     return;
   }
 
-  // 1. Try AI Vision recognition
-  let aiResult = null;
-  const geminiKey = getGeminiKey();
-  if (geminiKey) {
-    aiResult = await analyzeProductImageWithAI(downloadedImages[0], caption);
-  }
+  // 1. Parse product info
+  const parsed = parseProductInfo(caption, null);
 
-  // 2. Parse product info
-  const parsed = parseProductInfo(caption, aiResult);
-
-  // 3. Save or update product
+  // 2. Save or update product
   const { isUpdate, product } = saveOrUpdateProduct(parsed, downloadedImages);
 
-  // 4. Sync to Supabase
+  // 3. Sync to Supabase
   await syncProductToSupabase(product);
 
-  // 5. Push to GitHub
+  // 4. Push to GitHub
   pushChangesToGitHub(parsed.title, isUpdate);
 
   const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
@@ -800,8 +719,6 @@ async function processMediaGroup(key, groupData) {
     ? `🔄 <b>Mavjud mahsulot yangilandi!</b>`
     : `✅ <b>Yangi mahsulot do‘konga qo‘shildi!</b>`;
 
-  const aiNote = aiResult ? `\n🤖 <i>(Gemini AI rasmdan mahsulotni avtomatik aniqladi)</i>` : '';
-
   await sendTelegram('sendMessage', {
     chat_id: chatId,
     parse_mode: 'HTML',
@@ -810,9 +727,8 @@ async function processMediaGroup(key, groupData) {
           `💰 <b>Narxi:</b> ${formattedPrice} so‘m\n` +
           `${deptEmoji} <b>Toifa:</b> ${product.category}\n` +
           `🏷 <b>Brend:</b> ${product.brand}\n` +
-          `🖼 <b>Galereya:</b> ${downloadedImages.length} ta rasm to‘liq biriktirildi\n` +
-          `${aiNote}\n\n` +
-          `🚀 <b>Saytda jonli chiqdi:</b> Barcha rasmlari va tavsifi bilan mahsulot kartochkasi ochildi!`
+          `🖼 <b>Galereya:</b> ${downloadedImages.length} ta rasm to‘liq biriktirildi\n\n` +
+          `🚀 <b>Saytda jonli chiqdi:</b> Mahsulot kartochkasi to‘liq ochildi!`
   });
 }
 
@@ -846,7 +762,7 @@ async function handleUpdate(update) {
   const rawText = (msg.text || '').trim();
   const caption = (msg.caption || '').trim();
 
-  // 1. /clear or /tozala command
+  // 1. /clear command
   if (rawText === '/clear' || rawText === '/delete_all' || rawText === '/tozala') {
     writeMockProducts([]);
     if (supabase) {
@@ -864,49 +780,23 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 2. /key command for Gemini Vision AI
-  if (rawText.startsWith('/key') || rawText.startsWith('/gemini')) {
-    const parts = rawText.split(/\s+/);
-    if (parts.length >= 2 && parts[1].length > 10) {
-      saveGeminiKey(parts[1]);
-      await sendTelegram('sendMessage', {
-        chat_id: chatId,
-        parse_mode: 'HTML',
-        text: `✅ <b>Gemini Vision AI muvaffaqiyatli faollashtirildi!</b>\n\nEndi botga mahsulot rasmi va narxini yuborganingizda, AI rasmga qarab tovar nomi, brendi va toifasini (Sport, Yo'l, Uskunalar) avtomatik aniqlab kiritadi!`
-      });
-    } else {
-      const current = getGeminiKey() ? 'Faol (ulangan)' : 'Ulanmagan';
-      await sendTelegram('sendMessage', {
-        chat_id: chatId,
-        parse_mode: 'HTML',
-        text: `🔑 <b>Gemini Vision AI sozlamasi:</b>\n\nHolat: <b>${current}</b>\n\nAI kalitingizni ulash uchun: <code>/key AIzaSy...</code> deb yuboring.\n(Google AI Studio saytidan bepul olinadi)`
-      });
-    }
-    return;
-  }
-
-  // 3. /start command
+  // 2. /start command
   if (rawText.startsWith('/start') || rawText.startsWith('/help')) {
-    const aiStatus = getGeminiKey() ? '🟢 Faol' : '⚪ Ulanmagan (/key orqali ulanadi)';
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
       text: `👋 <b>Assalomu alaykum!</b>\n\nDo‘koningizga mahsulot qo‘shuvchi rasmiy botga xush kelibsiz!\n\n` +
             `📂 <b>Do‘konda 3 ta katta yo‘nalish mavjud:</b>\n` +
-            `1. 🏆 <b>Sport & Fitnes:</b> Trenajorlar, Gantellar, Stoykalar, Boks, Tatami, To‘plar\n` +
-            `2. 🚧 <b>Yo‘l & Harakat Xavfsizligi:</b> Yo‘l konuslari, Belgilar, To‘siqlar, Lejachiy politseyskiy\n` +
-            `3. 🛠️ <b>Asbob-Uskunalar & Qurilish:</b> Drellar, Balgarkalar, Perforatorlar, Svarka, Arralar\n\n` +
-            `📌 <b>QAT'IY QOIDALAR:</b>\n` +
-            `❌ Faqat rasm (narxsiz) yuborsangiz — qabul qilinmaydi!\n` +
-            `❌ Faqat matn (rasmsiz) yuborsangiz — qabul qilinmaydi!\n` +
-            `✅ <b>Rasm + Tagiga narxi (va qisqa nomi)</b> yuborilganda — mahsulot avtomatik saytga qo‘shiladi!\n\n` +
-            `🤖 <b>Gemini Vision AI:</b> ${aiStatus}\n` +
-            `🗑 <b>Tozalash:</b> /tozala yoki /clear buyrug‘i orqali barcha mahsulotlarni o‘chirish mumkin.`
+            `1. 🚧 <b>Yo‘l & Harakat Xavfsizligi:</b> Yo‘l konuslari, Belgilar, To‘siqlar, Lejachiy politseyskiy, Ustunlar\n` +
+            `2. 🛠️ <b>Asbob-Uskunalar & Qurilish:</b> Drellar, Balgarkalar, Perforatorlar, Svarka, Arralar\n` +
+            `3. 🏆 <b>Sport & Fitnes:</b> Trenajorlar, Gantellar, Stoykalar, Boks, Tatami, To‘plar\n\n` +
+            `📌 <b>QANDAY QO‘SHILADI:</b>\n` +
+            `Rasm + Tagiga narxi (masalan: <code>Конус TPU 75sm 10$</code> yoki <code>Тактильный плитка 16000 из pvc</code>) yuborilganda, mahsulot darhol to‘g‘ri toifasiga tushadi va saytda jonli chiqadi!`
     });
     return;
   }
 
-  // 4. CHECK STRICT RULE: TEXT ONLY (NO PHOTO)
+  // 3. CHECK STRICT RULE: TEXT ONLY (NO PHOTO)
   if (!msg.photo || msg.photo.length === 0) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
@@ -916,33 +806,32 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 5. CHECK STRICT RULE: PHOTO WITHOUT CAPTION
+  // 4. CHECK STRICT RULE: PHOTO WITHOUT CAPTION
   if (!caption) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> (va qisqa nomini) yozib yuboring (masalan: <code>450 000 so‘m</code> yoki <code>$35</code>).`
+      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> va qisqa nomini yozib yuboring (masalan: <code>Конус TPU 75sm 10$</code> yoki <code>16 000 so‘m</code>).`
     });
     return;
   }
 
-  // 6. CHECK STRICT RULE: CAPTION MUST HAVE A PRICE
-  const priceCheck = extractPrice(caption);
+  // 5. CHECK STRICT RULE: CAPTION MUST HAVE A PRICE
+  const priceCheck = extractPriceAndTitle(caption);
   if (!priceCheck || priceCheck.price <= 0) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>250 000 so‘m</code> yoki <code>$20</code>).`
+      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>$10</code> yoki <code>130 000 so‘m</code>).`
     });
     return;
   }
 
-  // 7. PHOTO IS VALID AND HAS PRICE -> PROCESS!
+  // 6. PHOTO IS VALID AND HAS PRICE -> PROCESS!
   const largestPhoto = msg.photo[msg.photo.length - 1];
   const mediaGroupId = msg.media_group_id;
 
   if (mediaGroupId) {
-    // TELEGRAM MEDIA GROUP (ALBUM) BUFFERING
     if (mediaGroupBuffer.has(mediaGroupId)) {
       const group = mediaGroupBuffer.get(mediaGroupId);
       group.photos.push(largestPhoto);
@@ -962,7 +851,7 @@ async function handleUpdate(update) {
     return;
   }
 
-  // SINGLE PHOTO WITH VALID CAPTION
+  // SINGLE PHOTO
   const userKey = `user_${chatId}`;
   if (userSinglePhotoBuffer.has(userKey)) {
     const buffer = userSinglePhotoBuffer.get(userKey);
@@ -998,9 +887,9 @@ async function handleUpdate(update) {
 }
 
 console.log('====================================================');
-console.log('🤖 MULTI-DEPARTMENT STORE TELEGRAM BOT RUNNING...');
+console.log('🤖 MULTI-DEPARTMENT STORE TELEGRAM BOT RUNNING v2.0');
 console.log(`Bot username: @Ttxtxtctxtxtxhxhchxhbot`);
-console.log('3 Categories: Sport | Yo\'l Xavfsizligi | Asbob-Uskunalar');
+console.log('Categories: Yo\'l Xavfsizligi | Asbob-Uskunalar | Sport');
 console.log('Strict validation: Only Photo+Price accepted!');
 console.log('====================================================');
 
