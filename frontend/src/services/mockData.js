@@ -161,6 +161,150 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
+    "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
+    "title": "2&1 Akkumulyatorli Bog‘ va Qurilish To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
+    "slug": "2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
+    "sku": "NSB-376488",
+    "price": 569000,
+    "oldPrice": 654350,
+    "old_price": 654350,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Arralar & Elektr Uskunalar",
+    "category_slug": "arralar-uskunalar",
+    "categorySlug": "arralar-uskunalar",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "GardenPro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-286063_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Bog‘dorchilik, tomorqa va qurilish ishlari uchun qulay 2&1 universal to‘plam: Daraxt shoxlarini oson kesuvchi mini zanjirli arra va elektr kesuvchi sekator-qaychi. Yengil, bir qo‘lda boshqarish mumkin va juda tejamkor.",
+    "specifications": [
+      {
+        "label": "To‘plam tarkibi",
+        "value": "1x Mini zanjirli arra, 1x Akkumulyatorli bog‘ qaychisi"
+      },
+      {
+        "label": "Shina uzunligi",
+        "value": "6 dyuym (15 sm) zanjirli shina"
+      },
+      {
+        "label": "Qaychi kesish qalinligi",
+        "value": "30 mm gacha bo‘lgan shoxlar"
+      },
+      {
+        "label": "Akkumulyator",
+        "value": "2 dona Li-Ion batareya va zaryadlovchi"
+      }
+    ],
+    "created_at": "2026-11-24T11:39:36.488Z"
+  },
+  {
+    "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
+    "id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
+    "title": "SLJ Elektr Toshli Stol Charxi (Ikki tomonlama toshli charxlash uskunasi)",
+    "slug": "slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
+    "sku": "NSB-376344",
+    "price": 135000,
+    "oldPrice": 155250,
+    "old_price": 155250,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Balgarka & Shlifovka",
+    "category_slug": "balgarkalar-ushm",
+    "categorySlug": "balgarkalar-ushm",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "SLJ",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-286248_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Pichoqlar, boltalar, burg‘ular (sverlolar), duradgorlik asboblari va metall qismlarni charxlash hamda tozalash uchun stol usti elektr charxi. Ikki tomonida turli donadorlikdagi (qo‘pol va mayin) charx toshlari va himoya oynachalari mavjud.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Stol usti ikki diskli charx"
+      },
+      {
+        "label": "Tosh diametri",
+        "value": "125-150 mm standart charx toshlari"
+      },
+      {
+        "label": "Xavfsizlik",
+        "value": "Uchqundan himoyalovchi shaffof ekranlar"
+      }
+    ],
+    "created_at": "2026-11-24T11:39:36.344Z"
+  },
+  {
+    "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
+    "id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
+    "title": "Turbo Texnik Fen 2000W (Haroratni rostlagichli sanoat feni)",
+    "slug": "turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
+    "sku": "NSB-373621",
+    "price": 92000,
+    "oldPrice": 105800,
+    "old_price": 105800,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Lazer Uroven & Asbob Naborlari",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "TurboPro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-320653_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Plastik quvurlarni bukish, payvandlash, bo‘yoq va lakni tozalash, avtomobil oynalariga plyonka tortish va quritish ishlari uchun 2000 Vt quvvatli professional texnik fen.",
+    "specifications": [
+      {
+        "label": "Quvvati",
+        "value": "2000 Vt"
+      },
+      {
+        "label": "Harorat diapazoni",
+        "value": "50°C - 600°C gacha rostlanadi"
+      }
+    ],
+    "created_at": "2026-11-24T11:39:33.621Z"
+  },
+  {
     "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
     "id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
     "title": "Professional Akkumulyatorli Zarbli Gaykavyort (Kuchli Cho‘tkasiz Motor)",
