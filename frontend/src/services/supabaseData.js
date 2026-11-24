@@ -10,10 +10,10 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v11 Clean Empty State Ready for Fresh Additions)
+// Local storage collection keys (v12 Complete Catalog with 175+ Unique Products)
 const KEYS = {
   CATEGORIES: 'nsb_categories_v8_multidept',
-  PRODUCTS: 'nsb_products_v11_clean',
+  PRODUCTS: 'nsb_products_v12_all_catalog',
   BANNERS: 'nsb_banners_v4_sport',
   COUPONS: 'nsb_coupons_v4_sport',
   REVIEWS: 'nsb_reviews_v4_sport',
@@ -392,12 +392,13 @@ export const dataService = {
     all.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const bestsellers = all.filter(p => p.isBestseller);
-    const newArrivals = all.filter(p => p.isNewArrival);
-    const weeklyDeals = all.filter(p => p.isWeeklyDeal || (p.discountPercent || 0) > 0);
+    const bestsellerIds = new Set(bestsellers.map(p => p.id));
+    const newArrivals = all.filter(p => !bestsellerIds.has(p.id) && (p.isNewArrival || true));
+    const weeklyDeals = all.filter(p => p.isWeeklyDeal || (p.discountPercent || 0) > 15);
 
     return {
       bestsellers: bestsellers.length ? bestsellers.slice(0, 10) : all.slice(0, 10),
-      newArrivals: newArrivals.length ? newArrivals.slice(0, 10) : all.slice(0, 10),
+      newArrivals: newArrivals.length ? newArrivals.slice(0, 10) : all.filter(p => !bestsellerIds.has(p.id)).slice(0, 10),
       weeklyDeals: weeklyDeals.length ? weeklyDeals.slice(0, 10) : all.slice(0, 10),
       allProducts: all
     };
