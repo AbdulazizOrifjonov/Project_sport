@@ -161,6 +161,58 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
+    "id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
+    "title": "Professional Akkumulyatorli Zarbli Gaykavyort (Kuchli Cho‘tkasiz Motor)",
+    "slug": "professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
+    "sku": "NSB-329701",
+    "price": 164000,
+    "oldPrice": 188600,
+    "old_price": 188600,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "ProTools",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-285866_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobil g‘ildiraklarini yechish, metall konstruksiyalar va og‘ir gaykalarni qotirish uchun mo‘ljallangan kuchli zarbli gaykavyort. Cho‘tkasiz (brushless) motor yuqori quvvat va uzoq xizmat muddatini kafolatlaydi.",
+    "specifications": [
+      {
+        "label": "Aylanma moment",
+        "value": "350-450 Nm kuchli zarbli moment"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "1/2 dyuym (12.7 mm) standart kvadrat"
+      },
+      {
+        "label": "Tezlikni sozlash",
+        "value": "Elektron 3 pog‘onali tezlik va revers"
+      },
+      {
+        "label": "Yoritgich",
+        "value": "Ish hududini yorituvchi LED diod"
+      }
+    ],
+    "created_at": "2026-11-24T11:38:49.701Z"
+  },
+  {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
     "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
