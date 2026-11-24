@@ -605,7 +605,6 @@ async function syncProductToSupabase(product) {
       is_bestseller: true,
       is_new_arrival: true,
       is_weekly_deal: false,
-      variant_label: product.variantLabel || '',
       variants: product.variants || [],
       description: product.description || '',
       specifications: product.specifications || []
@@ -723,9 +722,15 @@ function pushChangesToGitHub(productTitle, isUpdate) {
   try {
     console.log('Pushing changes to GitHub...');
     execSync('git add frontend/public/uploads frontend/src/services/mockData.js tools/bot_config.json', { cwd: ROOT_DIR });
+    const status = execSync('git status --porcelain', { cwd: ROOT_DIR }).toString().trim();
+    if (!status) {
+      console.log('No new changes to commit.');
+      return true;
+    }
     const action = isUpdate ? 'update' : 'add';
-    execSync(`git commit -m "feat(store): ${action} product '${productTitle}' via Telegram"`, { cwd: ROOT_DIR });
-    execSync('git push origin main', { cwd: ROOT_DIR, timeout: 45000 });
+    const safeTitle = (productTitle || 'item').replace(/["`$\\]/g, '');
+    execSync(`git commit -m "feat(store): ${action} product '${safeTitle}' via Telegram"`, { cwd: ROOT_DIR });
+    execSync('git push origin main', { cwd: ROOT_DIR, timeout: 60000 });
     console.log('Successfully pushed to GitHub! Render will auto-deploy.');
     return true;
   } catch (err) {
