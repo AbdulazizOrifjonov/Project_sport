@@ -89,7 +89,7 @@ export const defaultProducts = [
   {
     "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
     "id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
-    "title": "4&1 Professional Akkumulyatorli Asboblar To‘plami (Gaykavyort, Balgarka, Drel, Perforator)",
+    "title": "DeWalt 4&1 Professional Akkumulyatorli Asboblar To‘plami (Balgarka 125mm, Zarbli Drel, Gaykavyort, Perforator 21V)",
     "slug": "4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
     "sku": "NSB-494561",
     "price": 895000,
@@ -99,9 +99,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Asboblar To‘plamlari (Naborlar)",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "asboblar-to-plami",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Universal Pro",
     "stock": 25,
@@ -110,7 +110,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-492456_1.jpg"
+      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_1.jpg",
+      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_2.jpg",
+      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -120,24 +122,28 @@ export const defaultProducts = [
     "description": "Barcha kerakli qurilish va ta'mirlash asboblari bir to'plamda. Mustahkam keys, kuchli cho'tkasiz motorlar va sig'imli akkumulyatorlar bilan.",
     "specifications": [
       {
-        "label": "To‘plam tarkibi",
-        "value": "Gaykavyort, Balgarka (USH-M), Drel-shurupovyort, Perforator"
+        "label": "To'plam tarkibi",
+        "value": "Balgarka (125mm), Zarbli drel, Gaykavyort, Perforator"
+      },
+      {
+        "label": "Akkumulyator",
+        "value": "2 dona 21V 4.0Ah Li-ion"
       },
       {
         "label": "Dvigatel turi",
-        "value": "Beshchetochniy (Brushless / Cho‘tkasiz) yuqori resursli"
+        "value": "Cho'tkasiz (Brushless) kuchaytirilgan motor"
       },
       {
-        "label": "Batareya",
-        "value": "Yuqori sig‘imli universal Li-Ion akkumulyatorlar"
+        "label": "Balgarka tezligi",
+        "value": "8 500 ayl/daq, 125 mm disk"
       },
       {
-        "label": "Komplektatsiya",
-        "value": "4 ta uskuna, 2x batareya, tezkor zaryadlovchi, mustahkam keys"
+        "label": "Gaykavyort aylanish momenti",
+        "value": "350 Nm, 1/2 dyuym kallak"
       },
       {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
+        "label": "Keys",
+        "value": "Og'ir yuklarga chidamli zarbaga qarshi mustahkam keys"
       }
     ],
     "created_at": "2026-11-24T11:41:34.561Z",
@@ -154,12 +160,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
     "id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
-    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer (G‘ildirakli va diskli)",
+    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer 21V (G‘ildirakli baza, metall disk va pichoqlar bilan)",
     "slug": "universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
     "sku": "NSB-494542",
     "price": 440000,
@@ -168,10 +175,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "arralar-uskunalar",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "GreenGarden",
     "stock": 25,
@@ -180,7 +187,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-480962_1.jpg"
+      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_1.jpg",
+      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_2.jpg",
+      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -190,16 +199,24 @@ export const defaultProducts = [
     "description": "Bog' va hovli maysazorlarini o'rish uchun qulay g'ildirakli akkumulyatorli trimmer. Metall pichoqlar va disk bilan jihozlangan.",
     "specifications": [
       {
+        "label": "Quvvati / Kuchlanish",
+        "value": "21V Li-ion akkumulyator"
+      },
+      {
+        "label": "Aylanishlar soni",
+        "value": "10 000 ayl/daq"
+      },
+      {
+        "label": "Qirqish kengligi",
+        "value": "150 mm"
+      },
+      {
         "label": "Teleskopik shtanga",
-        "value": "Bo‘yga moslab 90-125 sm gacha uzayadi"
+        "value": "90 - 125 sm sozlanuvchi alyuminiy korpus"
       },
       {
-        "label": "Pichoqlar",
-        "value": "Metall pichoq, arra diski va plastik pichoqlar"
-      },
-      {
-        "label": "Batareya",
-        "value": "2x Li-Ion akkumulyator"
+        "label": "Komplektatsiya",
+        "value": "G'ildirakli baza, po'lat disk, 2 ta metall pichoq, 5 ta plastik pichoq, 2 ta batareya"
       }
     ],
     "created_at": "2026-11-24T11:41:34.542Z",
@@ -216,12 +233,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
-    "title": "Akkumulyatorli Zarbli Drel-shurupovyort DeWalt 72V (Keys va 2 ta batareya)",
+    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho'tkasiz motor, 2 ta batareya va metall keys)",
     "slug": "akkumulyatorli-zarbli-drel-shurupovyort-dewalt-72v-keys-va-2-ta-batareya-4492",
     "sku": "NSB-494492",
     "price": 330000,
@@ -231,9 +249,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -242,7 +260,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-480959_1.jpg"
+      "/uploads/dewalt-drill-21v_1.jpg",
+      "/uploads/dewalt-drill-21v_2.jpg",
+      "/uploads/dewalt-drill-21v_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -252,28 +272,28 @@ export const defaultProducts = [
     "description": "Zarbli funksiyaga ega kuchli drel-shurupovyort. 2 ta batareya, tezkor zaryadlovchi va sifatli qattiq keys bilan.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "21V (Maksimal quvvat)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Aylanish momenti",
+        "value": "70 Nm, 20+3 bosqichli sozlagich"
+      },
+      {
+        "label": "Patron",
+        "value": "13 mm metall tez qisuvchi patron"
       },
       {
         "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "value": "2 bosqichli reduktor (0-450 / 0-1650 ayl/daq)"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+        "label": "Zarb funksiyasi",
+        "value": "Mavjud (Beton va g'isht burg'ulash uchun)"
       },
       {
         "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "value": "2 ta batareya, tezkor zaryadlovchi, burg'ular to'plami, mustahkam keys"
       }
     ],
     "created_at": "2026-11-24T11:41:34.492Z",
@@ -290,12 +310,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
     "id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
-    "title": "Turbo Texnik Sanoat Feni 2000W (Haroratni rostlagichli)",
+    "title": "Turbo 2000W Professional Sanoat Texnik Feni (50-600°C harorat sozlagichi, 4 ta nasadka bilan)",
     "slug": "turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408",
     "sku": "NSB-494408",
     "price": 92000,
@@ -303,11 +324,11 @@ export const defaultProducts = [
     "old_price": 105800,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "lazer-qol-asboblari",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Qo‘l Asboblari & O‘lchov",
+    "category_slug": "qol-asboblari",
+    "categorySlug": "qol-asboblari",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "TurboPro",
     "stock": 25,
@@ -316,7 +337,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-480968_1.jpg"
+      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_1.jpg",
+      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_2.jpg",
+      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -327,11 +350,23 @@ export const defaultProducts = [
     "specifications": [
       {
         "label": "Quvvati",
-        "value": "2000 Vt"
+        "value": "2000 Vt (2000W)"
       },
       {
-        "label": "Harorat diapazoni",
-        "value": "50°C - 600°C gacha rostlanadi"
+        "label": "Harorat oralig'i",
+        "value": "50°C - 600°C (Ravon sozlanuvchi regulyator)"
+      },
+      {
+        "label": "Havo oqimi",
+        "value": "2 bosqich (300 L/daq va 500 L/daq)"
+      },
+      {
+        "label": "Qizdirish elementi",
+        "value": "Keramik qoplamali yuqori quvvatli nikel spiral"
+      },
+      {
+        "label": "Nasadkalar",
+        "value": "4 ta zanglamas po'lat yo'naltiruvchi nasadka va qirg'ich"
       }
     ],
     "created_at": "2026-11-24T11:41:34.408Z",
@@ -347,12 +382,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
     "id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
-    "title": "SLJ Elektr Toshli Stol Charxi (Ikki tomonlama charxlash uskunasi)",
+    "title": "SLJ 150W Ikki Tomonlama Elektr Toshli Stol Charxi (150 mm charx disklari, himoya oynalari bilan)",
     "slug": "slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280",
     "sku": "NSB-494280",
     "price": 135000,
@@ -360,11 +396,11 @@ export const defaultProducts = [
     "old_price": 155250,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Balgarkalar & Silliqlash",
-    "category_slug": "balgarka-shlifovka",
+    "category": "Balgarkalar & Silliqlash Mashinalari",
+    "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
-    "department": "Balgarkalar & Silliqlash",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "SLJ",
     "stock": 25,
@@ -373,7 +409,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-480963_1.jpg"
+      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_1.jpg",
+      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_2.jpg",
+      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -383,16 +421,24 @@ export const defaultProducts = [
     "description": "Pichoq, bolta, burg'u va metall buyumlarni charxlash uchun mustahkam ikki diskli stol charxi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Stol usti ikki diskli charx"
+        "label": "Quvvati",
+        "value": "150 Vt (150W)"
+      },
+      {
+        "label": "Aylanishlar soni",
+        "value": "2950 ayl/daq"
       },
       {
         "label": "Tosh diametri",
-        "value": "125-150 mm standart charx toshlari"
+        "value": "150 mm (Qalinligi 16 mm, o'qi 12.7 mm)"
+      },
+      {
+        "label": "Tosh donadorligi",
+        "value": "Dag'al (36-grit) va mayda (60-grit) charx toshlari"
       },
       {
         "label": "Xavfsizlik",
-        "value": "Uchqundan himoyalovchi shaffof ekranlar"
+        "value": "Metall himoya kojuxi va shaffof uchqundan himoyalovchi ekranlar"
       }
     ],
     "created_at": "2026-11-24T11:41:34.280Z",
@@ -408,12 +454,90 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
+  },
+  {
+    "_id": "prod_balgarka-edon-1050w-125mm",
+    "id": "prod_balgarka-edon-1050w-125mm",
+    "title": "Edon ED-AG125-1050 Professional Burchakli Silliqlash Mashinasi (Balgarka 1050W, 125 mm)",
+    "slug": "balgarka-edon-1050w-125mm",
+    "sku": "NSB-EDON-1050",
+    "price": 145000,
+    "oldPrice": 175000,
+    "old_price": 175000,
+    "discountPercent": 17,
+    "discount_percent": 17,
+    "category": "Balgarkalar & Silliqlash Mashinalari",
+    "category_slug": "balgarkalar-ushm",
+    "categorySlug": "balgarkalar-ushm",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
+    "subcategory": "Burchakli silliqlash mashinalari",
+    "brand": "Edon",
+    "stock": 65,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 14,
+    "images": [
+      "/uploads/balgarka-1050w-125mm_1.jpg",
+      "/uploads/balgarka-1050w-125mm_2.jpg",
+      "/uploads/balgarka-1050w-125mm_3.jpg"
+    ],
+    "is_bestseller": true,
+    "is_hit": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": true,
+    "variantLabel": "Disk diametri",
+    "variants": [
+      {
+        "name": "125 mm / 1050W",
+        "price": 145000,
+        "inStock": true
+      }
+    ],
+    "description": "Edon ED-AG125-1050 professional darajadagi elektr burchakli silliqlash mashinasi (balgarka). 1050 Vt quvvatli kuchaytirilgan mis o'ramli motor, 11 000 ayl/daq tezlik, 125 mm disk diametri. Ergonomik uzun dasta (long handle) va xavfsiz kalitli boshqaruv tufayli metall, profil, armatura, tosh va plitkalarni kesish hamda silliqlashda maksimal qulaylik beradi.",
+    "specifications": [
+      {
+        "label": "Nominal quvvati",
+        "value": "1050 Vt (1050W)"
+      },
+      {
+        "label": "Aylanishlar chastotasi",
+        "value": "11 000 ayl/daq"
+      },
+      {
+        "label": "Maksimal disk diametri",
+        "value": "125 mm"
+      },
+      {
+        "label": "Shpindel rezbasi",
+        "value": "M14 standart rezba"
+      },
+      {
+        "label": "Dasta tuzilishi",
+        "value": "Ergonomik uzun orqa tutqich (Long handle)"
+      },
+      {
+        "label": "Kuchlanish va chastota",
+        "value": "220-240V ~ 50/60 Hz"
+      },
+      {
+        "label": "Og'irligi",
+        "value": "2.1 kg"
+      },
+      {
+        "label": "Komplektatsiya",
+        "value": "Balgarka, himoya kojuxi, yordamchi rezina tutqich, disk gayka kaliti, zaxira grafit cho'tkalari"
+      }
+    ],
+    "created_at": "2026-11-24T19:25:05.472Z"
   },
   {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
     "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
-    "title": "2&1 Akkumulyatorli Bog‘ To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
+    "title": "2&1 Akkumulyatorli Bog‘bon To‘plami 21V (Mini zanjirli arra 6 dyuym + Akkumulyatorli sekator)",
     "slug": "2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
     "sku": "NSB-480941",
     "price": 569000,
@@ -422,10 +546,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "arralar-uskunalar",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "GardenPro",
     "stock": 25,
@@ -434,7 +558,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-458603_1.jpg"
+      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_1.jpg",
+      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_2.jpg",
+      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -444,20 +570,24 @@ export const defaultProducts = [
     "description": "Daraxt shoxlarini kesish va bog' parvarishi uchun yengil va qulay mini zanjirli arra va elektr sekator to'plami.",
     "specifications": [
       {
-        "label": "To‘plam tarkibi",
-        "value": "1x Mini zanjirli arra, 1x Akkumulyatorli bog‘ qaychisi"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Shina uzunligi",
-        "value": "6 dyuym (15 sm) zanjirli shina"
+        "label": "Zanjirli arra shinasi",
+        "value": "6 dyuym (15 sm) qotirilgan po'lat shina va zanjir"
       },
       {
-        "label": "Qaychi kesish qalinligi",
-        "value": "30 mm gacha bo‘lgan shoxlar"
+        "label": "Sekator qirqish qalinligi",
+        "value": "30 mm gacha shoxlarni oson qirqadi (SK5 po'lat tig')"
       },
       {
-        "label": "Akkumulyator",
-        "value": "2 dona Li-Ion batareya va zaryadlovchi"
+        "label": "Dvigatel",
+        "value": "Yuqori quvvatli cho'tkasiz (Brushless) motor"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Arra, sekator, 2 ta akkumulyator, zaryadlagich, moy idishi, maxsus keys"
       }
     ],
     "created_at": "2026-11-24T11:41:20.941Z",
@@ -474,12 +604,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
     "id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
-    "title": "Professional Akkumulyatorli Zarbli Gaykavyort (Cho‘tkasiz Motor)",
+    "title": "Professional Akkumulyatorli Zarbli Gaykavyort 21V (Cho‘tkasiz motor, 1/2 dyuym kallak, 2 ta akkumulyator)",
     "slug": "professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903",
     "sku": "NSB-480903",
     "price": 164000,
@@ -489,9 +620,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "ProTools",
     "stock": 25,
@@ -500,7 +631,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-458909_1.jpg"
+      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_1.jpg",
+      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_2.jpg",
+      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -510,20 +643,24 @@ export const defaultProducts = [
     "description": "Avtomobil g'ildiraklari va og'ir metall konstruksiyalarni qotirish uchun yuqori buralish momentiga ega zarbli gaykavyort.",
     "specifications": [
       {
-        "label": "Aylanma moment",
-        "value": "350-450 Nm kuchli zarbli moment"
+        "label": "Maksimal aylanish momenti",
+        "value": "350 - 450 Nm (G'ildirak boltlarini oson yechadi)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "1/2 dyuym (12.7 mm) standart kvadrat"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Tezlikni sozlash",
-        "value": "Elektron 3 pog‘onali tezlik va revers"
+        "label": "Kallak o'lchami",
+        "value": "1/2 dyuym (12.7 mm) to'rtburchak shpindel"
       },
       {
-        "label": "Yoritgich",
-        "value": "Ish hududini yorituvchi LED diod"
+        "label": "Tezlik rejimlari",
+        "value": "Elektron tezlik va zarb boshqaruvi (LED indikator)"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Gaykavyort, 2 ta batareya, tezkor zaryadlash stansiyasi, 4 ta zarbli kallak"
       }
     ],
     "created_at": "2026-11-24T11:41:20.903Z",
@@ -539,12 +676,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9178",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9178",
-    "title": "Kompakt Akkumulyatorli Shurupovyort 12V (Uy va ustaxona uchun)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178",
     "sku": "NSB-459178",
     "price": 169000,
@@ -554,9 +692,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -565,7 +703,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-449095_1.jpg"
+      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_1.jpg",
+      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_2.jpg",
+      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -575,28 +715,20 @@ export const defaultProducts = [
     "description": "Kundalik uy ro'zg'or va mebel yig'ish ishlari uchun yengil, qulay va ixcham akkumulyatorli shurupovyort.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:40:59.178Z",
@@ -612,12 +744,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8586",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8586",
-    "title": "Standart Akkumulyatorli Drel-shurupovyort 12V (Zaryadlovchi bilan)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586",
     "sku": "NSB-458586",
     "price": 130000,
@@ -627,9 +760,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -638,7 +771,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-449918_1.jpg"
+      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_1.jpg",
+      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_2.jpg",
+      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -648,28 +783,20 @@ export const defaultProducts = [
     "description": "Tezkor patron va teskari (revers) aylanish funksiyasiga ega ishonchli 12V shurupovyort.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:40:58.586Z",
@@ -685,12 +812,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9884",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-9884",
-    "title": "Zarbli Drel-shurupovyort To'plami (Ko'k keys, 2 batareya va aksessuarlar)",
+    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho'tkasiz motor, 2 ta batareya va metall keys)",
     "slug": "zarbli-drel-shurupovyort-to-plami-ko-k-keys-2-batareya-va-aksessuarlar-9884",
     "sku": "NSB-449884",
     "price": 825000,
@@ -700,9 +828,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -711,7 +839,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-428458_1.jpg"
+      "/uploads/dewalt-drill-21v_1.jpg",
+      "/uploads/dewalt-drill-21v_2.jpg",
+      "/uploads/dewalt-drill-21v_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -721,24 +851,28 @@ export const defaultProducts = [
     "description": "Ko'k rangli mustahkam keysda joylashgan to'liq drel komplekti: bitlar, burg'ular va 2 ta litiy-ion batareya.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kuchlanishi",
+        "value": "21V (Maksimal quvvat)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Aylanish momenti",
+        "value": "70 Nm, 20+3 bosqichli sozlagich"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Patron",
+        "value": "13 mm metall tez qisuvchi patron"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Tezliklar soni",
+        "value": "2 bosqichli reduktor (0-450 / 0-1650 ayl/daq)"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Zarb funksiyasi",
+        "value": "Mavjud (Beton va g'isht burg'ulash uchun)"
+      },
+      {
+        "label": "Komplekt",
+        "value": "2 ta batareya, tezkor zaryadlovchi, burg'ular to'plami, mustahkam keys"
       }
     ],
     "created_at": "2026-11-24T11:40:49.884Z",
@@ -754,12 +888,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-9906",
     "id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-9906",
-    "title": "4&1 Super Master Akkumulyatorli Asboblar To‘plami (To'liq Komplekt)",
+    "title": "DeWalt 4&1 Professional Akkumulyatorli Asboblar To‘plami (Balgarka 125mm, Zarbli Drel, Gaykavyort, Perforator 21V)",
     "slug": "4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906",
     "sku": "NSB-439906",
     "price": 895000,
@@ -769,9 +904,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Asboblar To‘plamlari (Naborlar)",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "asboblar-to-plami",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Universal Pro",
     "stock": 25,
@@ -780,7 +915,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-411882_1.jpg"
+      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_1.jpg",
+      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_2.jpg",
+      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -790,24 +927,28 @@ export const defaultProducts = [
     "description": "Masterlar uchun maxsus 4&1 akkumulyatorli komplekt: gaykavyort, perforator, burchak silliqlash mashinasi va drel.",
     "specifications": [
       {
-        "label": "To‘plam tarkibi",
-        "value": "Gaykavyort, Balgarka (USH-M), Drel-shurupovyort, Perforator"
+        "label": "To'plam tarkibi",
+        "value": "Balgarka (125mm), Zarbli drel, Gaykavyort, Perforator"
+      },
+      {
+        "label": "Akkumulyator",
+        "value": "2 dona 21V 4.0Ah Li-ion"
       },
       {
         "label": "Dvigatel turi",
-        "value": "Beshchetochniy (Brushless / Cho‘tkasiz) yuqori resursli"
+        "value": "Cho'tkasiz (Brushless) kuchaytirilgan motor"
       },
       {
-        "label": "Batareya",
-        "value": "Yuqori sig‘imli universal Li-Ion akkumulyatorlar"
+        "label": "Balgarka tezligi",
+        "value": "8 500 ayl/daq, 125 mm disk"
       },
       {
-        "label": "Komplektatsiya",
-        "value": "4 ta uskuna, 2x batareya, tezkor zaryadlovchi, mustahkam keys"
+        "label": "Gaykavyort aylanish momenti",
+        "value": "350 Nm, 1/2 dyuym kallak"
       },
       {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
+        "label": "Keys",
+        "value": "Og'ir yuklarga chidamli zarbaga qarshi mustahkam keys"
       }
     ],
     "created_at": "2026-11-24T11:40:39.906Z",
@@ -824,12 +965,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9879",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-9879",
-    "title": "Professional Akkumulyatorli Balgarka (USH-M 125 mm, Cho'tkasiz)",
+    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho'tkasiz motor)",
     "slug": "professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879",
     "sku": "NSB-439879",
     "price": 460000,
@@ -837,11 +979,11 @@ export const defaultProducts = [
     "old_price": 529000,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Balgarkalar & Silliqlash",
-    "category_slug": "balgarka-shlifovka",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Balgarkalar & Silliqlash",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Balgarkalar & Silliqlash Mashinalari",
+    "category_slug": "balgarkalar-ushm",
+    "categorySlug": "balgarkalar-ushm",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -850,7 +992,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-439355_1.jpg"
+      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_1.jpg",
+      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_2.jpg",
+      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -860,24 +1004,24 @@ export const defaultProducts = [
     "description": "Metall va toshlarni kesish, tozalash va silliqlash uchun kuchli cho'tkasiz akkumulyatorli balgarka.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Disk diametri",
+        "value": "125 mm"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Aylanishlar soni",
+        "value": "8 500 ayl/daq (Tezlikni sozlash mumkin)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Shpindel",
+        "value": "M14 standart shpindel, tez bloklash tugmasi"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Ergonomika",
+        "value": "Yupqa korpus, tebranishni yutuvchi qo'shimcha dasta"
       }
     ],
     "created_at": "2026-11-24T11:40:39.879Z",
@@ -894,12 +1038,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9731",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9731",
-    "title": "Akkumulyatorli Tsirkulyar Diskli Arra (Dumaloq qo'l arrasi)",
+    "title": "Professional Akkumulyatorli Tsirkulyar Diskli Arra 21V (185 mm disk, burchak va chuqurlik sozlagichi)",
     "slug": "akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731",
     "sku": "NSB-439731",
     "price": 339000,
@@ -908,10 +1053,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -920,7 +1065,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-439211_1.jpg"
+      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_1.jpg",
+      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_2.jpg",
+      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -930,28 +1077,20 @@ export const defaultProducts = [
     "description": "Yog'och, fanera va laminat taxtalarni to'g'ri va aniq burchak ostida kesish uchun simsiz diskli arra.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Disk diametri",
+        "value": "185 mm (24 tishli karbid qotishmali disk)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Aylanishlar soni",
+        "value": "5 000 ayl/daq"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Kesish chuqurligi",
+        "value": "90° da 65 mm, 45° da 45 mm gacha"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Baza platformasi",
+        "value": "Mustahkam quyma alyuminiy poydevor"
       }
     ],
     "created_at": "2026-11-24T11:40:39.731Z",
@@ -967,12 +1106,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8920",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8920",
-    "title": "Universal Shurupovyort 12V To'plami (Plastik keysda)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "universal-shurupovyort-12v-to-plami-plastik-keysda-8920",
     "sku": "NSB-428920",
     "price": 130000,
@@ -982,9 +1122,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -993,7 +1133,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-411855_1.jpg"
+      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_1.jpg",
+      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_2.jpg",
+      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1003,28 +1145,20 @@ export const defaultProducts = [
     "description": "Qulay ixcham plastik qutidagi drel-shurupovyort. 2 ta akkumulyator va asosiy burg'ulash nasadkalari bilan.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:40:28.920Z",
@@ -1040,12 +1174,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
     "id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
-    "title": "Bog‘ va Maysazor Uchun Akkumulyatorli Trimmer (G'ildirakli komplekt)",
+    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer 21V (G‘ildirakli baza, metall disk va pichoqlar bilan)",
     "slug": "bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370",
     "sku": "NSB-411370",
     "price": 440000,
@@ -1054,10 +1189,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "arralar-uskunalar",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "GreenGarden",
     "stock": 25,
@@ -1066,7 +1201,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-286227_1.jpg"
+      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_1.jpg",
+      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_2.jpg",
+      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1076,16 +1213,24 @@ export const defaultProducts = [
     "description": "Teleskopik tutqichli va qo'shimcha g'ildiraklarga ega akkumulyatorli maysa o'rgich. O't va butalarni oson tozalaydi.",
     "specifications": [
       {
+        "label": "Quvvati / Kuchlanish",
+        "value": "21V Li-ion akkumulyator"
+      },
+      {
+        "label": "Aylanishlar soni",
+        "value": "10 000 ayl/daq"
+      },
+      {
+        "label": "Qirqish kengligi",
+        "value": "150 mm"
+      },
+      {
         "label": "Teleskopik shtanga",
-        "value": "Bo‘yga moslab 90-125 sm gacha uzayadi"
+        "value": "90 - 125 sm sozlanuvchi alyuminiy korpus"
       },
       {
-        "label": "Pichoqlar",
-        "value": "Metall pichoq, arra diski va plastik pichoqlar"
-      },
-      {
-        "label": "Batareya",
-        "value": "2x Li-Ion akkumulyator"
+        "label": "Komplektatsiya",
+        "value": "G'ildirakli baza, po'lat disk, 2 ta metall pichoq, 5 ta plastik pichoq, 2 ta batareya"
       }
     ],
     "created_at": "2026-11-24T11:40:11.370Z",
@@ -1101,12 +1246,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
     "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
-    "title": "2&1 Professional Bog‘bon To‘plami (Akkumulyatorli arra va sekator)",
+    "title": "2&1 Akkumulyatorli Bog‘bon To‘plami 21V (Mini zanjirli arra 6 dyuym + Akkumulyatorli sekator)",
     "slug": "2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488",
     "sku": "NSB-376488",
     "price": 569000,
@@ -1115,10 +1261,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "arralar-uskunalar",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "GardenPro",
     "stock": 25,
@@ -1127,7 +1273,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-286063_1.jpg"
+      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_1.jpg",
+      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_2.jpg",
+      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1137,20 +1285,24 @@ export const defaultProducts = [
     "description": "Daraxt butash, bog' parvarishi va o'tin tayyorlash uchun mo'ljallangan mini zanjirli arra va elektr qaychi.",
     "specifications": [
       {
-        "label": "To‘plam tarkibi",
-        "value": "1x Mini zanjirli arra, 1x Akkumulyatorli bog‘ qaychisi"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Shina uzunligi",
-        "value": "6 dyuym (15 sm) zanjirli shina"
+        "label": "Zanjirli arra shinasi",
+        "value": "6 dyuym (15 sm) qotirilgan po'lat shina va zanjir"
       },
       {
-        "label": "Qaychi kesish qalinligi",
-        "value": "30 mm gacha bo‘lgan shoxlar"
+        "label": "Sekator qirqish qalinligi",
+        "value": "30 mm gacha shoxlarni oson qirqadi (SK5 po'lat tig')"
       },
       {
-        "label": "Akkumulyator",
-        "value": "2 dona Li-Ion batareya va zaryadlovchi"
+        "label": "Dvigatel",
+        "value": "Yuqori quvvatli cho'tkasiz (Brushless) motor"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Arra, sekator, 2 ta akkumulyator, zaryadlagich, moy idishi, maxsus keys"
       }
     ],
     "created_at": "2026-11-24T11:39:36.488Z",
@@ -1166,12 +1318,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
     "id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
-    "title": "SLJ Professional Stol Charxi (Pichoq va burg'u charxlagich 150W)",
+    "title": "SLJ 150W Ikki Tomonlama Elektr Toshli Stol Charxi (150 mm charx disklari, himoya oynalari bilan)",
     "slug": "slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344",
     "sku": "NSB-376344",
     "price": 135000,
@@ -1179,11 +1332,11 @@ export const defaultProducts = [
     "old_price": 155250,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Balgarkalar & Silliqlash",
-    "category_slug": "balgarka-shlifovka",
+    "category": "Balgarkalar & Silliqlash Mashinalari",
+    "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
-    "department": "Balgarkalar & Silliqlash",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "SLJ",
     "stock": 25,
@@ -1192,7 +1345,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-286248_1.jpg"
+      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_1.jpg",
+      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_2.jpg",
+      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1202,16 +1357,24 @@ export const defaultProducts = [
     "description": "Tebranishsiz barqaror ishlaydigan ikki diskli stol usti charx uskunasi. Himoya oynalari bilan.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Stol usti ikki diskli charx"
+        "label": "Quvvati",
+        "value": "150 Vt (150W)"
+      },
+      {
+        "label": "Aylanishlar soni",
+        "value": "2950 ayl/daq"
       },
       {
         "label": "Tosh diametri",
-        "value": "125-150 mm standart charx toshlari"
+        "value": "150 mm (Qalinligi 16 mm, o'qi 12.7 mm)"
+      },
+      {
+        "label": "Tosh donadorligi",
+        "value": "Dag'al (36-grit) va mayda (60-grit) charx toshlari"
       },
       {
         "label": "Xavfsizlik",
-        "value": "Uchqundan himoyalovchi shaffof ekranlar"
+        "value": "Metall himoya kojuxi va shaffof uchqundan himoyalovchi ekranlar"
       }
     ],
     "created_at": "2026-11-24T11:39:36.344Z",
@@ -1227,12 +1390,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
     "id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
-    "title": "Sanoat Issiqlik Feni 2000W (Harorat sozlagichli texnik fen)",
+    "title": "Turbo 2000W Professional Sanoat Texnik Feni (50-600°C harorat sozlagichi, 4 ta nasadka bilan)",
     "slug": "sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621",
     "sku": "NSB-373621",
     "price": 92000,
@@ -1240,11 +1404,11 @@ export const defaultProducts = [
     "old_price": 105800,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "lazer-qol-asboblari",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Qo‘l Asboblari & O‘lchov",
+    "category_slug": "qol-asboblari",
+    "categorySlug": "qol-asboblari",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "TurboPro",
     "stock": 25,
@@ -1253,7 +1417,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-320653_1.jpg"
+      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_1.jpg",
+      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_2.jpg",
+      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1264,11 +1430,23 @@ export const defaultProducts = [
     "specifications": [
       {
         "label": "Quvvati",
-        "value": "2000 Vt"
+        "value": "2000 Vt (2000W)"
       },
       {
-        "label": "Harorat diapazoni",
-        "value": "50°C - 600°C gacha rostlanadi"
+        "label": "Harorat oralig'i",
+        "value": "50°C - 600°C (Ravon sozlanuvchi regulyator)"
+      },
+      {
+        "label": "Havo oqimi",
+        "value": "2 bosqich (300 L/daq va 500 L/daq)"
+      },
+      {
+        "label": "Qizdirish elementi",
+        "value": "Keramik qoplamali yuqori quvvatli nikel spiral"
+      },
+      {
+        "label": "Nasadkalar",
+        "value": "4 ta zanglamas po'lat yo'naltiruvchi nasadka va qirg'ich"
       }
     ],
     "created_at": "2026-11-24T11:39:33.621Z",
@@ -1284,12 +1462,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
     "id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
-    "title": "Avtomobil va Qurilish Uchun Akkumulyatorli Zarbli Gaykavyort",
+    "title": "Professional Akkumulyatorli Zarbli Gaykavyort 21V (Cho‘tkasiz motor, 1/2 dyuym kallak, 2 ta akkumulyator)",
     "slug": "avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701",
     "sku": "NSB-329701",
     "price": 164000,
@@ -1299,9 +1478,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "ProTools",
     "stock": 25,
@@ -1310,7 +1489,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-285866_1.jpg"
+      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_1.jpg",
+      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_2.jpg",
+      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1320,20 +1501,24 @@ export const defaultProducts = [
     "description": "Boltlarni oson yechuvchi va qotiruvchi zarbli impulsli mexanizmga ega gaykavyort.",
     "specifications": [
       {
-        "label": "Aylanma moment",
-        "value": "350-450 Nm kuchli zarbli moment"
+        "label": "Maksimal aylanish momenti",
+        "value": "350 - 450 Nm (G'ildirak boltlarini oson yechadi)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "1/2 dyuym (12.7 mm) standart kvadrat"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Tezlikni sozlash",
-        "value": "Elektron 3 pog‘onali tezlik va revers"
+        "label": "Kallak o'lchami",
+        "value": "1/2 dyuym (12.7 mm) to'rtburchak shpindel"
       },
       {
-        "label": "Yoritgich",
-        "value": "Ish hududini yorituvchi LED diod"
+        "label": "Tezlik rejimlari",
+        "value": "Elektron tezlik va zarb boshqaruvi (LED indikator)"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Gaykavyort, 2 ta batareya, tezkor zaryadlash stansiyasi, 4 ta zarbli kallak"
       }
     ],
     "created_at": "2026-11-24T11:38:49.701Z",
@@ -1349,12 +1534,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
-    "title": "Akkumulyatorli Drel 12V Mini Nabor (Aksessuarlar to'plami bilan)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569",
     "sku": "NSB-299569",
     "price": 130000,
@@ -1364,9 +1550,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -1375,7 +1561,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-285943_1.jpg"
+      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_1.jpg",
+      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_2.jpg",
+      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1385,28 +1573,20 @@ export const defaultProducts = [
     "description": "Uyda ishlatish uchun zarur bo'lgan barcha mayda asboblar va burg'ular to'plamiga ega ixcham drel.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:38:19.569Z",
@@ -1422,12 +1602,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-6046",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-6046",
-    "title": "Akkumulyatorli Kuchaytirilgan Shurupovyort 18V (2 ta akkumulyator)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046",
     "sku": "NSB-286046",
     "price": 169000,
@@ -1437,9 +1618,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -1448,7 +1629,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-285439_1.jpg"
+      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_1.jpg",
+      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_2.jpg",
+      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1458,28 +1641,20 @@ export const defaultProducts = [
     "description": "Metall va qattiq yog'och bilan ishlash uchun kuchaytirilgan reduktorli 18V drel-shurupovyort.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:38:06.046Z",
@@ -1495,12 +1670,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5844",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-5844",
-    "title": "Akkumulyatorli Cho‘tkasiz Balgarka (USH-M 125 mm, Yashil korpus)",
+    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho'tkasiz motor)",
     "slug": "akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844",
     "sku": "NSB-285844",
     "price": 460000,
@@ -1508,11 +1684,11 @@ export const defaultProducts = [
     "old_price": 529000,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Balgarkalar & Silliqlash",
-    "category_slug": "balgarka-shlifovka",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Balgarkalar & Silliqlash",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Balgarkalar & Silliqlash Mashinalari",
+    "category_slug": "balgarkalar-ushm",
+    "categorySlug": "balgarkalar-ushm",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -1521,7 +1697,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-282800_1.jpg"
+      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_1.jpg",
+      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_2.jpg",
+      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1531,24 +1709,24 @@ export const defaultProducts = [
     "description": "Simsiz, o'ta qulay tutqichli va xavfsiz himoya qoplamali zamonaviy cho'tkasiz burchak silliqlash mashinasi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kuchlanishi",
+        "value": "21V Li-ion"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Disk diametri",
+        "value": "125 mm"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Aylanishlar soni",
+        "value": "8 500 ayl/daq (Tezlikni sozlash mumkin)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Shpindel",
+        "value": "M14 standart shpindel, tez bloklash tugmasi"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Ergonomika",
+        "value": "Yupqa korpus, tebranishni yutuvchi qo'shimcha dasta"
       }
     ],
     "created_at": "2026-11-24T11:38:05.844Z",
@@ -1564,12 +1742,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5358",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5358",
-    "title": "Professional Diskli Qo‘l Arrasi (Tsirkulyarka 185 mm)",
+    "title": "Professional Akkumulyatorli Tsirkulyar Diskli Arra 21V (185 mm disk, burchak va chuqurlik sozlagichi)",
     "slug": "professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358",
     "sku": "NSB-285358",
     "price": 339000,
@@ -1578,10 +1757,10 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Arralar & Bog‘ Texnikasi",
-    "category_slug": "arralar-elektr-uskunalar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Arralar & Bog‘ Texnikasi",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category_slug": "arralar-bog",
+    "categorySlug": "arralar-bog",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -1590,7 +1769,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-282416_1.jpg"
+      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_1.jpg",
+      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_2.jpg",
+      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1600,28 +1781,20 @@ export const defaultProducts = [
     "description": "Qalin yog'och va qurilish materiallarini tekis arralash uchun kuchli diskli dumaloq arra.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Disk diametri",
+        "value": "185 mm (24 tishli karbid qotishmali disk)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Aylanishlar soni",
+        "value": "5 000 ayl/daq"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Kesish chuqurligi",
+        "value": "90° da 65 mm, 45° da 45 mm gacha"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Baza platformasi",
+        "value": "Mustahkam quyma alyuminiy poydevor"
       }
     ],
     "created_at": "2026-11-24T11:38:05.358Z",
@@ -1637,12 +1810,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5339",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-5339",
-    "title": "Professional Akkumulyatorli Zarbli Drel To‘plami (Mustahkam keysda)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339",
     "sku": "NSB-285339",
     "price": 825000,
@@ -1652,9 +1826,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -1663,7 +1837,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-282254_1.jpg"
+      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_1.jpg",
+      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_2.jpg",
+      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1673,24 +1849,20 @@ export const defaultProducts = [
     "description": "G'isht va beton devorlarni tesha oladigan zarbli rejimli akkumulyatorli universal drel to'plami.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:38:05.339Z",
@@ -1706,12 +1878,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-5309",
     "id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-5309",
-    "title": "4&1 Universal Qurilish va Ta'mirlash Asboblari To‘plami (To'liq keys)",
+    "title": "DeWalt 4&1 Professional Akkumulyatorli Asboblar To‘plami (Balgarka 125mm, Zarbli Drel, Gaykavyort, Perforator 21V)",
     "slug": "4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309",
     "sku": "NSB-285309",
     "price": 895000,
@@ -1721,9 +1894,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Asboblar To‘plamlari (Naborlar)",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "asboblar-to-plami",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "Universal Pro",
     "stock": 25,
@@ -1732,7 +1905,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-282288_1.jpg"
+      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_1.jpg",
+      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_2.jpg",
+      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1742,24 +1917,28 @@ export const defaultProducts = [
     "description": "Har bir usta va xonadon uchun mukammal 4 ta asbob: perforator, gaykavyort, drel va balgarka bitta katta keysda.",
     "specifications": [
       {
-        "label": "To‘plam tarkibi",
-        "value": "Gaykavyort, Balgarka (USH-M), Drel-shurupovyort, Perforator"
+        "label": "To'plam tarkibi",
+        "value": "Balgarka (125mm), Zarbli drel, Gaykavyort, Perforator"
+      },
+      {
+        "label": "Akkumulyator",
+        "value": "2 dona 21V 4.0Ah Li-ion"
       },
       {
         "label": "Dvigatel turi",
-        "value": "Beshchetochniy (Brushless / Cho‘tkasiz) yuqori resursli"
+        "value": "Cho'tkasiz (Brushless) kuchaytirilgan motor"
       },
       {
-        "label": "Batareya",
-        "value": "Yuqori sig‘imli universal Li-Ion akkumulyatorlar"
+        "label": "Balgarka tezligi",
+        "value": "8 500 ayl/daq, 125 mm disk"
       },
       {
-        "label": "Komplektatsiya",
-        "value": "4 ta uskuna, 2x batareya, tezkor zaryadlovchi, mustahkam keys"
+        "label": "Gaykavyort aylanish momenti",
+        "value": "350 Nm, 1/2 dyuym kallak"
       },
       {
-        "label": "Kafolat",
-        "value": "1 yil rasmiy kafolat"
+        "label": "Keys",
+        "value": "Og'ir yuklarga chidamli zarbaga qarshi mustahkam keys"
       }
     ],
     "created_at": "2026-11-24T11:38:05.309Z",
@@ -1776,12 +1955,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5270",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5270",
-    "title": "Yengil Akkumulyatorli Shurupovyort 12V (Ergonomik korpus)",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270",
     "sku": "NSB-285270",
     "price": 130000,
@@ -1791,9 +1971,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -1802,7 +1982,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-282238_1.jpg"
+      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_1.jpg",
+      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_2.jpg",
+      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1812,28 +1994,20 @@ export const defaultProducts = [
     "description": "Uzoq vaqt charchamasdan ishlash imkonini beruvchi yengil va qulay tutqichli shurupovyort.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:38:05.270Z",
@@ -1849,12 +2023,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5497",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5497",
-    "title": "Uy Ro‘zg‘or Uchun Akkumulyatorli Drel-shurupovyort 12V",
+    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
     "slug": "uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497",
     "sku": "NSB-095497",
     "price": 128500,
@@ -1864,9 +2039,9 @@ export const defaultProducts = [
     "discount_percent": 13,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Drellar & Shurupovyortlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "categorySlug": "drellar-shurupovyortlar",
+    "department": "elektr-asboblar",
+    "departmentName": "Elektr Asbob-Uskunalar",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -1875,7 +2050,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-018448_1.jpg"
+      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_1.jpg",
+      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_2.jpg",
+      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1885,28 +2062,20 @@ export const defaultProducts = [
     "description": "Oddiy va ishonchli boshqaruvga ega shurupovyort. 2 tezlikli uzatmalar qutisi va LED yoritgich.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kuchlanishi",
+        "value": "12V Li-ion"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Patron o'lchami",
+        "value": "0.8 - 10 mm tezkor patron"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Aylanish momenti",
+        "value": "28 Nm, 18+1 bosqichli"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Tezlik",
+        "value": "2 bosqich (0-350 / 0-1350 ayl/daq)"
       }
     ],
     "created_at": "2026-11-24T11:34:55.497Z",
@@ -1922,12 +2091,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_pvc-8457",
     "id": "prod_pvc-8457",
-    "title": "PVX Taktil Plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
+    "title": "PVX Taktil Yo'lak Plitkasi 300x300 mm (Ko‘zi ojizlar uchun sariq yo‘naltiruvchi va ogohlantiruvchi)",
     "slug": "pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457",
     "sku": "NSB-078457",
     "price": 16000,
@@ -1935,11 +2105,11 @@ export const defaultProducts = [
     "old_price": 18500,
     "discountPercent": 14,
     "discount_percent": 14,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -1948,7 +2118,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/taktil-plitka-pvc.jpg"
+      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_1.jpg",
+      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_2.jpg",
+      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1958,24 +2130,20 @@ export const defaultProducts = [
     "description": "Ko'zi ojiz va zaif ko'ruvchi insonlar xavfsiz harakatlanishi uchun maxsus relefli sariq PVX taktil plitka.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "O‘lchami",
+        "value": "300 x 300 mm, qalinligi 5 mm"
       },
       {
-        "label": "Toifa",
-        "value": "Yo‘l Konuslari & To‘siqlar"
+        "label": "Materiali",
+        "value": "Elastik mustahkam PVX (sirpanmaydigan relefli sirt)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Rangi",
+        "value": "Yorqin signal sariq (Signal Yellow)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Vazifasi",
+        "value": "Ko'zi ojiz va zaif ko'ruvchilar uchun xavfsiz yo'l yo'naltirgichi"
       }
     ],
     "created_at": "2026-11-24T11:34:38.457Z",
@@ -1991,12 +2159,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_1480-80-8376",
     "id": "prod_1480-80-8376",
-    "title": "Sanoat Yo‘l Bordyuri 1480x80 mm (Bardur to'sig'i)",
+    "title": "Sanoat Issiqlik To‘pi / Portativ Ustaxona Isitgichi 2000W (Keramik TEN, metall korpus)",
     "slug": "sanoat-yo-l-bordyuri-1480x80-mm-bardur-to-sig-i-8376",
     "sku": "NSB-078376",
     "price": 642500,
@@ -2004,11 +2173,11 @@ export const defaultProducts = [
     "old_price": 738875,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sanoat Issiqlik To'plari & Teploventilyatorlar",
+    "category_slug": "sanoat-issiqlik-toplari",
+    "categorySlug": "sanoat-issiqlik-toplari",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -2017,7 +2186,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-018433_1.jpg"
+      "/uploads/heater-cannon-2000w_1.jpg",
+      "/uploads/heater-cannon-2000w_1.jpg",
+      "/uploads/heater-cannon-2000w_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2027,24 +2198,20 @@ export const defaultProducts = [
     "description": "Yo'l va avtoturargohlarni ajratish, piyodalar yo'lagini himoyalash uchun mo'ljallangan mustahkam kompozit bordyur.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvati",
+        "value": "2000 Vt (2000W)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Ishlash rejimlari",
+        "value": "Ventilyator (sovutish), 1000W, 2000W"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qizdirish maydoni",
+        "value": "30-40 kv.m xonani tezkor isitish"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Korpus",
+        "value": "Qizib ketmaydigan mustahkam metall silindr va tutqich"
       }
     ],
     "created_at": "2026-11-24T11:34:38.376Z",
@@ -2060,12 +2227,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_1-84-15-15-3399",
     "id": "prod_1-84-15-15-3399",
-    "title": "Kauchuk Kolesootboynik 1.84m * 15 * 15 sm (G‘ildirak to‘xtatgich)",
+    "title": "Kauchuk Kolesootboynik 1.84m * 15 * 10 sm (Avtoturargoh uchun sariq nur qaytaruvchi g‘ildirak to‘xtatgich)",
     "slug": "kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399",
     "sku": "NSB-063399",
     "price": 514000,
@@ -2073,11 +2241,11 @@ export const defaultProducts = [
     "old_price": 591100,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Sun‘iy Notekislik & Dempferlar",
+    "category_slug": "suniy-notekislik",
     "categorySlug": "suniy-notekislik",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -2086,7 +2254,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972569_1.jpg"
+      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_1.jpg",
+      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_2.jpg",
+      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2096,24 +2266,20 @@ export const defaultProducts = [
     "description": "Avtomobillar to'xtash joyida devor va boshqa mashinalarga urilishining oldini oluvchi mustahkam kauchuk to'xtatgich.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Uzunligi",
+        "value": "1840 mm (1.84 metr), eni 150 mm, balandligi 100 mm"
       },
       {
-        "label": "Toifa",
-        "value": "Sun‘iy Notekislik & Ustunlar"
+        "label": "Materiali",
+        "value": "Vulkanizatsiyalangan og'ir kauchuk rezina"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Nur qaytargichlar",
+        "value": "Sariq nur qaytaruvchi strelkalar (kechasi aniq ko'rinadi)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Yuk ko'tarish",
+        "value": "30 tonnagacha og'irlikdagi transport vositalariga chidamli"
       }
     ],
     "created_at": "2026-11-24T11:34:23.399Z",
@@ -2129,12 +2295,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2487",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2487",
-    "title": "Og‘ir Asosli Yo‘l Konusi 75 sm (Egiluvchan, 2 tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "og-ir-asosli-yo-l-konusi-75-sm-egiluvchan-2-tasmali-2487",
     "sku": "NSB-052487",
     "price": 231300,
@@ -2142,11 +2309,11 @@ export const defaultProducts = [
     "old_price": 265995,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2155,7 +2322,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-018443_1.jpg"
+      "/uploads/konus-tpu-75sm_1.jpg",
+      "/uploads/konus-tpu-75sm_2.jpg",
+      "/uploads/konus-tpu-75sm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2165,28 +2334,20 @@ export const defaultProducts = [
     "description": "Shamol va kuchli oqimda ag'darilmaydigan og'ir kauchuk asosli, 2 ta keng nur qaytaruvchi tasmali yo'l konusi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:34:12.487Z",
@@ -2203,12 +2364,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2730",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2730",
-    "title": "Signalli Yo‘l Konusi 70 sm (Nur qaytaruvchi chiziqli)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730",
     "sku": "NSB-042730",
     "price": 192750,
@@ -2216,11 +2378,11 @@ export const defaultProducts = [
     "old_price": 221662,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2229,7 +2391,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972431_1.jpg"
+      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_1.jpg",
+      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_2.jpg",
+      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2239,28 +2403,20 @@ export const defaultProducts = [
     "description": "Yo'l ta'mirlash va avtoturargohlar uchun elastik, ustiga mashina bosganda sinmaydigan yorqin signalli konus.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:34:02.730Z",
@@ -2276,12 +2432,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2375",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2375",
-    "title": "Standart Egiluvchan Yo‘l Konusi 50 sm",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "standart-egiluvchan-yo-l-konusi-50-sm-2375",
     "sku": "NSB-032375",
     "price": 160625,
@@ -2289,11 +2446,11 @@ export const defaultProducts = [
     "old_price": 184719,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2302,7 +2459,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-018438_1.jpg"
+      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_1.jpg",
+      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_2.jpg",
+      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2312,28 +2471,20 @@ export const defaultProducts = [
     "description": "Ixcham va yorqin rangli yo'l harakati xavfsizlik konusi. Nur qaytaruvchi tasma bilan tunda ham yaqqol ko'rinadi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:33:52.375Z",
@@ -2349,12 +2500,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2341",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2341",
-    "title": "Og‘ir Rezin Asosli Yo‘l Konusi 75 sm (Shamolga chidamli)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "og-ir-rezin-asosli-yo-l-konusi-75-sm-shamolga-chidamli-2341",
     "sku": "NSB-032341",
     "price": 205600,
@@ -2362,11 +2514,11 @@ export const defaultProducts = [
     "old_price": 236440,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2375,7 +2527,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972558_1.jpg"
+      "/uploads/konus-tpu-75sm_1.jpg",
+      "/uploads/konus-tpu-75sm_2.jpg",
+      "/uploads/konus-tpu-75sm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2385,28 +2539,20 @@ export const defaultProducts = [
     "description": "Katta magistral yo'llar va qurilish maydonlari uchun barqaror, mustahkam rezina poydevorli yo'l konusi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:33:52.341Z",
@@ -2422,12 +2568,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8555",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8555",
-    "title": "Sariq-Qora Signalli Yo‘l Ustuni 75 sm (Delimiter)",
+    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Poliuretan stolbik, 3 ta nur qaytaruvchi tasmali)",
     "slug": "sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555",
     "sku": "NSB-018555",
     "price": 218450,
@@ -2435,11 +2582,11 @@ export const defaultProducts = [
     "old_price": 251217,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2448,7 +2595,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971619_1.jpg"
+      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_1.jpg",
+      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_2.jpg",
+      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2458,28 +2607,20 @@ export const defaultProducts = [
     "description": "Qarama-qarshi yo'nalishlarni va xavfli zonalarni ajratuvchi yorqin sariq-qora tasmali ogohlantiruvchi ustun.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Elastik yuqori sifatli poliuretan"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Xususiyati",
+        "value": "Zarbadan so'ng darhol o'z holatini tiklaydi"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Nur qaytarish",
+        "value": "3 ta yuqori yorug'lik qaytaruvchi tasmalar"
       }
     ],
     "created_at": "2026-11-24T11:33:38.555Z",
@@ -2495,12 +2636,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_3-8536",
     "id": "prod_3-8536",
-    "title": "Lenta Stoyka 3m (Xrom to‘siq ustuni tortiluvchi qizil lenta bilan)",
+    "title": "Lenta Stoyka 3m (Zanglamas po'lat xrom to‘siq ustuni, 3 metrlik avtomatik tortiluvchi qizil lenta bilan)",
     "slug": "lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536",
     "sku": "NSB-018536",
     "price": 578250,
@@ -2508,11 +2650,11 @@ export const defaultProducts = [
     "old_price": 664988,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -2521,7 +2663,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972363_1.jpg"
+      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_1.jpg",
+      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_2.jpg",
+      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2531,24 +2675,20 @@ export const defaultProducts = [
     "description": "Banklar, aeroportlar, mehmonxonalar va tadbirlarda odamlar oqimini tartibga soluvchi sifatli zanglamas metall lenta stoyka.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Ustun balandligi",
+        "value": "90 sm, diametri 63 mm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Lenta uzunligi",
+        "value": "3 metr qizil qalin neylon lenta"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Yuqori sifatli jilolangan zanglamas po'lat (Xrom)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Asos og'irligi",
+        "value": "6.5 kg og'ir quyma disk, barqaror turadi"
       }
     ],
     "created_at": "2026-11-24T11:33:38.536Z",
@@ -2564,12 +2704,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8508",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8508",
-    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Stolbik nur qaytaruvchi)",
+    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Poliuretan stolbik, 3 ta nur qaytaruvchi tasmali)",
     "slug": "egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508",
     "sku": "NSB-018508",
     "price": 218450,
@@ -2577,11 +2718,11 @@ export const defaultProducts = [
     "old_price": 251217,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2590,7 +2731,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972476_1.jpg"
+      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_1.jpg",
+      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_2.jpg",
+      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2600,28 +2743,20 @@ export const defaultProducts = [
     "description": "Avtomobil urilganda qayta o'z holiga qaytuvchi egiluvchan poliuretan yo'l ustuni.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Elastik yuqori sifatli poliuretan"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Xususiyati",
+        "value": "Zarbadan so'ng darhol o'z holatini tiklaydi"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Nur qaytarish",
+        "value": "3 ta yuqori yorug'lik qaytaruvchi tasmalar"
       }
     ],
     "created_at": "2026-11-24T11:33:38.508Z",
@@ -2637,12 +2772,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
-    "title": "Signalli Yo‘l Ajratuvchi Ustun 60 sm (Sariq-Qora)",
+    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Poliuretan stolbik, 3 ta nur qaytaruvchi tasmali)",
     "slug": "signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328",
     "sku": "NSB-003328",
     "price": 154200,
@@ -2650,11 +2786,11 @@ export const defaultProducts = [
     "old_price": 177330,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2663,7 +2799,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972226_1.jpg"
+      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_1.jpg",
+      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_2.jpg",
+      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2673,28 +2811,20 @@ export const defaultProducts = [
     "description": "Avtoturargoh va piyodalar hududini ajratish uchun maxsus nur qaytaruvchi chiziqli ogohlantirish ustuni.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Elastik yuqori sifatli poliuretan"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Xususiyati",
+        "value": "Zarbadan so'ng darhol o'z holatini tiklaydi"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Nur qaytarish",
+        "value": "3 ta yuqori yorug'lik qaytaruvchi tasmalar"
       }
     ],
     "created_at": "2026-11-24T11:33:23.328Z",
@@ -2710,12 +2840,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
-    "title": "Egiluvchan Rezin Yo‘l Ustuni 75 sm (Qizil-Oq chiziqli)",
+    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Poliuretan stolbik, 3 ta nur qaytaruvchi tasmali)",
     "slug": "egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295",
     "sku": "NSB-003295",
     "price": 179900,
@@ -2723,11 +2854,11 @@ export const defaultProducts = [
     "old_price": 206885,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2736,7 +2867,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972127_1.jpg"
+      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_1.jpg",
+      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_2.jpg",
+      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2746,28 +2879,20 @@ export const defaultProducts = [
     "description": "Uzoq xizmat qiluvchi, quyosh va sovuqqa chidamli elastik yo'l ustuni.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Elastik yuqori sifatli poliuretan"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Xususiyati",
+        "value": "Zarbadan so'ng darhol o'z holatini tiklaydi"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Nur qaytarish",
+        "value": "3 ta yuqori yorug'lik qaytaruvchi tasmalar"
       }
     ],
     "created_at": "2026-11-24T11:33:23.295Z",
@@ -2783,12 +2908,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
-    "title": "Kompakt Yo‘l Konusi 45 sm (Nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244",
     "sku": "NSB-003244",
     "price": 128500,
@@ -2796,11 +2922,11 @@ export const defaultProducts = [
     "old_price": 147775,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2809,7 +2935,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972315_1.jpg"
+      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_1.jpg",
+      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_2.jpg",
+      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2819,28 +2947,20 @@ export const defaultProducts = [
     "description": "Avtomaktablar, vaqtinchalik to'siqlar va shaxsiy avtoturargohlar uchun qulay ixcham konus.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:33:23.244Z",
@@ -2856,12 +2976,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
-    "title": "Elastik Yo‘l Konusi 70 sm (2 ta nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204",
     "sku": "NSB-003204",
     "price": 179900,
@@ -2869,11 +2990,11 @@ export const defaultProducts = [
     "old_price": 206885,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -2882,7 +3003,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972197_1.jpg"
+      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_1.jpg",
+      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_2.jpg",
+      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2892,28 +3015,20 @@ export const defaultProducts = [
     "description": "Sifatli polimerdan tayyorlangan, tunda yuqori ko'rinish beruvchi ikkitalik tasmali xavfsizlik konusi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:33:23.204Z",
@@ -2929,12 +3044,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-3161",
     "id": "prod_product-3161",
-    "title": "Suriluvchi Metall Garmoshka To‘siq (Mobil yig‘iluvchi)",
+    "title": "Suriluvchi Metall Garmoshka To‘siq 80x300 sm (Mobil yig‘iluvchi xavfsizlik va yo'l to'sig'i)",
     "slug": "suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161",
     "sku": "NSB-003161",
     "price": 462600,
@@ -2942,11 +3058,11 @@ export const defaultProducts = [
     "old_price": 531990,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -2955,7 +3071,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971622_1.jpg"
+      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_1.jpg",
+      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_2.jpg",
+      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2965,24 +3083,20 @@ export const defaultProducts = [
     "description": "Tez ochiladigan va yig'iladigan qizil-oq suriluvchi xavfsizlik to'sig'i. Yo'l yopish va ta'mirlash joylari uchun.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Yo‘l Konuslari & To‘siqlar"
+        "label": "Uzunligi ochilganda",
+        "value": "300 sm (3 metr)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Konstruktsiyasi",
+        "value": "Garmoshka mexanizmi, qulay yig'iladi va suriladi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "G'ildiraklar",
+        "value": "Tormozli mustahkam aylanuvchi g'ildiraklar"
       }
     ],
     "created_at": "2026-11-24T11:33:23.161Z",
@@ -2998,12 +3112,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
-    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, 2 ta mikroprizmatik nur qaytaruvchi tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-3034",
     "sku": "NSB-003034",
     "price": 130000,
@@ -3011,11 +3126,11 @@ export const defaultProducts = [
     "old_price": 150000,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "RoadSafety Pro",
     "stock": 25,
@@ -3024,7 +3139,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/konus-tpu-75sm.jpg"
+      "/uploads/konus-tpu-75sm_1.jpg",
+      "/uploads/konus-tpu-75sm_2.jpg",
+      "/uploads/konus-tpu-75sm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3039,11 +3156,15 @@ export const defaultProducts = [
       },
       {
         "label": "Materiali",
-        "value": "TPU (Elastik poliuretan)"
+        "value": "Yuqori sifatli egiluvchan TPU (Avtomobil bosganda sinmaydi)"
       },
       {
-        "label": "Ko‘rinuvchanlik",
-        "value": "Nur qaytaruvchi tasmali"
+        "label": "Nur qaytarish",
+        "value": "2 ta keng mikroprizmatik yuqori ko'rinuvchan tasmalari"
+      },
+      {
+        "label": "Asosi",
+        "value": "Og'ir sakkizburchak barqaror asos, shamolda ag'darilmaydi"
       }
     ],
     "created_at": "2026-11-24T11:33:23.034Z",
@@ -3059,12 +3180,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-3001",
     "id": "prod_product-3001",
-    "title": "Nerjaveyka Garmoshka To‘siq (Zanglamas po‘latdan suriluvchi)",
+    "title": "Suriluvchi Metall Garmoshka To‘siq 80x300 sm (Mobil yig‘iluvchi xavfsizlik va yo'l to'sig'i)",
     "slug": "nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001",
     "sku": "NSB-003001",
     "price": 771000,
@@ -3072,11 +3194,11 @@ export const defaultProducts = [
     "old_price": 886650,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3085,7 +3207,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-969023_1.jpg"
+      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_1.jpg",
+      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_2.jpg",
+      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3095,24 +3219,20 @@ export const defaultProducts = [
     "description": "Zanglamas po'latdan ishlangan mustahkam, uzoq muddat xizmat qiladigan premium yig'iluvchi garmoshka to'siq.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Yo‘l Konuslari & To‘siqlar"
+        "label": "Uzunligi ochilganda",
+        "value": "300 sm (3 metr)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Konstruktsiyasi",
+        "value": "Garmoshka mexanizmi, qulay yig'iladi va suriladi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "G'ildiraklar",
+        "value": "Tormozli mustahkam aylanuvchi g'ildiraklar"
       }
     ],
     "created_at": "2026-11-24T11:33:23.001Z",
@@ -3128,12 +3248,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_115-8758",
     "id": "prod_115-8758",
-    "title": "Egiluvchan Katta Yo‘l Ustuni (Stolbik) 115 sm",
+    "title": "Egiluvchan Qizil-Oq Yo‘l Ustuni 75 sm (Poliuretan stolbik, 3 ta nur qaytaruvchi tasmali)",
     "slug": "egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758",
     "sku": "NSB-988758",
     "price": 514000,
@@ -3141,11 +3262,11 @@ export const defaultProducts = [
     "old_price": 591100,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "suniy-notekislik",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3154,7 +3275,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-972236_1.jpg"
+      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_1.jpg",
+      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_2.jpg",
+      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3164,24 +3287,20 @@ export const defaultProducts = [
     "description": "Balandligi 115 sm bo'lgan, uzoqdan ko'rinadigan qizil-oq tasmali yirik egiluvchan delimitator ustuni.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "75 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Sun‘iy Notekislik & Ustunlar"
+        "label": "Materiali",
+        "value": "Elastik yuqori sifatli poliuretan"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Xususiyati",
+        "value": "Zarbadan so'ng darhol o'z holatini tiklaydi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Nur qaytarish",
+        "value": "3 ta yuqori yorug'lik qaytaruvchi tasmalar"
       }
     ],
     "created_at": "2026-11-24T11:33:08.758Z",
@@ -3197,12 +3316,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2537",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2537",
-    "title": "Quyosh Reflektorli Infraqizil Elektr Isitgich 30 sm",
+    "title": "Quyosh 40 sm Kuchaytirilgan Reflektorli Infraqizil Elektr Isitgich (Kvars spiralli, 1000W)",
     "slug": "quyosh-reflektorli-infraqizil-elektr-isitgich-30-sm-2537",
     "sku": "NSB-972537",
     "price": 109225,
@@ -3210,11 +3330,11 @@ export const defaultProducts = [
     "old_price": 125609,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Infraqizil & Reflektorli Isitgichlar",
+    "category_slug": "infrakrasnye-isitgichlar",
+    "categorySlug": "infrakrasnye-isitgichlar",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -3223,7 +3343,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968702_1.jpg"
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3233,28 +3355,20 @@ export const defaultProducts = [
     "description": "Xonani bir zumda isituvchi tejamkor infraqizil reflektorli elektr pechka. Xavfsiz panjarali.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Kosa diametri",
+        "value": "40 sm parabolik yuqori aks ettiruvchi reflektor"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Quvvati",
+        "value": "1000 Vt (2 bosqichli 500W / 1000W)"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Qizdirish texnologiyasi",
+        "value": "Infraqizil kvars spiral (havoni quritmaydi)"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Xavfsizlik",
+        "value": "Ag'darilganda avtomatik o'chish datchigi va himoya to'ri"
       }
     ],
     "created_at": "2026-11-24T11:32:52.537Z",
@@ -3270,12 +3384,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-2508",
     "id": "prod_product-2508",
-    "title": "Katta Quyosh Energiyali Signal Migalka (Ogohlantiruvchi LED chiroq)",
+    "title": "Katta Quyosh Energiyali Signal Migalka (Ogohlantiruvchi LED miltillovchi quyosh chirog'i, 360°)",
     "slug": "katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508",
     "sku": "NSB-972508",
     "price": 1542000,
@@ -3283,11 +3398,11 @@ export const defaultProducts = [
     "old_price": 1773300,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3296,7 +3411,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971612_1.jpg"
+      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_1.jpg",
+      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_2.jpg",
+      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3306,24 +3423,20 @@ export const defaultProducts = [
     "description": "Quyosh batareyasi orqali zaryadlanuvchi, tunda o'zi yonuvchi kuchli LED ogohlantirish chirog'i (migalka).",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvat manbai",
+        "value": "Quyosh batareyasi va o'rnatilgan akkumulyator"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Yoritgich",
+        "value": "O'ta yorqin sariq/qizil LED diodlar, 360 daraja"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Ishlash vaqti",
+        "value": "To'liq zaryad bilan 72 soatgacha uzluksiz miltillash"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Himoya",
+        "value": "IP65 suv va changdan to'liq himoyalangan korpus"
       }
     ],
     "created_at": "2026-11-24T11:32:52.508Z",
@@ -3339,12 +3452,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-2459",
     "id": "prod_product-2459",
-    "title": "Masofadan Boshqariladigan Avtomatik Parkovka To‘sig‘i (Akkumulyatorli)",
+    "title": "Katta Quyosh Energiyali Signal Migalka (Ogohlantiruvchi LED miltillovchi quyosh chirog'i, 360°)",
     "slug": "masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459",
     "sku": "NSB-972459",
     "price": 706750,
@@ -3352,11 +3466,11 @@ export const defaultProducts = [
     "old_price": 812762,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3365,7 +3479,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971625_1.jpg"
+      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_1.jpg",
+      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_2.jpg",
+      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3375,24 +3491,20 @@ export const defaultProducts = [
     "description": "Pult orqali ko'tarilib-tushuvchi shaxsiy avtoturargoh to'sig'i. Suv o'tkazmaydigan va signalizatsiyali.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvat manbai",
+        "value": "Quyosh batareyasi va o'rnatilgan akkumulyator"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Yoritgich",
+        "value": "O'ta yorqin sariq/qizil LED diodlar, 360 daraja"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Ishlash vaqti",
+        "value": "To'liq zaryad bilan 72 soatgacha uzluksiz miltillash"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Himoya",
+        "value": "IP65 suv va changdan to'liq himoyalangan korpus"
       }
     ],
     "created_at": "2026-11-24T11:32:52.459Z",
@@ -3408,12 +3520,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_80-2418",
     "id": "prod_80-2418",
-    "title": "Rezina Burchak Himoyalovchi Dempfer 80 sm (Sariq-Qora)",
+    "title": "Rezina Burchak Himoyalovchi Dempfer 80 sm (Ustun va devor burchagi himoyasi, sariq nur qaytaruvchi)",
     "slug": "rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418",
     "sku": "NSB-972418",
     "price": 77100,
@@ -3421,11 +3534,11 @@ export const defaultProducts = [
     "old_price": 88665,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Dempferlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3434,7 +3547,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971578_1.jpg"
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_1.jpg",
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_2.jpg",
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3444,24 +3559,20 @@ export const defaultProducts = [
     "description": "Ustaxonalar va garaj burchaklarini mashina tirnashidan saqlovchi nur qaytaruvchi rezina dempfer.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Profil",
+        "value": "L-shaklidagi qalin burchak himoyasi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Zarbani yutuvchi elastik rezina"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Ko'rinish",
+        "value": "Sariq nur qaytaruvchi chiziqlar"
       }
     ],
     "created_at": "2026-11-24T11:32:52.418Z",
@@ -3477,12 +3588,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_100-2207",
     "id": "prod_100-2207",
-    "title": "Rezina Burchak Himoyalovchi Dempfer 100 sm (Kuchaytirilgan)",
+    "title": "Rezina Burchak Himoyalovchi Dempfer 80 sm (Ustun va devor burchagi himoyasi, sariq nur qaytaruvchi)",
     "slug": "rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207",
     "sku": "NSB-972207",
     "price": 83525,
@@ -3490,11 +3602,11 @@ export const defaultProducts = [
     "old_price": 96054,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Dempferlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3503,7 +3615,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-971712_1.jpg"
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_1.jpg",
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_2.jpg",
+      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3513,24 +3627,20 @@ export const defaultProducts = [
     "description": "1 metrli qalin rezina ustun va devor burchak himoyasi. Nur qaytaruvchi sariq tasmalar bilan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Profil",
+        "value": "L-shaklidagi qalin burchak himoyasi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Zarbani yutuvchi elastik rezina"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Ko'rinish",
+        "value": "Sariq nur qaytaruvchi chiziqlar"
       }
     ],
     "created_at": "2026-11-24T11:32:52.207Z",
@@ -3546,12 +3656,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_quyosh-35-2068",
     "id": "prod_quyosh-35-2068",
-    "title": "Quyosh 35 sm Reflektorli Infraqizil Elektr Isitgich",
+    "title": "Quyosh 40 sm Kuchaytirilgan Reflektorli Infraqizil Elektr Isitgich (Kvars spiralli, 1000W)",
     "slug": "quyosh-35-sm-reflektorli-infraqizil-elektr-isitgich-2068",
     "sku": "NSB-972068",
     "price": 75815,
@@ -3559,11 +3670,11 @@ export const defaultProducts = [
     "old_price": 87187,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Infraqizil & Reflektorli Isitgichlar",
+    "category_slug": "infrakrasnye-isitgichlar",
+    "categorySlug": "infrakrasnye-isitgichlar",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3572,7 +3683,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968785_1.jpg"
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3582,24 +3695,20 @@ export const defaultProducts = [
     "description": "35 sm diametrli dumaloq infraqizil reflektorli isitgich. Kam tok sarflaydi va tez qizdiradi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kosa diametri",
+        "value": "40 sm parabolik yuqori aks ettiruvchi reflektor"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Quvvati",
+        "value": "1000 Vt (2 bosqichli 500W / 1000W)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qizdirish texnologiyasi",
+        "value": "Infraqizil kvars spiral (havoni quritmaydi)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Xavfsizlik",
+        "value": "Ag'darilganda avtomatik o'chish datchigi va himoya to'ri"
       }
     ],
     "created_at": "2026-11-24T11:32:52.068Z",
@@ -3615,12 +3724,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-2056",
     "id": "prod_product-2056",
-    "title": "Quyosh Batareyali Avtonom Yo‘l Migalkasi (Signal chirog'i)",
+    "title": "Katta Quyosh Energiyali Signal Migalka (Ogohlantiruvchi LED miltillovchi quyosh chirog'i, 360°)",
     "slug": "quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056",
     "sku": "NSB-972056",
     "price": 1285000,
@@ -3628,11 +3738,11 @@ export const defaultProducts = [
     "old_price": 1477750,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3641,7 +3751,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968998_1.jpg"
+      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_1.jpg",
+      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_2.jpg",
+      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3651,24 +3763,20 @@ export const defaultProducts = [
     "description": "To'siqlar va konuslarga o'rnatiladigan o'chmas miltillovchi quyosh signali.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvat manbai",
+        "value": "Quyosh batareyasi va o'rnatilgan akkumulyator"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Yoritgich",
+        "value": "O'ta yorqin sariq/qizil LED diodlar, 360 daraja"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Ishlash vaqti",
+        "value": "To'liq zaryad bilan 72 soatgacha uzluksiz miltillash"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Himoya",
+        "value": "IP65 suv va changdan to'liq himoyalangan korpus"
       }
     ],
     "created_at": "2026-11-24T11:32:52.056Z",
@@ -3684,12 +3792,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2040",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2040",
-    "title": "Sanoat Issiqlik To‘pi / Portativ Ustaxona Isitgichi 2000W",
+    "title": "Sanoat Issiqlik To‘pi / Portativ Ustaxona Isitgichi 2000W (Keramik TEN, metall korpus)",
     "slug": "sanoat-issiqlik-to-pi-portativ-ustaxona-isitgichi-2000w-2040",
     "sku": "NSB-972040",
     "price": 141350,
@@ -3697,11 +3806,11 @@ export const defaultProducts = [
     "old_price": 162553,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sanoat Issiqlik To'plari & Teploventilyatorlar",
+    "category_slug": "sanoat-issiqlik-toplari",
+    "categorySlug": "sanoat-issiqlik-toplari",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -3710,7 +3819,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968851_1.jpg"
+      "/uploads/heater-cannon-2000w_1.jpg",
+      "/uploads/heater-cannon-2000w_1.jpg",
+      "/uploads/heater-cannon-2000w_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3720,28 +3831,20 @@ export const defaultProducts = [
     "description": "Katta ustaxona, ombor va xonalarni tez qizdirish uchun spiral qizdirgichli kuchli ventilyatorli isitgich.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Quvvati",
+        "value": "2000 Vt (2000W)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Ishlash rejimlari",
+        "value": "Ventilyator (sovutish), 1000W, 2000W"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Qizdirish maydoni",
+        "value": "30-40 kv.m xonani tezkor isitish"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Korpus",
+        "value": "Qizib ketmaydigan mustahkam metall silindr va tutqich"
       }
     ],
     "created_at": "2026-11-24T11:32:52.040Z",
@@ -3757,12 +3860,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_80-300-1605",
     "id": "prod_80-300-1605",
-    "title": "Suriluvchi Garmoshka To‘siq 80x300 sm (Sariq-Qora)",
+    "title": "Suriluvchi Metall Garmoshka To‘siq 80x300 sm (Mobil yig‘iluvchi xavfsizlik va yo'l to'sig'i)",
     "slug": "suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605",
     "sku": "NSB-971605",
     "price": 449750,
@@ -3770,11 +3874,11 @@ export const defaultProducts = [
     "old_price": 517212,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3783,7 +3887,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968844_1.jpg"
+      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_1.jpg",
+      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_2.jpg",
+      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3793,24 +3899,20 @@ export const defaultProducts = [
     "description": "3 metrgacha cho'ziluvchi, g'ildirakli va qulflanuvchi yirik metall garmoshka to'siq.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Yo‘l Konuslari & To‘siqlar"
+        "label": "Uzunligi ochilganda",
+        "value": "300 sm (3 metr)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Konstruktsiyasi",
+        "value": "Garmoshka mexanizmi, qulay yig'iladi va suriladi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "G'ildiraklar",
+        "value": "Tormozli mustahkam aylanuvchi g'ildiraklar"
       }
     ],
     "created_at": "2026-11-24T11:32:51.605Z",
@@ -3826,12 +3928,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_quyosh-40-1588",
     "id": "prod_quyosh-40-1588",
-    "title": "Quyosh 40 sm Kuchaytirilgan Reflektorli Elektr Isitgich",
+    "title": "Quyosh 40 sm Kuchaytirilgan Reflektorli Infraqizil Elektr Isitgich (Kvars spiralli, 1000W)",
     "slug": "quyosh-40-sm-kuchaytirilgan-reflektorli-elektr-isitgich-1588",
     "sku": "NSB-971588",
     "price": 83525,
@@ -3839,11 +3942,11 @@ export const defaultProducts = [
     "old_price": 96054,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Infraqizil & Reflektorli Isitgichlar",
+    "category_slug": "infrakrasnye-isitgichlar",
+    "categorySlug": "infrakrasnye-isitgichlar",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -3852,7 +3955,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968695_1.jpg"
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/heater-quyosh-40cm_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3862,24 +3967,20 @@ export const defaultProducts = [
     "description": "40 sm keng reflektorli kuchli infraqizil isitgich. Katta xonalar uchun qulay.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Kosa diametri",
+        "value": "40 sm parabolik yuqori aks ettiruvchi reflektor"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Quvvati",
+        "value": "1000 Vt (2 bosqichli 500W / 1000W)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qizdirish texnologiyasi",
+        "value": "Infraqizil kvars spiral (havoni quritmaydi)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Xavfsizlik",
+        "value": "Ag'darilganda avtomatik o'chish datchigi va himoya to'ri"
       }
     ],
     "created_at": "2026-11-24T11:32:51.588Z",
@@ -3895,12 +3996,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1565",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1565",
-    "title": "Mini Keramik Stol Isitgichi (Termostatli, Pushti/Oq)",
+    "title": "Mini Keramik Stol Isitgichi 800W (PTC tez qizdiruvchi element, termostatli, jim ishlovchi)",
     "slug": "mini-keramik-stol-isitgichi-termostatli-pushti-oq-1565",
     "sku": "NSB-971565",
     "price": 115650,
@@ -3908,11 +4010,11 @@ export const defaultProducts = [
     "old_price": 132998,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Maishiy Stol & Keramik Isitgichlar",
+    "category_slug": "maishiy-isitgichlar",
+    "categorySlug": "maishiy-isitgichlar",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -3921,7 +4023,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968699_1.jpg"
+      "/uploads/heater-ceramic-desk_1.jpg",
+      "/uploads/heater-ceramic-desk_1.jpg",
+      "/uploads/heater-ceramic-desk_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3931,28 +4035,20 @@ export const defaultProducts = [
     "description": "Ish stoli va yotoqxona uchun sokin ishlaydigan ixcham va xavfsiz keramik isitgich.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Quvvati",
+        "value": "800 Vt (PTC keramik mikro-element)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Qizish tezligi",
+        "value": "3 soniyada issiq havo oqimi"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Shovqin darajasi",
+        "value": "40 dB dan past (o'ta past shovqin)"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Xavfsizlik",
+        "value": "Haddan tashqari qizishdan va ag'darilishdan himoyalangan"
       }
     ],
     "created_at": "2026-11-24T11:32:51.565Z",
@@ -3968,7 +4064,8 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1534",
@@ -3982,7 +4079,7 @@ export const defaultProducts = [
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
+    "category_slug": "drellar-shurupovyort",
     "categorySlug": "drellar-shurupovyort",
     "department": "Isitgichlar & Texnik Fenlar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
@@ -3994,7 +4091,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968784_1.jpg"
+      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_1.jpg",
+      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_2.jpg",
+      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4041,12 +4140,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_product-1518",
     "id": "prod_product-1518",
-    "title": "Plastmassa Yig‘iluvchi Garmoshka To‘siq (Yengil mobil to‘siq)",
+    "title": "Suriluvchi Metall Garmoshka To‘siq 80x300 sm (Mobil yig‘iluvchi xavfsizlik va yo'l to'sig'i)",
     "slug": "plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518",
     "sku": "NSB-971518",
     "price": 706750,
@@ -4054,11 +4154,11 @@ export const defaultProducts = [
     "old_price": 812762,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Yo‘l Xavfsizligi & Jihozlar",
-    "category_slug": "yol-xavfsizligi",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
-    "department": "Yo‘l Xavfsizligi & Jihozlar",
-    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -4067,7 +4167,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968600_1.jpg"
+      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_1.jpg",
+      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_2.jpg",
+      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4077,24 +4179,20 @@ export const defaultProducts = [
     "description": "Yengil, zanglamaydigan va suv to'ldirib og'irlashtirish mumkin bo'lgan yig'iluvchi plastik to'siq.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "80 sm / 100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Yo‘l Konuslari & To‘siqlar"
+        "label": "Uzunligi ochilganda",
+        "value": "300 sm (3 metr)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Konstruktsiyasi",
+        "value": "Garmoshka mexanizmi, qulay yig'iladi va suriladi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "G'ildiraklar",
+        "value": "Tormozli mustahkam aylanuvchi g'ildiraklar"
       }
     ],
     "created_at": "2026-11-24T11:32:51.518Z",
@@ -4110,12 +4208,13 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1424",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1424",
-    "title": "Kompakt Maishiy Stol Isitgichi (Tez qizdiruvchi)",
+    "title": "Mini Keramik Stol Isitgichi 800W (PTC tez qizdiruvchi element, termostatli, jim ishlovchi)",
     "slug": "kompakt-maishiy-stol-isitgichi-tez-qizdiruvchi-1424",
     "sku": "NSB-971424",
     "price": 141350,
@@ -4123,11 +4222,11 @@ export const defaultProducts = [
     "old_price": 162553,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "isitgichlar-iqlim",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Maishiy Stol & Keramik Isitgichlar",
+    "category_slug": "maishiy-isitgichlar",
+    "categorySlug": "maishiy-isitgichlar",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -4136,7 +4235,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/prod-968566_1.jpg"
+      "/uploads/heater-ceramic-desk_1.jpg",
+      "/uploads/heater-ceramic-desk_1.jpg",
+      "/uploads/heater-ceramic-desk_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4146,28 +4247,20 @@ export const defaultProducts = [
     "description": "Ofis va xona uchun tejamkor, zamonaviy dizayndagi stol usti elektr isitgichi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+        "label": "Quvvati",
+        "value": "800 Vt (PTC keramik mikro-element)"
       },
       {
-        "label": "Patron o‘lchami",
-        "value": "10 mm tez qisuvchi metall patron"
+        "label": "Qizish tezligi",
+        "value": "3 soniyada issiq havo oqimi"
       },
       {
-        "label": "Tezliklar soni",
-        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+        "label": "Shovqin darajasi",
+        "value": "40 dB dan past (o'ta past shovqin)"
       },
       {
-        "label": "Moment rostlagichi",
-        "value": "18+1 bosqichli kuch momenti"
-      },
-      {
-        "label": "Batareya",
-        "value": "2 ta Li-Ion akkumulyator to‘plamda"
-      },
-      {
-        "label": "Komplekt",
-        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+        "label": "Xavfsizlik",
+        "value": "Haddan tashqari qizishdan va ag'darilishdan himoyalangan"
       }
     ],
     "created_at": "2026-11-24T11:32:51.424Z",
@@ -4183,7 +4276,8 @@ export const defaultProducts = [
       "Buxoro va O'zbekiston bo'ylab tezkor yetkazib berish",
       "To'lov: Click, Payme yoki naqd"
     ],
-    "stock_count": 25
+    "stock_count": 25,
+    "is_hit": false
   }
 ];
 
