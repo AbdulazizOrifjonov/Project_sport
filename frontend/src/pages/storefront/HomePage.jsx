@@ -5,41 +5,35 @@ import HeroSection from '../../components/storefront/HeroSection';
 import TrustBadges from '../../components/storefront/TrustBadges';
 import ProductCard from '../../components/storefront/ProductCard';
 import PromoTiles from '../../components/storefront/PromoTiles';
-import WeeklyDeals from '../../components/storefront/WeeklyDeals';
 import ReviewsSection from '../../components/storefront/ReviewsSection';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 
 const HOME_CATEGORIES = [
   { id: 'all', label: 'Barcha Mahsulotlar' },
-  { id: 'trenajorlar', label: 'Trenajorlar & Kardio' },
-  { id: 'gantellar', label: 'Gantellar & Shtangalar' },
-  { id: 'boks', label: 'Boks & Yakka Kurash' },
-  { id: 'futbol', label: 'Futbol & To‘plar' },
-  { id: 'stoykalar', label: 'Podstavka & Skameykalar' },
-  { id: 'yol-xavfsizligi', label: 'Yo‘l Harakati Xavfsizligi' },
-  { id: 'asboblar', label: 'Professional Asbob-Uskunalar' },
+  { id: 'yol-xavfsizligi', label: 'Yo‘l Xavfsizligi & Jihozlar' },
+  { id: 'drellar', label: 'Drellar & Shurupovyortlar' },
+  { id: 'asboblar-to-plami', label: 'Asboblar To‘plamlari (Naborlar)' },
+  { id: 'arralar', label: 'Arralar & Bog‘ Texnikasi' },
+  { id: 'balgarkalar', label: 'Balgarkalar & Silliqlash' },
+  { id: 'isitgichlar', label: 'Isitgichlar & Texnik Fenlar' },
 ];
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const [bestsellers, setBestsellers] = useState([]);
-  const [weeklyDeals, setWeeklyDeals] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCat, setSelectedCat] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(20);
+  const [visibleCount, setVisibleCount] = useState(60);
 
   useEffect(() => {
     api
       .get('/products/featured')
       .then((res) => {
         if (res.data.success) {
-          // Unique deduplicated products
           const all = res.data.allProducts || [];
-          setBestsellers(res.data.bestsellers || all.slice(0, 10));
-          setWeeklyDeals(res.data.weeklyDeals || []);
           setAllProducts(all);
+          setVisibleCount(all.length || 60);
         }
       })
       .catch(() => {})
@@ -49,20 +43,42 @@ export default function HomePage() {
   // Filter products by selected category tab
   const filteredProducts = useMemo(() => {
     if (selectedCat === 'all') return allProducts;
-    if (selectedCat === 'trenajorlar') return allProducts.filter(p => p.category?.includes('Trenajor'));
-    if (selectedCat === 'gantellar') return allProducts.filter(p => p.category?.includes('Gantel'));
-    if (selectedCat === 'boks') return allProducts.filter(p => p.category?.includes('Boks'));
-    if (selectedCat === 'futbol') return allProducts.filter(p => p.category?.includes('Futbol'));
-    if (selectedCat === 'stoykalar') return allProducts.filter(p => p.category?.includes('Podstavka'));
     if (selectedCat === 'yol-xavfsizligi') {
-      return allProducts.filter(p => p.category?.includes('Yo‘l') || p.category?.includes('Sun‘iy'));
+      return allProducts.filter(p =>
+        p.category?.includes('Yo‘l') ||
+        p.category_slug === 'yol-xavfsizligi' ||
+        p.category?.includes('To‘siq') ||
+        p.category?.includes('Ustun')
+      );
     }
-    if (selectedCat === 'asboblar') {
+    if (selectedCat === 'drellar') {
       return allProducts.filter(p =>
         p.category?.includes('Drel') ||
+        p.category_slug === 'drellar-shurupovyortlar'
+      );
+    }
+    if (selectedCat === 'asboblar-to-plami') {
+      return allProducts.filter(p =>
+        p.category?.includes('To‘plam') ||
+        p.category_slug === 'asboblar-to-plami'
+      );
+    }
+    if (selectedCat === 'arralar') {
+      return allProducts.filter(p =>
         p.category?.includes('Arra') ||
+        p.category_slug === 'arralar-elektr-uskunalar'
+      );
+    }
+    if (selectedCat === 'balgarkalar') {
+      return allProducts.filter(p =>
         p.category?.includes('Balgarka') ||
-        p.category?.includes('Lazer')
+        p.category_slug === 'balgarka-shlifovka'
+      );
+    }
+    if (selectedCat === 'isitgichlar') {
+      return allProducts.filter(p =>
+        p.category?.includes('Isitgich') ||
+        p.category_slug === 'isitgichlar-iqlim'
       );
     }
     return allProducts;
@@ -71,7 +87,50 @@ export default function HomePage() {
   // Handle category change
   const handleCategoryChange = (catId) => {
     setSelectedCat(catId);
-    setVisibleCount(20);
+    setVisibleCount(60);
+  };
+
+  const getCatCount = (catId) => {
+    if (catId === 'all') return allProducts.length;
+    if (catId === 'yol-xavfsizligi') {
+      return allProducts.filter(p =>
+        p.category?.includes('Yo‘l') ||
+        p.category_slug === 'yol-xavfsizligi' ||
+        p.category?.includes('To‘siq') ||
+        p.category?.includes('Ustun')
+      ).length;
+    }
+    if (catId === 'drellar') {
+      return allProducts.filter(p =>
+        p.category?.includes('Drel') ||
+        p.category_slug === 'drellar-shurupovyortlar'
+      ).length;
+    }
+    if (catId === 'asboblar-to-plami') {
+      return allProducts.filter(p =>
+        p.category?.includes('To‘plam') ||
+        p.category_slug === 'asboblar-to-plami'
+      ).length;
+    }
+    if (catId === 'arralar') {
+      return allProducts.filter(p =>
+        p.category?.includes('Arra') ||
+        p.category_slug === 'arralar-elektr-uskunalar'
+      ).length;
+    }
+    if (catId === 'balgarkalar') {
+      return allProducts.filter(p =>
+        p.category?.includes('Balgarka') ||
+        p.category_slug === 'balgarka-shlifovka'
+      ).length;
+    }
+    if (catId === 'isitgichlar') {
+      return allProducts.filter(p =>
+        p.category?.includes('Isitgich') ||
+        p.category_slug === 'isitgichlar-iqlim'
+      ).length;
+    }
+    return allProducts.length;
   };
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
@@ -84,57 +143,10 @@ export default function HomePage() {
       {/* 2. Trust Features Bar */}
       <TrustBadges />
 
-      {/* 3. Eng Sara Bestsellerlar (10 xil toifadagi eng yaxshi mahsulotlar) */}
-      <section className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pb-10">
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-5">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-              <Sparkles className="w-4 h-4" />
-            </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-extrabold text-slate-950 dark:text-white tracking-tight">
-                {t('home.bestsellers', 'Eng Sara Mahsulotlar (Bestsellerlar)')}
-              </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                Mijozlar tomonidan eng ko‘p tanlangan turli toifadagi yetakchi mahsulotlar
-              </p>
-            </div>
-          </div>
-          <Link
-            to="/shop?tag=bestseller"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] transition-colors"
-          >
-            {t('home.allBestsellers', 'Barchasini ko‘rish')} <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-
-        {loading ? (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="h-80 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 animate-pulse"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {bestsellers.slice(0, 10).map((p) => (
-              <ProductCard key={p._id || p.id} product={p} />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* 4. Promo Triple Tiles */}
+      {/* 3. Promo Triple Tiles */}
       <PromoTiles />
 
-      {/* 5. Hafta Aksiyalari (Chegirmali maxsus takliflar) */}
-      {weeklyDeals.length > 0 && (
-        <WeeklyDeals products={weeklyDeals} />
-      )}
-
-      {/* 6. Barcha Mahsulotlar Katalogi (To'liq va takrorlanmas vitrina) */}
+      {/* 4. Barcha Mahsulotlar Katalogi (To'liq va takrorlanmas vitrina: har bir mahsulot 1 martadan) */}
       <section className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pb-16">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-5 mb-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
@@ -160,28 +172,7 @@ export default function HomePage() {
           {/* Interactive Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {HOME_CATEGORIES.map((cat) => {
-              const count =
-                cat.id === 'all'
-                  ? allProducts.length
-                  : cat.id === 'trenajorlar'
-                  ? allProducts.filter(p => p.category?.includes('Trenajor')).length
-                  : cat.id === 'gantellar'
-                  ? allProducts.filter(p => p.category?.includes('Gantel')).length
-                  : cat.id === 'boks'
-                  ? allProducts.filter(p => p.category?.includes('Boks')).length
-                  : cat.id === 'futbol'
-                  ? allProducts.filter(p => p.category?.includes('Futbol')).length
-                  : cat.id === 'stoykalar'
-                  ? allProducts.filter(p => p.category?.includes('Podstavka')).length
-                  : cat.id === 'yol-xavfsizligi'
-                  ? allProducts.filter(p => p.category?.includes('Yo‘l') || p.category?.includes('Sun‘iy')).length
-                  : allProducts.filter(p =>
-                      p.category?.includes('Drel') ||
-                      p.category?.includes('Arra') ||
-                      p.category?.includes('Balgarka') ||
-                      p.category?.includes('Lazer')
-                    ).length;
-
+              const count = getCatCount(cat.id);
               const isActive = selectedCat === cat.id;
 
               return (
@@ -210,7 +201,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Product Grid */}
+        {/* Product Grid - All Products Rendered Cleanly Without Duplication */}
         {loading ? (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
             {[...Array(10)].map((_, i) => (
@@ -228,7 +219,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Load More Button */}
+            {/* Load More Button (if needed) */}
             {visibleCount < filteredProducts.length && (
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <button
@@ -254,7 +245,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* 7. Corporate Reviews & Google Social Proof */}
+      {/* 5. Corporate Reviews & Social Proof */}
       <ReviewsSection />
     </div>
   );

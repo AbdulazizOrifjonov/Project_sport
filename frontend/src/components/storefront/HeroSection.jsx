@@ -8,143 +8,142 @@ export default function HeroSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // 4 Full-Bleed Background Slides with 100% Trenajor / Gym Equipment for SPORT OUTLET
+  // 4 Full-Bleed Background Slides for WYUE / NSB Platform
   const slides = [
     {
-      id: 'trenajor-main',
+      id: 'asboblar-main',
       badge: {
-        uz: "TRENAJORLAR & FITNES JIHOZLARI",
-        ru: "ТРЕНАЖЕРЫ И ФИТНЕС ОБОРУДОВАНИЕ",
-        en: "GYM MACHINES & FITNESS EQUIPMENT"
+        uz: "ELEKTR ASBOBLAR & QURILISH",
+        ru: "ЭЛЕКТРОИНСТРУМЕНТЫ И СТРОИТЕЛЬСТВО",
+        en: "POWER TOOLS & CONSTRUCTION"
       },
       title: {
-        uz: "Professional Trenajorlar va Fitnes Uskunalari",
-        ru: "Профессиональные Тренажеры и Фитнес Оборудование",
-        en: "Professional Gym Machines & Fitness Equipment"
+        uz: "Professional Akkumulyatorli Asboblar To‘plamlari",
+        ru: "Профессиональные Наборы Аккумуляторных Инструментов",
+        en: "Professional Cordless Power Tool Sets"
       },
       desc: {
-        uz: "Zal va uy uchun mo‘ljallangan eng sara trenajorlar: yugurish yo‘lakchalari, velotrenajorlar va ko‘p funksiyali kuch uskunalari. Buxoro bo‘yicha bepul yetkazish va o‘rnatish.",
-        ru: "Лучшие тренажеры для зала и дома: беговые дорожки, велотренажеры и силовые станции с бесплатной доставкой по Бухаре.",
-        en: "Premier cardio and strength machines for commercial gym and home workouts. Treadmills, spin bikes and multi-gym stations."
+        uz: "4&1 universal komplektlar (gaykavyort, balgarka, drel, perforator), zarbli drel-shurupovyortlar va elektr uskunalar. Buxoro va O‘zbekiston bo‘ylab tezkor yetkazish.",
+        ru: "Универсальные наборы 4в1 (гайковерт, болгарка, дрель, перфоратор), аккумуляторные ударные шуруповерты и надежные инструменты.",
+        en: "4-in-1 combo tool sets (impact wrench, angle grinder, drill, rotary hammer) and cordless tools with fast delivery."
       },
-      image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1600&auto=format&fit=crop&q=85",
+      image: "/uploads/prod-492456_1.jpg",
       btnPrimaryText: {
-        uz: "Trenajorlar katalogi",
-        ru: "Каталог тренажеров",
-        en: "Browse Gym Equipment"
+        uz: "Asboblar katalogi",
+        ru: "Каталог инструментов",
+        en: "Browse Tools"
       },
-      btnPrimaryLink: "/shop?category=trenajorlar",
+      btnPrimaryLink: "/shop?category=drellar-shurupovyortlar",
       btnSecondaryText: {
-        uz: "Barcha aksiyalar",
-        ru: "Все акции",
-        en: "All Deals"
+        uz: "Barcha mahsulotlar",
+        ru: "Все товары",
+        en: "All Products"
       },
-      btnSecondaryLink: "/shop?tag=sale",
+      btnSecondaryLink: "/shop",
       gradient: "from-zinc-950/95 via-slate-950/85 to-black/40"
-    },
-    {
-      id: 'gantel-stoyka',
-      badge: {
-        uz: "GANTEL & STOYKALAR",
-        ru: "ГАНТЕЛИ И СТОЙКИ",
-        en: "DUMBBELLS & RACKS"
-      },
-      title: {
-        uz: "Gantellar, Shtangalar va Podstavkalar",
-        ru: "Гантели, Штанги и Стойки для Инвентаря",
-        en: "Dumbbells, Barbells & Storage Racks"
-      },
-      desc: {
-        uz: "SC seriyali mustahkam po‘lat gantel podstavkalari, professional disklar, xrom va kauchuk gantellar to‘plami kafolatli narxlarda.",
-        ru: "Прочные стальные подставки для гантелей серии SC, олимпийские диски и обрезиненные гантельные ряды.",
-        en: "Heavy-duty SC dumbbell storage racks, hex rubber dumbbells and Olympic barbell sets at best prices."
-      },
-      image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=1600&auto=format&fit=crop&q=85",
-      btnPrimaryText: {
-        uz: "Gantel podstavkalari",
-        ru: "Стойки для гантелей",
-        en: "Dumbbell Racks"
-      },
-      btnPrimaryLink: "/shop?category=stoykalar",
-      btnSecondaryText: {
-        uz: "Gantellar to‘plami",
-        ru: "Наборы гантелей",
-        en: "Dumbbell Sets"
-      },
-      btnSecondaryLink: "/shop?category=gantellar",
-      gradient: "from-[#0a0a0c]/95 via-[#121217]/85 to-black/35"
     },
     {
       id: 'yol-xavfsizlik-main',
       badge: {
-        uz: "YO‘L & HARAKAT XAVFSIZLIGI",
+        uz: "YO‘L HARAKATI XAVFSIZLIGI",
         ru: "ДОРОЖНАЯ БЕЗОПАСНОСТЬ",
         en: "ROAD & TRAFFIC SAFETY"
       },
       title: {
-        uz: "Yo‘l Konuslari, To‘siqlar va Belgilar",
+        uz: "Yo‘l Harakati Xavfsizlik Konuslari va To‘siqlar",
         ru: "Дорожные Конусы, Ограждения и Знаки",
-        en: "Traffic Cones, Barriers & Signs"
+        en: "Traffic Cones, Barriers & Equipment"
       },
       desc: {
-        uz: "Yuqori sifatli elastik yo‘l konuslari, svetootrajatelli xavfsizlik to‘siqlari, lejachiy politseyskiy va yo‘l belgilari. Tezkor yetkazib berish.",
-        ru: "Высококачественные эластичные дорожные конусы, светоотражающие ограждения, лежачие полицейские и дорожные знаки.",
-        en: "High-grade flexible traffic safety cones, reflective barriers, speed bumps and regulatory traffic signs."
+        uz: "Yuqori sifatli egiluvchan TPU konuslar, suriluvchi metall garmoshkalar, kauchuk kolesootboyniklar, dempferlar va avtomatik parkovka to‘siqlari.",
+        ru: "Высококачественные эластичные дорожные конусы TPU, раздвижные металлические ограждения, колесоотбойники и парковочные барьеры.",
+        en: "High-grade flexible TPU traffic safety cones, expandable scissor barriers, rubber wheel stops and automatic parking barriers."
       },
-      image: "https://images.unsplash.com/photo-1579294800821-694d95e86143?w=1600&auto=format&fit=crop&q=85",
+      image: "/uploads/konus-tpu-75sm.jpg",
       btnPrimaryText: {
-        uz: "Yo‘l konuslari",
-        ru: "Дорожные конусы",
-        en: "Traffic Cones"
+        uz: "Yo‘l xavfsizligi",
+        ru: "Дорожная безопасность",
+        en: "Road Safety"
       },
-      btnPrimaryLink: "/shop?category=yol-konuslari",
+      btnPrimaryLink: "/shop?category=yol-xavfsizligi",
       btnSecondaryText: {
         uz: "Barcha to‘siqlar",
         ru: "Все ограждения",
         en: "All Barriers"
       },
-      btnSecondaryLink: "/shop?category=yol-belgilari",
+      btnSecondaryLink: "/shop?category=yol-xavfsizligi",
       gradient: "from-[#08080a]/95 via-[#1a120b]/85 to-black/35"
     },
     {
-      id: 'uskunalar-main',
+      id: 'isitgichlar-main',
       badge: {
-        uz: "ASBOB-USKUNALAR & QURILISH",
-        ru: "ИНСТРУМЕНТЫ И ОБОРУДОВАНИЕ",
-        en: "POWER TOOLS & EQUIPMENT"
+        uz: "ISITGICHLAR & TEXNIK FENLAR",
+        ru: "ОБОГРЕВАТЕЛИ И ТЕПЛОВЫЕ ПУШКИ",
+        en: "HEATERS & HEAT GUNS"
       },
       title: {
-        uz: "Drellar, Balgarkalar va Svarka Apparatlari",
-        ru: "Дрели, Болгарки и Сварочные Аппараты",
-        en: "Power Drills, Angle Grinders & Welding Machines"
+        uz: "Quyosh Reflektorli Isitgichlar va Sanoat Fenlari",
+        ru: "Инфракрасные Обогреватели и Технические Фены",
+        en: "Reflector Sun Heaters & Industrial Heat Guns"
       },
       desc: {
-        uz: "Makita, DeWalt, Total professional elektr asboblari: zarbli drellar, burchakli silliqlash mashinalari (balgarka), invertor svarka va asboblar to‘plami.",
-        ru: "Профессиональные электроинструменты: ударные дрели, болгарки, сварочные инверторы и наборы инструментов.",
-        en: "Heavy-duty power tools: impact drills, angle grinders, inverter welders and comprehensive toolkit sets."
+        uz: "Tejamkor infraqizil elektr quyosh isitgichlar, sanoat issiqlik to‘plari va harorat sozlagichli 2000W kuchli texnik fenlar.",
+        ru: "Экономичные инфракрасные обогреватели, промышленные тепловые пушки 2000W и фены с регулировкой температуры.",
+        en: "Energy-efficient infrared reflector heaters, industrial fan heaters, and 2000W variable temperature heat guns."
       },
-      image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1600&auto=format&fit=crop&q=85",
+      image: "/uploads/prod-968785_1.jpg",
       btnPrimaryText: {
-        uz: "Drellar & Balgarkalar",
-        ru: "Дрели и Болгарки",
-        en: "Drills & Grinders"
+        uz: "Isitgichlar katalogi",
+        ru: "Каталог обогревателей",
+        en: "Browse Heaters"
       },
-      btnPrimaryLink: "/shop?category=drellar-shurupovyort",
+      btnPrimaryLink: "/shop?category=isitgichlar-iqlim",
       btnSecondaryText: {
-        uz: "Svarka & Asboblar",
-        ru: "Сварка и Инструменты",
-        en: "Welders & Tools"
+        uz: "Barcha aksiyalar",
+        ru: "Все товары",
+        en: "All Deals"
       },
-      btnSecondaryLink: "/shop?category=payvandlash-svarka",
-      gradient: "from-[#08080a]/95 via-[#0b1724]/85 to-black/35"
+      btnSecondaryLink: "/shop",
+      gradient: "from-[#0a0a0c]/95 via-[#1a150b]/85 to-black/35"
+    },
+    {
+      id: 'arralar-main',
+      badge: {
+        uz: "ARRALAR & BOG‘ TEXNIKASI",
+        ru: "ПИЛЫ И САДОВАЯ ТЕХНИКА",
+        en: "SAWS & GARDEN TOOLS"
+      },
+      title: {
+        uz: "Akkumulyatorli Trimmerlar va Mini Arralar",
+        ru: "Аккумуляторные Триммеры и Мини Пилы",
+        en: "Cordless Grass Trimmers & Mini Chainsaws"
+      },
+      desc: {
+        uz: "Universal g‘ildirakli maysa o‘radigan trimmerlar, 2&1 bog‘bon to‘plamlari (mini zanjirli arra + sekator) va diskli arralar.",
+        ru: "Аккумуляторные триммеры на колесах для газона, садовые наборы 2в1 (мини пила + секатор) и дисковые циркулярные пилы.",
+        en: "Cordless wheeled grass trimmers, 2-in-1 gardening kits (mini chainsaw + pruner) and circular saws."
+      },
+      image: "/uploads/prod-480962_1.jpg",
+      btnPrimaryText: {
+        uz: "Trimmerlar & Arralar",
+        ru: "Триммеры и пилы",
+        en: "Trimmers & Saws"
+      },
+      btnPrimaryLink: "/shop?category=arralar-elektr-uskunalar",
+      btnSecondaryText: {
+        uz: "Katalogga o‘tish",
+        ru: "Перейти в каталог",
+        en: "All Products"
+      },
+      btnSecondaryLink: "/shop",
+      gradient: "from-zinc-950/95 via-slate-950/85 to-black/40"
     }
   ];
 
-  // Extended slides for infinite seamless sliding animation
-  // [Slide3_clone, Slide0, Slide1, Slide2, Slide3, Slide0_clone]
+  // Extended slides with clones for seamless infinite horizontal slider looping
   const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
 
-  // Current track index (starts at 1 which is Slide 0)
+  // Start on index 1 (the first real slide)
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -186,14 +185,12 @@ export default function HeroSection() {
   // Seamless infinite loop handler
   const handleTransitionEnd = () => {
     if (currentIndex >= slides.length + 1) {
-      // Reached the clone of Slide 0 at the end -> jump smoothly without transition to real Slide 0 (index 1)
       setIsTransitioning(false);
       setCurrentIndex(1);
       setTimeout(() => {
         setIsTransitioning(true);
       }, 50);
     } else if (currentIndex <= 0) {
-      // Reached the clone of Slide 3 at the beginning -> jump smoothly to real Slide 3 (index 4)
       setIsTransitioning(false);
       setCurrentIndex(slides.length);
       setTimeout(() => {
@@ -271,82 +268,77 @@ export default function HeroSection() {
                       <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                       {getLoc(s.badge)}
                     </span>
+                  </div>
 
-                    {/* Slide Title */}
-                    <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white leading-[1.18] mt-4 sm:mt-5 max-w-2xl drop-shadow-md">
+                  {/* Center Hero Heading & Subtitle */}
+                  <div className="my-auto max-w-2xl py-4 sm:py-6">
+                    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight drop-shadow-md">
                       {getLoc(s.title)}
                     </h1>
-
-                    {/* Slide Description */}
-                    <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-white/90 leading-relaxed font-normal max-w-xl drop-shadow-xs line-clamp-3 sm:line-clamp-none">
+                    <p className="mt-3 sm:mt-4 text-xs sm:text-sm lg:text-base text-slate-200/90 max-w-xl leading-relaxed drop-shadow-sm font-medium line-clamp-3">
                       {getLoc(s.desc)}
                     </p>
 
-                    {/* CTA Action Buttons */}
+                    {/* Action CTA Buttons */}
                     <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
                       <Link
                         to={s.btnPrimaryLink}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-950 rounded-xl text-[13px] sm:text-sm font-extrabold hover:bg-white/95 active:scale-95 transition-all shadow-lg hover:shadow-xl cursor-pointer"
+                        className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs sm:text-sm tracking-wide transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2 group/btn cursor-pointer active:scale-95"
                       >
-                        {getLoc(s.btnPrimaryText)} <ArrowRight className="w-4 h-4" />
+                        {getLoc(s.btnPrimaryText)}
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                       </Link>
+
                       <Link
                         to={s.btnSecondaryLink}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-[13px] sm:text-sm font-bold text-white border border-white/35 hover:bg-white/15 backdrop-blur-sm active:scale-95 transition-all cursor-pointer"
+                        className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold text-xs sm:text-sm tracking-wide transition-all border border-white/20 cursor-pointer active:scale-95"
                       >
                         {getLoc(s.btnSecondaryText)}
                       </Link>
                     </div>
                   </div>
 
-                  {/* Bottom Info Bar inside Slide */}
-                  <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between text-xs text-white/85 flex-wrap gap-3">
-                    <div className="flex items-center gap-4">
-                      <span className="flex items-center gap-1.5 font-semibold">
-                        <Truck className="w-3.5 h-3.5 text-emerald-400" /> {t('hero.fastDelivery')}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1.5 font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5 text-sky-400" /> {t('hero.original')}
-                      </span>
+                  {/* Bottom Trust Indicators */}
+                  <div className="pt-3 border-t border-white/15 flex flex-wrap items-center gap-4 sm:gap-6 text-[11px] sm:text-xs font-semibold text-slate-200">
+                    <div className="flex items-center gap-1.5">
+                      <Truck className="w-3.5 h-3.5 text-emerald-300" />
+                      <span>{t('hero.delivery', 'Tezkor yetkazish')}</span>
                     </div>
-
-                    {/* Slide Counter badge */}
-                    <span className="hidden sm:inline-block font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-black/40 text-white/90 backdrop-blur-xs">
-                      {realIndex + 1} / {slides.length}
-                    </span>
+                    <span className="text-white/40">•</span>
+                    <div className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-cyan-300" />
+                      <span>{t('hero.guarantee', '100% Original kafolat')}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Left Arrow Navigation Button */}
+          {/* Left Arrow Button */}
           <button
             type="button"
             onClick={handlePrev}
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md border border-white/25 text-white flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
             aria-label="Oldingi slayd"
-            title="Oldingi"
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 z-20 cursor-pointer active:scale-90"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Right Arrow Navigation Button */}
+          {/* Right Arrow Button */}
           <button
             type="button"
             onClick={handleNext}
-            className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/75 backdrop-blur-md border border-white/25 text-white flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
             aria-label="Keyingi slayd"
-            title="Keyingi"
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 z-20 cursor-pointer active:scale-90"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
-          {/* Bottom Dot / Bar Indicators with Real-Time Animated Progress Bar */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/45 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg">
+          {/* Bottom Interactive Slide Indicators */}
+          <div className="absolute bottom-5 right-5 sm:right-8 z-20 flex items-center gap-2">
             {slides.map((_, i) => {
-              const isActive = realIndex === i;
+              const isActive = i === realIndex;
               return (
                 <button
                   key={i}
@@ -372,56 +364,56 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right 2 Side Promo Tiles (Trenajor & Gantel Podstavka) */}
+        {/* Right 2 Side Promo Tiles (Yo'l Xavfsizligi & 4&1 Asboblar To'plami) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5 h-full">
-          {/* Tile 1: Trenajorlar & Kardio */}
+          {/* Tile 1: Yo'l Xavfsizligi */}
           <Link
-            to="/shop?category=trenajorlar"
+            to="/shop?category=yol-xavfsizligi"
             className="group relative rounded-2xl p-6 bg-slate-900/90 hover:bg-slate-800/95 border-2 border-slate-700/80 shadow-md flex flex-col justify-between hover:-translate-y-0.5 transition-all"
           >
             <div>
-              <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 px-2.5 py-1 rounded-lg border border-emerald-500/30">
-                {t('hero.tile1Badge', 'Trenajorlar & Kardio')}
+              <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-orange-400 bg-orange-500/15 px-2.5 py-1 rounded-lg border border-orange-500/30">
+                Yo‘l Harakati Xavfsizligi
               </span>
               <h3 className="mt-2 text-[19px] font-black tracking-tight text-white leading-snug">
-                {t('hero.tile1Title', 'Yugurish Yo‘lakchalari & Kardiomashinalar')}
+                TPU Egiluvchan Yo‘l Konuslari & To‘siqlar
               </h3>
               <p className="mt-1 text-[12px] text-slate-300 line-clamp-2">
-                {t('hero.tile1Desc', 'Professional zal va uy sharoitida mashq qilish uchun aqlli shovqinsiz trenajorlar.')}
+                Egiluvchan, mashina bosganda sinmaydigan 75 sm konuslar, suriluvchi garmoshkalar va dempferlar.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between">
               <span className="text-[13px] font-bold text-white group-hover:underline inline-flex items-center gap-1">
-                {t('hero.more', 'Katalogga o‘tish')} <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+                Katalogga o‘tish <ArrowRight className="w-3.5 h-3.5 text-orange-400" />
               </span>
-              <span className="text-[13px] font-black text-emerald-400">
-                {t('hero.tile1Price', '3 200 000 so‘mdan')}
+              <span className="text-[13px] font-black text-orange-400">
+                130 000 so‘mdan
               </span>
             </div>
           </Link>
 
-          {/* Tile 2: Gantel & Stoykalar */}
+          {/* Tile 2: 4&1 Kombo To'plam */}
           <Link
-            to="/product/gantel-podstavka-sc80263"
+            to="/shop?category=asboblar-to-plami"
             className="group relative rounded-2xl p-6 bg-slate-900/90 hover:bg-slate-800/95 border-2 border-slate-700/80 shadow-md flex flex-col justify-between hover:-translate-y-0.5 transition-all"
           >
             <div>
               <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/15 px-2.5 py-1 rounded-lg border border-amber-500/30">
-                {t('hero.tile2Badge', 'Gantel & Stoykalar')}
+                Asboblar To‘plami
               </span>
               <h3 className="mt-2 text-[19px] font-black tracking-tight text-white leading-snug">
-                {t('hero.tile2Title', 'Gantel Podstavkasi SC80263')}
+                4&1 Professional Akkumulyatorli To‘plam
               </h3>
               <p className="mt-1 text-[12px] text-slate-300 line-clamp-2">
-                {t('hero.tile2Desc', '6 juft gantel sig‘adigan mustahkam po‘lat A-Frame podstavka. Kafolatli yetkazish.')}
+                Gaykavyort, balgarka, drel va perforator bitta mustahkam qattiq keysda. To‘liq komplekt.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between">
               <span className="text-[13px] font-bold text-amber-300 group-hover:underline inline-flex items-center gap-1">
-                {t('hero.btnCatalog', 'Batafsil')} <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                Batafsil ko‘rish <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
               </span>
               <span className="text-[13px] font-black text-amber-400">
-                {t('hero.tile2Warranty', '75$ (960 000 so‘m)')}
+                895 000 so‘m
               </span>
             </div>
           </Link>

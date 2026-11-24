@@ -1380,7 +1380,7 @@ export default function AdminDashboard() {
                         required
                         value={productForm.title}
                         onChange={(e) => setProductForm({ ...productForm, title: e.target.value })}
-                        placeholder="Masalan: Professional Tatami 1x1m yoki Masaj kreslo AM183"
+                        placeholder="Masalan: 4&1 Akkumulyatorli Asboblar To‘plami yoki TPU Yo‘l Konusi 75 sm"
                         className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-[var(--color-primary-500)] outline-none"
                       />
                     </div>

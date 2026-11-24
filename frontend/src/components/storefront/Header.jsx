@@ -26,7 +26,9 @@ import {
   MapPin,
   Cone,
   Wrench,
-  Hammer
+  Hammer,
+  Scissors,
+  Disc
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -290,7 +292,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   type="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
+                  placeholder={t('header.searchPlaceholder', "Drel, shurupovyort, konus, to‘siq, balgarka, isitgich qidirish…")}
                   className="flex-1 h-full bg-transparent pl-4 pr-3 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 outline-none font-medium box-border border-none focus:ring-0 [&::-webkit-search-cancel-button]:hidden"
                   autoComplete="off"
                 />
@@ -521,32 +523,13 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               );
             })()}
 
-            {/* 2. Trenajorlar & Kardio (Sport) */}
+            {/* 2. Yo'l Harakati Xavfsizligi */}
             {(() => {
-              const isActive = currentCategory === 'trenajorlar';
+              const isActive = currentCategory === 'yol-xavfsizligi' || currentCategory === 'yol-konuslari';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=trenajorlar"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Activity className={`w-4 h-4 shrink-0 ${isActive ? 'text-amber-400' : 'text-amber-500'}`} />
-                  <span>Trenajorlar &amp; Kardio</span>
-                </Link>
-              );
-            })()}
-
-            {/* 3. Yo'l Harakati & Konuslar (Ko'cha/Yo'l jihozlari) */}
-            {(() => {
-              const isActive = currentCategory === 'yol-konuslari' || currentCategory === 'yol-belgilari' || currentCategory === 'suniy-notekislik';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=yol-konuslari"
+                  to="/shop?category=yol-xavfsizligi"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-orange-600 text-white shadow-md ring-2 ring-orange-500/30 font-black'
@@ -554,18 +537,18 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   }`}
                 >
                   <Cone className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-orange-500'}`} />
-                  <span>Yo‘l Xavfsizligi &amp; Konuslar</span>
+                  <span>Yo‘l Xavfsizligi &amp; Jihozlar</span>
                 </Link>
               );
             })()}
 
-            {/* 4. Asbob-Uskunalar (Drellar, Balgarkalar) */}
+            {/* 3. Drellar & Shurupovyortlar */}
             {(() => {
-              const isActive = currentCategory === 'drellar-shurupovyort' || currentCategory === 'balgarkalar-ushm' || currentCategory === 'perforator-otboynik' || currentCategory === 'payvandlash-svarka';
+              const isActive = currentCategory === 'drellar-shurupovyortlar' || currentCategory === 'drellar-shurupovyort';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=drellar-shurupovyort"
+                  to="/shop?category=drellar-shurupovyortlar"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-500/30 font-black'
@@ -573,45 +556,83 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   }`}
                 >
                   <Wrench className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-500'}`} />
-                  <span>Drellar &amp; Balgarkalar</span>
+                  <span>Drellar &amp; Shurupovyortlar</span>
                 </Link>
               );
             })()}
 
-            {/* 5. Gantellar & Shtangalar */}
+            {/* 4. Asboblar To'plamlari (Naborlar) */}
             {(() => {
-              const isActive = currentCategory === 'stoykalar' || currentCategory === 'gantellar';
+              const isActive = currentCategory === 'asboblar-to-plami';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=gantellar"
+                  to="/shop?category=asboblar-to-plami"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
-                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-500/30 font-black'
                       : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
                   }`}
                 >
-                  <Dumbbell className={`w-4 h-4 shrink-0 ${isActive ? 'text-blue-400' : 'text-blue-500'}`} />
-                  <span>Gantellar &amp; Shtangalar</span>
+                  <Package className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-emerald-500'}`} />
+                  <span>Asboblar To‘plamlari (Naborlar)</span>
                 </Link>
               );
             })()}
 
-            {/* 6. Boks & Yakka Kurash */}
+            {/* 5. Arralar & Bog' Texnikasi */}
             {(() => {
-              const isActive = currentCategory === 'boks-yakka-kurash';
+              const isActive = currentCategory === 'arralar-elektr-uskunalar';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=boks-yakka-kurash"
+                  to="/shop?category=arralar-elektr-uskunalar"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
-                      ? 'bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md ring-2 ring-slate-950/20 dark:ring-white/30 font-black'
+                      ? 'bg-green-600 text-white shadow-md ring-2 ring-green-500/30 font-black'
                       : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
                   }`}
                 >
-                  <Trophy className={`w-4 h-4 shrink-0 ${isActive ? 'text-amber-400' : 'text-amber-500'}`} />
-                  <span>Boks &amp; Yakka Kurash</span>
+                  <Scissors className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-green-500'}`} />
+                  <span>Arralar &amp; Bog‘ Texnikasi</span>
+                </Link>
+              );
+            })()}
+
+            {/* 6. Balgarkalar & Silliqlash */}
+            {(() => {
+              const isActive = currentCategory === 'balgarka-shlifovka';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=balgarka-shlifovka"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-indigo-600 text-white shadow-md ring-2 ring-indigo-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Disc className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-indigo-500'}`} />
+                  <span>Balgarkalar &amp; Silliqlash</span>
+                </Link>
+              );
+            })()}
+
+            {/* 7. Isitgichlar & Texnik Fenlar */}
+            {(() => {
+              const isActive = currentCategory === 'isitgichlar-iqlim';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?category=isitgichlar-iqlim"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-amber-600 text-white shadow-md ring-2 ring-amber-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Flame className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-amber-500'}`} />
+                  <span>Isitgichlar &amp; Fenlar</span>
                 </Link>
               );
             })()}
@@ -830,85 +851,73 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   </Link>
 
                   <Link
-                    to="/shop?category=trenajorlar"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
-                  >
-                    <span className="flex items-center gap-2.5">
-                      <Activity className="w-4 h-4 text-emerald-500" />
-                      <span>Trenajorlar &amp; Kardio (Sport)</span>
-                    </span>
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
-                  </Link>
-
-                  <Link
-                    to="/shop?category=yol-konuslari"
+                    to="/shop?category=yol-xavfsizligi"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-50/70 dark:bg-orange-950/20 border border-orange-200/80 dark:border-orange-900/50"
                   >
                     <span className="flex items-center gap-2.5">
                       <Cone className="w-4 h-4" />
-                      <span>Yo‘l Xavfsizligi &amp; Konuslar</span>
+                      <span>Yo‘l Xavfsizligi &amp; Jihozlar</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-orange-400" />
                   </Link>
 
                   <Link
-                    to="/shop?category=drellar-shurupovyort"
+                    to="/shop?category=drellar-shurupovyortlar"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-900/50"
                   >
                     <span className="flex items-center gap-2.5">
                       <Wrench className="w-4 h-4" />
-                      <span>Drellar, Balgarkalar &amp; Uskunalar</span>
+                      <span>Drellar &amp; Shurupovyortlar</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-blue-400" />
                   </Link>
 
                   <Link
-                    to="/shop?category=gantellar"
+                    to="/shop?category=asboblar-to-plami"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Dumbbell className="w-4 h-4 text-amber-500" />
-                      <span>Gantellar &amp; Shtangalar</span>
+                      <Package className="w-4 h-4 text-emerald-500" />
+                      <span>Asboblar To‘plamlari (Naborlar)</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop?category=boks-yakka-kurash"
+                    to="/shop?category=arralar-elektr-uskunalar"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Trophy className="w-4 h-4 text-rose-500" />
-                      <span>Boks &amp; Yakka Kurash (Tatami)</span>
+                      <Scissors className="w-4 h-4 text-green-500" />
+                      <span>Arralar &amp; Bog‘ Texnikasi</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/sport-sumkalari"
+                    to="/shop?category=balgarka-shlifovka"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <Package className="w-4 h-4 text-purple-500" />
-                      <span>{t('cat.sport-sumkalari', 'Sport Sumkalari & Ryukzaklar')}</span>
+                      <Disc className="w-4 h-4 text-indigo-500" />
+                      <span>Balgarkalar &amp; Silliqlash</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
 
                   <Link
-                    to="/shop/boks-yakka-kurash"
+                    to="/shop?category=isitgichlar-iqlim"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850 transition-colors"
                   >
                     <span className="flex items-center gap-2.5">
-                      <ShieldCheck className="w-4 h-4 text-red-500" />
-                      <span>{t('cat.boks-yakka-kurash', 'Boks & Yakka Kurash')}</span>
+                      <Flame className="w-4 h-4 text-amber-500" />
+                      <span>Isitgichlar &amp; Texnik Fenlar</span>
                     </span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>

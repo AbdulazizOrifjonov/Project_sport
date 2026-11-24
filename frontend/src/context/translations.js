@@ -17,7 +17,7 @@ export const translations = {
     "header.tagline": "Ofis mollari va kantselyariya A dan Z gacha",
     "header.catalog": "Katalog",
     "header.close": "Yopish",
-    "header.searchPlaceholder": "Krossovkalar, sport kiyimlari, Nike, Adidas, aksessuarlar…",
+    "header.searchPlaceholder": "Drel, shurupovyort, konus, to‘siq, balgarka, isitgich qidirish…",
     "header.compare": "Taqqoslash",
     "header.login": "Kirish",
     "header.wishlist": "Sevimlilar",
@@ -39,8 +39,8 @@ export const translations = {
 
     // Hero Section
     "hero.badge": "WYUE — Rasmiy kafolat",
-    "hero.title": "Original sport kiyimlari va krossovkalar",
-    "hero.desc": "Nike, Adidas, Puma, Jordan, Under Armour original krossovkalari, sport kiyimlari va fitnes aksessuarlari. 100% original, rasmiy kafolat bilan.",
+    "hero.title": "Professional elektr asboblar va yo‘l xavfsizligi jihozlari",
+    "hero.desc": "4&1 asboblar to‘plami, zarbli drel-shurupovyortlar, TPU yo‘l konuslari, suriluvchi to‘siqlar va isitgichlar. 100% original, rasmiy kafolat bilan.",
     "hero.btnCatalog": "Katalogga o‘tish",
     "hero.btnDeals": "Barcha aksiyalar",
     "hero.fastDelivery": "2 soatda yetkazish",
@@ -223,7 +223,7 @@ export const translations = {
 
     // Sidebar Drawer
     "drawer.title": "Mahsulotlar Katalogi",
-    "drawer.subtitle": "Original sport kiyimlari, krossovkalar va mashg‘ulot jihozlari",
+    "drawer.subtitle": "Professional elektr asboblar, yo‘l harakati xavfsizligi va isitgichlar",
     "drawer.byCategory": "Toifa bo‘yicha tovarlar",
     "drawer.viewAll": "Barchasini ko‘rish",
     "drawer.categoryBanner": "100% rasmiy kafolatlangan mahsulotlar",
@@ -236,7 +236,7 @@ export const translations = {
     "drawer.monSat": "Dush - Shanba: 09:00 - 19:00",
 
     // Footer
-    "footer.desc": "WYUE — original sport kiyimlari, krossovkalar, fitnes aksessuarlari va sifatli sport anjomlari do‘koni.",
+    "footer.desc": "WYUE — professional elektr asbob-uskunalar, yo‘l harakati xavfsizligi jihozlari va isitish texnikalari rasmiy do‘koni.",
     "footer.catalog": "Katalog",
     "footer.company": "Kompaniya",
     "footer.customers": "Xaridorlarga",
@@ -265,7 +265,7 @@ export const translations = {
     "header.tagline": "Товары для офиса от А до Я",
     "header.catalog": "Каталог",
     "header.close": "Закрыть",
-    "header.searchPlaceholder": "Кроссовки, спортивная одежда, Nike, Adidas, аксессуары…",
+    "header.searchPlaceholder": "Поиск: дрель, шуруповерт, конус, ограждение, болгарка, обогреватель…",
     "header.compare": "Сравн.",
     "header.login": "Войти",
     "header.wishlist": "Избр.",
@@ -513,7 +513,7 @@ export const translations = {
     "header.tagline": "Office Supplies & Stationery from A to Z",
     "header.catalog": "Catalog",
     "header.close": "Close",
-    "header.searchPlaceholder": "Sneakers, sportswear, Nike, Adidas, athletic gear…",
+    "header.searchPlaceholder": "Search: drill, screwdriver, cone, barrier, grinder, heater…",
     "header.compare": "Compare",
     "header.login": "Sign In",
     "header.wishlist": "Wishlist",

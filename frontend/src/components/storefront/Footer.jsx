@@ -57,28 +57,33 @@ export default function Footer() {
             <h6 className="text-white text-sm font-bold mb-3 tracking-wide">{t('footer.catalog')}</h6>
             <ul className="flex flex-col gap-2 text-xs">
               <li>
-                <Link to="/shop/krossovkalar" className="hover:text-white transition-colors">
-                  Krossovkalar &amp; Poyabzallar
+                <Link to="/shop?category=yol-xavfsizligi" className="hover:text-white transition-colors">
+                  Yo‘l Xavfsizligi &amp; Jihozlar
                 </Link>
               </li>
               <li>
-                <Link to="/shop/erkaklar-sport" className="hover:text-white transition-colors">
-                  Erkaklar sport kiyimlari
+                <Link to="/shop?category=drellar-shurupovyortlar" className="hover:text-white transition-colors">
+                  Drellar &amp; Shurupovyortlar
                 </Link>
               </li>
               <li>
-                <Link to="/shop/ayollar-sport" className="hover:text-white transition-colors">
-                  Ayollar sport kiyimlari
+                <Link to="/shop?category=asboblar-to-plami" className="hover:text-white transition-colors">
+                  Asboblar To‘plamlari (Naborlar)
                 </Link>
               </li>
               <li>
-                <Link to="/shop/fitnes-trenajor" className="hover:text-white transition-colors">
-                  Fitnes &amp; Trenajor jihozlari
+                <Link to="/shop?category=arralar-elektr-uskunalar" className="hover:text-white transition-colors">
+                  Arralar &amp; Bog‘ Texnikasi
                 </Link>
               </li>
               <li>
-                <Link to="/shop/sport-sumkalari" className="hover:text-white transition-colors">
-                  Sport sumkalari &amp; Ryukzaklar
+                <Link to="/shop?category=balgarka-shlifovka" className="hover:text-white transition-colors">
+                  Balgarkalar &amp; Silliqlash
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop?category=isitgichlar-iqlim" className="hover:text-white transition-colors">
+                  Isitgichlar &amp; Texnik Fenlar
                 </Link>
               </li>
               <li>

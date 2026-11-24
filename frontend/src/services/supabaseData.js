@@ -10,14 +10,14 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v12 Complete Catalog with 175+ Unique Products)
+// Local storage collection keys (v14 Clean Catalog with 59 Bot Products)
 const KEYS = {
-  CATEGORIES: 'nsb_categories_v8_multidept',
-  PRODUCTS: 'nsb_products_v12_all_catalog',
-  BANNERS: 'nsb_banners_v4_sport',
-  COUPONS: 'nsb_coupons_v4_sport',
-  REVIEWS: 'nsb_reviews_v4_sport',
-  ORDERS: 'nsb_orders_v4_sport'
+  CATEGORIES: 'nsb_categories_v14_clean_bot',
+  PRODUCTS: 'nsb_products_v14_clean_bot',
+  BANNERS: 'nsb_banners_v14_clean_bot',
+  COUPONS: 'nsb_coupons_v14_clean_bot',
+  REVIEWS: 'nsb_reviews_v14_clean_bot',
+  ORDERS: 'nsb_orders_v14_clean_bot'
 };
 
 // Normalize database product (snake_case from Supabase -> camelCase + snake_case for frontend)
