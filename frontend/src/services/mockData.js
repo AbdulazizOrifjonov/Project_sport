@@ -240,7 +240,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod-018761_1.jpg"
+      "/uploads/prod-739128_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -270,7 +270,8 @@ export const defaultProducts = [
         "value": "Buxoro bo‘ylab tezkor"
       }
     ],
-    "created_at": "2026-11-24T09:03:40.501Z"
+    "created_at": "2026-11-24T09:03:40.501Z",
+    "updated_at": "2026-11-24T09:32:38.950Z"
   },
   {
     "_id": "prod_trenajorlar-kardio-mahsuloti-0244",
@@ -278,9 +279,9 @@ export const defaultProducts = [
     "title": "Trenajorlar & Kardio Mahsuloti",
     "slug": "trenajorlar-kardio-mahsuloti-0244",
     "sku": "",
-    "price": 16000,
-    "oldPrice": 18400,
-    "old_price": 18400,
+    "price": 706750,
+    "oldPrice": 812762,
+    "old_price": 812762,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -296,7 +297,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod-025442_1.jpg"
+      "/uploads/prod-739979_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -327,7 +328,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-24T09:03:40.244Z",
-    "updated_at": "2026-11-24T09:03:52.929Z"
+    "updated_at": "2026-11-24T09:32:52.405Z"
   },
   {
     "_id": "prod_konus-tpu-75sm",
