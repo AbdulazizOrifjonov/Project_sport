@@ -161,6 +161,62 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_115-8758",
+    "id": "prod_115-8758",
+    "title": "Столбик 115 см",
+    "slug": "115-8758",
+    "sku": "NSB-988758",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972236_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Столбик 115 см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Yo‘l & Harakat Xavfsizligi"
+      },
+      {
+        "label": "Toifa",
+        "value": "Sun‘iy Notekislik & Ustunlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:08.758Z"
+  },
+  {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2537",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2537",
     "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
