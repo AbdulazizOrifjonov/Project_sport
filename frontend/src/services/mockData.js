@@ -161,6 +161,398 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
+    "sku": "NSB-003328",
+    "price": 154200,
+    "oldPrice": 177330,
+    "old_price": 177330,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972226_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.328Z"
+  },
+  {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
+    "sku": "NSB-003295",
+    "price": 179900,
+    "oldPrice": 206885,
+    "old_price": 206885,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972127_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.295Z"
+  },
+  {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
+    "sku": "NSB-003244",
+    "price": 128500,
+    "oldPrice": 147775,
+    "old_price": 147775,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972315_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.244Z"
+  },
+  {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
+    "sku": "NSB-003204",
+    "price": 179900,
+    "oldPrice": 206885,
+    "old_price": 206885,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972197_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.204Z"
+  },
+  {
+    "_id": "prod_product-3161",
+    "id": "prod_product-3161",
+    "title": "Гармошка видвижной",
+    "slug": "product-3161",
+    "sku": "NSB-003161",
+    "price": 462600,
+    "oldPrice": 531990,
+    "old_price": 531990,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-971622_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Гармошка видвижной - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Yo‘l & Harakat Xavfsizligi"
+      },
+      {
+        "label": "Toifa",
+        "value": "Yo‘l Konuslari & To‘siqlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.161Z"
+  },
+  {
+    "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
+    "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
+    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
+    "sku": "NSB-003034",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "RoadSafety Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972148_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus TPU egiluvchan konusi.",
+    "specifications": [
+      {
+        "label": "Balandligi",
+        "value": "75 sm"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.034Z"
+  },
+  {
+    "_id": "prod_product-3001",
+    "id": "prod_product-3001",
+    "title": "Гармошка нержавейка",
+    "slug": "product-3001",
+    "sku": "NSB-003001",
+    "price": 771000,
+    "oldPrice": 886650,
+    "old_price": 886650,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-969023_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Гармошка нержавейка - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Yo‘l & Harakat Xavfsizligi"
+      },
+      {
+        "label": "Toifa",
+        "value": "Yo‘l Konuslari & To‘siqlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T11:33:23.001Z"
+  },
+  {
     "_id": "prod_115-8758",
     "id": "prod_115-8758",
     "title": "Столбик 115 см",
