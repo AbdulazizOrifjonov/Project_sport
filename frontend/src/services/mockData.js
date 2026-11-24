@@ -1643,14 +1643,14 @@ export const defaultProducts = [
   {
     "_id": "prod_pvc-8457",
     "id": "prod_pvc-8457",
-    "title": "Тактильный плитка из pvc",
+    "title": "PVX Taktil plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
     "slug": "pvc-8457",
     "sku": "NSB-078457",
     "price": 16000,
-    "oldPrice": 18400,
-    "old_price": 18400,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 18500,
+    "old_price": 18500,
+    "discountPercent": 14,
+    "discount_percent": 14,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -1664,7 +1664,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod-018618_1.jpg"
+      "/uploads/taktil-plitka-pvc.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2526,9 +2526,9 @@ export const defaultProducts = [
     "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
     "sku": "NSB-003034",
-    "price": 514000,
-    "oldPrice": 591100,
-    "old_price": 591100,
+    "price": 130000,
+    "oldPrice": 150000,
+    "old_price": 150000,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Yo‘l Konuslari & To‘siqlar",
@@ -2544,7 +2544,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod-972148_1.jpg"
+      "/uploads/konus-tpu-75sm.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2556,6 +2556,14 @@ export const defaultProducts = [
       {
         "label": "Balandligi",
         "value": "75 sm"
+      },
+      {
+        "label": "Materiali",
+        "value": "TPU (Elastik poliuretan)"
+      },
+      {
+        "label": "Ko‘rinuvchanlik",
+        "value": "Nur qaytaruvchi tasmali"
       }
     ],
     "created_at": "2026-11-24T11:33:23.034Z"
@@ -3477,6 +3485,8 @@ export const defaultProducts = [
     "created_at": "2026-11-24T11:32:51.424Z"
   }
 ];
+
+
 
 export const defaultBanners = [
   {

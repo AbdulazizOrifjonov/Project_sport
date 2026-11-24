@@ -495,7 +495,7 @@ export default function ProductDetailPage() {
                         e.target.src = fallbackImage;
                       }}
                       style={{
-                        transform: isZooming && selectedImage === i ? 'scale(2.1)' : 'scale(1)',
+                        transform: isZooming && selectedImage === i ? 'scale(1.55)' : 'scale(1)',
                         transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
                         transition: isZooming ? 'transform 0.1s ease-out' : 'transform 0.3s ease-out'
                       }}

@@ -310,6 +310,90 @@ function extractPriceAndTitle(caption = '') {
 function enrichWithKnowledge(rawText = '', price = 0) {
   const lower = (rawText || '').toLowerCase();
 
+  // ==========================================
+  // A. ROAD & TRAFFIC SAFETY (Yo'l Xavfsizligi) - CHECK FIRST
+  // ==========================================
+  // 1. Konuslar (Traffic Cones)
+  if (lower.includes('конус') || lower.includes('konus')) {
+    const size = lower.includes('75') ? '75 sm' : (lower.includes('50') ? '50 sm' : (lower.includes('100') ? '100 sm' : '75 sm'));
+    return {
+      title: `Yo‘l harakati xavfsizlik konusi TPU ${size} (Egiluvchan, nur qaytaruvchi tasmali)`,
+      categorySlug: 'yol-konuslari',
+      brand: 'RoadSafety Pro',
+      description: "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+      specifications: [
+        { label: "Balandligi", value: size },
+        { label: "Materiali", value: "TPU (Yuqori elastik poliuretan)" },
+        { label: "Ko‘rinuvchanlik", value: "3M nur qaytaruvchi tasmalar" },
+        { label: "Chidamlilik", value: "Avtomobil bosib ketishiga chidamli" },
+        { label: "Qo‘llanishi", value: "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik" }
+      ]
+    };
+  }
+
+  // 2. Taktil plitkalar (Tactile Paving Tiles)
+  if (lower.includes('тактильн') || lower.includes('taktil') || lower.includes('плитка') || lower.includes('plitka')) {
+    return {
+      title: "PVX Taktil plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
+      categorySlug: 'yol-konuslari',
+      brand: 'SafeRoad',
+      description: "Ko‘zi ojiz va zaif ko‘ruvchi insonlar piyoda harakatlanishi uchun maxsus taktil ogohlantiruvchi va yo‘naltiruvchi sarg‘ish PVX plitkasi. Sirpanmaydigan, yorug‘lik va ob-havo haroratiga o‘ta chidamli polimer material.",
+      specifications: [
+        { label: "O‘lchami", value: "300x300x7 mm" },
+        { label: "Materiali", value: "Yuqori sifatli egiluvchan elastik PVX" },
+        { label: "Rangi", value: "Yorqin sariq (Signal sariq)" },
+        { label: "Xususiyati", value: "Sirpanishga qarshi relyefli yuzaga ega" }
+      ]
+    };
+  }
+
+  // 3. Sun'iy notekislik / Tezlik pasaytirgich (Speed Bumps)
+  if (lower.includes('полицейск') || lower.includes('лежач') || lower.includes('notekislik') || lower.includes('tezlik pasaytirgich') || lower.includes('nerovnost')) {
+    return {
+      title: "Sun‘iy Yo‘l Notekisligi (Tezlik Pasaytirgich Rezina 500x500x50 mm)",
+      categorySlug: 'suniy-notekislik',
+      brand: 'RoadSafety Pro',
+      description: "Avtomobillar tezligini xavfsiz chegaralash uchun mo‘ljallangan zarbga chidamli rezinadan tayyorlangan sun'iy yo‘l notekisligi. Nur qaytaruvchi sariq elementlar va anker mahkamlagichlar uchun tayyor teshiklar mavjud.",
+      specifications: [
+        { label: "O‘lchami", value: "500x500x50 mm" },
+        { label: "Materiali", value: "Og‘ir yukka chidamli vulkanizatsiyalangan rezina" },
+        { label: "Rang", value: "Qora va nur qaytaruvchi sariq elementlar" }
+      ]
+    };
+  }
+
+  // 4. Kolesootboynik / G'ildirak to'xtatgich (Wheel Stops)
+  if (lower.includes('отбойник') || lower.includes('otboynik') || lower.includes('делиниатор') || lower.includes('deliniator') || lower.includes('kolesootboynik')) {
+    return {
+      title: "Avtoturargoh G‘ildirak To‘xtatgichi (Rezina Kolesootboynik 560x160x100 mm)",
+      categorySlug: 'suniy-notekislik',
+      brand: 'RoadSafety Pro',
+      description: "Parkovka joylarida avtomobillarning devorga yoki boshqa mashinalarga urilishining oldini oluvchi mustahkam rezina kolesootboynik. Yorqin nur qaytaruvchi stikerlar bilan jihozlangan.",
+      specifications: [
+        { label: "O‘lchami", value: "560x160x100 mm" },
+        { label: "Materiali", value: "Zarbga chidamli texnik rezina" },
+        { label: "Rang", value: "Sariq aks ettiruvchi tasmali qora rezina" }
+      ]
+    };
+  }
+
+  // 5. Garmoshka to'siq (Retractable Barriers)
+  if (lower.includes('гармошка') || lower.includes('garmoshka') || lower.includes('видвижной') || lower.includes('suriluvchi to‘siq')) {
+    return {
+      title: "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+      categorySlug: 'yol-konuslari',
+      brand: 'SafeRoad',
+      description: "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+      specifications: [
+        { label: "Turi", value: "Yig‘iluvchan mobil to‘siq" },
+        { label: "Material", value: "Mustahkam plastik / zanglamas po‘lat" }
+      ]
+    };
+  }
+
+  // ==========================================
+  // B. POWER TOOLS & CONSTRUCTION (Asbob-uskunalar)
+  // ==========================================
   // 1. Combo 4&1 sets
   if (lower.includes('4&1') || lower.includes('4in1') || lower.includes('4 da 1') || lower.includes('4 v 1') || lower.includes('4 в 1')) {
     return {
@@ -344,7 +428,7 @@ function enrichWithKnowledge(rawText = '', price = 0) {
   }
 
   // 3. Gaykavyort (Impact Wrench)
-  if (lower.includes('gaykavyort') || lower.includes('gaykovert') || lower.includes('гайковерт') || (price >= 150000 && price <= 220000 && lower.includes('164000'))) {
+  if (lower.includes('gaykavyort') || lower.includes('gaykovert') || lower.includes('гайковерт')) {
     return {
       title: "Professional Akkumulyatorli Zarbli Gaykavyort (Kuchli Cho‘tkasiz Motor)",
       categorySlug: 'drellar-shurupovyort',
@@ -445,8 +529,8 @@ function enrichWithKnowledge(rawText = '', price = 0) {
     };
   }
 
-  // 10. Drel / Shurupovyort (BL-4126, 48V, 24V yoki faqat narx kelganda masalan 130 000)
-  if (lower.includes('drel') || lower.includes('shurupovyort') || lower.includes('shurupovert') || lower.includes('дрель') || lower.includes('bl-') || lower.includes('bl4126') || (price >= 100000 && price <= 380000)) {
+  // 10. Drel / Shurupovyort (MUST HAVE EXPLICIT DREL/SHURUPOVYORT KEYWORDS)
+  if (lower.includes('drel') || lower.includes('shurupovyort') || lower.includes('shurupovert') || lower.includes('дрель') || lower.includes('шуруповерт') || lower.includes('bl-4126') || lower.includes('bl4126')) {
     const volt = lower.includes('48v') ? '48V' : (lower.includes('36v') ? '36V' : (lower.includes('24v') ? '24V' : 'Universal'));
     const model = lower.includes('bl-4126') || lower.includes('4126') ? ' BL-4126' : '';
     return {
@@ -462,17 +546,6 @@ function enrichWithKnowledge(rawText = '', price = 0) {
         { label: "Batareya", value: "2 ta Li-Ion akkumulyator to‘plamda" },
         { label: "Komplekt", value: "Drel, 2x batareya, zaryadlovchi, bita va keys" }
       ]
-    };
-  }
-
-  // 11. Road safety goods
-  if (lower.includes('конус') || lower.includes('konus')) {
-    return {
-      title: "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
-      categorySlug: 'yol-konuslari',
-      brand: 'RoadSafety Pro',
-      description: "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus TPU egiluvchan konusi.",
-      specifications: [{ label: "Balandligi", value: "75 sm" }]
     };
   }
 

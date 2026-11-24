@@ -242,7 +242,7 @@ export default function ProductCard({ product }) {
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}
-            className="w-full h-full object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
+            className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 will-change-transform"
           />
         </Link>
       </div>
