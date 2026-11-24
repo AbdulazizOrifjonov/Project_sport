@@ -161,6 +161,54 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
+    "id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
+    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer (G‘ildirakli va diskli)",
+    "slug": "universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
+    "sku": "NSB-411370",
+    "price": 440000,
+    "oldPrice": 506000,
+    "old_price": 506000,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Arralar & Elektr Uskunalar",
+    "category_slug": "arralar-uskunalar",
+    "categorySlug": "arralar-uskunalar",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "GreenGarden",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-286227_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Bog‘, hovli va maysazorlarni toza saqlash uchun akkumulyatorli qulay trimmer. Metall disk, arra tishi va plastik pichoqlar to‘plamda beriladi. Balandligini bo‘yga moslab sozlash mumkin.",
+    "specifications": [
+      {
+        "label": "Teleskopik shtanga",
+        "value": "Bo‘yga moslab 90-125 sm gacha uzayadi"
+      },
+      {
+        "label": "Pichoqlar",
+        "value": "Metall pichoq, arra diski va plastik pichoqlar"
+      },
+      {
+        "label": "Batareya",
+        "value": "2x Li-Ion akkumulyator"
+      }
+    ],
+    "created_at": "2026-11-24T11:40:11.370Z"
+  },
+  {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
     "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
     "title": "2&1 Akkumulyatorli Bog‘ va Qurilish To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
