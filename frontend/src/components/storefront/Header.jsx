@@ -282,21 +282,23 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
             {/* Desktop Unified Omnisearch Bar */}
             <div ref={searchRef} className="flex-1 relative max-w-3xl xl:max-w-4xl mx-auto h-12">
-              <form onSubmit={handleSearchSubmit} className="relative h-12 flex items-center">
+              <form
+                onSubmit={handleSearchSubmit}
+                className="relative h-12 flex items-center w-full rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 focus-within:border-emerald-500 dark:focus-within:border-emerald-400 focus-within:ring-4 focus-within:ring-emerald-500/10 focus-within:bg-white dark:focus-within:bg-slate-900 overflow-hidden transition-all shadow-xs"
+              >
                 <input
                   type="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t('header.searchPlaceholder', "Trenajorlar, gantellar, krossovkalar, sport kiyimlari qidirish…")}
-                  className="w-full h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700/80 pl-11 pr-28 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none font-medium box-border shadow-xs"
+                  className="flex-1 h-full bg-transparent pl-4 pr-3 text-[13px] text-slate-900 dark:text-white placeholder-slate-400 outline-none font-medium box-border border-none focus:ring-0 [&::-webkit-search-cancel-button]:hidden"
                   autoComplete="off"
                 />
-                <Search className="lucide lucide-search w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-22 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 cursor-pointer"
+                    className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 cursor-pointer shrink-0"
                     title="Tozalash"
                   >
                     <X className="w-4 h-4" />
@@ -304,7 +306,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                 )}
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-1.5 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-black hover:bg-slate-800 dark:hover:bg-slate-100 transition-all cursor-pointer shadow-xs active:scale-95"
+                  className="h-full px-6 bg-slate-950 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 text-xs sm:text-[13px] font-black tracking-wide transition-colors cursor-pointer shrink-0 flex items-center justify-center border-l-2 border-slate-300 dark:border-slate-700/80 active:opacity-90"
                 >
                   Qidirish
                 </button>
@@ -312,26 +314,34 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
 
               {/* Suggestions dropdown */}
               {showSuggestions && (
-                <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
+                <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden divide-y divide-slate-100 dark:divide-slate-800 max-h-[480px] overflow-y-auto">
                   {suggestions.length > 0 ? (
                     suggestions.map((p) => (
                       <Link
                         key={p._id}
                         to={`/product/${p.slug}`}
                         onClick={() => setShowSuggestions(false)}
-                        className="flex items-center gap-3 p-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        className="flex items-center gap-4 p-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors group"
                       >
-                        <img
-                          src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
-                          alt={p.title}
-                          className="w-10 h-10 object-contain p-0.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-[10px] uppercase font-bold text-slate-400">{p.category}</div>
-                          <div className="text-[13px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>
-                          <div className="text-[13px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
+                        <div className="w-20 h-20 shrink-0 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700/80 p-1.5 flex items-center justify-center overflow-hidden">
+                          <img
+                            src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80'}
+                            alt={p.title}
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                          />
                         </div>
-                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[11px] uppercase font-bold text-slate-400 dark:text-slate-400 tracking-wider">
+                            {p.category}
+                          </div>
+                          <div className="text-[14px] font-semibold text-slate-900 dark:text-white truncate mt-0.5 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            {p.title}
+                          </div>
+                          <div className="text-[14px] font-black text-slate-950 dark:text-white mt-1">
+                            {formatPrice(p.price)}
+                          </div>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-slate-500 group-hover:translate-x-0.5 transition-all shrink-0" />
                       </Link>
                     ))
                   ) : (
@@ -420,10 +430,9 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t('header.searchPlaceholder', "Qidiruv...")}
-                  className="w-full h-10 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-8 pr-7 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-white transition-all outline-none font-medium box-border shadow-2xs [&::-webkit-search-cancel-button]:hidden"
+                  className="w-full h-10 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 pl-3.5 pr-7 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-800 focus:border-slate-900 dark:focus:border-white transition-all outline-none font-medium box-border shadow-2xs [&::-webkit-search-cancel-button]:hidden"
                   autoComplete="off"
                 />
-                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                 {searchQuery && (
                   <button
                     type="button"
@@ -444,13 +453,15 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                         key={p._id}
                         to={`/product/${p.slug}`}
                         onClick={() => setShowSuggestions(false)}
-                        className="flex items-center gap-2.5 p-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        className="flex items-center gap-3 p-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                       >
-                        <img
-                          src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200'}
-                          alt={p.title}
-                          className="w-9 h-9 object-contain p-0.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0"
-                        />
+                        <div className="w-16 h-16 shrink-0 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center overflow-hidden">
+                          <img
+                            src={p.images?.[0] || 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200'}
+                            alt={p.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-[12px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>
                           <div className="text-[11px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
