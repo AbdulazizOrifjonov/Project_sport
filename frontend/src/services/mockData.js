@@ -161,6 +161,262 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
+    "id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
+    "title": "4&1 Professional Akkumulyatorli Asboblar To‘plami (Gaykavyort, Balgarka, Drel, Perforator)",
+    "slug": "4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
+    "sku": "NSB-494561",
+    "price": 895000,
+    "oldPrice": 1029250,
+    "old_price": 1029250,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Universal Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-492456_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Qurilish, montaj va ta'mirlash uchun 4 ta eng zarur elektr asboblar to‘plami: Kuchli zarbli gaykavyort, 125 mm burchakli shlifovka (balgarka), drel-shurupovyort va zarbli perforator. Barchasi bitta qulay mustahkam keysda, katta sig‘imli Li-Ion akkumulyatorlar bilan birga taqdim etiladi.",
+    "specifications": [
+      {
+        "label": "To‘plam tarkibi",
+        "value": "Gaykavyort, Balgarka (USH-M), Drel-shurupovyort, Perforator"
+      },
+      {
+        "label": "Dvigatel turi",
+        "value": "Beshchetochniy (Brushless / Cho‘tkasiz) yuqori resursli"
+      },
+      {
+        "label": "Batareya",
+        "value": "Yuqori sig‘imli universal Li-Ion akkumulyatorlar"
+      },
+      {
+        "label": "Komplektatsiya",
+        "value": "4 ta uskuna, 2x batareya, tezkor zaryadlovchi, mustahkam keys"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:34.561Z"
+  },
+  {
+    "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
+    "id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
+    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer (G‘ildirakli va diskli)",
+    "slug": "universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
+    "sku": "NSB-494542",
+    "price": 440000,
+    "oldPrice": 506000,
+    "old_price": 506000,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Arralar & Elektr Uskunalar",
+    "category_slug": "arralar-uskunalar",
+    "categorySlug": "arralar-uskunalar",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "GreenGarden",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-480962_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Bog‘, hovli va maysazorlarni toza saqlash uchun akkumulyatorli qulay trimmer. Metall disk, arra tishi va plastik pichoqlar to‘plamda beriladi. Balandligini bo‘yga moslab sozlash mumkin.",
+    "specifications": [
+      {
+        "label": "Teleskopik shtanga",
+        "value": "Bo‘yga moslab 90-125 sm gacha uzayadi"
+      },
+      {
+        "label": "Pichoqlar",
+        "value": "Metall pichoq, arra diski va plastik pichoqlar"
+      },
+      {
+        "label": "Batareya",
+        "value": "2x Li-Ion akkumulyator"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:34.542Z"
+  },
+  {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
+    "sku": "NSB-494492",
+    "price": 330000,
+    "oldPrice": 379500,
+    "old_price": 379500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-480959_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:34.492Z"
+  },
+  {
+    "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
+    "id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
+    "title": "Turbo Texnik Fen 2000W (Haroratni rostlagichli sanoat feni)",
+    "slug": "turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
+    "sku": "NSB-494408",
+    "price": 92000,
+    "oldPrice": 105800,
+    "old_price": 105800,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Lazer Uroven & Asbob Naborlari",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "TurboPro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-480968_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Plastik quvurlarni bukish, payvandlash, bo‘yoq va lakni tozalash, avtomobil oynalariga plyonka tortish va quritish ishlari uchun 2000 Vt quvvatli professional texnik fen.",
+    "specifications": [
+      {
+        "label": "Quvvati",
+        "value": "2000 Vt"
+      },
+      {
+        "label": "Harorat diapazoni",
+        "value": "50°C - 600°C gacha rostlanadi"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:34.408Z"
+  },
+  {
+    "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
+    "id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
+    "title": "SLJ Elektr Toshli Stol Charxi (Ikki tomonlama toshli charxlash uskunasi)",
+    "slug": "slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
+    "sku": "NSB-494280",
+    "price": 135000,
+    "oldPrice": 155250,
+    "old_price": 155250,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Balgarka & Shlifovka",
+    "category_slug": "balgarkalar-ushm",
+    "categorySlug": "balgarkalar-ushm",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "SLJ",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-480963_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Pichoqlar, boltalar, burg‘ular (sverlolar), duradgorlik asboblari va metall qismlarni charxlash hamda tozalash uchun stol usti elektr charxi. Ikki tomonida turli donadorlikdagi (qo‘pol va mayin) charx toshlari va himoya oynachalari mavjud.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Stol usti ikki diskli charx"
+      },
+      {
+        "label": "Tosh diametri",
+        "value": "125-150 mm standart charx toshlari"
+      },
+      {
+        "label": "Xavfsizlik",
+        "value": "Uchqundan himoyalovchi shaffof ekranlar"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:34.280Z"
+  },
+  {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
     "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
     "title": "2&1 Akkumulyatorli Bog‘ va Qurilish To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
