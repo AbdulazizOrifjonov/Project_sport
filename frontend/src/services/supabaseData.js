@@ -10,10 +10,10 @@ import {
   saveLocalCollection
 } from './mockData';
 
-// Local storage collection keys (v10 Multi-Department Store with Real Road Safety & Tool Prices)
+// Local storage collection keys (v11 Clean Empty State Ready for Fresh Additions)
 const KEYS = {
   CATEGORIES: 'nsb_categories_v8_multidept',
-  PRODUCTS: 'nsb_products_v10_real',
+  PRODUCTS: 'nsb_products_v11_clean',
   BANNERS: 'nsb_banners_v4_sport',
   COUPONS: 'nsb_coupons_v4_sport',
   REVIEWS: 'nsb_reviews_v4_sport',
