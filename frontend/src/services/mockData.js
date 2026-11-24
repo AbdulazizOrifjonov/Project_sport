@@ -161,6 +161,175 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_1-84-15-15-0905",
+    "id": "prod_1-84-15-15-0905",
+    "title": "Колесо отбойник 1.84 *15*15",
+    "slug": "1-84-15-15-0905",
+    "sku": "",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 20,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-024782_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Колесо отбойник 1.84 *15*15 - kafolatli, yuqori sifatli mahsulot. Buxoro va O'zbekiston bo'ylab tezkor yetkazib beriladi.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T09:03:50.905Z"
+  },
+  {
+    "_id": "prod_80-300-0501",
+    "id": "prod_80-300-0501",
+    "title": "Гармошка видвижной 80*300",
+    "slug": "80-300-0501",
+    "sku": "",
+    "price": 449750,
+    "oldPrice": 517212,
+    "old_price": 517212,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 20,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-018761_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Гармошка видвижной 80*300 - kafolatli, yuqori sifatli mahsulot. Buxoro va O'zbekiston bo'ylab tezkor yetkazib beriladi.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T09:03:40.501Z"
+  },
+  {
+    "_id": "prod_trenajorlar-kardio-mahsuloti-0244",
+    "id": "prod_trenajorlar-kardio-mahsuloti-0244",
+    "title": "Trenajorlar & Kardio Mahsuloti",
+    "slug": "trenajorlar-kardio-mahsuloti-0244",
+    "sku": "",
+    "price": 16000,
+    "oldPrice": 18400,
+    "old_price": 18400,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 20,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-025442_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Trenajorlar & Kardio Mahsuloti - kafolatli, yuqori sifatli mahsulot. Buxoro va O'zbekiston bo'ylab tezkor yetkazib beriladi.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T09:03:40.244Z",
+    "updated_at": "2026-11-24T09:03:52.929Z"
+  },
+  {
     "_id": "prod_konus-tpu-75sm",
     "id": "prod_konus-tpu-75sm",
     "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",

@@ -499,7 +499,7 @@ export default function ProductDetailPage() {
                         transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
                         transition: isZooming ? 'transform 0.1s ease-out' : 'transform 0.3s ease-out'
                       }}
-                      className="w-full h-full object-cover will-change-transform"
+                      className="w-full h-full object-contain will-change-transform"
                     />
                   </div>
                 ))}
