@@ -161,6 +161,110 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
+    "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
+    "title": "2&1 Akkumulyatorli Bog‘ va Qurilish To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
+    "slug": "2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
+    "sku": "NSB-480941",
+    "price": 569000,
+    "oldPrice": 654350,
+    "old_price": 654350,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Arralar & Elektr Uskunalar",
+    "category_slug": "arralar-uskunalar",
+    "categorySlug": "arralar-uskunalar",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "GardenPro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-458603_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Bog‘dorchilik, tomorqa va qurilish ishlari uchun qulay 2&1 universal to‘plam: Daraxt shoxlarini oson kesuvchi mini zanjirli arra va elektr kesuvchi sekator-qaychi. Yengil, bir qo‘lda boshqarish mumkin va juda tejamkor.",
+    "specifications": [
+      {
+        "label": "To‘plam tarkibi",
+        "value": "1x Mini zanjirli arra, 1x Akkumulyatorli bog‘ qaychisi"
+      },
+      {
+        "label": "Shina uzunligi",
+        "value": "6 dyuym (15 sm) zanjirli shina"
+      },
+      {
+        "label": "Qaychi kesish qalinligi",
+        "value": "30 mm gacha bo‘lgan shoxlar"
+      },
+      {
+        "label": "Akkumulyator",
+        "value": "2 dona Li-Ion batareya va zaryadlovchi"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:20.941Z"
+  },
+  {
+    "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
+    "id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
+    "title": "Professional Akkumulyatorli Zarbli Gaykavyort (Kuchli Cho‘tkasiz Motor)",
+    "slug": "professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
+    "sku": "NSB-480903",
+    "price": 164000,
+    "oldPrice": 188600,
+    "old_price": 188600,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "ProTools",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-458909_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobil g‘ildiraklarini yechish, metall konstruksiyalar va og‘ir gaykalarni qotirish uchun mo‘ljallangan kuchli zarbli gaykavyort. Cho‘tkasiz (brushless) motor yuqori quvvat va uzoq xizmat muddatini kafolatlaydi.",
+    "specifications": [
+      {
+        "label": "Aylanma moment",
+        "value": "350-450 Nm kuchli zarbli moment"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "1/2 dyuym (12.7 mm) standart kvadrat"
+      },
+      {
+        "label": "Tezlikni sozlash",
+        "value": "Elektron 3 pog‘onali tezlik va revers"
+      },
+      {
+        "label": "Yoritgich",
+        "value": "Ish hududini yorituvchi LED diod"
+      }
+    ],
+    "created_at": "2026-11-24T11:41:20.903Z"
+  },
+  {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9178",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9178",
     "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
