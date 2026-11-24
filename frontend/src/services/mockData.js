@@ -161,6 +161,62 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_1-84-15-15-3399",
+    "id": "prod_1-84-15-15-3399",
+    "title": "Колесо отбойник 1.84 *15*15",
+    "slug": "1-84-15-15-3399",
+    "sku": "NSB-063399",
+    "price": 514000,
+    "oldPrice": 591100,
+    "old_price": 591100,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-972569_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Колесо отбойник 1.84 *15*15 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Yo‘l & Harakat Xavfsizligi"
+      },
+      {
+        "label": "Toifa",
+        "value": "Sun‘iy Notekislik & Ustunlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-24T11:34:23.399Z"
+  },
+  {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2487",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2487",
     "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
