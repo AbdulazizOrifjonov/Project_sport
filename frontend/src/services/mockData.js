@@ -279,9 +279,9 @@ export const defaultProducts = [
     "title": "Trenajorlar & Kardio Mahsuloti",
     "slug": "trenajorlar-kardio-mahsuloti-0244",
     "sku": "",
-    "price": 154200,
-    "oldPrice": 177330,
-    "old_price": 177330,
+    "price": 192750,
+    "oldPrice": 221662,
+    "old_price": 221662,
     "discountPercent": 13,
     "discount_percent": 13,
     "category": "Trenajorlar & Kardio",
@@ -297,7 +297,7 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 0,
     "images": [
-      "/uploads/prod-772468_1.jpg"
+      "/uploads/prod-772459_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -328,7 +328,7 @@ export const defaultProducts = [
       }
     ],
     "created_at": "2026-11-24T09:03:40.244Z",
-    "updated_at": "2026-11-24T09:39:03.695Z"
+    "updated_at": "2026-11-24T09:39:52.931Z"
   },
   {
     "_id": "prod_konus-tpu-75sm",
