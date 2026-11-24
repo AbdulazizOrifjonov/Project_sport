@@ -114,8 +114,8 @@ export default function ProductCard({ product }) {
 
   const currentImageSrc = images[activeImgIndex] || fallbackImage;
   const productUrl = `/product/${product.slug || product._id || product.id}`;
-  const categoryName = product.category || 'Sport Anjomlari';
-  const categorySlug = product.categorySlug || 'trenajorlar';
+  const categoryName = product.category || 'Asbob-Uskunalar';
+  const categorySlug = product.categorySlug || 'uskunalar';
 
   return (
     <article
@@ -137,12 +137,29 @@ export default function ProductCard({ product }) {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Chegirma foizi belgisi */}
-        {product.discountPercent > 0 && (
-          <span className="absolute top-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase bg-red-600 text-white tracking-wider shadow-sm pointer-events-none">
-            -{product.discountPercent}%
-          </span>
-        )}
+        {/* Yuqori chap burchakdagi nishonlar (XIT, YANGI, Chegirma) */}
+        <div className="absolute top-2.5 left-2.5 z-10 flex flex-col items-start gap-1 pointer-events-none">
+          {/* 🔥 XIT badge */}
+          {(product.isBestseller || product.is_bestseller) && (
+            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs tracking-wider">
+              <span>🔥</span> XIT
+            </span>
+          )}
+
+          {/* ✨ YANGI badge */}
+          {(product.isNewArrival || product.is_new_arrival) && (
+            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-xs tracking-wider">
+              <span>✨</span> YANGI
+            </span>
+          )}
+
+          {/* Chegirma foizi belgisi */}
+          {product.discountPercent > 0 && (
+            <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase bg-red-600 text-white tracking-wider shadow-xs">
+              -{product.discountPercent}%
+            </span>
+          )}
+        </div>
 
         {/* Rasmlar soni nishoni - joriy rasm indeksini ko'rsatadi (masalan: 📷 1 / 7) */}
         {hasMultipleImages && (

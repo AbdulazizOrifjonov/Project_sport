@@ -67,12 +67,12 @@ export default function AdminDashboard() {
     price: '',
     oldPrice: '',
     stock: 10,
-    category: 'Trenajorlar & Kardio',
-    categorySlug: 'trenajorlar',
+    category: 'Yo‘l Xavfsizligi & Jihozlar',
+    categorySlug: 'yol-xavfsizligi',
     brand: '',
     description: '',
     images: [],
-    isBestseller: false,
+    isBestseller: true,
     isNewArrival: true,
     isWeeklyDeal: false,
     specifications: []
@@ -142,24 +142,24 @@ export default function AdminDashboard() {
       { _id: 'cash', count: 1, total: 850000 }
     ],
     categoryCounts: [
-      { _id: 'Podstavka & Skameykalar', count: 3 },
-      { _id: 'Trenajorlar & Kardio', count: 3 },
-      { _id: 'Gantellar & Shtangalar', count: 2 },
-      { _id: 'Sport Kiyimlari', count: 2 },
-      { _id: 'Krossovkalar & Poyabzal', count: 1 },
-      { _id: 'Fitnes Aksessuarlari', count: 1 }
+      { _id: 'Yo‘l Xavfsizligi & Jihozlar', count: 25 },
+      { _id: 'Drellar & Shurupovyortlar', count: 12 },
+      { _id: 'Isitgichlar & Texnik Fenlar', count: 9 },
+      { _id: 'Arralar & Bog‘ Texnikasi', count: 6 },
+      { _id: 'Balgarkalar & Silliqlash', count: 4 },
+      { _id: 'Asboblar To‘plamlari (Naborlar)', count: 3 }
     ],
     lowStockProducts: [
-      { _id: 'low1', title: 'Gantel podstavka SC80263', sku: '0455763', stock: 5, category: 'Podstavka & Skameykalar', price: 960000, images: ['/uploads/gantel-podstavka-sc80263.png'] },
-      { _id: 'low2', title: 'Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500', sku: 'GYM-HG500-STATION', stock: 2, category: 'Trenajorlar & Kardio', price: 22800000, images: ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80'] },
-      { _id: 'low3', title: '2-Qavatli Universal Gantel Stoykasi SC80270', sku: '0455770', stock: 4, category: 'Podstavka & Skameykalar', price: 1850000, images: ['https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80'] }
+      { _id: 'low1', title: 'Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm', sku: 'NSB-3034', stock: 5, category: 'Yo‘l Xavfsizligi & Jihozlar', price: 95000, images: ['/uploads/konus-tpu-75sm.jpg'] },
+      { _id: 'low2', title: 'Akkumulyatorli Zarbli Drel DeWalt 72V', sku: 'NSB-4492', stock: 2, category: 'Drellar & Shurupovyortlar', price: 420000, images: ['/uploads/prod-480959_1.jpg'] },
+      { _id: 'low3', title: 'Turbo Texnik Sanoat Feni 2000W', sku: 'NSB-4408', stock: 4, category: 'Isitgichlar & Texnik Fenlar', price: 180000, images: ['/uploads/prod-474408_1.jpg'] }
     ],
     topProducts: [
-      { _id: 'top1', title: 'Gantel podstavka SC80263', category: 'Podstavka & Skameykalar', price: 960000, stock: 15, images: ['/uploads/gantel-podstavka-sc80263.png'], soldCount: 48 },
-      { _id: 'top2', title: 'Professional Yugurish Yo‘lakchasi ProForm T800', category: 'Trenajorlar & Kardio', price: 14500000, stock: 4, images: ['https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&auto=format&fit=crop&q=80'], soldCount: 22 },
-      { _id: 'top3', title: 'Hexagonal Kauchuk Gantellar To‘plami (2x10kg)', category: 'Gantellar & Shtangalar', price: 680000, stock: 18, images: ['https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&auto=format&fit=crop&q=80'], soldCount: 35 },
-      { _id: 'top4', title: 'Ko‘p Funksiyali Kuch Trenajori Multi-Gym HG-500', category: 'Trenajorlar & Kardio', price: 22800000, stock: 2, images: ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80'], soldCount: 12 },
-      { _id: 'top5', title: 'Kombinatsiyalangan Devoriy Turnik-Brus 3-in-1', category: 'Trenajorlar & Kardio', price: 850000, stock: 25, images: ['https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=600&auto=format&fit=crop&q=80'], soldCount: 29 }
+      { _id: 'top1', title: '4&1 Professional Akkumulyatorli Asboblar To‘plami', category: 'Asboblar To‘plamlari (Naborlar)', price: 895000, stock: 15, images: ['/uploads/prod-492456_1.jpg'], soldCount: 48 },
+      { _id: 'top2', title: 'Akkumulyatorli Zarbli Drel DeWalt 72V', category: 'Drellar & Shurupovyortlar', price: 420000, stock: 8, images: ['/uploads/prod-480959_1.jpg'], soldCount: 35 },
+      { _id: 'top3', title: 'Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm', category: 'Yo‘l Xavfsizligi & Jihozlar', price: 95000, stock: 20, images: ['/uploads/konus-tpu-75sm.jpg'], soldCount: 52 },
+      { _id: 'top4', title: 'Turbo Texnik Sanoat Feni 2000W', category: 'Isitgichlar & Texnik Fenlar', price: 180000, stock: 12, images: ['/uploads/prod-474408_1.jpg'], soldCount: 22 },
+      { _id: 'top5', title: 'Universal Maysa O‘radigan Trimmer', category: 'Arralar & Bog‘ Texnikasi', price: 440000, stock: 10, images: ['/uploads/prod-494542_1.jpg'], soldCount: 19 }
     ],
     recentOrders: [
       {
@@ -183,7 +183,7 @@ export default function AdminDashboard() {
       {
         _id: 'ord3',
         orderNumber: 'NSB-902103',
-        customerDetails: { fullName: 'Sherzod Po‘latov («Bukhara Fitness»)', phone: '+998 97 123 98 76', city: 'Buxoro shahri', address: 'Abu Ali Ibn Sino 88, Fitnes Zal' },
+        customerDetails: { fullName: 'Sherzod Po‘latov («Bukhara Qurilish»)', phone: '+998 97 123 98 76', city: 'Buxoro shahri', address: 'Abu Ali Ibn Sino 88, Qurilish maydoni' },
         totalAmount: 22800000,
         paymentMethod: 'bank_transfer',
         orderStatus: 'delivered',
@@ -281,22 +281,22 @@ export default function AdminDashboard() {
     },
     {
       _id: 'ban-2',
-      title: 'Nike Air Jordan & Streetwear Kolleksiyasi',
-      subtitle: 'Krossovkalar, hudi va sport shimlari original sifatda. 100% kafolatlangan brend tovarlar.',
-      badge: 'YANGI KOLLEKSIYA 2026',
-      link: '/shop/krossovkalar',
+      title: 'Akkumulyatorli Drellar & Asboblar To‘plami',
+      subtitle: 'Elektr asboblar, drellar, perforator va komplektlar kafolati bilan.',
+      badge: 'PROFESSIONAL USKUNALAR',
+      link: '/shop',
       type: 'hero',
-      image: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=1600&auto=format&fit=crop&q=80',
+      image: '/uploads/prod-492456_1.jpg',
       isActive: true
     },
     {
       _id: 'ban-3',
-      title: 'Fitnes & Mashg‘ulot Jihozlari',
-      subtitle: 'Uy va zal uchun professional gantellar, skameykalar, sport sumkalari va aksessuarlar.',
-      badge: 'ZAL VA FITNES UCHUN',
-      link: '/shop/fitnes-trenajor',
+      title: 'Yo‘l Harakati Xavfsizligi Jihozlari',
+      subtitle: 'Konuslar, to‘siqlar, dempfer va ustunlar to‘g‘ridan-to‘g‘ri ombordan.',
+      badge: 'KAFOLATLANGAN SIFAT',
+      link: '/shop',
       type: 'hero',
-      image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&auto=format&fit=crop&q=80',
+      image: '/uploads/konus-tpu-75sm.jpg',
       isActive: true
     }
   ];
@@ -350,8 +350,8 @@ export default function AdminDashboard() {
       _id: 'rev-2',
       userName: 'Dilnoza Rustamova',
       rating: 5,
-      productTitle: 'Gymshark Vital Seamless Leggins',
-      comment: 'Fitnes uchun eng zo‘r tanlov. Mato sifati cho‘ziluvchan, mashg‘ulot paytida judayam qulay. Tavsiya qilaman!',
+      productTitle: 'Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm',
+      comment: 'Konuslar sifati a’lo darajada, nur qaytaruvchi tasmali qorong‘ida ham uzoqdan juda yaxshi ko‘rinadi. Tavsiya qilaman!',
       createdAt: '2026-02-24',
       status: 'approved'
     },
@@ -359,8 +359,8 @@ export default function AdminDashboard() {
       _id: 'rev-3',
       userName: 'Azizbek Mirzayev',
       rating: 5,
-      productTitle: 'Hexagonal Gantellar To‘plami (2x10kg)',
-      comment: 'Hexagonal gantellar sifati juda baland, rezina qoplami sifatli. Uy sharoitida trenirovka uchun ayni muddao.',
+      productTitle: '4&1 Professional Akkumulyatorli Asboblar To‘plami',
+      comment: 'Asboblar to‘plami judayam sifatli chiqdi. Qurilish va montaj ishlarimiz uchun juda asqotdi, akkumulyatorlari baquvvat.',
       createdAt: '2026-02-15',
       status: 'approved'
     }
@@ -485,12 +485,12 @@ export default function AdminDashboard() {
         price: '',
         oldPrice: '',
         stock: 10,
-        category: categories?.[0]?.name || 'Trenajorlar & Kardio',
-        categorySlug: categories?.[0]?.slug || 'trenajorlar',
+        category: categories?.[0]?.name || 'Yo‘l Xavfsizligi & Jihozlar',
+        categorySlug: categories?.[0]?.slug || 'yol-xavfsizligi',
         brand: '',
         description: '',
         images: [],
-        isBestseller: false,
+        isBestseller: true,
         isNewArrival: true,
         isWeeklyDeal: false,
         specifications: []
@@ -1105,7 +1105,7 @@ export default function AdminDashboard() {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-400 text-center font-medium">
-                  Nike krossovkalari va sport kiyimlari savdoda yetakchilik qilmoqda
+                  Asbob-uskunalar va yo‘l xavfsizligi jihozlari savdoda yetakchilik qilmoqda
                 </div>
               </div>
 
@@ -1435,13 +1435,12 @@ export default function AdminDashboard() {
                           ))
                         ) : (
                           <>
-                            <option value="Trenajorlar & Kardio">Trenajorlar & Kardio</option>
-                            <option value="Gantellar & Shtangalar">Gantellar & Shtangalar</option>
-                            <option value="Podstavka & Skameykalar">Podstavka & Skameykalar</option>
-                            <option value="Sport Kiyimlari">Sport Kiyimlari</option>
-                            <option value="Krossovkalar & Poyabzal">Krossovkalar & Poyabzal</option>
-                            <option value="Boks & Yakka Kurash">Boks & Yakka Kurash</option>
-                            <option value="Fitnes Aksessuarlari">Fitnes Aksessuarlari</option>
+                            <option value="Yo‘l Xavfsizligi & Jihozlar">Yo‘l Xavfsizligi & Jihozlar</option>
+                            <option value="Drellar & Shurupovyortlar">Drellar & Shurupovyortlar</option>
+                            <option value="Asboblar To‘plamlari (Naborlar)">Asboblar To‘plamlari (Naborlar)</option>
+                            <option value="Arralar & Bog‘ Texnikasi">Arralar & Bog‘ Texnikasi</option>
+                            <option value="Balgarkalar & Silliqlash">Balgarkalar & Silliqlash</option>
+                            <option value="Isitgichlar & Texnik Fenlar">Isitgichlar & Texnik Fenlar</option>
                           </>
                         )}
                       </select>
@@ -2102,7 +2101,7 @@ export default function AdminDashboard() {
                     required
                     value={categoryForm.name}
                     onChange={(e) => setCategoryForm({ ...categoryForm, name: e.target.value })}
-                    placeholder="Masalan: Krossovkalar & Poyabzallar"
+                    placeholder="Masalan: Drellar & Shurupovyortlar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-semibold text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -2112,7 +2111,7 @@ export default function AdminDashboard() {
                     type="text"
                     value={categoryForm.slug}
                     onChange={(e) => setCategoryForm({ ...categoryForm, slug: e.target.value })}
-                    placeholder="krossovkalar"
+                    placeholder="drellar-shurupovyortlar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-mono text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -2592,7 +2591,7 @@ export default function AdminDashboard() {
                     required
                     value={bannerForm.title}
                     onChange={(e) => setBannerForm({ ...bannerForm, title: e.target.value })}
-                    placeholder="Masalan: Nike & Jordan Original Krossovkalari"
+                    placeholder="Masalan: 4&1 Professional Asboblar To‘plami"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 font-semibold text-slate-900 dark:text-white outline-none"
                   />
                 </div>
@@ -2602,7 +2601,7 @@ export default function AdminDashboard() {
                     type="text"
                     value={bannerForm.subtitle}
                     onChange={(e) => setBannerForm({ ...bannerForm, subtitle: e.target.value })}
-                    placeholder="Sport kiyimlari va mashg‘ulot jihozlari uchun maxsus chegirmalar"
+                    placeholder="Asbob-uskunalar va yo‘l xavfsizligi jihozlari uchun maxsus chegirmalar"
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white outline-none"
                   />
                 </div>

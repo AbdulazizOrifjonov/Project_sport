@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Filter, ChevronDown } from 'lucide-react';
+import { ArrowRight, Sparkles, Filter, ChevronDown, Flame } from 'lucide-react';
 import HeroSection from '../../components/storefront/HeroSection';
 import TrustBadges from '../../components/storefront/TrustBadges';
 import ProductCard from '../../components/storefront/ProductCard';
@@ -143,11 +143,54 @@ export default function HomePage() {
       {/* 2. Trust Features Bar */}
       <TrustBadges />
 
-      {/* 3. Promo Triple Tiles */}
+      {/* 3. 🔥 Xit Tovarlar & Yangi Kelganlar (Birinchi Vitrina - Eng Ommabop Mahsulotlar) */}
+      <section className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pt-4 pb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 mb-6 border-b border-slate-200 dark:border-slate-800">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-orange-600 dark:text-orange-400 text-xs font-bold tracking-wide uppercase mb-2">
+              <Flame className="w-3.5 h-3.5 text-orange-500" />
+              <span>Ommabop & Yangi Kelganlar</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-950 dark:text-white tracking-tight flex items-center gap-2">
+              <span>🔥 Xit Tovarlar & Yangi Kelganlar</span>
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Do‘konimizning eng sara, xaridorgir va yangi keltirilgan original uskunalari
+            </p>
+          </div>
+          <a
+            href="#barcha-katalog"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold transition-all shrink-0 self-start md:self-end shadow-sm cursor-pointer"
+          >
+            <span>Barcha 59 ta mahsulotni ko‘rish</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        {/* Top 10 Hit Products Grid */}
+        {loading ? (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="h-80 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 animate-pulse"
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+            {allProducts.slice(0, 10).map((p) => (
+              <ProductCard key={`featured-${p._id || p.id}`} product={p} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* 4. Promo Triple Tiles */}
       <PromoTiles />
 
-      {/* 4. Barcha Mahsulotlar Katalogi (To'liq va takrorlanmas vitrina: har bir mahsulot 1 martadan) */}
-      <section className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pb-16">
+      {/* 5. Barcha Mahsulotlar Katalogi (To'liq va takrorlanmas vitrina: toifalar bo'yicha saralash) */}
+      <section id="barcha-katalog" className="max-w-[1820px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pb-16">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-5 mb-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
             <div>
