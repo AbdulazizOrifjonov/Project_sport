@@ -161,6 +161,66 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
+    "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
+    "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
+    "slug": "akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
+    "sku": "NSB-299569",
+    "price": 130000,
+    "oldPrice": 149500,
+    "old_price": 149500,
+    "discountPercent": 13,
+    "discount_percent": 13,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "PowerFix",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-285943_1.jpg"
+    ],
+    "is_bestseller": true,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy ta'miri, mebel yig‘ish va qurilish montaj ishlari uchun ixcham va kuchli akkumulyatorli drel-shurupovyort. 2 tezlikli uzatmalar qutisi, revers va yorqin LED chirog‘i mavjud. 2 dona Li-Ion batareya va zaryadlash stansiyasi keysda jamlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Akkumulyatorli zarbli drel-shurupovyort"
+      },
+      {
+        "label": "Patron o‘lchami",
+        "value": "10 mm tez qisuvchi metall patron"
+      },
+      {
+        "label": "Tezliklar soni",
+        "value": "2 ta rejim (0-450 / 0-1450 ayl/daq)"
+      },
+      {
+        "label": "Moment rostlagichi",
+        "value": "18+1 bosqichli kuch momenti"
+      },
+      {
+        "label": "Batareya",
+        "value": "2 ta Li-Ion akkumulyator to‘plamda"
+      },
+      {
+        "label": "Komplekt",
+        "value": "Drel, 2x batareya, zaryadlovchi, bita va keys"
+      }
+    ],
+    "created_at": "2026-11-24T11:38:19.569Z"
+  },
+  {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-6046",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-6046",
     "title": "Akkumulyatorli Zarbli Drel-shurupovyort (Universal, 2 ta batareya va keys bilan)",
