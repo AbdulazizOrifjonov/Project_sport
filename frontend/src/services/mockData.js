@@ -110,9 +110,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_1.jpg",
-      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_2.jpg",
-      "/uploads/studio_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561_3.jpg"
+      "/uploads/real_combo_4in1_1.jpg",
+      "/uploads/real_combo_4in1_2.jpg",
+      "/uploads/real_combo_4in1_3.jpg",
+      "/uploads/real_combo_4in1_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -187,9 +188,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_1.jpg",
-      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_2.jpg",
-      "/uploads/studio_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542_3.jpg"
+      "/uploads/real_trimmer_1.jpg",
+      "/uploads/real_trimmer_2.jpg",
+      "/uploads/real_trimmer_3.jpg",
+      "/uploads/real_trimmer_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -239,7 +241,7 @@ export const defaultProducts = [
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
     "id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
-    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho'tkasiz motor, 2 ta batareya va metall keys)",
+    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho‘tkasiz motor, 2 ta batareya va metall keys)",
     "slug": "akkumulyatorli-zarbli-drel-shurupovyort-dewalt-72v-keys-va-2-ta-batareya-4492",
     "sku": "NSB-494492",
     "price": 330000,
@@ -337,9 +339,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_1.jpg",
-      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_2.jpg",
-      "/uploads/studio_turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408_3.jpg"
+      "/uploads/real_heat_gun_1.jpg",
+      "/uploads/real_heat_gun_2.jpg",
+      "/uploads/real_heat_gun_3.jpg",
+      "/uploads/real_heat_gun_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -409,9 +412,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_1.jpg",
-      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_2.jpg",
-      "/uploads/studio_slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280_3.jpg"
+      "/uploads/real_bench_grinder_1.jpg",
+      "/uploads/real_bench_grinder_2.jpg",
+      "/uploads/real_bench_grinder_3.jpg",
+      "/uploads/real_bench_grinder_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -558,9 +562,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_1.jpg",
-      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_2.jpg",
-      "/uploads/studio_2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941_3.jpg"
+      "/uploads/real_garden_2in1_1.jpg",
+      "/uploads/real_garden_2in1_2.jpg",
+      "/uploads/real_garden_2in1_3.jpg",
+      "/uploads/real_garden_2in1_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -631,9 +636,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_1.jpg",
-      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_2.jpg",
-      "/uploads/studio_professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903_3.jpg"
+      "/uploads/impact-wrench-21v_1.jpg",
+      "/uploads/impact-wrench-21v_2.jpg",
+      "/uploads/impact-wrench-21v_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -703,9 +708,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_1.jpg",
-      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_2.jpg",
-      "/uploads/studio_kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178_3.jpg"
+      "/uploads/real_drill_12v_1.jpg",
+      "/uploads/real_drill_12v_2.jpg",
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -771,9 +777,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_1.jpg",
-      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_2.jpg",
-      "/uploads/studio_standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586_3.jpg"
+      "/uploads/real_drill_12v_2.jpg",
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg",
+      "/uploads/real_drill_12v_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -818,7 +825,7 @@ export const defaultProducts = [
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9884",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-9884",
-    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho'tkasiz motor, 2 ta batareya va metall keys)",
+    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho‘tkasiz motor, 2 ta batareya va metall keys)",
     "slug": "zarbli-drel-shurupovyort-to-plami-ko-k-keys-2-batareya-va-aksessuarlar-9884",
     "sku": "NSB-449884",
     "price": 825000,
@@ -839,9 +846,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/dewalt-drill-21v_1.jpg",
-      "/uploads/dewalt-drill-21v_2.jpg",
-      "/uploads/dewalt-drill-21v_3.jpg"
+      "/uploads/real_drill_18v_1.jpg",
+      "/uploads/real_drill_18v_2.jpg",
+      "/uploads/real_drill_18v_3.jpg",
+      "/uploads/real_drill_18v_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -915,9 +923,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_1.jpg",
-      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_2.jpg",
-      "/uploads/studio_4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906_3.jpg"
+      "/uploads/real_combo_4in1_2.jpg",
+      "/uploads/real_combo_4in1_3.jpg",
+      "/uploads/real_combo_4in1_4.jpg",
+      "/uploads/real_combo_4in1_5.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -971,7 +980,7 @@ export const defaultProducts = [
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9879",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-9879",
-    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho'tkasiz motor)",
+    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho‘tkasiz motor)",
     "slug": "professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879",
     "sku": "NSB-439879",
     "price": 460000,
@@ -992,9 +1001,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_1.jpg",
-      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_2.jpg",
-      "/uploads/studio_professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879_3.jpg"
+      "/uploads/cordless-balgarka-21v_1.jpg",
+      "/uploads/cordless-balgarka-21v_2.jpg",
+      "/uploads/real_cordless_balgarka_1.jpg",
+      "/uploads/real_cordless_balgarka_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1065,9 +1075,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_1.jpg",
-      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_2.jpg",
-      "/uploads/studio_akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731_3.jpg"
+      "/uploads/real_circular_saw_1.jpg",
+      "/uploads/real_circular_saw_2.jpg",
+      "/uploads/real_circular_saw_3.jpg",
+      "/uploads/real_circular_saw_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1133,9 +1144,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_1.jpg",
-      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_2.jpg",
-      "/uploads/studio_universal-shurupovyort-12v-to-plami-plastik-keysda-8920_3.jpg"
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg",
+      "/uploads/real_drill_12v_1.jpg",
+      "/uploads/real_drill_12v_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1201,9 +1213,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_1.jpg",
-      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_2.jpg",
-      "/uploads/studio_bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370_3.jpg"
+      "/uploads/real_trimmer_2.jpg",
+      "/uploads/real_trimmer_3.jpg",
+      "/uploads/real_trimmer_4.jpg",
+      "/uploads/real_trimmer_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1273,9 +1286,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_1.jpg",
-      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_2.jpg",
-      "/uploads/studio_2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488_3.jpg"
+      "/uploads/real_garden_2in1_2.jpg",
+      "/uploads/real_garden_2in1_3.jpg",
+      "/uploads/real_garden_2in1_4.jpg",
+      "/uploads/real_garden_2in1_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1345,9 +1359,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_1.jpg",
-      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_2.jpg",
-      "/uploads/studio_slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344_3.jpg"
+      "/uploads/real_bench_grinder_2.jpg",
+      "/uploads/real_bench_grinder_3.jpg",
+      "/uploads/real_bench_grinder_4.jpg",
+      "/uploads/real_bench_grinder_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1417,9 +1432,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_1.jpg",
-      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_2.jpg",
-      "/uploads/studio_sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621_3.jpg"
+      "/uploads/real_heat_gun_2.jpg",
+      "/uploads/real_heat_gun_3.jpg",
+      "/uploads/real_heat_gun_4.jpg",
+      "/uploads/real_heat_gun_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1489,9 +1505,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_1.jpg",
-      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_2.jpg",
-      "/uploads/studio_avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701_3.jpg"
+      "/uploads/real_impact_wrench_1.jpg",
+      "/uploads/real_impact_wrench_2.jpg",
+      "/uploads/real_impact_wrench_3.jpg",
+      "/uploads/real_impact_wrench_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1561,9 +1578,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_1.jpg",
-      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_2.jpg",
-      "/uploads/studio_akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569_3.jpg"
+      "/uploads/real_drill_12v_4.jpg",
+      "/uploads/real_drill_12v_1.jpg",
+      "/uploads/real_drill_12v_2.jpg",
+      "/uploads/real_drill_12v_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1629,9 +1647,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_1.jpg",
-      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_2.jpg",
-      "/uploads/studio_akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046_3.jpg"
+      "/uploads/real_drill_12v_1.jpg",
+      "/uploads/real_drill_12v_2.jpg",
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1676,7 +1695,7 @@ export const defaultProducts = [
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5844",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-5844",
-    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho'tkasiz motor)",
+    "title": "Professional Akkumulyatorli Burchakli Silliqlash Mashinasi (Balgarka 125 mm, 21V cho‘tkasiz motor)",
     "slug": "akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844",
     "sku": "NSB-285844",
     "price": 460000,
@@ -1697,9 +1716,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_1.jpg",
-      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_2.jpg",
-      "/uploads/studio_akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844_3.jpg"
+      "/uploads/real_cordless_balgarka_1.jpg",
+      "/uploads/real_cordless_balgarka_2.jpg",
+      "/uploads/real_cordless_balgarka_3.jpg",
+      "/uploads/real_cordless_balgarka_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1769,9 +1789,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_1.jpg",
-      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_2.jpg",
-      "/uploads/studio_professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358_3.jpg"
+      "/uploads/real_circular_saw_2.jpg",
+      "/uploads/real_circular_saw_3.jpg",
+      "/uploads/real_circular_saw_4.jpg",
+      "/uploads/real_circular_saw_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1816,7 +1837,7 @@ export const defaultProducts = [
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5339",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-5339",
-    "title": "Kompakt Akkumulyatorli Drel-shurupovyort 12V (Ergonomik rezinali tutqich, LED yoritgich, 2 batareya)",
+    "title": "DeWalt DCD796 21V Professional Zarbli Drel-shurupovyort (Cho‘tkasiz motor, 2 ta batareya va metall keys)",
     "slug": "professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339",
     "sku": "NSB-285339",
     "price": 825000,
@@ -1837,9 +1858,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_1.jpg",
-      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_2.jpg",
-      "/uploads/studio_professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339_3.jpg"
+      "/uploads/real_drill_18v_2.jpg",
+      "/uploads/real_drill_18v_3.jpg",
+      "/uploads/real_drill_18v_4.jpg",
+      "/uploads/real_drill_18v_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1905,9 +1927,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_1.jpg",
-      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_2.jpg",
-      "/uploads/studio_4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309_3.jpg"
+      "/uploads/real_combo_4in1_3.jpg",
+      "/uploads/real_combo_4in1_4.jpg",
+      "/uploads/real_combo_4in1_5.jpg",
+      "/uploads/real_combo_4in1_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -1982,9 +2005,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_1.jpg",
-      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_2.jpg",
-      "/uploads/studio_yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270_3.jpg"
+      "/uploads/real_drill_12v_2.jpg",
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg",
+      "/uploads/real_drill_12v_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2050,9 +2074,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_1.jpg",
-      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_2.jpg",
-      "/uploads/studio_uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497_3.jpg"
+      "/uploads/real_drill_12v_3.jpg",
+      "/uploads/real_drill_12v_4.jpg",
+      "/uploads/real_drill_12v_1.jpg",
+      "/uploads/real_drill_12v_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2097,7 +2122,7 @@ export const defaultProducts = [
   {
     "_id": "prod_pvc-8457",
     "id": "prod_pvc-8457",
-    "title": "PVX Taktil Yo'lak Plitkasi 300x300 mm (Ko‘zi ojizlar uchun sariq yo‘naltiruvchi va ogohlantiruvchi)",
+    "title": "PVX Taktil Yo‘lak Plitkasi 300x300 mm (Ko‘zi ojizlar uchun sariq yo‘naltiruvchi va ogohlantiruvchi)",
     "slug": "pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457",
     "sku": "NSB-078457",
     "price": 16000,
@@ -2118,9 +2143,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_1.jpg",
-      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_2.jpg",
-      "/uploads/studio_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457_3.jpg"
+      "/uploads/tactile-tile-pvc_1.jpg",
+      "/uploads/tactile-tile-pvc_2.jpg",
+      "/uploads/tactile-tile-pvc_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2165,7 +2190,7 @@ export const defaultProducts = [
   {
     "_id": "prod_1480-80-8376",
     "id": "prod_1480-80-8376",
-    "title": "Sanoat Issiqlik To‘pi / Portativ Ustaxona Isitgichi 2000W (Keramik TEN, metall korpus)",
+    "title": "Sanoat Yo‘l Bordyuri 1480x80 mm (Yo‘lak va qator ajratuvchi rezina bardur to‘sig‘i)",
     "slug": "sanoat-yo-l-bordyuri-1480x80-mm-bardur-to-sig-i-8376",
     "sku": "NSB-078376",
     "price": 642500,
@@ -2173,11 +2198,11 @@ export const defaultProducts = [
     "old_price": 738875,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Sanoat Issiqlik To'plari & Teploventilyatorlar",
-    "category_slug": "sanoat-issiqlik-toplari",
-    "categorySlug": "sanoat-issiqlik-toplari",
-    "department": "iqlim-isitgichlar",
-    "departmentName": "Isitgichlar & Iqlim Texnikasi",
+    "category": "Sun‘iy Notekislik & Dempferlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
     "brand": "Original Brand",
     "stock": 25,
@@ -2186,9 +2211,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/heater-cannon-2000w_1.jpg",
-      "/uploads/heater-cannon-2000w_1.jpg",
-      "/uploads/heater-cannon-2000w_1.jpg"
+      "/uploads/real_road_curb_1.jpg",
+      "/uploads/real_road_curb_2.jpg",
+      "/uploads/real_road_curb_3.jpg",
+      "/uploads/real_road_curb_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2198,20 +2224,20 @@ export const defaultProducts = [
     "description": "Yo'l va avtoturargohlarni ajratish, piyodalar yo'lagini himoyalash uchun mo'ljallangan mustahkam kompozit bordyur.",
     "specifications": [
       {
-        "label": "Quvvati",
-        "value": "2000 Vt (2000W)"
+        "label": "O‘lchami",
+        "value": "1480 x 80 mm"
       },
       {
-        "label": "Ishlash rejimlari",
-        "value": "Ventilyator (sovutish), 1000W, 2000W"
+        "label": "Materiali",
+        "value": "Zarbaga chidamli qalin vulkanizatsiyalangan rezina"
       },
       {
-        "label": "Qizdirish maydoni",
-        "value": "30-40 kv.m xonani tezkor isitish"
+        "label": "Rangi",
+        "value": "Qora va sariq nur qaytaruvchi elementlar"
       },
       {
-        "label": "Korpus",
-        "value": "Qizib ketmaydigan mustahkam metall silindr va tutqich"
+        "label": "O‘rnatish",
+        "value": "Anker boltlar bilan asfalt/betonga mahkamlanadi"
       }
     ],
     "created_at": "2026-11-24T11:34:38.376Z",
@@ -2254,9 +2280,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_1.jpg",
-      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_2.jpg",
-      "/uploads/studio_kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399_3.jpg"
+      "/uploads/wheel-stop-184_1.jpg",
+      "/uploads/wheel-stop-184_2.jpg",
+      "/uploads/wheel-stop-184_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2324,7 +2350,8 @@ export const defaultProducts = [
     "images": [
       "/uploads/konus-tpu-75sm_1.jpg",
       "/uploads/konus-tpu-75sm_2.jpg",
-      "/uploads/konus-tpu-75sm_1.jpg"
+      "/uploads/real_traffic_cone_1.jpg",
+      "/uploads/real_traffic_cone_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2391,9 +2418,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_1.jpg",
-      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_2.jpg",
-      "/uploads/studio_signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730_3.jpg"
+      "/uploads/real_traffic_cone_1.jpg",
+      "/uploads/real_traffic_cone_2.jpg",
+      "/uploads/real_traffic_cone_3.jpg",
+      "/uploads/real_traffic_cone_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2459,9 +2487,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_1.jpg",
-      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_2.jpg",
-      "/uploads/studio_standart-egiluvchan-yo-l-konusi-50-sm-2375_3.jpg"
+      "/uploads/real_traffic_cone_2.jpg",
+      "/uploads/real_traffic_cone_3.jpg",
+      "/uploads/real_traffic_cone_4.jpg",
+      "/uploads/real_traffic_cone_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2527,9 +2556,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/konus-tpu-75sm_1.jpg",
-      "/uploads/konus-tpu-75sm_2.jpg",
-      "/uploads/konus-tpu-75sm_1.jpg"
+      "/uploads/real_traffic_cone_3.jpg",
+      "/uploads/real_traffic_cone_4.jpg",
+      "/uploads/real_traffic_cone_1.jpg",
+      "/uploads/real_traffic_cone_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2595,9 +2625,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_1.jpg",
-      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_2.jpg",
-      "/uploads/studio_sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555_3.jpg"
+      "/uploads/real_delineator_post_1.jpg",
+      "/uploads/real_delineator_post_2.jpg",
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2642,7 +2673,7 @@ export const defaultProducts = [
   {
     "_id": "prod_3-8536",
     "id": "prod_3-8536",
-    "title": "Lenta Stoyka 3m (Zanglamas po'lat xrom to‘siq ustuni, 3 metrlik avtomatik tortiluvchi qizil lenta bilan)",
+    "title": "Lenta Stoyka 3m (Zanglamas po‘lat xrom to‘siq ustuni, 3 metrlik avtomatik tortiluvchi qizil lenta bilan)",
     "slug": "lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536",
     "sku": "NSB-018536",
     "price": 578250,
@@ -2663,9 +2694,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_1.jpg",
-      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_2.jpg",
-      "/uploads/studio_lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536_3.jpg"
+      "/uploads/stanchion-3m_1.jpg",
+      "/uploads/stanchion-3m_2.jpg",
+      "/uploads/stanchion-3m_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2731,9 +2762,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_1.jpg",
-      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_2.jpg",
-      "/uploads/studio_egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508_3.jpg"
+      "/uploads/real_delineator_post_2.jpg",
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg",
+      "/uploads/real_delineator_post_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2799,9 +2831,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_1.jpg",
-      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_2.jpg",
-      "/uploads/studio_signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328_3.jpg"
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg",
+      "/uploads/real_delineator_post_1.jpg",
+      "/uploads/real_delineator_post_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2867,9 +2900,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_1.jpg",
-      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_2.jpg",
-      "/uploads/studio_egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295_3.jpg"
+      "/uploads/real_delineator_post_4.jpg",
+      "/uploads/real_delineator_post_1.jpg",
+      "/uploads/real_delineator_post_2.jpg",
+      "/uploads/real_delineator_post_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -2935,9 +2969,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_1.jpg",
-      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_2.jpg",
-      "/uploads/studio_kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244_3.jpg"
+      "/uploads/real_traffic_cone_4.jpg",
+      "/uploads/real_traffic_cone_1.jpg",
+      "/uploads/real_traffic_cone_2.jpg",
+      "/uploads/real_traffic_cone_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3003,9 +3038,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_1.jpg",
-      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_2.jpg",
-      "/uploads/studio_elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204_3.jpg"
+      "/uploads/real_traffic_cone_1.jpg",
+      "/uploads/real_traffic_cone_2.jpg",
+      "/uploads/real_traffic_cone_3.jpg",
+      "/uploads/real_traffic_cone_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3071,9 +3107,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_1.jpg",
-      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_2.jpg",
-      "/uploads/studio_suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161_3.jpg"
+      "/uploads/real_barrier_accordion_1.jpg",
+      "/uploads/real_barrier_accordion_2.jpg",
+      "/uploads/real_barrier_accordion_3.jpg",
+      "/uploads/real_barrier_accordion_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3139,9 +3176,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/konus-tpu-75sm_1.jpg",
-      "/uploads/konus-tpu-75sm_2.jpg",
-      "/uploads/konus-tpu-75sm_1.jpg"
+      "/uploads/real_traffic_cone_2.jpg",
+      "/uploads/real_traffic_cone_3.jpg",
+      "/uploads/real_traffic_cone_4.jpg",
+      "/uploads/real_traffic_cone_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3207,9 +3245,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_1.jpg",
-      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_2.jpg",
-      "/uploads/studio_nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001_3.jpg"
+      "/uploads/real_barrier_accordion_2.jpg",
+      "/uploads/real_barrier_accordion_3.jpg",
+      "/uploads/real_barrier_accordion_4.jpg",
+      "/uploads/real_barrier_accordion_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3275,9 +3314,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_1.jpg",
-      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_2.jpg",
-      "/uploads/studio_egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758_3.jpg"
+      "/uploads/real_delineator_post_1.jpg",
+      "/uploads/real_delineator_post_2.jpg",
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3344,8 +3384,9 @@ export const defaultProducts = [
     "reviews_count": 8,
     "images": [
       "/uploads/heater-quyosh-40cm_1.jpg",
-      "/uploads/heater-quyosh-40cm_1.jpg",
-      "/uploads/heater-quyosh-40cm_1.jpg"
+      "/uploads/real_heater_quyosh_1.jpg",
+      "/uploads/real_heater_quyosh_2.jpg",
+      "/uploads/real_heater_quyosh_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3411,9 +3452,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_1.jpg",
-      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_2.jpg",
-      "/uploads/studio_katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508_3.jpg"
+      "/uploads/real_solar_beacon_1.jpg",
+      "/uploads/real_solar_beacon_2.jpg",
+      "/uploads/real_solar_beacon_3.jpg",
+      "/uploads/real_solar_beacon_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3458,7 +3500,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-2459",
     "id": "prod_product-2459",
-    "title": "Katta Quyosh Energiyali Signal Migalka (Ogohlantiruvchi LED miltillovchi quyosh chirog'i, 360°)",
+    "title": "Masofadan Boshqariladigan Avtomatik Parkovka To‘sig‘i (Pultli, akkumulyatorli, zarbaga chidamli)",
     "slug": "masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459",
     "sku": "NSB-972459",
     "price": 706750,
@@ -3479,9 +3521,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_1.jpg",
-      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_2.jpg",
-      "/uploads/studio_masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459_3.jpg"
+      "/uploads/real_parking_lock_1.jpg",
+      "/uploads/real_parking_lock_2.jpg",
+      "/uploads/real_parking_lock_3.jpg",
+      "/uploads/real_parking_lock_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3491,20 +3534,20 @@ export const defaultProducts = [
     "description": "Pult orqali ko'tarilib-tushuvchi shaxsiy avtoturargoh to'sig'i. Suv o'tkazmaydigan va signalizatsiyali.",
     "specifications": [
       {
+        "label": "Boshqaruv",
+        "value": "2 ta masofadan boshqarish pulti (30m masofa)"
+      },
+      {
         "label": "Quvvat manbai",
-        "value": "Quyosh batareyasi va o'rnatilgan akkumulyator"
+        "value": "O‘rnatilgan qayta zaryadlanuvchi akkumulyator"
       },
       {
-        "label": "Yoritgich",
-        "value": "O'ta yorqin sariq/qizil LED diodlar, 360 daraja"
+        "label": "Himoya darajasi",
+        "value": "IP67 suv va changdan himoya, 180° zarba himoyasi"
       },
       {
-        "label": "Ishlash vaqti",
-        "value": "To'liq zaryad bilan 72 soatgacha uzluksiz miltillash"
-      },
-      {
-        "label": "Himoya",
-        "value": "IP65 suv va changdan to'liq himoyalangan korpus"
+        "label": "Materiali",
+        "value": "Qalin sovuq prokatlangan po‘lat"
       }
     ],
     "created_at": "2026-11-24T11:32:52.459Z",
@@ -3534,9 +3577,9 @@ export const defaultProducts = [
     "old_price": 88665,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Sun‘iy Notekislik & Dempferlar",
-    "category_slug": "suniy-notekislik",
-    "categorySlug": "suniy-notekislik",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
     "department": "yol-harakati",
     "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
@@ -3547,9 +3590,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_1.jpg",
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_2.jpg",
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418_3.jpg"
+      "/uploads/real_delineator_post_2.jpg",
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg",
+      "/uploads/real_delineator_post_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3602,9 +3646,9 @@ export const defaultProducts = [
     "old_price": 96054,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Sun‘iy Notekislik & Dempferlar",
-    "category_slug": "suniy-notekislik",
-    "categorySlug": "suniy-notekislik",
+    "category": "Signal Ustunlari & Belgilar",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
     "department": "yol-harakati",
     "departmentName": "Yo‘l Harakati Xavfsizligi",
     "subcategory": "",
@@ -3615,9 +3659,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_1.jpg",
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_2.jpg",
-      "/uploads/studio_rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207_3.jpg"
+      "/uploads/real_delineator_post_3.jpg",
+      "/uploads/real_delineator_post_4.jpg",
+      "/uploads/real_delineator_post_1.jpg",
+      "/uploads/real_delineator_post_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3683,9 +3728,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/heater-quyosh-40cm_1.jpg",
-      "/uploads/heater-quyosh-40cm_1.jpg",
-      "/uploads/heater-quyosh-40cm_1.jpg"
+      "/uploads/real_heater_quyosh_1.jpg",
+      "/uploads/real_heater_quyosh_2.jpg",
+      "/uploads/real_heater_quyosh_3.jpg",
+      "/uploads/real_heater_quyosh_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3751,9 +3797,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_1.jpg",
-      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_2.jpg",
-      "/uploads/studio_quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056_3.jpg"
+      "/uploads/real_solar_beacon_2.jpg",
+      "/uploads/real_solar_beacon_3.jpg",
+      "/uploads/real_solar_beacon_4.jpg",
+      "/uploads/real_solar_beacon_1.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3806,7 +3853,7 @@ export const defaultProducts = [
     "old_price": 162553,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Sanoat Issiqlik To'plari & Teploventilyatorlar",
+    "category": "Sanoat Issiqlik To‘plari & Teploventilyatorlar",
     "category_slug": "sanoat-issiqlik-toplari",
     "categorySlug": "sanoat-issiqlik-toplari",
     "department": "iqlim-isitgichlar",
@@ -3820,8 +3867,9 @@ export const defaultProducts = [
     "reviews_count": 8,
     "images": [
       "/uploads/heater-cannon-2000w_1.jpg",
-      "/uploads/heater-cannon-2000w_1.jpg",
-      "/uploads/heater-cannon-2000w_1.jpg"
+      "/uploads/real_heater_cannon_1.jpg",
+      "/uploads/real_heater_cannon_2.jpg",
+      "/uploads/real_heater_cannon_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3887,9 +3935,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_1.jpg",
-      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_2.jpg",
-      "/uploads/studio_suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605_3.jpg"
+      "/uploads/real_barrier_accordion_3.jpg",
+      "/uploads/real_barrier_accordion_4.jpg",
+      "/uploads/real_barrier_accordion_1.jpg",
+      "/uploads/real_barrier_accordion_2.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -3955,8 +4004,9 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/heater-quyosh-40cm_1.jpg",
-      "/uploads/heater-quyosh-40cm_1.jpg",
+      "/uploads/real_heater_quyosh_2.jpg",
+      "/uploads/real_heater_quyosh_3.jpg",
+      "/uploads/real_heater_quyosh_4.jpg",
       "/uploads/heater-quyosh-40cm_1.jpg"
     ],
     "is_bestseller": true,
@@ -4024,8 +4074,9 @@ export const defaultProducts = [
     "reviews_count": 8,
     "images": [
       "/uploads/heater-ceramic-desk_1.jpg",
-      "/uploads/heater-ceramic-desk_1.jpg",
-      "/uploads/heater-ceramic-desk_1.jpg"
+      "/uploads/real_heater_ceramic_1.jpg",
+      "/uploads/real_heater_ceramic_2.jpg",
+      "/uploads/real_heater_ceramic_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4078,11 +4129,11 @@ export const defaultProducts = [
     "old_price": 132998,
     "discountPercent": 13,
     "discount_percent": 13,
-    "category": "Isitgichlar & Texnik Fenlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "Isitgichlar & Texnik Fenlar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sanoat Issiqlik To‘plari & Teploventilyatorlar",
+    "category_slug": "sanoat-issiqlik-toplari",
+    "categorySlug": "sanoat-issiqlik-toplari",
+    "department": "iqlim-isitgichlar",
+    "departmentName": "Isitgichlar & Iqlim Texnikasi",
     "subcategory": "",
     "brand": "PowerFix",
     "stock": 25,
@@ -4091,9 +4142,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_1.jpg",
-      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_2.jpg",
-      "/uploads/studio_ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534_3.jpg"
+      "/uploads/real_heater_cannon_1.jpg",
+      "/uploads/real_heater_cannon_2.jpg",
+      "/uploads/real_heater_cannon_3.jpg",
+      "/uploads/real_heater_cannon_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4167,9 +4219,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_1.jpg",
-      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_2.jpg",
-      "/uploads/studio_plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518_3.jpg"
+      "/uploads/real_barrier_accordion_4.jpg",
+      "/uploads/real_barrier_accordion_1.jpg",
+      "/uploads/real_barrier_accordion_2.jpg",
+      "/uploads/real_barrier_accordion_3.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
@@ -4235,9 +4288,10 @@ export const defaultProducts = [
     "rating": 5,
     "reviews_count": 8,
     "images": [
-      "/uploads/heater-ceramic-desk_1.jpg",
-      "/uploads/heater-ceramic-desk_1.jpg",
-      "/uploads/heater-ceramic-desk_1.jpg"
+      "/uploads/real_heater_ceramic_1.jpg",
+      "/uploads/real_heater_ceramic_2.jpg",
+      "/uploads/real_heater_ceramic_3.jpg",
+      "/uploads/real_heater_ceramic_4.jpg"
     ],
     "is_bestseller": true,
     "is_new_arrival": true,
