@@ -103,14 +103,14 @@ export default function ProductCard({ product }) {
     return () => clearInterval(timer);
   }, [isHovered, hasMultipleImages, images.length]);
 
-  // Preload images for instant switching
+  // Preload extra images only when user hovers/interacts so initial page load isn't clogged
   useEffect(() => {
-    if (!hasMultipleImages) return;
-    images.forEach((src) => {
+    if (!isHovered || !hasMultipleImages) return;
+    images.slice(1).forEach((src) => {
       const img = new Image();
       img.src = src;
     });
-  }, [hasMultipleImages, images]);
+  }, [isHovered, hasMultipleImages, images]);
 
   const currentImageSrc = images[activeImgIndex] || fallbackImage;
   const productUrl = `/product/${product.slug || product._id || product.id}`;
