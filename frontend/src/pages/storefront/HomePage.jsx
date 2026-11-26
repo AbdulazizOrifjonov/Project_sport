@@ -180,7 +180,7 @@ export default function HomePage() {
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {allProducts.slice(0, 10).map((p) => (
+            {allProducts.map((p) => (
               <ProductCard key={`featured-${p._id || p.id}`} product={p} />
             ))}
           </div>

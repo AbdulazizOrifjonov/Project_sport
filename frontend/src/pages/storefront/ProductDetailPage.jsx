@@ -186,11 +186,14 @@ export default function ProductDetailPage() {
   const inCart = cartItems.some((i) => i._id === product._id);
 
   const currencyLabel = t('product.currency', 'so‘m');
+  const isUsd = product?.currency === 'USD' || (Number(product?.price) > 0 && Number(product?.price) < 1000);
   const formatPrice = (n) => {
-    if (product?.currency === 'USD') {
-      return `$${Number(n || 0).toLocaleString('en-US')}`;
+    const val = Number(n || 0);
+    if (isUsd) {
+      return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
     }
-    return `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+    const intStr = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return `${intStr} ${currencyLabel}`;
   };
 
   const fallbackImage =

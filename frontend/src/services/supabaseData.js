@@ -50,7 +50,8 @@ function normalizeProduct(p) {
   const specCurrency = specifications.some(
     (s) => s && s.label === 'Valyuta' && String(s.value || '').includes('USD')
   ) ? 'USD' : null;
-  const currency = p.currency || specCurrency || 'UZS';
+  const numPrice = Number(p.price || 0);
+  const currency = p.currency || specCurrency || (numPrice > 0 && numPrice < 1000 ? 'USD' : 'UZS');
 
   return {
     ...p,

@@ -26,11 +26,14 @@ export default function ProductCard({ product }) {
   const quantity = cartItem ? cartItem.quantity : 0;
 
   const currencyLabel = t('product.currency', 'so‘m');
+  const isUsd = product.currency === 'USD' || (Number(product.price) > 0 && Number(product.price) < 1000);
   const formatPrice = (num) => {
-    if (product.currency === 'USD') {
-      return `$${Number(num || 0).toLocaleString('en-US')}`;
+    const val = Number(num || 0);
+    if (isUsd) {
+      return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
     }
-    return `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+    const intStr = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return `${intStr} ${currencyLabel}`;
   };
 
   const fallbackImage =
