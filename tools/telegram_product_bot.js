@@ -559,7 +559,151 @@ function enrichWithKnowledge(rawText = '', price = 0) {
     };
   }
 
+  // 11. Road & Climate & Sport Cyrillic/Short Auto-Enricher (Uzbek Latin)
+  if (/(?:^|\s)(\d+(?:[.,]\d+)?)\s*(?:kv|kvt|кв|квт)(?![a-zа-я0-9])/i.test(lower)) {
+    const m = lower.match(/(?:^|\s)(\d+(?:[.,]\d+)?)\s*(?:kv|kvt|кв|квт)/i);
+    const kw = m ? m[1].replace(',', '.') : '2';
+    const watts = Math.round(parseFloat(kw) * 1000);
+    return {
+      title: `Sanoat Elektr Issiqlik To‘pi ${kw} kVt (Teploventilyator ${watts}W, Termostatli)`,
+      categorySlug: 'lazer-qol-asboblari',
+      brand: 'ThermoPro',
+      description: `Ustaxona, garaj, do‘kon va xonalarni tezkor isitish uchun mo‘ljallangan ${kw} kVt (${watts}W) quvvatli metall korpusli elektr teploventilyator. Haroratni boshqarish termostati va qizib ketishdan himoya tizimiga ega.`,
+      specifications: [
+        { label: 'Quvvati', value: `${kw} kVt (${watts} Vt)` },
+        { label: 'Kuchlanish', value: '220V ~ 50Hz' },
+        { label: 'Korpusi', value: 'Issiqqa chidamli bo‘yalgan metall' }
+      ]
+    };
+  }
+
+  if (lower.includes('мигалка') || lower.includes('migalka')) {
+    const isBig = lower.includes('катта') || lower.includes('katta');
+    return {
+      title: isBig
+        ? 'Katta Quyosh Energiyali Signal Migalka (360° Ogohlantiruvchi LED Chiroq)'
+        : 'Quyosh Energiyali Avtonom Yo‘l Migalkasi (Ogohlantiruvchi Sariq LED Chiroq)',
+      categorySlug: 'yol-belgilari',
+      brand: 'SafeRoad',
+      description: 'Yo‘l ta’mirlash hududlari, qurilish maydonchalari va xavfli chorrahalar uchun quyosh batareyali miltillovchi LED signal chirog‘i. Kunduzi quyoshdan quvvat olib, tunda avtomatik yonadi.',
+      specifications: [
+        { label: 'Quvvat manbai', value: 'Quyosh paneli + o‘rnatilgan akkumulyator' },
+        { label: 'Ko‘rinish burchagi', value: '360° (Uzoqdan aniq ko‘rinadi)' },
+        { label: 'Himoya darajasi', value: 'IP65 (Yomg‘ir va changga chidamli)' }
+      ]
+    };
+  }
+
+  if (lower.includes('демпфер') || lower.includes('dempfer')) {
+    const sizeMatch = lower.match(/(\d{2,3})/);
+    const size = sizeMatch ? `${sizeMatch[1]} sm` : '80 sm';
+    return {
+      title: `Rezina Burchak Himoyalovchi Dempfer ${size} (Ustun va Devor Burchaklari Uchun)`,
+      categorySlug: 'suniy-notekislik',
+      brand: 'RoadSafety Pro',
+      description: `Yer osti parkovkalari, omborlar va garajlardagi beton ustun hamda devor burchaklarini avtomobil urilishidan himoya qiluvchi ${size} li elastik rezina dempfer. Nur qaytaruvchi sariq chiziqlar bilan jihozlangan.`,
+      specifications: [
+        { label: 'Balandligi', value: size },
+        { label: 'Materiali', value: 'Zarbani yutuvchi elastik rezina' },
+        { label: 'Ko‘rinuvchanlik', value: 'Nur qaytaruvchi sariq-qora chiziqlar' }
+      ]
+    };
+  }
+
+  if (lower.includes('столбик') || lower.includes('stolbik')) {
+    const sizeMatch = lower.match(/(\d{2,3})/);
+    const size = sizeMatch ? `${sizeMatch[1]} sm` : '75 sm';
+    return {
+      title: `Egiluvchan Yo‘l Ustuni (Stolbik ${size}, Nur Qaytaruvchi Tasmali)`,
+      categorySlug: 'suniy-notekislik',
+      brand: 'SafeRoad',
+      description: `Avtomobil oqimini ajratish va parkovka zonalarini belgilash uchun ${size} balandlikdagi egiluvchan yo‘l stolbiki. Zarbadan keyin sinmaydi va o‘z holatiga qaytadi.`,
+      specifications: [
+        { label: 'Balandligi', value: size },
+        { label: 'Materiali', value: 'Egiluvchan elastik poliuretan' },
+        { label: 'Nur qaytarish', value: 'Yuqori intensivlikdagi nur qaytaruvchi tasma' }
+      ]
+    };
+  }
+
+  if (lower.includes('лента стойка') || lower.includes('lenta stoyka')) {
+    const is3m = lower.includes('3м') || lower.includes('3m') || lower.includes('сифат');
+    return {
+      title: is3m
+        ? 'Premium Lenta Stoyka 3m (Zanglamas Po‘lat To‘siq Ustuni, Tortiluvchi Lenta Bilan)'
+        : 'Lenta Stoyka (Navbat va Hudud Chegaralovchi To‘siq Ustuni)',
+      categorySlug: 'yol-belgilari',
+      brand: 'SafeRoad',
+      description: 'Banklar, aeroportlar, savdo markazlari va tadbirlarda navbat hamda hududni tartibga solish uchun mo‘ljallangan mustahkam asosli to‘siq ustuni (stoyka).',
+      specifications: [
+        { label: 'Balandligi', value: '90–95 sm' },
+        { label: 'Lenta uzunligi', value: is3m ? '3 metr (Avtomatik tortiluvchi)' : '2–3 metr moslashuvchan' },
+        { label: 'Materiali', value: 'Zanglamas po‘lat / bo‘yalgan metall' }
+      ]
+    };
+  }
+
+  if (lower.includes('степпер') || lower.includes('stepper')) {
+    const isTwist = lower.includes('поворот');
+    return {
+      title: isTwist
+        ? 'Buriluvchi Kardio Stepper Trenajyori (Displeyli, Bel va Oyoq Mushaklari Uchun)'
+        : 'Kardio Stepper Trenajyori (Uy va Fitnes Uchun, Displeyli)',
+      categorySlug: 'trenajorlar',
+      brand: 'Sport Line',
+      description: 'Uy sharoitida oyoq, son va bel mushaklarini chiniqtirish uchun jim ishlaydigan gidravlik kardio stepper trenajyori. Elektron displey qadamlar soni, vaqt va kaloriyani ko‘rsatadi.',
+      specifications: [
+        { label: 'Turi', value: isTwist ? 'Buriluvchi gidravlik stepper' : 'Gidravlik kardio stepper' },
+        { label: 'Displey', value: 'LCD ekran (Qadamlar, vaqt, kaloriya)' },
+        { label: 'Maksimal yuklama', value: '100–110 kg gacha' }
+      ]
+    };
+  }
+
+  if (lower.includes('бегав') || lower.includes('бегов') || lower.includes('begav') || lower.includes('dorojka') || lower.includes('daroshka')) {
+    return {
+      title: 'Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Uy va Zal Uchun)',
+      categorySlug: 'trenajorlar',
+      brand: 'Sport Line',
+      description: 'Uy sharoitida yugurish va tez yurish uchun ixcham elektr yugurish yo‘lakchasi. LED displey, xavfsizlik kaliti va zarbani yutuvchi lenta bilan jihozlangan.',
+      specifications: [
+        { label: 'Turi', value: 'Elektr yugurish yo‘lakchasi' },
+        { label: 'Displey', value: 'LED ekran (Tezlik, vaqt, masofa, kaloriya)' },
+        { label: 'Maksimal yuklama', value: '100 kg gacha' }
+      ]
+    };
+  }
+
+  if (lower.includes('гребн') || lower.includes('пресс') || lower.includes('тренажер')) {
+    return {
+      title: lower.includes('гребн')
+        ? 'Eshkak Eshish Kardio Trenajyori (Grebnoy Trenajyor, Butun Tana Uchun)'
+        : 'Qorin Pressi va Bel Mushaklarini Chiniqtirish Trenajyori (Ko‘p Funksiyali)',
+      categorySlug: 'trenajorlar',
+      brand: 'Sport Line',
+      description: 'Uy va sport zallarida mushaklarni chiniqtirish uchun mustahkam po‘lat karkasli va qulay yumshoq qoplamali kardio-kuch trenajyori.',
+      specifications: [
+        { label: 'Karkasi', value: 'Mustahkam po‘lat truba' },
+        { label: 'Maksimal yuklama', value: '120 kg gacha' }
+      ]
+    };
+  }
+
   return null;
+}
+
+function cyrillicToUzbekLatin(str = '') {
+  const map = {
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'j','з':'z','и':'i','й':'y',
+    'к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f',
+    'х':'x','ц':'ts','ч':'ch','ш':'sh','щ':'sh','ъ':'’','ы':'i','ь':'','э':'e','ю':'yu','я':'ya',
+    'ў':'o‘','қ':'q','ғ':'g‘','ҳ':'h',
+    'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Е':'E','Ё':'Yo','Ж':'J','З':'Z','И':'I','Й':'Y',
+    'К':'K','Л':'L','М':'M','Н':'N','О':'O','П':'P','Р':'R','С':'S','Т':'T','У':'U','Ф':'F',
+    'Х':'X','Ц':'Ts','Ч':'Ch','Ш':'Sh','Щ':'Sh','Ъ':'’','Ы':'I','Ь':'','Э':'E','Ю':'Yu','Я':'Ya',
+    'Ў':'O‘','Қ':'Q','Ғ':'G‘','Ҳ':'H'
+  };
+  return str.replace(/[А-Яа-яЁёЎўҚқҒғҲҳ]/g, ch => map[ch] ?? ch);
 }
 
 /**
@@ -572,7 +716,7 @@ function parseProductInfo(text = '') {
   // Check enrichment
   const enriched = enrichWithKnowledge(normalizedText, price);
 
-  let title = enriched ? enriched.title : rawTitle;
+  let title = enriched ? enriched.title : cyrillicToUzbekLatin(rawTitle);
   let categorySlug = enriched ? enriched.categorySlug : null;
   let category = categorySlug ? CATEGORIES.find(c => c.slug === categorySlug) : null;
   let brand = enriched ? enriched.brand : detectBrand(normalizedText);
