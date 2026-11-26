@@ -134,9 +134,9 @@ export default function ProductCard({ product }) {
       }}
       className="group relative flex flex-col h-full min-w-0 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 overflow-hidden cursor-pointer"
     >
-      {/* 1. Top Image Area - To'liq va katta rasm (3:4 zamonaviy format) */}
+      {/* 1. Top Image Area - 1:1 kvadrat (eniga bo'yi har doim teng) */}
       <div
-        className="relative w-full aspect-[3/4] bg-white dark:bg-slate-900 overflow-hidden select-none cursor-pointer"
+        className="relative w-full aspect-square bg-white dark:bg-slate-900 overflow-hidden select-none cursor-pointer"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >

@@ -384,9 +384,9 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Main Product Info Grid (Gallery + Details) */}
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 pb-12 border-b border-slate-200 dark:border-slate-800">
+      <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start pb-12 border-b border-slate-200 dark:border-slate-800">
         {/* Left: Image Gallery with Interactive Slider & Thumbnails */}
-        <div className="flex flex-col-reverse sm:flex-row gap-4 items-start">
+        <div className="lg:col-span-5 flex flex-col-reverse sm:flex-row gap-4 items-start">
           {/* Thumbnails Column (Tayoqsiz silliq vertikal slider + hoverda oldindan ko'rish) */}
           {images.length > 1 && (
             <div className="relative flex flex-col items-center shrink-0 w-full sm:w-20">
@@ -420,7 +420,7 @@ export default function ProductDetailPage() {
                     type="button"
                     onClick={() => setSelectedImage(i)}
                     onMouseEnter={() => setSelectedImage(i)}
-                    className={`group relative w-16 sm:w-20 aspect-[3/4] rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
+                    className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
                       selectedImage === i
                         ? 'border-slate-950 dark:border-white shadow-md ring-2 ring-slate-900/40 dark:ring-white/40 scale-102'
                         : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
@@ -456,8 +456,8 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          {/* Main Selected Image - 1:1 kvadrat (eniga bo'yi bir xil) */}
-          <div className="relative flex-1 w-full aspect-square rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
+          {/* Main Selected Image - Ixcham 1:1 kvadrat (eniga bo'yi bir xil) */}
+          <div className="relative flex-1 w-full max-w-[500px] aspect-square rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
             {/* Discount Badge */}
             {product.discountPercent > 0 && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg text-xs font-black bg-red-600 text-white shadow-xs pointer-events-none">
@@ -584,7 +584,7 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Right: Buy Area & Specs */}
-        <div className="flex flex-col justify-between">
+        <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2 font-medium">
               <span>
