@@ -456,8 +456,8 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          {/* Main Selected Image - Smooth Hover Zoom (oldinga kattalashadi) */}
-          <div className="relative flex-1 w-full aspect-[3/4] rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
+          {/* Main Selected Image - 1:1 kvadrat (eniga bo'yi bir xil) */}
+          <div className="relative flex-1 w-full aspect-square rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
             {/* Discount Badge */}
             {product.discountPercent > 0 && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg text-xs font-black bg-red-600 text-white shadow-xs pointer-events-none">
