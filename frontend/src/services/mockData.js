@@ -87,6 +87,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-5773",
+    "id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-5773",
+    "title": "Sun‘iy Yo‘l Notekisligi (Tezlik Pasaytirgich Rezina 500x500x50 mm)",
+    "slug": "sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-5773",
+    "sku": "NSB-185773",
+    "price": 17,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "RoadSafety Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-175533_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobillar tezligini xavfsiz chegaralash uchun mo‘ljallangan zarbga chidamli rezinadan tayyorlangan sun'iy yo‘l notekisligi. Nur qaytaruvchi sariq elementlar va anker mahkamlagichlar uchun tayyor teshiklar mavjud.",
+    "specifications": [
+      {
+        "label": "O‘lchami",
+        "value": "500x500x50 mm"
+      },
+      {
+        "label": "Materiali",
+        "value": "Og‘ir yukka chidamli vulkanizatsiyalangan rezina"
+      },
+      {
+        "label": "Rang",
+        "value": "Qora va nur qaytaruvchi sariq elementlar"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:06:25.773Z"
+  },
+  {
     "_id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-6236",
     "id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-6236",
     "title": "Sun‘iy Yo‘l Notekisligi (Tezlik Pasaytirgich Rezina 500x500x50 mm)",
