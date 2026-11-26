@@ -87,6 +87,64 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_product-8857",
+    "id": "prod_product-8857",
+    "title": "Степпер",
+    "slug": "product-8857",
+    "sku": "NSB-368857",
+    "price": 750000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-358937_1.png",
+      "/uploads/prod-358937_2.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Степпер - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-26T10:36:08.857Z"
+  },
+  {
     "_id": "prod_m96-100-2562",
     "id": "prod_m96-100-2562",
     "title": "m96 бегавой максимальный нагрузка 100 кг",
