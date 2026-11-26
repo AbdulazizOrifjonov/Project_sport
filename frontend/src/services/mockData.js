@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_1-5-kv-5003",
+    "id": "prod_1-5-kv-5003",
+    "title": "1.5 kv",
+    "slug": "1-5-kv-5003",
+    "sku": "NSB-055003",
+    "price": 11,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-952834_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "1.5 kv - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:54:15.003Z"
+  },
+  {
     "_id": "prod_1-5-kv-6167",
     "id": "prod_1-5-kv-6167",
     "title": "1.5 kv",
@@ -151,7 +212,7 @@ export const defaultProducts = [
   {
     "_id": "prod_2-kv-2399",
     "id": "prod_2-kv-2399",
-    "title": "2 kv",
+    "title": "Sanoat Elektr Issiqlik To‘pi 2 kVt (Teploventilyator 2000W, Termostatli)",
     "slug": "2-kv-2399",
     "sku": "NSB-612399",
     "price": 9,
@@ -160,13 +221,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
+    "category": "Qo‘l Asboblari & Isitgichlar",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
     "department": "uskunalar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "ThermoPro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -180,31 +241,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "2 kv - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Ustaxona, garaj, do‘kon va xonalarni tezkor isitish uchun mo‘ljallangan 2 kVt (2000W) quvvatli metall korpusli elektr teploventilyator. Haroratni boshqarish termostati, sovuq havo haydash rejimi va qizib ketishdan himoya tizimi bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvati",
+        "value": "2 kVt (2000 Vt)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Ishlash rejimlari",
+        "value": "Ventilyator / 1000W / 2000W"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Isitish maydoni",
+        "value": "25–35 kv.m gacha"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Kuchlanish",
+        "value": "220V ~ 50Hz"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Korpusi",
+        "value": "Issiqqa chidamli bo‘yalgan metall"
       }
     ],
     "created_at": "2026-11-26T11:46:52.399Z"
@@ -212,7 +269,7 @@ export const defaultProducts = [
   {
     "_id": "prod_quyosh-35-1004",
     "id": "prod_quyosh-35-1004",
-    "title": "Quyosh 35",
+    "title": "Quyosh 35 sm Reflektorli Infraqizil Elektr Isitgich (Tejamkor Kvars Spiral)",
     "slug": "quyosh-35-1004",
     "sku": "NSB-561004",
     "price": 5.9,
@@ -221,13 +278,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
+    "category": "Qo‘l Asboblari & Isitgichlar",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
     "department": "uskunalar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Quyosh",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -241,31 +298,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Quyosh 35 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "35 sm diametrli parabolik reflektorli infraqizil elektr isitgich. Havoni quritmasdan to‘g‘ridan-to‘g‘ri issiqlik tarqatadi, kam elektr energiya sarflaydi va xavfsiz himoya panjarasi bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Reflektor diametri",
+        "value": "35 sm (Parabolik kosa)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Isitish elementi",
+        "value": "Tezkor qizuvchi kvars spiral"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Quvvat sarfi",
+        "value": "600–800 Vt (Tejamkor)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Xavfsizlik",
+        "value": "Qalin himoya panjarasi va barqaror taglik"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Kuchlanish",
+        "value": "220V"
       }
     ],
     "created_at": "2026-11-26T11:46:01.004Z"
@@ -273,7 +326,7 @@ export const defaultProducts = [
   {
     "_id": "prod_quyosh-35-8319",
     "id": "prod_quyosh-35-8319",
-    "title": "Quyosh 35",
+    "title": "Quyosh 35 sm Reflektorli Infraqizil Elektr Isitgich (Tejamkor Kvars Spiral)",
     "slug": "quyosh-35-8319",
     "sku": "NSB-458319",
     "price": 5.9,
@@ -282,13 +335,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
+    "category": "Qo‘l Asboblari & Isitgichlar",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
     "department": "uskunalar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Quyosh",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -302,31 +355,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Quyosh 35 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "35 sm diametrli parabolik reflektorli infraqizil elektr isitgich. Havoni quritmasdan to‘g‘ridan-to‘g‘ri issiqlik tarqatadi, kam elektr energiya sarflaydi va xavfsiz himoya panjarasi bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Reflektor diametri",
+        "value": "35 sm (Parabolik kosa)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Isitish elementi",
+        "value": "Tezkor qizuvchi kvars spiral"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Quvvat sarfi",
+        "value": "600–800 Vt (Tejamkor)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Xavfsizlik",
+        "value": "Qalin himoya panjarasi va barqaror taglik"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Kuchlanish",
+        "value": "220V"
       }
     ],
     "created_at": "2026-11-26T11:44:18.319Z"
@@ -334,7 +383,7 @@ export const defaultProducts = [
   {
     "_id": "prod_quyosh-40-5860",
     "id": "prod_quyosh-40-5860",
-    "title": "Quyosh 40",
+    "title": "Quyosh 40 sm Kuchaytirilgan Reflektorli Infraqizil Elektr Isitgich",
     "slug": "quyosh-40-5860",
     "sku": "NSB-405860",
     "price": 6.5,
@@ -343,13 +392,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
+    "category": "Qo‘l Asboblari & Isitgichlar",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
     "department": "uskunalar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Quyosh",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -363,31 +412,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Quyosh 40 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "40 sm keng parabolik reflektorli infraqizil elektr isitgich. Katta xonalar, ofis va do‘konlarni tez isitish uchun qulay, balandligi va egilish burchagi sozlanadi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Reflektor diametri",
+        "value": "40 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Isitish elementi",
+        "value": "Infraqizil kvars spiral"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Quvvati",
+        "value": "800–1000 Vt"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Xavfsizlik",
+        "value": "Ag‘darilishdan himoya va metall panjara"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Kuchlanish",
+        "value": "220V"
       }
     ],
     "created_at": "2026-11-26T11:43:25.860Z"
@@ -395,7 +440,7 @@ export const defaultProducts = [
   {
     "_id": "prod_quyosh-45-3798",
     "id": "prod_quyosh-45-3798",
-    "title": "Quyosh 45",
+    "title": "Quyosh 45 sm Katta Reflektorli Infraqizil Elektr Isitgich (Super Quvvat)",
     "slug": "quyosh-45-3798",
     "sku": "NSB-243799",
     "price": 8.5,
@@ -404,13 +449,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
+    "category": "Qo‘l Asboblari & Isitgichlar",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
     "department": "uskunalar",
     "departmentName": "Asbob-Uskunalar & Qurilish",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Quyosh",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -424,31 +469,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Quyosh 45 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Eng katta 45 sm diametrli reflektorli infraqizil isitgich. Keng maydonlarni uzoq masofadan samarali isitadi, mustahkam taglik va issiqqa chidamli korpusga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Reflektor diametri",
+        "value": "45 sm (Katta o‘lcham)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Isitish texnologiyasi",
+        "value": "Infraqizil nurli kvars spiral"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Quvvati",
+        "value": "1000–1200 Vt"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Xavfsizlik",
+        "value": "Himoya panjarasi va barqaror oyoq"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Kuchlanish",
+        "value": "220V"
       }
     ],
     "created_at": "2026-11-26T11:40:43.799Z"
@@ -456,7 +497,7 @@ export const defaultProducts = [
   {
     "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-6150",
     "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-6150",
-    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka ($35 — Yig‘iluvchi Xavfsizlik To‘sig‘i)",
     "slug": "suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-6150",
     "sku": "NSB-146150",
     "price": 35,
@@ -485,19 +526,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+    "description": "Vaqtinchalik yo‘l yopish, qurilish hududlari va avtoturargohlarni to‘sish uchun g‘ildirakli yig‘iluvchi garmoshka to‘siq. Kerakli uzunlikka oson ochiladi va yig‘ilganda juda kam joy egallaydi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Yig‘iluvchan mobil to‘siq"
+        "label": "Konstruksiyasi",
+        "value": "Suriluvchi garmoshka mexanizmi"
       },
       {
-        "label": "Material",
-        "value": "Mustahkam plastik / zanglamas po‘lat"
+        "label": "Rangi",
+        "value": "Yorqin ogohlantiruvchi signal ranglari"
       },
       {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Harakatchanlik",
+        "value": "Tormozli g‘ildiraklar bilan jihozlangan"
+      },
+      {
+        "label": "Qo‘llanilishi",
+        "value": "Qurilish, ombor, savdo markazlari va yo‘l ishlari"
       }
     ],
     "created_at": "2026-11-26T11:39:06.150Z"
@@ -505,7 +550,7 @@ export const defaultProducts = [
   {
     "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
     "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
-    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka ($36 — Yig‘iluvchi Xavfsizlik To‘sig‘i)",
     "slug": "suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
     "sku": "NSB-037471",
     "price": 36,
@@ -534,19 +579,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+    "description": "Vaqtinchalik yo‘l yopish, qurilish hududlari va avtoturargohlarni to‘sish uchun g‘ildirakli yig‘iluvchi garmoshka to‘siq. Kerakli uzunlikka oson ochiladi va yig‘ilganda juda kam joy egallaydi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Yig‘iluvchan mobil to‘siq"
+        "label": "Konstruksiyasi",
+        "value": "Suriluvchi garmoshka mexanizmi"
       },
       {
-        "label": "Material",
-        "value": "Mustahkam plastik / zanglamas po‘lat"
+        "label": "Rangi",
+        "value": "Yorqin ogohlantiruvchi signal ranglari"
       },
       {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Harakatchanlik",
+        "value": "Tormozli g‘ildiraklar bilan jihozlangan"
+      },
+      {
+        "label": "Qo‘llanilishi",
+        "value": "Qurilish, ombor, savdo markazlari va yo‘l ishlari"
       }
     ],
     "created_at": "2026-11-26T11:37:17.472Z"
@@ -554,7 +603,7 @@ export const defaultProducts = [
   {
     "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-2797",
     "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-2797",
-    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka ($55 — Yig‘iluvchi Xavfsizlik To‘sig‘i)",
     "slug": "suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-2797",
     "sku": "NSB-942797",
     "price": 55,
@@ -583,19 +632,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+    "description": "Vaqtinchalik yo‘l yopish, qurilish hududlari va avtoturargohlarni to‘sish uchun g‘ildirakli yig‘iluvchi garmoshka to‘siq. Kerakli uzunlikka oson ochiladi va yig‘ilganda juda kam joy egallaydi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Yig‘iluvchan mobil to‘siq"
+        "label": "Konstruksiyasi",
+        "value": "Suriluvchi garmoshka mexanizmi"
       },
       {
-        "label": "Material",
-        "value": "Mustahkam plastik / zanglamas po‘lat"
+        "label": "Rangi",
+        "value": "Yorqin ogohlantiruvchi signal ranglari"
       },
       {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Harakatchanlik",
+        "value": "Tormozli g‘ildiraklar bilan jihozlangan"
+      },
+      {
+        "label": "Qo‘llanilishi",
+        "value": "Qurilish, ombor, savdo markazlari va yo‘l ishlari"
       }
     ],
     "created_at": "2026-11-26T11:35:42.797Z"
@@ -603,7 +656,7 @@ export const defaultProducts = [
   {
     "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-3985",
     "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-3985",
-    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka ($60 — Yig‘iluvchi Xavfsizlik To‘sig‘i)",
     "slug": "suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-3985",
     "sku": "NSB-853986",
     "price": 60,
@@ -632,19 +685,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+    "description": "Vaqtinchalik yo‘l yopish, qurilish hududlari va avtoturargohlarni to‘sish uchun g‘ildirakli yig‘iluvchi garmoshka to‘siq. Kerakli uzunlikka oson ochiladi va yig‘ilganda juda kam joy egallaydi.",
     "specifications": [
       {
-        "label": "Turi",
-        "value": "Yig‘iluvchan mobil to‘siq"
+        "label": "Konstruksiyasi",
+        "value": "Suriluvchi garmoshka mexanizmi"
       },
       {
-        "label": "Material",
-        "value": "Mustahkam plastik / zanglamas po‘lat"
+        "label": "Rangi",
+        "value": "Yorqin ogohlantiruvchi signal ranglari"
       },
       {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Harakatchanlik",
+        "value": "Tormozli g‘ildiraklar bilan jihozlangan"
+      },
+      {
+        "label": "Qo‘llanilishi",
+        "value": "Qurilish, ombor, savdo markazlari va yo‘l ishlari"
       }
     ],
     "created_at": "2026-11-26T11:34:13.990Z"
@@ -652,7 +709,7 @@ export const defaultProducts = [
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-6785",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-6785",
-    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, Nur Qaytaruvchi Tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-6785",
     "sku": "NSB-806785",
     "price": 70000,
@@ -681,7 +738,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+    "description": "Avtomobil g‘ildiragi bosib o‘tganda ham sinmaydigan va darhol o‘z shaklini tiklaydigan egiluvchan TPU yo‘l konusi. Kechasi uzoqdan ko‘rinuvchi nur qaytaruvchi tasmalari mavjud.",
     "specifications": [
       {
         "label": "Balandligi",
@@ -689,19 +746,15 @@ export const defaultProducts = [
       },
       {
         "label": "Materiali",
-        "value": "TPU (Yuqori elastik poliuretan)"
+        "value": "Egiluvchan TPU (sinmaydi)"
       },
       {
-        "label": "Ko‘rinuvchanlik",
-        "value": "3M nur qaytaruvchi tasmalar"
+        "label": "Nur qaytarish",
+        "value": "Yuqori intensivlikdagi oq tasmalar"
       },
       {
-        "label": "Chidamlilik",
-        "value": "Avtomobil bosib ketishiga chidamli"
-      },
-      {
-        "label": "Qo‘llanishi",
-        "value": "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror taglik"
       }
     ],
     "created_at": "2026-11-26T11:33:26.785Z"
@@ -709,7 +762,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-8001",
     "id": "prod_product-8001",
-    "title": "Мигалка",
+    "title": "Quyosh Energiyali Avtonom Yo‘l Migalkasi (Ogohlantiruvchi Sariq LED Chiroq)",
     "slug": "product-8001",
     "sku": "NSB-608001",
     "price": 100,
@@ -718,13 +771,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -738,31 +791,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Мигалка - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Avtomobil yo‘llari va qurilish hududlarida ogohlantirish uchun quyosh batareyali avtonom LED migalka. Elektr tarmog‘iga ulanmasdan kechayu kunduz barqaror ishlaydi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvat manbai",
+        "value": "Quyosh paneli va o‘rnatilgan batareya"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Yorug‘lik turi",
+        "value": "Yorqin miltillovchi sariq LED"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Himoya",
+        "value": "IP65 suv va sovuqqa chidamli korpus"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Sensor",
+        "value": "Qorong‘ida avtomatik yoqilish datchigi"
       }
     ],
     "created_at": "2026-11-26T11:30:08.001Z"
@@ -770,7 +815,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-2149",
     "id": "prod_product-2149",
-    "title": "Мигалка катта",
+    "title": "Katta Quyosh Energiyali Signal Migalka (360° Ogohlantiruvchi LED Chiroq)",
     "slug": "product-2149",
     "sku": "NSB-492149",
     "price": 120,
@@ -779,13 +824,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -799,31 +844,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Мигалка катта - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Yo‘l ta’mirlash hududlari, qurilish maydonchalari va xavfli chorrahalar uchun katta o‘lchamli quyosh batareyali miltillovchi LED signal chirog‘i. Kunduzi quyoshdan quvvat olib, tunda avtomatik yonadi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Quvvat manbai",
+        "value": "Yuqori samarali quyosh paneli + akkumulyator"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Ko‘rinish burchagi",
+        "value": "360° (Uzoq masofadan aniq ko‘rinadi)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Himoya darajasi",
+        "value": "IP65 (Yomg‘ir va changga chidamli)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Ishlash vaqti",
+        "value": "To‘liq zaryadda 72 soatgacha"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Yo‘l ustuni, to‘siq yoki konuslar ustiga"
       }
     ],
     "created_at": "2026-11-26T11:28:12.149Z"
@@ -831,7 +872,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-7535",
     "id": "prod_product-7535",
-    "title": "Кабельный корд метри",
+    "title": "Kabel Himoyalovchi Rezina Kord-Tramplin (1 Metrli Avtomobil O‘tish Yo‘lagi)",
     "slug": "product-7535",
     "sku": "NSB-417535",
     "price": 17,
@@ -840,13 +881,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -860,31 +901,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Кабельный корд метри - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Avtomobil yo‘llari va tadbirlarda elektr kabellari hamda shlanglarni mashina g‘ildiraklari bosib ketishidan himoya qiluvchi og‘ir rezina kabel-kanal (kapa). Sariq qopqog‘i oson ochilib yopiladi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Uzunligi",
+        "value": "1000 mm (1 metr)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Materiali",
+        "value": "Og‘ir yukka chidamli vulkanizatsiyalangan rezina + PVX qopqoq"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Yuk ko‘tarishi",
+        "value": "20–30 tonnagacha transport vositalariga chidamli"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Rangi",
+        "value": "Qora asos va yorqin sariq ogohlantiruvchi qopqoq"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Ulanishi",
+        "value": "Bir-biriga pazlar orqali uzluksiz ulanadi"
       }
     ],
     "created_at": "2026-11-26T11:26:57.535Z"
@@ -892,7 +929,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-2228",
     "id": "prod_product-2228",
-    "title": "Парковка электронный с акумлятором",
+    "title": "Masofadan Boshqariladigan Avtomatik Parkovka To‘sig‘i (Pultli, Akkumulyatorli)",
     "slug": "product-2228",
     "sku": "NSB-362228",
     "price": 55,
@@ -901,13 +938,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -921,31 +958,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Парковка электронный с акумлятором - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Shaxsiy va xizmat avtoturargoh joylarini begona mashinalardan himoyalovchi masofadan pult bilan boshqariladigan elektron parkovka qulfi. Zarbaga qarshi 180° egilish himoyasi va signalizatsiyaga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Boshqaruv",
+        "value": "2 ta masofadan boshqarish pulti (30 m masofa)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Quvvat manbai",
+        "value": "Qayta zaryadlanuvchi akkumulyator"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Himoya",
+        "value": "IP67 suv o‘tkazmaydigan po‘lat korpus"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Yuk ko‘tarish",
+        "value": "Yopiq holatda 2 tonnagacha bosimga chidamli"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Rangi",
+        "value": "Yorqin sariq ogohlantiruvchi rang"
       }
     ],
     "created_at": "2026-11-26T11:26:02.228Z"
@@ -953,7 +986,7 @@ export const defaultProducts = [
   {
     "_id": "prod_80-4061",
     "id": "prod_80-4061",
-    "title": "Демпфер 80см",
+    "title": "Rezina Burchak Himoyalovchi Dempfer 80 sm (Ustun va Devor Burchaklari Uchun)",
     "slug": "80-4061",
     "sku": "NSB-164061",
     "price": 6,
@@ -962,13 +995,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -982,31 +1015,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Демпфер 80см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Yer osti parkovkalari, omborlar va garajlardagi beton ustun hamda devor burchaklarini avtomobil urilishidan himoya qiluvchi 80 sm li elastik rezina dempfer. Nur qaytaruvchi sariq chiziqlar bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "80 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Shakl",
+        "value": "L-shaklidagi burchak himoyasi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Zarbani yutuvchi yumshoq va mustahkam rezina"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Ko‘rinuvchanlik",
+        "value": "Nur qaytaruvchi sariq-qora chiziqlar"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Dyubel va shuruplar bilan oson qotiriladi"
       }
     ],
     "created_at": "2026-11-26T11:22:44.061Z"
@@ -1014,7 +1043,7 @@ export const defaultProducts = [
   {
     "_id": "prod_100-5923",
     "id": "prod_100-5923",
-    "title": "Демпфер 100 см",
+    "title": "Rezina Burchak Himoyalovchi Dempfer 100 sm (Ustun va Devor Burchaklari Uchun)",
     "slug": "100-5923",
     "sku": "NSB-125923",
     "price": 6.5,
@@ -1023,13 +1052,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1043,31 +1072,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Демпфер 100 см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Yer osti parkovkalari, omborlar va garajlardagi beton ustun hamda devor burchaklarini avtomobil urilishidan himoya qiluvchi 100 sm li elastik rezina dempfer. Nur qaytaruvchi sariq chiziqlar bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "100 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Shakl",
+        "value": "L-shaklidagi burchak himoyasi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Zarbani yutuvchi yumshoq va mustahkam rezina"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Ko‘rinuvchanlik",
+        "value": "Nur qaytaruvchi sariq-qora chiziqlar"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Dyubel va shuruplar bilan oson qotiriladi"
       }
     ],
     "created_at": "2026-11-26T11:22:05.923Z"
@@ -1075,7 +1100,7 @@ export const defaultProducts = [
   {
     "_id": "prod_120-0595",
     "id": "prod_120-0595",
-    "title": "Демпфер 120 см",
+    "title": "Rezina Burchak Himoyalovchi Dempfer 120 sm (Ustun va Devor Burchaklari Uchun)",
     "slug": "120-0595",
     "sku": "NSB-950595",
     "price": 10,
@@ -1084,13 +1109,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1105,31 +1130,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Демпфер 120 см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Yer osti parkovkalari, omborlar va garajlardagi beton ustun hamda devor burchaklarini avtomobil urilishidan himoya qiluvchi 120 sm li elastik rezina dempfer. Nur qaytaruvchi sariq chiziqlar bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "120 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Shakl",
+        "value": "L-shaklidagi burchak himoyasi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Zarbani yutuvchi yumshoq va mustahkam rezina"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Ko‘rinuvchanlik",
+        "value": "Nur qaytaruvchi sariq-qora chiziqlar"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Dyubel va shuruplar bilan oson qotiriladi"
       }
     ],
     "created_at": "2026-11-26T11:19:10.595Z"
@@ -1137,7 +1158,7 @@ export const defaultProducts = [
   {
     "_id": "prod_80-2-3651",
     "id": "prod_80-2-3651",
-    "title": "Столбик резбой 80см 2 кг",
+    "title": "Rezbali Egiluvchan Yo‘l Ustuni (Stolbik 80 sm, Og‘irligi 2 kg, Nur Qaytaruvchi)",
     "slug": "80-2-3651",
     "sku": "NSB-863651",
     "price": 12,
@@ -1152,7 +1173,7 @@ export const defaultProducts = [
     "department": "yol-harakati",
     "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1166,31 +1187,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Столбик резбой 80см 2 кг - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Avtomobil oqimini ajratish va parkovka zonalarini belgilash uchun 80 sm balandlikdagi og‘ir (2 kg) rezbali egiluvchan yo‘l stolbiki. Zarbadan keyin sinmaydi va o‘z holatiga qaytadi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "80 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Sun‘iy Notekislik & Ustunlar"
+        "label": "Og‘irligi",
+        "value": "2 kg (Mustahkam asosli)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Tuzilishi",
+        "value": "Asosidan burab yechiladigan rezbali konstruksiya"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Nur qaytarish",
+        "value": "Yuqori intensivlikdagi oq nur qaytaruvchi tasma"
       }
     ],
     "created_at": "2026-11-26T11:17:43.651Z"
@@ -1198,7 +1211,7 @@ export const defaultProducts = [
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-4235",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-4235",
-    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, Nur Qaytaruvchi Tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-4235",
     "sku": "NSB-794235",
     "price": 40,
@@ -1227,7 +1240,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+    "description": "Avtomobil g‘ildiragi bosib o‘tganda ham sinmaydigan va darhol o‘z shaklini tiklaydigan egiluvchan TPU yo‘l konusi. Kechasi uzoqdan ko‘rinuvchi nur qaytaruvchi tasmalari mavjud.",
     "specifications": [
       {
         "label": "Balandligi",
@@ -1235,23 +1248,15 @@ export const defaultProducts = [
       },
       {
         "label": "Materiali",
-        "value": "TPU (Yuqori elastik poliuretan)"
+        "value": "Egiluvchan TPU (sinmaydi)"
       },
       {
-        "label": "Ko‘rinuvchanlik",
-        "value": "3M nur qaytaruvchi tasmalar"
+        "label": "Nur qaytarish",
+        "value": "Yuqori intensivlikdagi oq tasmalar"
       },
       {
-        "label": "Chidamlilik",
-        "value": "Avtomobil bosib ketishiga chidamli"
-      },
-      {
-        "label": "Qo‘llanishi",
-        "value": "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror taglik"
       }
     ],
     "created_at": "2026-11-26T11:16:34.235Z"
@@ -1259,7 +1264,7 @@ export const defaultProducts = [
   {
     "_id": "prod_115-8845",
     "id": "prod_115-8845",
-    "title": "Столбик 115 см",
+    "title": "Katta Egiluvchan Yo‘l Ustuni (Stolbik 115 sm, Nur Qaytaruvchi Tasmali)",
     "slug": "115-8845",
     "sku": "NSB-708845",
     "price": 40,
@@ -1274,7 +1279,7 @@ export const defaultProducts = [
     "department": "yol-harakati",
     "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1288,31 +1293,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Столбик 115 см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uzoq masofadan aniq ko‘rinadigan 115 sm balandlikdagi katta egiluvchan yo‘l ustuni. Magistrallar, chorrahalar va katta avtoturargohlarda xavfsizlikni ta’minlaydi.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Balandligi",
+        "value": "115 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Sun‘iy Notekislik & Ustunlar"
+        "label": "Materiali",
+        "value": "Egiluvchan elastik poliuretan / plastik"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Nur qaytarish",
+        "value": "3 ta keng nur qaytaruvchi halqa"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Anker boltlar bilan mahkamlanadi"
       }
     ],
     "created_at": "2026-11-26T11:15:08.845Z"
@@ -1320,7 +1317,7 @@ export const defaultProducts = [
   {
     "_id": "prod_3-9932",
     "id": "prod_3-9932",
-    "title": "Лента стойка сифатлиси лента 3м",
+    "title": "Premium Lenta Stoyka 3m (Zanglamas Po‘lat To‘siq Ustuni, Tortiluvchi Lenta Bilan)",
     "slug": "3-9932",
     "sku": "NSB-649932",
     "price": 45,
@@ -1329,13 +1326,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1349,31 +1346,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Лента стойка сифатлиси лента 3м - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Banklar, aeroportlar, savdo markazlari va tadbirlarda navbat hamda hududni tartibga solish uchun 3 metrlik avtomatik tortiluvchi lentali zanglamas po‘lat (xrom) to‘siq ustuni.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "90–95 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Lenta uzunligi",
+        "value": "3 metr (Avtomatik tortiluvchi)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Mustahkam zanglamas po‘lat / bo‘yalgan metall"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror diskli taglik"
       }
     ],
     "created_at": "2026-11-26T11:14:09.932Z"
@@ -1381,7 +1370,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-0575",
     "id": "prod_product-0575",
-    "title": "Лента стойка",
+    "title": "Lenta Stoyka (Navbat va Hudud Chegaralovchi To‘siq Ustuni)",
     "slug": "product-0575",
     "sku": "NSB-550575",
     "price": 14,
@@ -1390,13 +1379,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1410,31 +1399,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Лента стойка - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Tadbirlar, mehmonxona, ofis va ko‘rgazma zallarida hududni ajratish va navbat tashkil qilish uchun mo‘ljallangan barqaror asosli to‘siq ustuni (stoyka).",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "90–95 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Lenta uzunligi",
+        "value": "2–3 metr moslashuvchan"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Mustahkam zanglamas po‘lat / bo‘yalgan metall"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror diskli taglik"
       }
     ],
     "created_at": "2026-11-26T11:12:30.575Z"
@@ -1442,7 +1423,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-8105",
     "id": "prod_product-8105",
-    "title": "Лента стойка",
+    "title": "Lenta Stoyka (Navbat va Hudud Chegaralovchi To‘siq Ustuni)",
     "slug": "product-8105",
     "sku": "NSB-508105",
     "price": 14,
@@ -1451,13 +1432,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Belgilari & Ko‘zgular",
+    "category_slug": "yol-belgilari",
+    "categorySlug": "yol-belgilari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "SafeRoad",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1471,31 +1452,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Лента стойка - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Tadbirlar, mehmonxona, ofis va ko‘rgazma zallarida hududni ajratish va navbat tashkil qilish uchun mo‘ljallangan barqaror asosli to‘siq ustuni (stoyka).",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "90–95 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Lenta uzunligi",
+        "value": "2–3 metr moslashuvchan"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Mustahkam zanglamas po‘lat / bo‘yalgan metall"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror diskli taglik"
       }
     ],
     "created_at": "2026-11-26T11:11:48.105Z"
@@ -1503,7 +1476,7 @@ export const defaultProducts = [
   {
     "_id": "prod_95-3772",
     "id": "prod_95-3772",
-    "title": "95 см",
+    "title": "Egiluvchan Signal Yo‘l Ustuni / Konus 95 sm (Nur Qaytaruvchi Tasmali)",
     "slug": "95-3772",
     "sku": "NSB-433772",
     "price": 15,
@@ -1512,13 +1485,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1532,31 +1505,19 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "95 см - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "95 sm balandlikdagi yuqori ko‘rinuvchan yo‘l to‘siq ustuni. Qurilish va yo‘l ta’mirlash ishlarida hududni xavfsiz ajratish uchun qulay.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Balandligi",
+        "value": "95 sm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Nur qaytarish",
+        "value": "Yuqori sifatli oq nur qaytaruvchi chiziqlar"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
-      },
-      {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Materiali",
+        "value": "Zarbga chidamli elastik polimer"
       }
     ],
     "created_at": "2026-11-26T11:10:33.772Z"
@@ -1564,7 +1525,7 @@ export const defaultProducts = [
   {
     "_id": "prod_1480-80-9904",
     "id": "prod_1480-80-9904",
-    "title": "Дорожный бордюр 1480*80",
+    "title": "Sanoat Yo‘l Bordyuri 1480x80 mm (Qator va Yo‘lak Ajratuvchi Bardur)",
     "slug": "1480-80-9904",
     "sku": "NSB-369904",
     "price": 50,
@@ -1573,13 +1534,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Yo‘l Standart",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1593,31 +1554,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Дорожный бордюр 1480*80 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Avtomobil yo‘llari va avtoturargohlarda harakat yo‘laklarini ajratuvchi 1480x80 mm o‘lchamli sanoat yo‘l bordyuri. Kechasi ko‘rinadigan nur qaytaruvchi elementlarga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "O‘lchami",
+        "value": "1480 x 80 mm"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Materiali",
+        "value": "Zarbga chidamli vulkanizatsiyalangan rezina"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Nur qaytarish",
+        "value": "Sariq signal elementlari bilan"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "O‘rnatish",
+        "value": "Anker boltlar yordamida"
       }
     ],
     "created_at": "2026-11-26T11:09:29.904Z"
@@ -1625,7 +1578,7 @@ export const defaultProducts = [
   {
     "_id": "prod_1600-16-0923",
     "id": "prod_1600-16-0923",
-    "title": "Дорожный бордюр местный 1600* 16 кг",
+    "title": "Mahalliy Yo‘l Bordyuri 1600 mm (Og‘irligi 16 kg, Qator Ajratuvchi To‘siq)",
     "slug": "1600-16-0923",
     "sku": "NSB-280923",
     "price": 80850000,
@@ -1634,13 +1587,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Yo‘l Standart",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1654,27 +1607,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Дорожный бордюр местный 1600* 16 кг - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uzunligi 1600 mm va og‘irligi 16 kg bo‘lgan mustahkam mahalliy ishlab chiqarilgan yo‘l ajratuvchi bordyur. Harakat qatorlarini ajratish va piyodalar yo‘lagini himoyalash uchun mo‘ljallangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Uzunligi",
+        "value": "1600 mm (1.6 metr)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Og‘irligi",
+        "value": "16 kg"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Materiali",
+        "value": "Og‘ir yukka chidamli rezina-kompozit"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "O‘rnatish",
+        "value": "Anker boltlar bilan yo‘l qoplamasiga qotiriladi"
       }
     ],
     "created_at": "2026-11-26T11:08:00.923Z"
@@ -1841,7 +1790,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-5623",
     "id": "prod_product-5623",
-    "title": "Башмак",
+    "title": "Yuk Mashinalari Uchun Rezina G‘ildirak To‘xtatgichi (Boshmoq / Otkatnik)",
     "slug": "product-5623",
     "sku": "NSB-945623",
     "price": 16,
@@ -1856,7 +1805,7 @@ export const defaultProducts = [
     "department": "yol-harakati",
     "departmentName": "Yo‘l & Harakat Xavfsizligi",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "RoadSafety Pro",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -1870,31 +1819,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Башмак - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Yuk avtomobillari, furalar va maxsus texnikalar to‘xtaganda g‘ildiraklar siljib ketishining oldini oluvchi og‘ir rezina boshmoq (otkatnik). Qulay ko‘tarish dastasiga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Yo‘l & Harakat Xavfsizligi"
+        "label": "Materiali",
+        "value": "Mustahkam quyma vulkanizatsiyalangan rezina"
       },
       {
-        "label": "Toifa",
-        "value": "Sun‘iy Notekislik & Ustunlar"
+        "label": "Yuzasi",
+        "value": "G‘ildirakka tiraluvchi tishli sirpanmas profil"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qo‘llanilishi",
+        "value": "Yuk mashinalari, avtobuslar, tirkamalar"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Qulayligi",
+        "value": "Orqa tomonida tashish uchun tutqichi bor"
       }
     ],
     "created_at": "2026-11-26T11:02:25.623Z"
@@ -1902,7 +1843,7 @@ export const defaultProducts = [
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0691",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0691",
-    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, Nur Qaytaruvchi Tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0691",
     "sku": "NSB-890691",
     "price": 12.5,
@@ -1931,7 +1872,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+    "description": "Avtomobil g‘ildiragi bosib o‘tganda ham sinmaydigan va darhol o‘z shaklini tiklaydigan egiluvchan TPU yo‘l konusi. Kechasi uzoqdan ko‘rinuvchi nur qaytaruvchi tasmalari mavjud.",
     "specifications": [
       {
         "label": "Balandligi",
@@ -1939,23 +1880,15 @@ export const defaultProducts = [
       },
       {
         "label": "Materiali",
-        "value": "TPU (Yuqori elastik poliuretan)"
+        "value": "Egiluvchan TPU (sinmaydi)"
       },
       {
-        "label": "Ko‘rinuvchanlik",
-        "value": "3M nur qaytaruvchi tasmalar"
+        "label": "Nur qaytarish",
+        "value": "Yuqori intensivlikdagi oq tasmalar"
       },
       {
-        "label": "Chidamlilik",
-        "value": "Avtomobil bosib ketishiga chidamli"
-      },
-      {
-        "label": "Qo‘llanishi",
-        "value": "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror taglik"
       }
     ],
     "created_at": "2026-11-26T11:01:30.691Z"
@@ -1963,7 +1896,7 @@ export const defaultProducts = [
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
-    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "title": "Yo‘l Harakati Xavfsizlik Konusi TPU 75 sm (Egiluvchan, Nur Qaytaruvchi Tasmali)",
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
     "sku": "NSB-840047",
     "price": 10,
@@ -1992,7 +1925,7 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+    "description": "Avtomobil g‘ildiragi bosib o‘tganda ham sinmaydigan va darhol o‘z shaklini tiklaydigan egiluvchan TPU yo‘l konusi. Kechasi uzoqdan ko‘rinuvchi nur qaytaruvchi tasmalari mavjud.",
     "specifications": [
       {
         "label": "Balandligi",
@@ -2000,23 +1933,15 @@ export const defaultProducts = [
       },
       {
         "label": "Materiali",
-        "value": "TPU (Yuqori elastik poliuretan)"
+        "value": "Egiluvchan TPU (sinmaydi)"
       },
       {
-        "label": "Ko‘rinuvchanlik",
-        "value": "3M nur qaytaruvchi tasmalar"
+        "label": "Nur qaytarish",
+        "value": "Yuqori intensivlikdagi oq tasmalar"
       },
       {
-        "label": "Chidamlilik",
-        "value": "Avtomobil bosib ketishiga chidamli"
-      },
-      {
-        "label": "Qo‘llanishi",
-        "value": "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Asosi",
+        "value": "Og‘ir barqaror taglik"
       }
     ],
     "created_at": "2026-11-26T11:00:40.047Z"
@@ -2077,7 +2002,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-6806",
     "id": "prod_product-6806",
-    "title": "Степпер поворотный",
+    "title": "Buriluvchi Kardio Stepper Trenajyori (Displeyli, Bel va Oyoq Mushaklari Uchun)",
     "slug": "product-6806",
     "sku": "NSB-516806",
     "price": 33,
@@ -2092,7 +2017,7 @@ export const defaultProducts = [
     "department": "sport",
     "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2106,31 +2031,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Степпер поворотный - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uy sharoitida oyoq, son va bel mushaklarini chiniqtirish hamda vazn tashlash uchun buriluvchi harakatli kardio stepper trenajyori. Qadam soni, vaqt va kaloriyani ko‘rsatuvchi LCD displeyga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Sport & Fitnes"
+        "label": "Turi",
+        "value": "Buriluvchi (Povorotniy) gidravlik stepper"
       },
       {
-        "label": "Toifa",
-        "value": "Trenajorlar & Kardio"
+        "label": "Displey",
+        "value": "LCD ekran (Qadamlar, vaqt, kaloriya)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Maksimal yuklama",
+        "value": "100–110 kg gacha"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Komplekt",
+        "value": "Stepper + qo‘l mashqlari uchun espander lentalar"
       }
     ],
     "created_at": "2026-11-26T10:55:16.806Z"
@@ -2138,7 +2055,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-2916",
     "id": "prod_product-2916",
-    "title": "Гребной тренажер",
+    "title": "Eshkak Eshish Kardio Trenajyori (Grebnoy Trenajyor, Butun Tana Mushaklari Uchun)",
     "slug": "product-2916",
     "sku": "NSB-082916",
     "price": 280,
@@ -2153,7 +2070,7 @@ export const defaultProducts = [
     "department": "sport",
     "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2167,31 +2084,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Гребной тренажер - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Orqa, qo‘l, yelka, press va oyoq mushaklarini bir vaqtda chiniqtiruvchi professional eshkak eshish (grebnoy) kardio trenajyori. Yig‘iladigan ixcham konstruksiya va elektron monitor bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Sport & Fitnes"
+        "label": "Turi",
+        "value": "Eshkak eshish (Grebnoy) kardio trenajyor"
       },
       {
-        "label": "Toifa",
-        "value": "Trenajorlar & Kardio"
+        "label": "Mashq zonasi",
+        "value": "Butun tana (80% dan ortiq mushaklar ishlaydi)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Monitor",
+        "value": "Vaqt, tortishlar soni, masofa va kaloriya"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Maksimal yuklama",
+        "value": "120–130 kg gacha"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Saqlash",
+        "value": "Vertikal yig‘ib qo‘yish mumkin"
       }
     ],
     "created_at": "2026-11-26T10:48:02.916Z"
@@ -2199,7 +2112,7 @@ export const defaultProducts = [
   {
     "_id": "prod_qorin-pressini-chiniqtirish-trenajyori-4444",
     "id": "prod_qorin-pressini-chiniqtirish-trenajyori-4444",
-    "title": "Qorin pressini chiniqtirish trenajyori.",
+    "title": "Qorin Pressi va Bel Mushaklarini Chiniqtirish Trenajyori (Ko‘p Funksiyali)",
     "slug": "qorin-pressini-chiniqtirish-trenajyori-4444",
     "sku": "NSB-934444",
     "price": 35,
@@ -2208,13 +2121,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2228,31 +2141,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Qorin pressini chiniqtirish trenajyori. - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uy va sport zallarida qorin pressi, bel va qo‘l mushaklarini samarali chiniqtirish uchun ergonomik trenajyor. Mustahkam po‘lat karkas va yumshoq o‘rindiq yostiqchalariga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Vazifasi",
+        "value": "Qorin pressi, bel va umumiy jismoniy mashqlar"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Karkasi",
+        "value": "Mustahkam qalin po‘lat truba"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qoplamasi",
+        "value": "Terlatmaydigan yumshoq eko-charm va porolon"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Maksimal yuklama",
+        "value": "120 kg gacha"
       }
     ],
     "created_at": "2026-11-26T10:45:34.444Z"
@@ -2260,7 +2165,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-9405",
     "id": "prod_product-9405",
-    "title": "Тренажер для пресса",
+    "title": "Qorin Pressi va Bel Mushaklarini Chiniqtirish Trenajyori (Ko‘p Funksiyali)",
     "slug": "product-9405",
     "sku": "NSB-739405",
     "price": 35,
@@ -2275,7 +2180,7 @@ export const defaultProducts = [
     "department": "sport",
     "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2289,31 +2194,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Тренажер для пресса - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uy va sport zallarida qorin pressi, bel va qo‘l mushaklarini samarali chiniqtirish uchun ergonomik trenajyor. Mustahkam po‘lat karkas va yumshoq o‘rindiq yostiqchalariga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Sport & Fitnes"
+        "label": "Vazifasi",
+        "value": "Qorin pressi, bel va umumiy jismoniy mashqlar"
       },
       {
-        "label": "Toifa",
-        "value": "Trenajorlar & Kardio"
+        "label": "Karkasi",
+        "value": "Mustahkam qalin po‘lat truba"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Qoplamasi",
+        "value": "Terlatmaydigan yumshoq eko-charm va porolon"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Maksimal yuklama",
+        "value": "120 kg gacha"
       }
     ],
     "created_at": "2026-11-26T10:42:19.405Z"
@@ -2321,7 +2218,7 @@ export const defaultProducts = [
   {
     "_id": "prod_begavoy-daroshka-6028",
     "id": "prod_begavoy-daroshka-6028",
-    "title": "begavoy daroshka",
+    "title": "Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Uy va Ofis Uchun Ixcham)",
     "slug": "begavoy-daroshka-6028",
     "sku": "NSB-626028",
     "price": 100,
@@ -2330,13 +2227,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2350,31 +2247,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "begavoy daroshka - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Kundalik yugurish va yurish mashg‘ulotlari uchun mo‘ljallangan ixcham elektr yugurish yo‘lakchasi. Jim ishlovchi motor, sirpanmas lenta va LED ko‘rsatkichlar paneliga ega.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Turi",
+        "value": "Elektr yugurish yo‘lakchasi (Walking Pad / Treadmill)"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Displey",
+        "value": "Tezlik, masofa, vaqt va kaloriya ko‘rsatkichi"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Lentasi",
+        "value": "Ko‘p qatlamli zarbani yutuvchi yugurish tasmasi"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Maksimal yuklama",
+        "value": "100 kg gacha"
       }
     ],
     "created_at": "2026-11-26T10:40:26.028Z"
@@ -2382,7 +2271,7 @@ export const defaultProducts = [
   {
     "_id": "prod_product-8857",
     "id": "prod_product-8857",
-    "title": "Степпер",
+    "title": "Kardio Stepper Trenajyori (Uy va Fitnes Uchun, Displeyli)",
     "slug": "product-8857",
     "sku": "NSB-368857",
     "price": 750000,
@@ -2397,7 +2286,7 @@ export const defaultProducts = [
     "department": "sport",
     "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2412,27 +2301,23 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "Степпер - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Oyoq mushaklarini mustahkamlash va kunlik kardio mashg‘ulotlar uchun ixcham stepper trenajyori. Jim ishlaydigan gidravlik silindrlar va elektron hisoblagich bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Sport & Fitnes"
+        "label": "Turi",
+        "value": "Gidravlik kardio stepper"
       },
       {
-        "label": "Toifa",
-        "value": "Trenajorlar & Kardio"
+        "label": "Displey",
+        "value": "Elektron ekran (Vaqt, qadam, kaloriya)"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Pedallar",
+        "value": "Sirpanmaydigan qulay oyoq platformalari"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
-      },
-      {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+        "label": "Maksimal yuklama",
+        "value": "100 kg gacha"
       }
     ],
     "created_at": "2026-11-26T10:36:08.857Z"
@@ -2440,7 +2325,7 @@ export const defaultProducts = [
   {
     "_id": "prod_m96-100-2562",
     "id": "prod_m96-100-2562",
-    "title": "m96 бегавой максимальный нагрузка 100 кг",
+    "title": "M96 Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Maksimal Yuklama 100 kg)",
     "slug": "m96-100-2562",
     "sku": "NSB-282563",
     "price": 140,
@@ -2449,13 +2334,13 @@ export const defaultProducts = [
     "old_price": 0,
     "discountPercent": 0,
     "discount_percent": 0,
-    "category": "Drellar & Shurupovyortlar",
-    "category_slug": "drellar-shurupovyort",
-    "categorySlug": "drellar-shurupovyort",
-    "department": "uskunalar",
-    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
     "subcategory": "",
-    "brand": "Original Brand",
+    "brand": "Sport Line",
     "stock": 25,
     "inStock": true,
     "in_stock": true,
@@ -2469,31 +2354,27 @@ export const defaultProducts = [
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
-    "description": "m96 бегавой максимальный нагрузка 100 кг - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "description": "Uy sharoitida yugurish va tez yurish uchun ixcham, yig‘iladigan M96 elektr yugurish yo‘lakchasi. Xavfsizlik kaliti, tezlikni boshqarish paneli, LED displey va amortizatsiya tizimi bilan jihozlangan.",
     "specifications": [
       {
-        "label": "Yo‘nalish",
-        "value": "Asbob-Uskunalar & Qurilish"
+        "label": "Modeli",
+        "value": "M96 Elektr Yugurish Yo‘lakchasi"
       },
       {
-        "label": "Toifa",
-        "value": "Drellar & Shurupovyortlar"
+        "label": "Maksimal yuklama",
+        "value": "100 kg gacha"
       },
       {
-        "label": "Brend",
-        "value": "Original Brand"
+        "label": "Displey",
+        "value": "LED ekran (Tezlik, vaqt, masofa, kaloriya)"
       },
       {
-        "label": "Holati",
-        "value": "Yangi / Kafolatli"
+        "label": "Xavfsizlik",
+        "value": "Favqulodda to‘xtatish magnit kaliti"
       },
       {
-        "label": "Yetkazib berish",
-        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
-      },
-      {
-        "label": "Valyuta",
-        "value": "USD ($)"
+        "label": "Qulayligi",
+        "value": "Tutqichli va oson yig‘iladigan konstruksiya"
       }
     ],
     "created_at": "2026-11-26T10:18:02.563Z"
