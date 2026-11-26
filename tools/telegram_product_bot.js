@@ -145,7 +145,7 @@ const CATEGORIES = [
     icon: 'AlertTriangle',
     keywords: [
       'yo‘l belgisi', 'yol belgisi', 'znak', 'znaki', 'знак', 'знаки', 'дорожный знак', 'ko‘zgu', 'sferik', 'зеркало',
-      'стойка ограждения', 'столбик с лентой', 'turniket ustun', 'turniket', 'to‘siq ustun', 'lentali ustun', 'arqonli ustun', 'stanchion', 'plastina', 'пластина'
+      'стойка ограждения', 'столбик с лентой', 'лента стойка', 'lenta stoyka', 'лента 3м', 'lenta 3m', 'turniket ustun', 'turniket', 'to‘siq ustun', 'lentali ustun', 'arqonli ustun', 'stanchion', 'plastina', 'пластина'
     ]
   },
 
