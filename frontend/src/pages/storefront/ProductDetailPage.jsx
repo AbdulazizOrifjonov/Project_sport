@@ -186,7 +186,12 @@ export default function ProductDetailPage() {
   const inCart = cartItems.some((i) => i._id === product._id);
 
   const currencyLabel = t('product.currency', 'so‘m');
-  const formatPrice = (n) => `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  const formatPrice = (n) => {
+    if (product?.currency === 'USD') {
+      return `$${Number(n || 0).toLocaleString('en-US')}`;
+    }
+    return `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  };
 
   const fallbackImage =
     'https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=1000&auto=format&fit=crop&q=80';

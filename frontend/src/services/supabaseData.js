@@ -47,10 +47,16 @@ function normalizeProduct(p) {
   }
   if (!Array.isArray(specifications)) specifications = [];
 
+  const specCurrency = specifications.some(
+    (s) => s && s.label === 'Valyuta' && String(s.value || '').includes('USD')
+  ) ? 'USD' : null;
+  const currency = p.currency || specCurrency || 'UZS';
+
   return {
     ...p,
     _id: id,
     id: id,
+    currency,
     price: Number(p.price || 0),
     oldPrice,
     old_price: oldPrice,

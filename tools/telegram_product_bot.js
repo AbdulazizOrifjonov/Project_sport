@@ -224,10 +224,11 @@ function extractPriceAndTitle(caption = '') {
 
   let price = 0;
   let priceUSD = 0;
+  let currency = 'UZS';
   let rawPriceLabel = '';
   let priceSubstr = '';
 
-  // 1. Check for Dollar prices ($10, 10$, 35 USD)
+  // 1. Check for Dollar prices ($10, 10$, 35 USD) — keep price directly in USD!
   for (const line of rawLines) {
     const dollarMatch = line.match(/(?:\$)\s*(\d+(?:[.,]\d+)?)/i) ||
                         line.match(/(\d+(?:[.,]\d+)?)\s*(?:\$|usd|долл)/i);
@@ -235,8 +236,9 @@ function extractPriceAndTitle(caption = '') {
       const num = parseFloat(dollarMatch[1].replace(',', '.'));
       if (num > 0) {
         priceUSD = num;
-        price = Math.round(num * USD_RATE);
-        rawPriceLabel = `$${num} (${new Intl.NumberFormat('uz-UZ').format(price)} so'm)`;
+        price = num;
+        currency = 'USD';
+        rawPriceLabel = `$${num}`;
         priceSubstr = dollarMatch[0];
         break;
       }
@@ -299,6 +301,7 @@ function extractPriceAndTitle(caption = '') {
     title,
     price,
     priceUSD,
+    currency,
     rawPriceLabel,
     priceSubstr
   };
@@ -557,7 +560,7 @@ function enrichWithKnowledge(rawText = '', price = 0) {
  */
 function parseProductInfo(text = '') {
   let normalizedText = (text || '').trim();
-  const { title: rawTitle, price, priceUSD, rawPriceLabel } = extractPriceAndTitle(normalizedText);
+  const { title: rawTitle, price, priceUSD, currency, rawPriceLabel } = extractPriceAndTitle(normalizedText);
 
   // Check enrichment
   const enriched = enrichWithKnowledge(normalizedText, price);
@@ -591,6 +594,11 @@ function parseProductInfo(text = '') {
     ];
   }
 
+  if (currency === 'USD') {
+    specifications = specifications.filter(s => s && s.label !== 'Valyuta');
+    specifications.push({ label: 'Valyuta', value: 'USD ($)' });
+  }
+
   let sku = '';
   const skuMatch = normalizedText.match(/(?:kodi?|sku|artikul|kod)\s*[:=-]?\s*([a-zA-Z0-9_-]+)/i);
   if (skuMatch) sku = skuMatch[1];
@@ -598,8 +606,9 @@ function parseProductInfo(text = '') {
   return {
     title,
     sku,
-    price: price || 150000,
+    price: price || (currency === 'USD' ? 15 : 150000),
     priceUSD,
+    currency,
     rawPriceLabel,
     description,
     category,
@@ -718,9 +727,9 @@ async function syncProductToSupabase(product) {
       rating: 5.0,
       reviews_count: 0,
       images: product.images || [],
-      is_bestseller: true,
-      is_new_arrival: true,
-      is_weekly_deal: false,
+      is_bestseller: Boolean(product.is_bestseller),
+      is_new_arrival: Boolean(product.is_new_arrival),
+      is_weekly_deal: Boolean(product.is_weekly_deal),
       variants: product.variants || [],
       description: product.description || '',
       specifications: product.specifications || []
@@ -754,13 +763,14 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
     }
   }
 
-  const oldPrice = Math.round(parsed.price * 1.15);
-  const discountPercent = Math.round(((oldPrice - parsed.price) / oldPrice) * 100);
+  const oldPrice = 0;
+  const discountPercent = 0;
 
   if (existingIndex !== -1) {
     const existing = products[existingIndex];
     existing.title = parsed.title;
     existing.price = parsed.price;
+    existing.currency = parsed.currency || 'UZS';
     existing.oldPrice = oldPrice;
     existing.old_price = oldPrice;
     existing.discountPercent = discountPercent;
@@ -793,6 +803,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       slug: slug,
       sku: parsed.sku || `NSB-${Date.now().toString().slice(-6)}`,
       price: parsed.price,
+      currency: parsed.currency || 'UZS',
       oldPrice: oldPrice,
       old_price: oldPrice,
       discountPercent: discountPercent,
@@ -810,7 +821,7 @@ function saveOrUpdateProduct(parsed, imagePaths = []) {
       rating: 5.0,
       reviews_count: 0,
       images: imagePaths.length > 0 ? imagePaths : [],
-      is_bestseller: true,
+      is_bestseller: false,
       is_new_arrival: true,
       is_weekly_deal: false,
       variantLabel: '',
@@ -844,7 +855,7 @@ function pushChangesToGitHub(productTitle, isUpdate) {
     const action = isUpdate ? 'update' : 'add';
     const safeTitle = (productTitle || 'item').replace(/["`$\\]/g, '');
     execSync(`git commit -m "feat(store): ${action} product '${safeTitle}' via Telegram"`, { cwd: ROOT_DIR });
-    execSync('git push origin main', { cwd: ROOT_DIR, timeout: 60000 });
+    execSync('git push https://github.com/AbdulazizOrifjonov/Project_sport.git main', { cwd: ROOT_DIR, timeout: 60000 });
     console.log('Successfully pushed to GitHub! Render will auto-deploy.');
     return true;
   } catch (err) {
@@ -900,7 +911,9 @@ async function processMediaGroup(key, groupData) {
   // 4. Push to GitHub
   pushChangesToGitHub(parsed.title, isUpdate);
 
-  const formattedPrice = new Intl.NumberFormat('uz-UZ').format(product.price);
+  const priceText = product.currency === 'USD'
+    ? `$${Number(product.price).toLocaleString('en-US')}`
+    : `${new Intl.NumberFormat('uz-UZ').format(product.price)} so‘m`;
   const deptEmoji = product.department === 'yol-harakati' ? '🚧' : (product.department === 'uskunalar' ? '🛠️' : '🏆');
 
   const statusTitle = isUpdate
@@ -912,7 +925,7 @@ async function processMediaGroup(key, groupData) {
     parse_mode: 'HTML',
     text: `${statusTitle}\n\n` +
           `📦 <b>Nomi:</b> ${product.title}\n` +
-          `💰 <b>Narxi:</b> ${formattedPrice} so‘m\n` +
+          `💰 <b>Narxi:</b> ${priceText}\n` +
           `${deptEmoji} <b>Toifa:</b> ${product.category}\n` +
           `🏷 <b>Brend:</b> ${product.brand}\n` +
           `🖼 <b>Galereya:</b> ${downloadedImages.length} ta rasm to‘liq biriktirildi\n\n` +

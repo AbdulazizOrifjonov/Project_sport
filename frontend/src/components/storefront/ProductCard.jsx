@@ -27,6 +27,9 @@ export default function ProductCard({ product }) {
 
   const currencyLabel = t('product.currency', 'so‘m');
   const formatPrice = (num) => {
+    if (product.currency === 'USD') {
+      return `$${Number(num || 0).toLocaleString('en-US')}`;
+    }
     return `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
   };
 
