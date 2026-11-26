@@ -87,6 +87,55 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
+    "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
+    "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
+    "slug": "suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-7202",
+    "sku": "NSB-037471",
+    "price": 36,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "SafeRoad",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-029714_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Harakatlanishni vaqtinchalik cheklash, ta'mirlash yoki xavfli hududlarni to‘sish uchun ixcham yig‘iluvchi va tez ochiluvchi mobil to‘siq (garmoshka).",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Yig‘iluvchan mobil to‘siq"
+      },
+      {
+        "label": "Material",
+        "value": "Mustahkam plastik / zanglamas po‘lat"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:37:17.472Z"
+  },
+  {
     "_id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-2797",
     "id": "prod_suriluvchi-mobil-yo-l-to-sig-i-garmoshka-mobil-to-siq-tizimi-2797",
     "title": "Suriluvchi Mobil Yo‘l To‘sig‘i Garmoshka (Mobil to‘siq tizimi)",
