@@ -87,6 +87,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-6236",
+    "id": "prod_sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-6236",
+    "title": "Sun‘iy Yo‘l Notekisligi (Tezlik Pasaytirgich Rezina 500x500x50 mm)",
+    "slug": "sun-iy-yo-l-notekisligi-tezlik-pasaytirgich-rezina-500x500x50-mm-6236",
+    "sku": "NSB-116236",
+    "price": 18,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "RoadSafety Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-106712_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobillar tezligini xavfsiz chegaralash uchun mo‘ljallangan zarbga chidamli rezinadan tayyorlangan sun'iy yo‘l notekisligi. Nur qaytaruvchi sariq elementlar va anker mahkamlagichlar uchun tayyor teshiklar mavjud.",
+    "specifications": [
+      {
+        "label": "O‘lchami",
+        "value": "500x500x50 mm"
+      },
+      {
+        "label": "Materiali",
+        "value": "Og‘ir yukka chidamli vulkanizatsiyalangan rezina"
+      },
+      {
+        "label": "Rang",
+        "value": "Qora va nur qaytaruvchi sariq elementlar"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:05:16.236Z"
+  },
+  {
     "_id": "prod_avtoturargoh-g-ildirak-to-xtatgichi-rezina-kolesootboynik-560x160x100-mm-4642",
     "id": "prod_avtoturargoh-g-ildirak-to-xtatgichi-rezina-kolesootboynik-560x160x100-mm-4642",
     "title": "Avtoturargoh G‘ildirak To‘xtatgichi (Rezina Kolesootboynik 560x160x100 mm)",
