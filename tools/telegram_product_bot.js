@@ -882,11 +882,12 @@ async function processMediaGroup(key, groupData) {
 
   const baseSlug = 'prod-' + Date.now().toString().slice(-6);
 
-  // Download all photos
+  // Download all photos (supports both compressed photo & uncompressed file/document)
   const downloadedImages = [];
   for (let i = 0; i < photos.length; i++) {
     const photo = photos[i];
-    const fileName = `${baseSlug}_${i + 1}.jpg`;
+    const ext = photo._ext || 'jpg';
+    const fileName = `${baseSlug}_${i + 1}.${ext}`;
     const imagePath = await downloadTelegramPhoto(photo.file_id, fileName);
     if (imagePath) downloadedImages.push(imagePath);
   }
@@ -997,17 +998,42 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 3. CHECK STRICT RULE: TEXT ONLY (NO PHOTO)
-  if (!msg.photo || msg.photo.length === 0) {
+  // 3. Extract image from either msg.photo OR uncompressed msg.document (file image)
+  let photoObj = null;
+  if (msg.photo && msg.photo.length > 0) {
+    photoObj = { ...msg.photo[msg.photo.length - 1], _ext: 'jpg' };
+  } else if (
+    msg.document &&
+    ((msg.document.mime_type && msg.document.mime_type.startsWith('image/')) ||
+      /\.(jpe?g|png|webp)$/i.test(msg.document.file_name || ''))
+  ) {
+    const extMatch = (msg.document.file_name || '').match(/\.(jpe?g|png|webp)$/i);
+    const ext = extMatch ? extMatch[1].toLowerCase().replace('jpeg', 'jpg') : 'jpg';
+    photoObj = { ...msg.document, _ext: ext };
+  }
+
+  if (!photoObj) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `❌ <b>Faqat matn qabul qilinmaydi!</b>\n\nIltimos, mahsulot <b>rasmini</b> narxi bilan birga yuboring.`
+      text: `❌ <b>Faqat matn qabul qilinmaydi!</b>\n\nIltimos, mahsulot <b>rasmini</b> (yoki fayl ko‘rinishidagi tiniq rasmini) narxi bilan birga yuboring.`
     });
     return;
   }
 
-  // 4. CHECK STRICT RULE: PHOTO WITHOUT CAPTION
+  const mediaGroupId = msg.media_group_id;
+
+  // If this photo/file belongs to an existing media group album, append it even without caption
+  if (mediaGroupId && mediaGroupBuffer.has(mediaGroupId)) {
+    const group = mediaGroupBuffer.get(mediaGroupId);
+    group.photos.push(photoObj);
+    if (caption) group.caption = caption;
+    clearTimeout(group.timer);
+    group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+    return;
+  }
+
+  // 4. CHECK STRICT RULE: PHOTO/FILE WITHOUT CAPTION
   if (!caption) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
@@ -1028,27 +1054,18 @@ async function handleUpdate(update) {
     return;
   }
 
-  // 6. PHOTO IS VALID AND HAS PRICE -> PROCESS!
-  const largestPhoto = msg.photo[msg.photo.length - 1];
-  const mediaGroupId = msg.media_group_id;
+  // 6. PHOTO OR IMAGE FILE IS VALID AND HAS PRICE -> PROCESS!
+  const largestPhoto = photoObj;
 
   if (mediaGroupId) {
-    if (mediaGroupBuffer.has(mediaGroupId)) {
-      const group = mediaGroupBuffer.get(mediaGroupId);
-      group.photos.push(largestPhoto);
-      if (caption) group.caption = caption;
-      clearTimeout(group.timer);
-      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
-    } else {
-      const group = {
-        chatId,
-        photos: [largestPhoto],
-        caption: caption,
-        timer: null
-      };
-      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
-      mediaGroupBuffer.set(mediaGroupId, group);
-    }
+    const group = {
+      chatId,
+      photos: [largestPhoto],
+      caption: caption,
+      timer: null
+    };
+    group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+    mediaGroupBuffer.set(mediaGroupId, group);
     return;
   }
 
