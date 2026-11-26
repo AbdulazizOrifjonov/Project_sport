@@ -87,6 +87,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_avtoturargoh-g-ildirak-to-xtatgichi-rezina-kolesootboynik-560x160x100-mm-4642",
+    "id": "prod_avtoturargoh-g-ildirak-to-xtatgichi-rezina-kolesootboynik-560x160x100-mm-4642",
+    "title": "Avtoturargoh G‘ildirak To‘xtatgichi (Rezina Kolesootboynik 560x160x100 mm)",
+    "slug": "avtoturargoh-g-ildirak-to-xtatgichi-rezina-kolesootboynik-560x160x100-mm-4642",
+    "sku": "NSB-004642",
+    "price": 40,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "RoadSafety Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-997970_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Parkovka joylarida avtomobillarning devorga yoki boshqa mashinalarga urilishining oldini oluvchi mustahkam rezina kolesootboynik. Yorqin nur qaytaruvchi stikerlar bilan jihozlangan.",
+    "specifications": [
+      {
+        "label": "O‘lchami",
+        "value": "560x160x100 mm"
+      },
+      {
+        "label": "Materiali",
+        "value": "Zarbga chidamli texnik rezina"
+      },
+      {
+        "label": "Rang",
+        "value": "Sariq aks ettiruvchi tasmali qora rezina"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:03:24.642Z"
+  },
+  {
     "_id": "prod_product-5623",
     "id": "prod_product-5623",
     "title": "Башмак",
