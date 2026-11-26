@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_siapo-9420-model-vazn-kotarish-110-kg-tezlik-14-6031",
+    "id": "prod_siapo-9420-model-vazn-kotarish-110-kg-tezlik-14-6031",
+    "title": "Siapo 9420 model Vazn kotarish 110 kg Tezlik 14",
+    "slug": "siapo-9420-model-vazn-kotarish-110-kg-tezlik-14-6031",
+    "sku": "NSB-656032",
+    "price": 230,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-652329_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Siapo 9420 model Vazn kotarish 110 kg Tezlik 14 - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T12:54:16.032Z"
+  },
+  {
     "_id": "prod_kechite-5007-maximal-tezlik-14-vazn-kotarish-100-kg-2-0-ot-kuchi-8775",
     "id": "prod_kechite-5007-maximal-tezlik-14-vazn-kotarish-100-kg-2-0-ot-kuchi-8775",
     "title": "Kechite 5007 Maximal tezlik 14 Vazn kotarish 100 kg 2.0 ot kuchi",
