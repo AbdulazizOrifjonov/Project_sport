@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_product-2916",
+    "id": "prod_product-2916",
+    "title": "Гребной тренажер",
+    "slug": "product-2916",
+    "sku": "NSB-082916",
+    "price": 280,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-079151_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Гребной тренажер - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T10:48:02.916Z"
+  },
+  {
     "_id": "prod_qorin-pressini-chiniqtirish-trenajyori-4444",
     "id": "prod_qorin-pressini-chiniqtirish-trenajyori-4444",
     "title": "Qorin pressini chiniqtirish trenajyori.",
