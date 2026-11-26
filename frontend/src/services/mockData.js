@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_80-2-3651",
+    "id": "prod_80-2-3651",
+    "title": "Столбик резбой 80см 2 кг",
+    "slug": "80-2-3651",
+    "sku": "NSB-863651",
+    "price": 12,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Sun‘iy Notekislik & Ustunlar",
+    "category_slug": "suniy-notekislik",
+    "categorySlug": "suniy-notekislik",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-858168_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Столбик резбой 80см 2 кг - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Yo‘l & Harakat Xavfsizligi"
+      },
+      {
+        "label": "Toifa",
+        "value": "Sun‘iy Notekislik & Ustunlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:17:43.651Z"
+  },
+  {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-4235",
     "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-4235",
     "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
