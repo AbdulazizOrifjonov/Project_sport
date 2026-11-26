@@ -152,7 +152,8 @@ export default function HomePage() {
               <span>Ommabop & Yangi Kelganlar</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-slate-950 dark:text-white tracking-tight flex items-center gap-2">
-              <span>🔥 Xit Tovarlar & Yangi Kelganlar</span>
+              <Flame className="w-6 h-6 text-orange-500 shrink-0" />
+              <span>Xit Tovarlar & Yangi Kelganlar</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
               Do‘konimizning eng sara, xaridorgir va yangi keltirilgan original uskunalari
@@ -162,7 +163,7 @@ export default function HomePage() {
             href="#barcha-katalog"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold transition-all shrink-0 self-start md:self-end shadow-sm cursor-pointer"
           >
-            <span>Barcha 59 ta mahsulotni ko‘rish</span>
+            <span>Barcha {allProducts.length || 60} ta mahsulotni ko‘rish</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>

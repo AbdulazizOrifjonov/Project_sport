@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Heart, ShoppingCart, Plus, Minus, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Heart, ShoppingCart, Plus, Minus, Star, ChevronLeft, ChevronRight, Flame, Sparkles, Camera, Percent } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -137,34 +137,27 @@ export default function ProductCard({ product }) {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Yuqori chap burchakdagi nishonlar (XIT, YANGI, Chegirma) */}
+        {/* Yuqori chap burchakdagi nishon (Har bir mahsulotda ko'pi bilan 1 ta toza nishon: Chegirma -> XIT -> YANGI) */}
         <div className="absolute top-2.5 left-2.5 z-10 flex flex-col items-start gap-1 pointer-events-none">
-          {/* 🔥 XIT badge */}
-          {(product.isBestseller || product.is_bestseller) && (
-            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs tracking-wider">
-              <span>🔥</span> XIT
+          {product.discountPercent > 0 ? (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase bg-red-600 text-white tracking-wider shadow-xs">
+              <Percent className="w-2.5 h-2.5 stroke-[2.5]" /> -{product.discountPercent}%
             </span>
-          )}
-
-          {/* ✨ YANGI badge */}
-          {(product.isNewArrival || product.is_new_arrival) && (
-            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-xs tracking-wider">
-              <span>✨</span> YANGI
+          ) : (product.isBestseller || product.is_bestseller) ? (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xs tracking-wider">
+              <Flame className="w-3 h-3 fill-white/25" /> XIT
             </span>
-          )}
-
-          {/* Chegirma foizi belgisi */}
-          {product.discountPercent > 0 && (
-            <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase bg-red-600 text-white tracking-wider shadow-xs">
-              -{product.discountPercent}%
+          ) : (product.isNewArrival || product.is_new_arrival) ? (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-xs tracking-wider">
+              <Sparkles className="w-3 h-3" /> YANGI
             </span>
-          )}
+          ) : null}
         </div>
 
-        {/* Rasmlar soni nishoni - joriy rasm indeksini ko'rsatadi (masalan: 📷 1 / 7) */}
+        {/* Rasmlar soni nishoni - joriy rasm indeksini ko'rsatadi */}
         {hasMultipleImages && (
           <span className="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/75 backdrop-blur-xs text-white shadow-xs pointer-events-none flex items-center gap-1 transition-all">
-            <span>📷</span> {activeImgIndex > 0 || isHovered ? `${activeImgIndex + 1} / ${images.length}` : `${images.length} ta rasm`}
+            <Camera className="w-3 h-3 text-white/90" /> {activeImgIndex > 0 || isHovered ? `${activeImgIndex + 1} / ${images.length}` : `${images.length} ta rasm`}
           </span>
         )}
 

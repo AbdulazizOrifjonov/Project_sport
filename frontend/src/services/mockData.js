@@ -93,10 +93,10 @@ export const defaultProducts = [
     "slug": "4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-4561",
     "sku": "NSB-494561",
     "price": 895000,
-    "oldPrice": 1029250,
-    "old_price": 1029250,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
     "categorySlug": "asboblar-to-plami",
@@ -116,7 +116,7 @@ export const defaultProducts = [
       "/uploads/real_combo_4in1_4.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -162,7 +162,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
@@ -171,10 +174,10 @@ export const defaultProducts = [
     "slug": "universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-4542",
     "sku": "NSB-494542",
     "price": 440000,
-    "oldPrice": 506000,
-    "old_price": 506000,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 500000,
+    "old_price": 500000,
+    "discountPercent": 12,
+    "discount_percent": 12,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -193,9 +196,9 @@ export const defaultProducts = [
       "/uploads/real_trimmer_3.jpg",
       "/uploads/real_trimmer_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Bog' va hovli maysazorlarini o'rish uchun qulay g'ildirakli akkumulyatorli trimmer. Metall pichoqlar va disk bilan jihozlangan.",
@@ -236,7 +239,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-4492",
@@ -245,10 +251,10 @@ export const defaultProducts = [
     "slug": "akkumulyatorli-zarbli-drel-shurupovyort-dewalt-72v-keys-va-2-ta-batareya-4492",
     "sku": "NSB-494492",
     "price": 330000,
-    "oldPrice": 379500,
-    "old_price": 379500,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -266,7 +272,7 @@ export const defaultProducts = [
       "/uploads/dewalt-drill-21v_2.jpg",
       "/uploads/dewalt-drill-21v_3.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -313,7 +319,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-4408",
@@ -322,10 +331,10 @@ export const defaultProducts = [
     "slug": "turbo-texnik-sanoat-feni-2000w-haroratni-rostlagichli-4408",
     "sku": "NSB-494408",
     "price": 92000,
-    "oldPrice": 105800,
-    "old_price": 105800,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Qo‘l Asboblari & O‘lchov",
     "category_slug": "qol-asboblari",
     "categorySlug": "qol-asboblari",
@@ -344,8 +353,8 @@ export const defaultProducts = [
       "/uploads/real_heat_gun_3.jpg",
       "/uploads/real_heat_gun_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -386,7 +395,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-4280",
@@ -395,10 +407,10 @@ export const defaultProducts = [
     "slug": "slj-elektr-toshli-stol-charxi-ikki-tomonlama-charxlash-uskunasi-4280",
     "sku": "NSB-494280",
     "price": 135000,
-    "oldPrice": 155250,
-    "old_price": 155250,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Balgarkalar & Silliqlash Mashinalari",
     "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
@@ -418,7 +430,7 @@ export const defaultProducts = [
       "/uploads/real_bench_grinder_4.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -459,7 +471,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_balgarka-edon-1050w-125mm",
@@ -468,10 +483,10 @@ export const defaultProducts = [
     "slug": "balgarka-edon-1050w-125mm",
     "sku": "NSB-EDON-1050",
     "price": 145000,
-    "oldPrice": 175000,
-    "old_price": 175000,
-    "discountPercent": 17,
-    "discount_percent": 17,
+    "oldPrice": 161000,
+    "old_price": 161000,
+    "discountPercent": 10,
+    "discount_percent": 10,
     "category": "Balgarkalar & Silliqlash Mashinalari",
     "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
@@ -489,9 +504,9 @@ export const defaultProducts = [
       "/uploads/balgarka-1050w-125mm_2.jpg",
       "/uploads/balgarka-1050w-125mm_3.jpg"
     ],
-    "is_bestseller": true,
-    "is_hit": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_hit": false,
+    "is_new_arrival": false,
     "is_weekly_deal": true,
     "variantLabel": "Disk diametri",
     "variants": [
@@ -536,7 +551,10 @@ export const defaultProducts = [
         "value": "Balgarka, himoya kojuxi, yordamchi rezina tutqich, disk gayka kaliti, zaxira grafit cho'tkalari"
       }
     ],
-    "created_at": "2026-11-24T19:25:05.472Z"
+    "created_at": "2026-11-24T19:25:05.472Z",
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
@@ -545,10 +563,10 @@ export const defaultProducts = [
     "slug": "2-1-akkumulyatorli-bog-to-plami-mini-zanjirli-arra-bog-qaychisi-0941",
     "sku": "NSB-480941",
     "price": 569000,
-    "oldPrice": 654350,
-    "old_price": 654350,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -567,7 +585,7 @@ export const defaultProducts = [
       "/uploads/real_garden_2in1_3.jpg",
       "/uploads/real_garden_2in1_4.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -610,7 +628,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-0903",
@@ -619,10 +640,10 @@ export const defaultProducts = [
     "slug": "professional-akkumulyatorli-zarbli-gaykavyort-cho-tkasiz-motor-0903",
     "sku": "NSB-480903",
     "price": 164000,
-    "oldPrice": 188600,
-    "old_price": 188600,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -640,8 +661,8 @@ export const defaultProducts = [
       "/uploads/impact-wrench-21v_2.jpg",
       "/uploads/impact-wrench-21v_3.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -682,7 +703,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9178",
@@ -691,10 +715,10 @@ export const defaultProducts = [
     "slug": "kompakt-akkumulyatorli-shurupovyort-12v-uy-va-ustaxona-uchun-9178",
     "sku": "NSB-459178",
     "price": 169000,
-    "oldPrice": 194350,
-    "old_price": 194350,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -714,7 +738,7 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_4.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -751,7 +775,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8586",
@@ -760,10 +787,10 @@ export const defaultProducts = [
     "slug": "standart-akkumulyatorli-drel-shurupovyort-12v-zaryadlovchi-bilan-8586",
     "sku": "NSB-458586",
     "price": 130000,
-    "oldPrice": 149500,
-    "old_price": 149500,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 163000,
+    "old_price": 163000,
+    "discountPercent": 20,
+    "discount_percent": 20,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -782,9 +809,9 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_4.jpg",
       "/uploads/real_drill_12v_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Tezkor patron va teskari (revers) aylanish funksiyasiga ega ishonchli 12V shurupovyort.",
@@ -820,7 +847,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9884",
@@ -829,10 +859,10 @@ export const defaultProducts = [
     "slug": "zarbli-drel-shurupovyort-to-plami-ko-k-keys-2-batareya-va-aksessuarlar-9884",
     "sku": "NSB-449884",
     "price": 825000,
-    "oldPrice": 948750,
-    "old_price": 948750,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -851,7 +881,7 @@ export const defaultProducts = [
       "/uploads/real_drill_18v_3.jpg",
       "/uploads/real_drill_18v_4.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -897,7 +927,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-9906",
@@ -906,10 +939,10 @@ export const defaultProducts = [
     "slug": "4-1-super-master-akkumulyatorli-asboblar-to-plami-to-liq-komplekt-9906",
     "sku": "NSB-439906",
     "price": 895000,
-    "oldPrice": 1029250,
-    "old_price": 1029250,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
     "categorySlug": "asboblar-to-plami",
@@ -928,8 +961,8 @@ export const defaultProducts = [
       "/uploads/real_combo_4in1_4.jpg",
       "/uploads/real_combo_4in1_5.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -975,7 +1008,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-9879",
@@ -984,10 +1020,10 @@ export const defaultProducts = [
     "slug": "professional-akkumulyatorli-balgarka-ush-m-125-mm-cho-tkasiz-9879",
     "sku": "NSB-439879",
     "price": 460000,
-    "oldPrice": 529000,
-    "old_price": 529000,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Balgarkalar & Silliqlash Mashinalari",
     "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
@@ -1007,7 +1043,7 @@ export const defaultProducts = [
       "/uploads/real_cordless_balgarka_2.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1049,7 +1085,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": true
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9731",
@@ -1058,10 +1097,10 @@ export const defaultProducts = [
     "slug": "akkumulyatorli-tsirkulyar-diskli-arra-dumaloq-qo-l-arrasi-9731",
     "sku": "NSB-439731",
     "price": 339000,
-    "oldPrice": 389850,
-    "old_price": 389850,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 413000,
+    "old_price": 413000,
+    "discountPercent": 18,
+    "discount_percent": 18,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -1080,9 +1119,9 @@ export const defaultProducts = [
       "/uploads/real_circular_saw_3.jpg",
       "/uploads/real_circular_saw_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Yog'och, fanera va laminat taxtalarni to'g'ri va aniq burchak ostida kesish uchun simsiz diskli arra.",
@@ -1118,7 +1157,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8920",
@@ -1127,10 +1169,10 @@ export const defaultProducts = [
     "slug": "universal-shurupovyort-12v-to-plami-plastik-keysda-8920",
     "sku": "NSB-428920",
     "price": 130000,
-    "oldPrice": 149500,
-    "old_price": 149500,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -1149,7 +1191,7 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_1.jpg",
       "/uploads/real_drill_12v_2.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -1187,7 +1229,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-1370",
@@ -1196,10 +1241,10 @@ export const defaultProducts = [
     "slug": "bog-va-maysazor-uchun-akkumulyatorli-trimmer-g-ildirakli-komplekt-1370",
     "sku": "NSB-411370",
     "price": 440000,
-    "oldPrice": 506000,
-    "old_price": 506000,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -1218,8 +1263,8 @@ export const defaultProducts = [
       "/uploads/real_trimmer_4.jpg",
       "/uploads/real_trimmer_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1260,7 +1305,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6488",
@@ -1269,10 +1317,10 @@ export const defaultProducts = [
     "slug": "2-1-professional-bog-bon-to-plami-akkumulyatorli-arra-va-sekator-6488",
     "sku": "NSB-376488",
     "price": 569000,
-    "oldPrice": 654350,
-    "old_price": 654350,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -1292,7 +1340,7 @@ export const defaultProducts = [
       "/uploads/real_garden_2in1_1.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1333,7 +1381,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_slj-elektr-toshli-stol-charxi-ikki-tomonlama-toshli-charxlash-uskunasi-6344",
@@ -1342,10 +1393,10 @@ export const defaultProducts = [
     "slug": "slj-professional-stol-charxi-pichoq-va-burg-u-charxlagich-150w-6344",
     "sku": "NSB-376344",
     "price": 135000,
-    "oldPrice": 155250,
-    "old_price": 155250,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 159000,
+    "old_price": 159000,
+    "discountPercent": 15,
+    "discount_percent": 15,
     "category": "Balgarkalar & Silliqlash Mashinalari",
     "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
@@ -1364,9 +1415,9 @@ export const defaultProducts = [
       "/uploads/real_bench_grinder_4.jpg",
       "/uploads/real_bench_grinder_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Tebranishsiz barqaror ishlaydigan ikki diskli stol usti charx uskunasi. Himoya oynalari bilan.",
@@ -1406,7 +1457,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-3621",
@@ -1415,10 +1469,10 @@ export const defaultProducts = [
     "slug": "sanoat-issiqlik-feni-2000w-harorat-sozlagichli-texnik-fen-3621",
     "sku": "NSB-373621",
     "price": 92000,
-    "oldPrice": 105800,
-    "old_price": 105800,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Qo‘l Asboblari & O‘lchov",
     "category_slug": "qol-asboblari",
     "categorySlug": "qol-asboblari",
@@ -1437,7 +1491,7 @@ export const defaultProducts = [
       "/uploads/real_heat_gun_4.jpg",
       "/uploads/real_heat_gun_1.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -1479,7 +1533,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_professional-akkumulyatorli-zarbli-gaykavyort-kuchli-cho-tkasiz-motor-9701",
@@ -1488,10 +1545,10 @@ export const defaultProducts = [
     "slug": "avtomobil-va-qurilish-uchun-akkumulyatorli-zarbli-gaykavyort-9701",
     "sku": "NSB-329701",
     "price": 164000,
-    "oldPrice": 188600,
-    "old_price": 188600,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -1510,8 +1567,8 @@ export const defaultProducts = [
       "/uploads/real_impact_wrench_3.jpg",
       "/uploads/real_impact_wrench_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1552,7 +1609,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-9569",
@@ -1561,10 +1621,10 @@ export const defaultProducts = [
     "slug": "akkumulyatorli-drel-12v-mini-nabor-aksessuarlar-to-plami-bilan-9569",
     "sku": "NSB-299569",
     "price": 130000,
-    "oldPrice": 149500,
-    "old_price": 149500,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -1584,7 +1644,7 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_3.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1621,7 +1681,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-6046",
@@ -1630,10 +1693,10 @@ export const defaultProducts = [
     "slug": "akkumulyatorli-kuchaytirilgan-shurupovyort-18v-2-ta-akkumulyator-6046",
     "sku": "NSB-286046",
     "price": 169000,
-    "oldPrice": 194350,
-    "old_price": 194350,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 192000,
+    "old_price": 192000,
+    "discountPercent": 12,
+    "discount_percent": 12,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -1652,9 +1715,9 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_3.jpg",
       "/uploads/real_drill_12v_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Metall va qattiq yog'och bilan ishlash uchun kuchaytirilgan reduktorli 18V drel-shurupovyort.",
@@ -1690,7 +1753,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5844",
@@ -1699,10 +1765,10 @@ export const defaultProducts = [
     "slug": "akkumulyatorli-cho-tkasiz-balgarka-ush-m-125-mm-yashil-korpus-5844",
     "sku": "NSB-285844",
     "price": 460000,
-    "oldPrice": 529000,
-    "old_price": 529000,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Balgarkalar & Silliqlash Mashinalari",
     "category_slug": "balgarkalar-ushm",
     "categorySlug": "balgarkalar-ushm",
@@ -1721,7 +1787,7 @@ export const defaultProducts = [
       "/uploads/real_cordless_balgarka_3.jpg",
       "/uploads/real_cordless_balgarka_4.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -1763,7 +1829,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5358",
@@ -1772,10 +1841,10 @@ export const defaultProducts = [
     "slug": "professional-diskli-qo-l-arrasi-tsirkulyarka-185-mm-5358",
     "sku": "NSB-285358",
     "price": 339000,
-    "oldPrice": 389850,
-    "old_price": 389850,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Arralar & Bog‘ Texnikasi",
     "category_slug": "arralar-bog",
     "categorySlug": "arralar-bog",
@@ -1794,8 +1863,8 @@ export const defaultProducts = [
       "/uploads/real_circular_saw_4.jpg",
       "/uploads/real_circular_saw_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1832,7 +1901,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-5339",
@@ -1841,10 +1913,10 @@ export const defaultProducts = [
     "slug": "professional-akkumulyatorli-zarbli-drel-to-plami-mustahkam-keysda-5339",
     "sku": "NSB-285339",
     "price": 825000,
-    "oldPrice": 948750,
-    "old_price": 948750,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -1864,7 +1936,7 @@ export const defaultProducts = [
       "/uploads/real_drill_18v_1.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -1901,7 +1973,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-5309",
@@ -1910,10 +1985,10 @@ export const defaultProducts = [
     "slug": "4-1-universal-qurilish-va-ta-mirlash-asboblari-to-plami-to-liq-keys-5309",
     "sku": "NSB-285309",
     "price": 895000,
-    "oldPrice": 1029250,
-    "old_price": 1029250,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 994000,
+    "old_price": 994000,
+    "discountPercent": 10,
+    "discount_percent": 10,
     "category": "Asboblar To‘plamlari (Naborlar)",
     "category_slug": "asboblar-to-plami",
     "categorySlug": "asboblar-to-plami",
@@ -1932,9 +2007,9 @@ export const defaultProducts = [
       "/uploads/real_combo_4in1_5.jpg",
       "/uploads/real_combo_4in1_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Har bir usta va xonadon uchun mukammal 4 ta asbob: perforator, gaykavyort, drel va balgarka bitta katta keysda.",
@@ -1979,7 +2054,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5270",
@@ -1988,10 +2066,10 @@ export const defaultProducts = [
     "slug": "yengil-akkumulyatorli-shurupovyort-12v-ergonomik-korpus-5270",
     "sku": "NSB-285270",
     "price": 130000,
-    "oldPrice": 149500,
-    "old_price": 149500,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -2010,7 +2088,7 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_4.jpg",
       "/uploads/real_drill_12v_1.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -2048,7 +2126,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-5497",
@@ -2057,10 +2138,10 @@ export const defaultProducts = [
     "slug": "uy-ro-zg-or-uchun-akkumulyatorli-drel-shurupovyort-12v-5497",
     "sku": "NSB-095497",
     "price": 128500,
-    "oldPrice": 147775,
-    "old_price": 147775,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Drellar & Shurupovyortlar",
     "category_slug": "drellar-shurupovyortlar",
     "categorySlug": "drellar-shurupovyortlar",
@@ -2079,8 +2160,8 @@ export const defaultProducts = [
       "/uploads/real_drill_12v_1.jpg",
       "/uploads/real_drill_12v_2.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2117,7 +2198,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_pvc-8457",
@@ -2126,10 +2210,10 @@ export const defaultProducts = [
     "slug": "pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-8457",
     "sku": "NSB-078457",
     "price": 16000,
-    "oldPrice": 18500,
-    "old_price": 18500,
-    "discountPercent": 14,
-    "discount_percent": 14,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2148,7 +2232,7 @@ export const defaultProducts = [
       "/uploads/tactile-tile-pvc_3.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2185,7 +2269,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_1480-80-8376",
@@ -2194,10 +2281,10 @@ export const defaultProducts = [
     "slug": "sanoat-yo-l-bordyuri-1480x80-mm-bardur-to-sig-i-8376",
     "sku": "NSB-078376",
     "price": 642500,
-    "oldPrice": 738875,
-    "old_price": 738875,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 803000,
+    "old_price": 803000,
+    "discountPercent": 20,
+    "discount_percent": 20,
     "category": "Sun‘iy Notekislik & Dempferlar",
     "category_slug": "suniy-notekislik",
     "categorySlug": "suniy-notekislik",
@@ -2216,9 +2303,9 @@ export const defaultProducts = [
       "/uploads/real_road_curb_3.jpg",
       "/uploads/real_road_curb_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Yo'l va avtoturargohlarni ajratish, piyodalar yo'lagini himoyalash uchun mo'ljallangan mustahkam kompozit bordyur.",
@@ -2254,7 +2341,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_1-84-15-15-3399",
@@ -2263,10 +2353,10 @@ export const defaultProducts = [
     "slug": "kauchuk-kolesootboynik-1-84m-15-15-sm-g-ildirak-to-xtatgich-3399",
     "sku": "NSB-063399",
     "price": 514000,
-    "oldPrice": 591100,
-    "old_price": 591100,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Sun‘iy Notekislik & Dempferlar",
     "category_slug": "suniy-notekislik",
     "categorySlug": "suniy-notekislik",
@@ -2284,7 +2374,7 @@ export const defaultProducts = [
       "/uploads/wheel-stop-184_2.jpg",
       "/uploads/wheel-stop-184_3.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -2322,7 +2412,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2487",
@@ -2331,10 +2424,10 @@ export const defaultProducts = [
     "slug": "og-ir-asosli-yo-l-konusi-75-sm-egiluvchan-2-tasmali-2487",
     "sku": "NSB-052487",
     "price": 231300,
-    "oldPrice": 265995,
-    "old_price": 265995,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2353,8 +2446,8 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_1.jpg",
       "/uploads/real_traffic_cone_2.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2392,7 +2485,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2730",
@@ -2401,10 +2497,10 @@ export const defaultProducts = [
     "slug": "signalli-yo-l-konusi-70-sm-nur-qaytaruvchi-chiziqli-2730",
     "sku": "NSB-042730",
     "price": 192750,
-    "oldPrice": 221662,
-    "old_price": 221662,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2424,7 +2520,7 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_4.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2461,7 +2557,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2375",
@@ -2470,10 +2569,10 @@ export const defaultProducts = [
     "slug": "standart-egiluvchan-yo-l-konusi-50-sm-2375",
     "sku": "NSB-032375",
     "price": 160625,
-    "oldPrice": 184719,
-    "old_price": 184719,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 196000,
+    "old_price": 196000,
+    "discountPercent": 18,
+    "discount_percent": 18,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2492,9 +2591,9 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_4.jpg",
       "/uploads/real_traffic_cone_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Ixcham va yorqin rangli yo'l harakati xavfsizlik konusi. Nur qaytaruvchi tasma bilan tunda ham yaqqol ko'rinadi.",
@@ -2530,7 +2629,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2341",
@@ -2539,10 +2641,10 @@ export const defaultProducts = [
     "slug": "og-ir-rezin-asosli-yo-l-konusi-75-sm-shamolga-chidamli-2341",
     "sku": "NSB-032341",
     "price": 205600,
-    "oldPrice": 236440,
-    "old_price": 236440,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2561,7 +2663,7 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_1.jpg",
       "/uploads/real_traffic_cone_2.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -2599,7 +2701,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8555",
@@ -2608,10 +2713,10 @@ export const defaultProducts = [
     "slug": "sariq-qora-signalli-yo-l-ustuni-75-sm-delimiter-8555",
     "sku": "NSB-018555",
     "price": 218450,
-    "oldPrice": 251217,
-    "old_price": 251217,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -2630,8 +2735,8 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_3.jpg",
       "/uploads/real_delineator_post_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2668,7 +2773,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_3-8536",
@@ -2677,10 +2785,10 @@ export const defaultProducts = [
     "slug": "lenta-stoyka-3m-xrom-to-siq-ustuni-tortiluvchi-qizil-lenta-bilan-8536",
     "sku": "NSB-018536",
     "price": 578250,
-    "oldPrice": 664988,
-    "old_price": 664988,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -2699,7 +2807,7 @@ export const defaultProducts = [
       "/uploads/stanchion-3m_3.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2736,7 +2844,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-8508",
@@ -2745,10 +2856,10 @@ export const defaultProducts = [
     "slug": "egiluvchan-qizil-oq-yo-l-ustuni-75-sm-stolbik-nur-qaytaruvchi-8508",
     "sku": "NSB-018508",
     "price": 218450,
-    "oldPrice": 251217,
-    "old_price": 251217,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 257000,
+    "old_price": 257000,
+    "discountPercent": 15,
+    "discount_percent": 15,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -2767,9 +2878,9 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_4.jpg",
       "/uploads/real_delineator_post_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Avtomobil urilganda qayta o'z holiga qaytuvchi egiluvchan poliuretan yo'l ustuni.",
@@ -2805,7 +2916,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3328",
@@ -2814,10 +2928,10 @@ export const defaultProducts = [
     "slug": "signalli-yo-l-ajratuvchi-ustun-60-sm-sariq-qora-3328",
     "sku": "NSB-003328",
     "price": 154200,
-    "oldPrice": 177330,
-    "old_price": 177330,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -2836,7 +2950,7 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_1.jpg",
       "/uploads/real_delineator_post_2.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -2874,7 +2988,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3295",
@@ -2883,10 +3000,10 @@ export const defaultProducts = [
     "slug": "egiluvchan-rezin-yo-l-ustuni-75-sm-qizil-oq-chiziqli-3295",
     "sku": "NSB-003295",
     "price": 179900,
-    "oldPrice": 206885,
-    "old_price": 206885,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -2905,8 +3022,8 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_2.jpg",
       "/uploads/real_delineator_post_3.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -2943,7 +3060,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3244",
@@ -2952,10 +3072,10 @@ export const defaultProducts = [
     "slug": "kompakt-yo-l-konusi-45-sm-nur-qaytaruvchi-tasmali-3244",
     "sku": "NSB-003244",
     "price": 128500,
-    "oldPrice": 147775,
-    "old_price": 147775,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -2975,7 +3095,7 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_3.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3012,7 +3132,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-3204",
@@ -3021,10 +3144,10 @@ export const defaultProducts = [
     "slug": "elastik-yo-l-konusi-70-sm-2-ta-nur-qaytaruvchi-tasmali-3204",
     "sku": "NSB-003204",
     "price": 179900,
-    "oldPrice": 206885,
-    "old_price": 206885,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 204000,
+    "old_price": 204000,
+    "discountPercent": 12,
+    "discount_percent": 12,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -3043,9 +3166,9 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_3.jpg",
       "/uploads/real_traffic_cone_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Sifatli polimerdan tayyorlangan, tunda yuqori ko'rinish beruvchi ikkitalik tasmali xavfsizlik konusi.",
@@ -3081,7 +3204,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_product-3161",
@@ -3090,10 +3216,10 @@ export const defaultProducts = [
     "slug": "suriluvchi-metall-garmoshka-to-siq-mobil-yig-iluvchi-3161",
     "sku": "NSB-003161",
     "price": 462600,
-    "oldPrice": 531990,
-    "old_price": 531990,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -3112,7 +3238,7 @@ export const defaultProducts = [
       "/uploads/real_barrier_accordion_3.jpg",
       "/uploads/real_barrier_accordion_4.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -3150,7 +3276,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-3034",
@@ -3159,10 +3288,10 @@ export const defaultProducts = [
     "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-3034",
     "sku": "NSB-003034",
     "price": 130000,
-    "oldPrice": 150000,
-    "old_price": 150000,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -3181,8 +3310,8 @@ export const defaultProducts = [
       "/uploads/real_traffic_cone_4.jpg",
       "/uploads/real_traffic_cone_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3219,7 +3348,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_product-3001",
@@ -3228,10 +3360,10 @@ export const defaultProducts = [
     "slug": "nerjaveyka-garmoshka-to-siq-zanglamas-po-latdan-suriluvchi-3001",
     "sku": "NSB-003001",
     "price": 771000,
-    "oldPrice": 886650,
-    "old_price": 886650,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -3251,7 +3383,7 @@ export const defaultProducts = [
       "/uploads/real_barrier_accordion_1.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3288,7 +3420,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_115-8758",
@@ -3297,10 +3432,10 @@ export const defaultProducts = [
     "slug": "egiluvchan-katta-yo-l-ustuni-stolbik-115-sm-8758",
     "sku": "NSB-988758",
     "price": 514000,
-    "oldPrice": 591100,
-    "old_price": 591100,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 571000,
+    "old_price": 571000,
+    "discountPercent": 10,
+    "discount_percent": 10,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3319,9 +3454,9 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_3.jpg",
       "/uploads/real_delineator_post_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Balandligi 115 sm bo'lgan, uzoqdan ko'rinadigan qizil-oq tasmali yirik egiluvchan delimitator ustuni.",
@@ -3357,7 +3492,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2537",
@@ -3366,10 +3504,10 @@ export const defaultProducts = [
     "slug": "quyosh-reflektorli-infraqizil-elektr-isitgich-30-sm-2537",
     "sku": "NSB-972537",
     "price": 109225,
-    "oldPrice": 125609,
-    "old_price": 125609,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Infraqizil & Reflektorli Isitgichlar",
     "category_slug": "infrakrasnye-isitgichlar",
     "categorySlug": "infrakrasnye-isitgichlar",
@@ -3388,7 +3526,7 @@ export const defaultProducts = [
       "/uploads/real_heater_quyosh_2.jpg",
       "/uploads/real_heater_quyosh_3.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -3426,7 +3564,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_product-2508",
@@ -3435,10 +3576,10 @@ export const defaultProducts = [
     "slug": "katta-quyosh-energiyali-signal-migalka-ogohlantiruvchi-led-chiroq-2508",
     "sku": "NSB-972508",
     "price": 1542000,
-    "oldPrice": 1773300,
-    "old_price": 1773300,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3457,8 +3598,8 @@ export const defaultProducts = [
       "/uploads/real_solar_beacon_3.jpg",
       "/uploads/real_solar_beacon_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3495,7 +3636,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_product-2459",
@@ -3504,10 +3648,10 @@ export const defaultProducts = [
     "slug": "masofadan-boshqariladigan-avtomatik-parkovka-to-sig-i-akkumulyatorli-2459",
     "sku": "NSB-972459",
     "price": 706750,
-    "oldPrice": 812762,
-    "old_price": 812762,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3527,7 +3671,7 @@ export const defaultProducts = [
       "/uploads/real_parking_lock_4.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3564,7 +3708,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_80-2418",
@@ -3573,10 +3720,10 @@ export const defaultProducts = [
     "slug": "rezina-burchak-himoyalovchi-dempfer-80-sm-sariq-qora-2418",
     "sku": "NSB-972418",
     "price": 77100,
-    "oldPrice": 88665,
-    "old_price": 88665,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 96000,
+    "old_price": 96000,
+    "discountPercent": 20,
+    "discount_percent": 20,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3595,9 +3742,9 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_4.jpg",
       "/uploads/real_delineator_post_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Ustaxonalar va garaj burchaklarini mashina tirnashidan saqlovchi nur qaytaruvchi rezina dempfer.",
@@ -3633,7 +3780,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_100-2207",
@@ -3642,10 +3792,10 @@ export const defaultProducts = [
     "slug": "rezina-burchak-himoyalovchi-dempfer-100-sm-kuchaytirilgan-2207",
     "sku": "NSB-972207",
     "price": 83525,
-    "oldPrice": 96054,
-    "old_price": 96054,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3664,7 +3814,7 @@ export const defaultProducts = [
       "/uploads/real_delineator_post_1.jpg",
       "/uploads/real_delineator_post_2.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -3702,7 +3852,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_quyosh-35-2068",
@@ -3711,10 +3864,10 @@ export const defaultProducts = [
     "slug": "quyosh-35-sm-reflektorli-infraqizil-elektr-isitgich-2068",
     "sku": "NSB-972068",
     "price": 75815,
-    "oldPrice": 87187,
-    "old_price": 87187,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Infraqizil & Reflektorli Isitgichlar",
     "category_slug": "infrakrasnye-isitgichlar",
     "categorySlug": "infrakrasnye-isitgichlar",
@@ -3733,8 +3886,8 @@ export const defaultProducts = [
       "/uploads/real_heater_quyosh_3.jpg",
       "/uploads/real_heater_quyosh_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3771,7 +3924,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_product-2056",
@@ -3780,10 +3936,10 @@ export const defaultProducts = [
     "slug": "quyosh-batareyali-avtonom-yo-l-migalkasi-signal-chirog-i-2056",
     "sku": "NSB-972056",
     "price": 1285000,
-    "oldPrice": 1477750,
-    "old_price": 1477750,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Signal Ustunlari & Belgilar",
     "category_slug": "yol-belgilari",
     "categorySlug": "yol-belgilari",
@@ -3803,7 +3959,7 @@ export const defaultProducts = [
       "/uploads/real_solar_beacon_1.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -3840,7 +3996,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-2040",
@@ -3849,10 +4008,10 @@ export const defaultProducts = [
     "slug": "sanoat-issiqlik-to-pi-portativ-ustaxona-isitgichi-2000w-2040",
     "sku": "NSB-972040",
     "price": 141350,
-    "oldPrice": 162553,
-    "old_price": 162553,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 172000,
+    "old_price": 172000,
+    "discountPercent": 18,
+    "discount_percent": 18,
     "category": "Sanoat Issiqlik To‘plari & Teploventilyatorlar",
     "category_slug": "sanoat-issiqlik-toplari",
     "categorySlug": "sanoat-issiqlik-toplari",
@@ -3871,9 +4030,9 @@ export const defaultProducts = [
       "/uploads/real_heater_cannon_2.jpg",
       "/uploads/real_heater_cannon_3.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Katta ustaxona, ombor va xonalarni tez qizdirish uchun spiral qizdirgichli kuchli ventilyatorli isitgich.",
@@ -3909,7 +4068,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_80-300-1605",
@@ -3918,10 +4080,10 @@ export const defaultProducts = [
     "slug": "suriluvchi-garmoshka-to-siq-80x300-sm-sariq-qora-1605",
     "sku": "NSB-971605",
     "price": 449750,
-    "oldPrice": 517212,
-    "old_price": 517212,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -3940,7 +4102,7 @@ export const defaultProducts = [
       "/uploads/real_barrier_accordion_1.jpg",
       "/uploads/real_barrier_accordion_2.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -3978,7 +4140,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_quyosh-40-1588",
@@ -3987,10 +4152,10 @@ export const defaultProducts = [
     "slug": "quyosh-40-sm-kuchaytirilgan-reflektorli-elektr-isitgich-1588",
     "sku": "NSB-971588",
     "price": 83525,
-    "oldPrice": 96054,
-    "old_price": 96054,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Infraqizil & Reflektorli Isitgichlar",
     "category_slug": "infrakrasnye-isitgichlar",
     "categorySlug": "infrakrasnye-isitgichlar",
@@ -4009,8 +4174,8 @@ export const defaultProducts = [
       "/uploads/real_heater_quyosh_4.jpg",
       "/uploads/heater-quyosh-40cm_1.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -4047,7 +4212,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1565",
@@ -4056,10 +4224,10 @@ export const defaultProducts = [
     "slug": "mini-keramik-stol-isitgichi-termostatli-pushti-oq-1565",
     "sku": "NSB-971565",
     "price": 115650,
-    "oldPrice": 132998,
-    "old_price": 132998,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Maishiy Stol & Keramik Isitgichlar",
     "category_slug": "maishiy-isitgichlar",
     "categorySlug": "maishiy-isitgichlar",
@@ -4079,7 +4247,7 @@ export const defaultProducts = [
       "/uploads/real_heater_ceramic_3.jpg"
     ],
     "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -4116,7 +4284,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": true,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1534",
@@ -4125,10 +4296,10 @@ export const defaultProducts = [
     "slug": "ustaxona-va-qurilish-issiqlik-ventilyatori-2000w-dumaloq-1534",
     "sku": "NSB-971534",
     "price": 115650,
-    "oldPrice": 132998,
-    "old_price": 132998,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 136000,
+    "old_price": 136000,
+    "discountPercent": 15,
+    "discount_percent": 15,
     "category": "Sanoat Issiqlik To‘plari & Teploventilyatorlar",
     "category_slug": "sanoat-issiqlik-toplari",
     "categorySlug": "sanoat-issiqlik-toplari",
@@ -4147,9 +4318,9 @@ export const defaultProducts = [
       "/uploads/real_heater_cannon_3.jpg",
       "/uploads/real_heater_cannon_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
-    "is_weekly_deal": false,
+    "is_bestseller": false,
+    "is_new_arrival": false,
+    "is_weekly_deal": true,
     "variantLabel": "",
     "variants": [],
     "description": "Metall mustahkam korpusli, harorat regulyatoriga ega qurilish issiqlik ventilyatori.",
@@ -4193,7 +4364,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": true
   },
   {
     "_id": "prod_product-1518",
@@ -4202,10 +4376,10 @@ export const defaultProducts = [
     "slug": "plastmassa-yig-iluvchi-garmoshka-to-siq-yengil-mobil-to-siq-1518",
     "sku": "NSB-971518",
     "price": 706750,
-    "oldPrice": 812762,
-    "old_price": 812762,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Yo‘l Konuslari & To‘siqlar",
     "category_slug": "yol-konuslari",
     "categorySlug": "yol-konuslari",
@@ -4224,7 +4398,7 @@ export const defaultProducts = [
       "/uploads/real_barrier_accordion_2.jpg",
       "/uploads/real_barrier_accordion_3.jpg"
     ],
-    "is_bestseller": true,
+    "is_bestseller": false,
     "is_new_arrival": true,
     "is_weekly_deal": false,
     "variantLabel": "",
@@ -4262,7 +4436,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "isWeeklyDeal": false
   },
   {
     "_id": "prod_akkumulyatorli-zarbli-drel-shurupovyort-universal-2-ta-batareya-va-keys-bilan-1424",
@@ -4271,10 +4448,10 @@ export const defaultProducts = [
     "slug": "kompakt-maishiy-stol-isitgichi-tez-qizdiruvchi-1424",
     "sku": "NSB-971424",
     "price": 141350,
-    "oldPrice": 162553,
-    "old_price": 162553,
-    "discountPercent": 13,
-    "discount_percent": 13,
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
     "category": "Maishiy Stol & Keramik Isitgichlar",
     "category_slug": "maishiy-isitgichlar",
     "categorySlug": "maishiy-isitgichlar",
@@ -4293,8 +4470,8 @@ export const defaultProducts = [
       "/uploads/real_heater_ceramic_3.jpg",
       "/uploads/real_heater_ceramic_4.jpg"
     ],
-    "is_bestseller": true,
-    "is_new_arrival": true,
+    "is_bestseller": false,
+    "is_new_arrival": false,
     "is_weekly_deal": false,
     "variantLabel": "",
     "variants": [],
@@ -4331,7 +4508,10 @@ export const defaultProducts = [
       "To'lov: Click, Payme yoki naqd"
     ],
     "stock_count": 25,
-    "is_hit": false
+    "is_hit": false,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "isWeeklyDeal": false
   }
 ];
 
