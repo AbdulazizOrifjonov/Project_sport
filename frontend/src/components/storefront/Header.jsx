@@ -162,14 +162,22 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
   };
 
   const currencyLabel = t('product.currency', 'so‘m');
-  const formatPrice = (num) => `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  const formatPrice = (num, product) => {
+    const val = Number(num || 0);
+    const isUsd = product?.currency === 'USD' || (val > 0 && val < 1000);
+    if (isUsd) {
+      return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+    }
+    const intStr = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return `${intStr} ${currencyLabel}`;
+  };
 
   return (
     <>
-      {/* Sticky Active Navbar Header (Topbar + Main Header + Kategoriyalar tasmagichi) */}
+      {/* Fixed Active Navbar Header (Topbar + Main Header + Kategoriyalar tasmagichi) */}
       <header
         ref={headerRef}
-        className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200"
+        className="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200"
       >
         {/* 1. Top Utility Contact Bar */}
         <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
@@ -340,7 +348,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                             {p.title}
                           </div>
                           <div className="text-[14px] font-black text-slate-950 dark:text-white mt-1">
-                            {formatPrice(p.price)}
+                            {formatPrice(p.price, p)}
                           </div>
                         </div>
                         <ChevronRight className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-slate-500 group-hover:translate-x-0.5 transition-all shrink-0" />
@@ -466,7 +474,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-[12px] font-medium text-slate-900 dark:text-white truncate">{p.title}</div>
-                          <div className="text-[11px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price)}</div>
+                          <div className="text-[11px] font-extrabold text-slate-950 dark:text-white">{formatPrice(p.price, p)}</div>
                         </div>
                         <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
                       </Link>
@@ -678,6 +686,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           </div>
         </div>
       </header>
+      {/* Fixed header spacer so content starts cleanly below the fixed navbar */}
+      <div style={{ height: 'var(--nsb-header-height, 104px)' }} aria-hidden="true" />
 
       {/* Mobile Slide-over Drawer Modal */}
       {mobileMenuOpen && (

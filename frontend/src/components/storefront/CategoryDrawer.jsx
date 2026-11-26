@@ -369,21 +369,28 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                         onClick={() => handleProductClick(p.slug)}
                         className="group p-2.5 sm:p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-900 dark:hover:border-white transition-all cursor-pointer bg-slate-50/60 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md"
                       >
-                        <div className="w-full aspect-[3/4] rounded-lg bg-white dark:bg-slate-900 overflow-hidden mb-2 sm:mb-2.5 border border-slate-100 dark:border-slate-800">
+                        <div className="w-full aspect-square rounded-lg bg-white overflow-hidden mb-2 sm:mb-2.5 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-1.5">
                           <img
                             src={
                               p.images?.[0] ||
                               'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=300&auto=format&fit=crop&q=80'
                             }
                             alt={p.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out will-change-transform"
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 ease-out will-change-transform"
                           />
                         </div>
                         <h5 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-slate-950 dark:group-hover:text-white transition-colors">
                           {p.title}
                         </h5>
                         <p className="text-xs font-black text-slate-950 dark:text-white mt-1">
-                          {(p.price || 0).toLocaleString('ru-RU')} so‘m
+                          {(() => {
+                            const val = Number(p.price || 0);
+                            const isUsd = p.currency === 'USD' || (val > 0 && val < 1000);
+                            if (isUsd) {
+                              return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+                            }
+                            return `${Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} so‘m`;
+                          })()}
                         </p>
                       </div>
                     ))}
