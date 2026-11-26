@@ -87,6 +87,68 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_1-5-kv-6167",
+    "id": "prod_1-5-kv-6167",
+    "title": "1.5 kv",
+    "slug": "1-5-kv-6167",
+    "sku": "NSB-996170",
+    "price": 9,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-920555_1.png",
+      "/uploads/prod-920555_2.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "1.5 kv - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:53:16.170Z"
+  },
+  {
     "_id": "prod_2-kv-2399",
     "id": "prod_2-kv-2399",
     "title": "2 kv",
