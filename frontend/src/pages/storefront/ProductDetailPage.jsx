@@ -420,7 +420,7 @@ export default function ProductDetailPage() {
                     type="button"
                     onClick={() => setSelectedImage(i)}
                     onMouseEnter={() => setSelectedImage(i)}
-                    className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white dark:bg-slate-900 overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
+                    className={`group relative w-16 sm:w-20 aspect-square rounded-xl border-2 p-0 bg-white overflow-hidden shrink-0 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg hover:z-10 ${
                       selectedImage === i
                         ? 'border-slate-950 dark:border-white shadow-md ring-2 ring-slate-900/40 dark:ring-white/40 scale-102'
                         : 'border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
@@ -456,8 +456,8 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          {/* Main Selected Image - Ixcham 1:1 kvadrat (eniga bo'yi bir xil) */}
-          <div className="relative flex-1 w-full max-w-[500px] aspect-square rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
+          {/* Main Selected Image - Ixcham 1:1 kvadrat (eniga bo'yi bir xil, atrofi doim oq) */}
+          <div className="relative flex-1 w-full max-w-[500px] aspect-square rounded-2xl bg-white border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs group select-none transition-shadow duration-300 hover:shadow-xl">
             {/* Discount Badge */}
             {product.discountPercent > 0 && (
               <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg text-xs font-black bg-red-600 text-white shadow-xs pointer-events-none">
@@ -502,7 +502,7 @@ export default function ProductDetailPage() {
                 style={{ transform: `translateX(-${selectedImage * 100}%)` }}
               >
                 {images.map((img, i) => (
-                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-white dark:bg-slate-900 overflow-hidden">
+                  <div key={i} className="min-w-full w-full h-full shrink-0 flex items-center justify-center bg-white overflow-hidden">
                     <img
                       src={img}
                       alt={`${product.title} ${i + 1}`}

@@ -136,7 +136,7 @@ export default function ProductCard({ product }) {
     >
       {/* 1. Top Image Area - 1:1 kvadrat (eniga bo'yi har doim teng) */}
       <div
-        className="relative w-full aspect-square bg-white dark:bg-slate-900 overflow-hidden select-none cursor-pointer"
+        className="relative w-full aspect-square bg-white overflow-hidden select-none cursor-pointer"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
