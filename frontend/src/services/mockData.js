@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
+    "id": "prod_yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
+    "title": "Yo‘l harakati xavfsizlik konusi TPU 75 sm (Egiluvchan, nur qaytaruvchi tasmali)",
+    "slug": "yo-l-harakati-xavfsizlik-konusi-tpu-75-sm-egiluvchan-nur-qaytaruvchi-tasmali-0047",
+    "sku": "NSB-840047",
+    "price": 10,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "RoadSafety Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-832002_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Avtomobil harakati va yo‘l ta'mirlash xavfsizligi uchun maxsus elastik TPU egiluvchan konusi. Avtomobil bosib ketganda sinmaydi va o‘z holatiga qaytadi. Yuqori sifatli nur qaytaruvchi lentalar bilan tunda ham uzoqdan aniq ko‘rinadi.",
+    "specifications": [
+      {
+        "label": "Balandligi",
+        "value": "75 sm"
+      },
+      {
+        "label": "Materiali",
+        "value": "TPU (Yuqori elastik poliuretan)"
+      },
+      {
+        "label": "Ko‘rinuvchanlik",
+        "value": "3M nur qaytaruvchi tasmalar"
+      },
+      {
+        "label": "Chidamlilik",
+        "value": "Avtomobil bosib ketishiga chidamli"
+      },
+      {
+        "label": "Qo‘llanishi",
+        "value": "Yo‘l ta'miri, avtomaktab, parkovka va xavfsizlik"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-26T11:00:40.047Z"
+  },
+  {
     "_id": "prod_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-1712",
     "id": "prod_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-1712",
     "title": "PVX Taktil plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
