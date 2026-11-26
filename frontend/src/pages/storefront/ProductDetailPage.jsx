@@ -196,6 +196,20 @@ export default function ProductDetailPage() {
   const fallbackImage =
     'https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=1000&auto=format&fit=crop&q=80';
 
+  const handleImgError = (e, src) => {
+    const rawFallback =
+      typeof src === 'string' && src.startsWith('/uploads/')
+        ? `https://raw.githubusercontent.com/AbdulazizOrifjonov/Project_sport/main/frontend/public${src}`
+        : null;
+    if (rawFallback && !e.target.dataset.triedGithub) {
+      e.target.dataset.triedGithub = '1';
+      e.target.src = rawFallback;
+      return;
+    }
+    e.target.onerror = null;
+    e.target.src = fallbackImage;
+  };
+
   // Product gallery images
   const rawImages = (product.images && product.images.length > 0 && product.images.filter((img) => img && img.trim() !== '')) || [fallbackImage];
   const images = rawImages;
@@ -416,10 +430,7 @@ export default function ProductDetailPage() {
                     <img
                       src={img}
                       alt=""
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = fallbackImage;
-                      }}
+                      onError={(e) => handleImgError(e, img)}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 will-change-transform"
                     />
                   </button>
@@ -495,10 +506,7 @@ export default function ProductDetailPage() {
                     <img
                       src={img}
                       alt={`${product.title} ${i + 1}`}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = fallbackImage;
-                      }}
+                      onError={(e) => handleImgError(e, img)}
                       style={{
                         transform: isZooming && selectedImage === i ? 'scale(1.55)' : 'scale(1)',
                         transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
@@ -1029,10 +1037,7 @@ export default function ProductDetailPage() {
               <img
                 src={images[selectedImage]}
                 alt={product.title}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = fallbackImage;
-                }}
+                onError={(e) => handleImgError(e, images[selectedImage])}
                 className="max-w-full max-h-[72vh] object-contain rounded-2xl shadow-2xl transition-all duration-200 select-none cursor-default"
               />
             </div>

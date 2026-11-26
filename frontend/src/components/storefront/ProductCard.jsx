@@ -252,6 +252,15 @@ export default function ProductCard({ product }) {
             draggable={false}
             loading="lazy"
             onError={(e) => {
+              const rawFallback =
+                typeof currentImageSrc === 'string' && currentImageSrc.startsWith('/uploads/')
+                  ? `https://raw.githubusercontent.com/AbdulazizOrifjonov/Project_sport/main/frontend/public${currentImageSrc}`
+                  : null;
+              if (rawFallback && !e.target.dataset.triedGithub) {
+                e.target.dataset.triedGithub = '1';
+                e.target.src = rawFallback;
+                return;
+              }
               e.target.onerror = null;
               e.target.src = fallbackImage;
             }}

@@ -156,7 +156,7 @@ const CATEGORIES = [
     department: 'sport',
     departmentName: 'Sport & Fitnes',
     icon: 'Activity',
-    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'velo', 'velotrenajor', 'kardio', 'беговая дорожка', 'тренажер']
+    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'velo', 'velotrenajor', 'kardio', 'беговая дорожка', 'бегавой', 'беговой', 'беговая', 'тренажер', 'treadmill', 'нагрузка']
   },
   {
     slug: 'gantellar',
