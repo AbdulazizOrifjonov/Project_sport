@@ -87,6 +87,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-1712",
+    "id": "prod_pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-1712",
+    "title": "PVX Taktil plitka 300x300 mm (Ko‘zi ojizlar uchun yo‘naltiruvchi va ogohlantiruvchi)",
+    "slug": "pvx-taktil-plitka-300x300-mm-ko-zi-ojizlar-uchun-yo-naltiruvchi-va-ogohlantiruvchi-1712",
+    "sku": "NSB-791712",
+    "price": 16000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Yo‘l Konuslari & To‘siqlar",
+    "category_slug": "yol-konuslari",
+    "categorySlug": "yol-konuslari",
+    "department": "yol-harakati",
+    "departmentName": "Yo‘l & Harakat Xavfsizligi",
+    "subcategory": "",
+    "brand": "SafeRoad",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-766780_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Ko‘zi ojiz va zaif ko‘ruvchi insonlar piyoda harakatlanishi uchun maxsus taktil ogohlantiruvchi va yo‘naltiruvchi sarg‘ish PVX plitkasi. Sirpanmaydigan, yorug‘lik va ob-havo haroratiga o‘ta chidamli polimer material.",
+    "specifications": [
+      {
+        "label": "O‘lchami",
+        "value": "300x300x7 mm"
+      },
+      {
+        "label": "Materiali",
+        "value": "Yuqori sifatli egiluvchan elastik PVX"
+      },
+      {
+        "label": "Rangi",
+        "value": "Yorqin sariq (Signal sariq)"
+      },
+      {
+        "label": "Xususiyati",
+        "value": "Sirpanishga qarshi relyefli yuzaga ega"
+      }
+    ],
+    "created_at": "2026-11-26T10:59:51.712Z"
+  },
+  {
     "_id": "prod_product-6806",
     "id": "prod_product-6806",
     "title": "Степпер поворотный",
