@@ -156,7 +156,7 @@ const CATEGORIES = [
     department: 'sport',
     departmentName: 'Sport & Fitnes',
     icon: 'Activity',
-    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'velo', 'velotrenajor', 'kardio', 'беговая дорожка', 'бегавой', 'беговой', 'беговая', 'тренажер', 'treadmill', 'нагрузка']
+    keywords: ['masaj', 'massaj', 'kreslo', 'massage', 'trenajor', 'yugurish', 'dorojka', 'velo', 'velotrenajor', 'kardio', 'беговая дорожка', 'бегавой', 'беговой', 'беговая', 'тренажер', 'treadmill', 'нагрузка', 'stepper', 'степпер']
   },
   {
     slug: 'gantellar',
@@ -245,15 +245,22 @@ function extractPriceAndTitle(caption = '') {
     }
   }
 
-  // 2. Check for UZS prices with currency word (so'm, sum, uzs, ming, etc.)
+  // 2. Check for UZS prices with "ming / минг / тыс" (e.g. "750 минг", "130 ming") or currency word
   if (!price) {
     for (const line of rawLines) {
-      const somMatch = line.match(/\b(\d{1,3}(?:[\s.,]\d{3})+|\d{4,9})\s*(?:so'?m|sōm|sum|ming|uzs|сум)\b/i);
-      if (somMatch) {
-        let digits = somMatch[1].replace(/[^\d]/g, '');
-        if (/ming/i.test(somMatch[0])) {
-          digits = digits + '000';
+      const mingMatch = line.match(/(\d+(?:[.,]\d+)?)\s*(?:ming|минг|тыс\.?)(?:\s*(?:so'?m|sōm|sum|uzs|сум))?(?![a-zA-Zа-яА-ЯёЁ0-9])/i);
+      if (mingMatch) {
+        const num = parseFloat(mingMatch[1].replace(',', '.'));
+        if (num > 0) {
+          price = Math.round(num * 1000);
+          rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
+          priceSubstr = mingMatch[0];
+          break;
         }
+      }
+      const somMatch = line.match(/(\d{1,3}(?:[\s.,]\d{3})+|\d{4,9})\s*(?:so'?m|sōm|sum|uzs|сум)(?![a-zA-Zа-яА-ЯёЁ0-9])/i);
+      if (somMatch) {
+        const digits = somMatch[1].replace(/[^\d]/g, '');
         if (digits.length >= 4) {
           price = parseInt(digits, 10);
           rawPriceLabel = `${new Intl.NumberFormat('uz-UZ').format(price)} so'm`;
@@ -873,6 +880,26 @@ async function processMediaGroup(key, groupData) {
   mediaGroupBuffer.delete(key);
   userSinglePhotoBuffer.delete(key);
 
+  const cleanCaption = (caption || '').trim();
+  if (!cleanCaption) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> yozib yuboring (masalan: <code>750 ming</code>, <code>130 000 so‘m</code> yoki <code>$35</code>).`
+    });
+    return;
+  }
+
+  const priceCheck = extractPriceAndTitle(cleanCaption);
+  if (!priceCheck || priceCheck.price <= 0) {
+    await sendTelegram('sendMessage', {
+      chat_id: chatId,
+      parse_mode: 'HTML',
+      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>750 ming</code>, <code>130 000 so‘m</code> yoki <code>$25</code>).`
+    });
+    return;
+  }
+
   console.log(`Processing media group with ${photos.length} photos...`);
 
   await sendTelegram('sendMessage', {
@@ -1023,22 +1050,33 @@ async function handleUpdate(update) {
 
   const mediaGroupId = msg.media_group_id;
 
-  // If this photo/file belongs to an existing media group album, append it even without caption
-  if (mediaGroupId && mediaGroupBuffer.has(mediaGroupId)) {
-    const group = mediaGroupBuffer.get(mediaGroupId);
-    group.photos.push(photoObj);
-    if (caption) group.caption = caption;
-    clearTimeout(group.timer);
-    group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+  // Buffer ALL photos/files in an album (media_group_id) first, since Telegram often puts caption only on the last item!
+  if (mediaGroupId) {
+    if (mediaGroupBuffer.has(mediaGroupId)) {
+      const group = mediaGroupBuffer.get(mediaGroupId);
+      group.photos.push(photoObj);
+      if (caption) group.caption = caption;
+      clearTimeout(group.timer);
+      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+    } else {
+      const group = {
+        chatId,
+        photos: [photoObj],
+        caption: caption,
+        timer: null
+      };
+      group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
+      mediaGroupBuffer.set(mediaGroupId, group);
+    }
     return;
   }
 
-  // 4. CHECK STRICT RULE: PHOTO/FILE WITHOUT CAPTION
+  // 4. CHECK STRICT RULE: SINGLE PHOTO/FILE WITHOUT CAPTION
   if (!caption) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> yozib yuboring (masalan: <code>130 000 so‘m</code> yoki <code>$35</code>).`
+      text: `❌ <b>Faqat rasm qabul qilinmaydi!</b>\n\nIltimos, rasm tagiga mahsulot <b>narxini</b> yozib yuboring (masalan: <code>750 ming</code>, <code>130 000 so‘m</code> yoki <code>$35</code>).`
     });
     return;
   }
@@ -1049,25 +1087,13 @@ async function handleUpdate(update) {
     await sendTelegram('sendMessage', {
       chat_id: chatId,
       parse_mode: 'HTML',
-      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>130 000 so‘m</code> yoki <code>$25</code>).`
+      text: `⚠️ <b>Mahsulot narxi topilmadi!</b>\n\nIltimos, rasm tagiga mahsulot narxini yozing (masalan: <code>750 ming</code>, <code>130 000 so‘m</code> yoki <code>$25</code>).`
     });
     return;
   }
 
   // 6. PHOTO OR IMAGE FILE IS VALID AND HAS PRICE -> PROCESS!
   const largestPhoto = photoObj;
-
-  if (mediaGroupId) {
-    const group = {
-      chatId,
-      photos: [largestPhoto],
-      caption: caption,
-      timer: null
-    };
-    group.timer = setTimeout(() => processMediaGroup(mediaGroupId, group), 1800);
-    mediaGroupBuffer.set(mediaGroupId, group);
-    return;
-  }
 
   // SINGLE PHOTO
   const userKey = `user_${chatId}`;
