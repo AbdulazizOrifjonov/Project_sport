@@ -87,6 +87,59 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0428",
+    "id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0428",
+    "title": "Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Uy va Zal Uchun)",
+    "slug": "elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0428",
+    "sku": "NSB-660428",
+    "price": 420,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Sport Line",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-656657_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Uy sharoitida yugurish va tez yurish uchun ixcham elektr yugurish yo‘lakchasi. LED displey, xavfsizlik kaliti va zarbani yutuvchi lenta bilan jihozlangan.",
+    "specifications": [
+      {
+        "label": "Turi",
+        "value": "Elektr yugurish yo‘lakchasi"
+      },
+      {
+        "label": "Displey",
+        "value": "LED ekran (Tezlik, vaqt, masofa, kaloriya)"
+      },
+      {
+        "label": "Maksimal yuklama",
+        "value": "100 kg gacha"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-27T14:44:20.428Z"
+  },
+  {
     "_id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0199",
     "id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0199",
     "title": "Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Uy va Zal Uchun)",
