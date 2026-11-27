@@ -87,6 +87,63 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-2549",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-2549",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-2549",
+    "sku": "NSB-032549",
+    "price": 825000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-999139_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:52.549Z"
+  },
+  {
     "_id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6201",
     "id": "prod_2-1-akkumulyatorli-bog-va-qurilish-to-plami-mini-zanjirli-arra-bog-qaychisi-6201",
     "title": "2&1 Akkumulyatorli Bog‘ va Qurilish To‘plami (Mini Zanjirli Arra + Bog‘ Qaychisi)",
