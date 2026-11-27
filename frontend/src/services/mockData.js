@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_igrovoy-apparat-dlya-reaktsii-6025",
+    "id": "prod_igrovoy-apparat-dlya-reaktsii-6025",
+    "title": "Igrovoy apparat dlya reaktsii",
+    "slug": "igrovoy-apparat-dlya-reaktsii-6025",
+    "sku": "NSB-746025",
+    "price": 350,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-741552_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Igrovoy apparat dlya reaktsii - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-27T14:45:46.025Z"
+  },
+  {
     "_id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0428",
     "id": "prod_elektr-yugurish-yo-lakchasi-begovoy-dorojka-uy-va-zal-uchun-0428",
     "title": "Elektr Yugurish Yo‘lakchasi (Begovoy Dorojka, Uy va Zal Uchun)",
