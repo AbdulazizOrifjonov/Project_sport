@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MAIN_GROUPS, getCategoryMainGroup, getProductMainGroup } from '../../utils/productGroups';
+import { MAIN_GROUPS, getCategoryMainGroup, getProductMainGroup, formatProductPrice } from '../../utils/productGroups';
 import {
   DollarSign,
   ShoppingBag,
@@ -1976,11 +1976,11 @@ export default function AdminDashboard() {
                             {/* 3. Narxi */}
                             <div className="shrink-0 text-right pr-1">
                               <div className="font-black text-xs sm:text-sm text-slate-950 dark:text-white whitespace-nowrap">
-                                {formatPrice(p.price)}
+                                {formatProductPrice(p.price, p)}
                               </div>
                               {p.oldPrice > p.price && (
                                 <div className="text-[10px] text-slate-400 line-through">
-                                  {formatPrice(p.oldPrice)}
+                                  {formatProductPrice(p.oldPrice, p)}
                                 </div>
                               )}
                             </div>
@@ -2046,7 +2046,7 @@ export default function AdminDashboard() {
                                 <div className="text-[11px] text-slate-400 font-mono mt-0.5">SKU: {p.sku || 'N/A'} • {p.brand || 'NSB'}</div>
                               </td>
                               <td className="p-3 font-semibold text-slate-600 dark:text-slate-300">{p.category}</td>
-                              <td className="p-3 font-black text-slate-950 dark:text-white whitespace-nowrap">{formatPrice(p.price)}</td>
+                              <td className="p-3 font-black text-slate-950 dark:text-white whitespace-nowrap">{formatProductPrice(p.price, p)}</td>
                               <td className="p-3">
                                 <span className={`px-2.5 py-1 rounded-full font-black text-[11px] ${
                                   p.stock > 5 ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 animate-pulse'

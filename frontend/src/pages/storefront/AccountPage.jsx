@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { User, LogOut, Package, MapPin, Phone, Mail, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../services/api';
+import { formatProductPrice, formatItemsTotal } from '../../utils/productGroups';
 
 export default function AccountPage() {
   const { user, login, register, logout, isAdmin } = useAuth();
@@ -111,14 +112,14 @@ export default function AccountPage() {
                     {o.items.map((it, idx) => (
                       <div key={idx} className="py-2 flex justify-between items-center text-slate-700 dark:text-slate-300">
                         <span className="font-medium">{it.title} × {it.quantity}</span>
-                        <span className="font-bold text-slate-900 dark:text-white font-mono">{formatPrice(it.price * it.quantity)} so'm</span>
+                        <span className="font-bold text-slate-900 dark:text-white font-mono">{formatProductPrice(it.price * it.quantity, it)}</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-baseline text-xs">
                     <span className="text-slate-500 dark:text-slate-400">To‘lov: <strong className="uppercase text-slate-900 dark:text-white">{o.paymentMethod}</strong></span>
-                    <span className="text-sm font-black text-slate-950 dark:text-white">Jami: {formatPrice(o.totalAmount)} so'm</span>
+                    <span className="text-sm font-black text-slate-950 dark:text-white">Jami: {o.items?.length ? formatItemsTotal(o.items) : `${formatPrice(o.totalAmount)} so‘m`}</span>
                   </div>
                 </div>
               ))}
