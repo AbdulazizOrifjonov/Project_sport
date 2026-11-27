@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { GitCompare, X, ShoppingCart, ArrowRight } from 'lucide-react';
 import { useCompare } from '../../context/CompareContext';
 import { useCart } from '../../context/CartContext';
+import { formatProductPrice } from '../../utils/productGroups';
 
 export default function ComparePage() {
   const { compareList, toggleCompare, clearCompare } = useCompare();
   const { addToCart } = useCart();
 
-  const formatPrice = (n) => (n || 0).toLocaleString('ru-RU');
+  const formatPrice = (n, p) => formatProductPrice(n, p, "so‘m");
 
   if (compareList.length === 0) {
     return (
@@ -69,7 +70,7 @@ export default function ComparePage() {
                     </div>
                     <div className="font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug">{p.title}</div>
                     <div className="text-sm font-black text-slate-950 dark:text-white mt-1">
-                      {formatPrice(p.price)} so'm
+                      {formatPrice(p.price, p)}
                     </div>
                     <button
                       onClick={() => addToCart(p)}

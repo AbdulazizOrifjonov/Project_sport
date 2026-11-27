@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 import YandexMapPicker from '../../components/storefront/YandexMapPicker';
+import { formatProductPrice, formatItemsTotal } from '../../utils/productGroups';
 
 export default function CheckoutPage() {
   const { cartItems, cartTotal, clearCart } = useCart();
@@ -36,7 +37,8 @@ export default function CheckoutPage() {
   const [successOrder, setSuccessOrder] = useState(null);
 
   const currencyLabel = t('product.currency', 'so‘m');
-  const formatPrice = (n) => `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  const formatPrice = (n, item) => formatProductPrice(n, item, currencyLabel);
+  const formattedTotal = formatItemsTotal(cartItems, currencyLabel);
 
   const handleAddressFromMap = ({ address, city, lat, lon, locationUrl }) => {
     setFormData((prev) => ({
@@ -388,11 +390,11 @@ export default function CheckoutPage() {
                 <div className="truncate">
                   <div className="font-bold text-slate-900 dark:text-slate-100 truncate">{item.title}</div>
                   <div className="text-[11px] text-slate-400 dark:text-slate-500">
-                    {item.quantity} x {formatPrice(item.price)}
+                    {item.quantity} x {formatPrice(item.price, item)}
                   </div>
                 </div>
                 <span className="font-extrabold text-slate-950 dark:text-white flex-shrink-0">
-                  {formatPrice(item.price * item.quantity)}
+                  {formatPrice(item.price * item.quantity, item)}
                 </span>
               </div>
             ))}
@@ -401,7 +403,7 @@ export default function CheckoutPage() {
           <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-xs">
             <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
               <span>{t('checkout.subtotal', 'Mahsulotlar jami')}:</span>
-              <span className="font-bold text-slate-950 dark:text-white">{formatPrice(cartTotal)}</span>
+              <span className="font-bold text-slate-950 dark:text-white">{formattedTotal}</span>
             </div>
             {couponDiscount > 0 && (
               <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-semibold">
@@ -418,7 +420,7 @@ export default function CheckoutPage() {
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-baseline">
             <span className="text-sm font-bold text-slate-900 dark:text-slate-200">{t('checkout.total', 'Jami to‘lov')}:</span>
             <span className="text-2xl font-black text-slate-950 dark:text-white tracking-tight">
-              {formatPrice(finalTotal)}
+              {couponDiscount > 0 ? formatPrice(finalTotal) : formattedTotal}
             </span>
           </div>
 

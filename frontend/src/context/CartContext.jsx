@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import api from '../services/api';
 
 const CartContext = createContext();
 
@@ -11,6 +12,38 @@ export const CartProvider = ({ children }) => {
       return [];
     }
   });
+
+  // Reconcile cart items with live Supabase products (removes deleted/stale products & refreshes prices)
+  useEffect(() => {
+    api
+      .get('/products/featured')
+      .then((res) => {
+        if (res.data.success && Array.isArray(res.data.allProducts)) {
+          const byId = new Map();
+          const bySlug = new Map();
+          for (const p of res.data.allProducts) {
+            if (p._id) byId.set(p._id, p);
+            if (p.id) byId.set(p.id, p);
+            if (p.slug) bySlug.set(p.slug, p);
+          }
+          setCartItems((prev) => {
+            if (!prev.length) return prev;
+            const synced = [];
+            for (const item of prev) {
+              const live = byId.get(item._id) || byId.get(item.id) || bySlug.get(item.slug);
+              if (live) {
+                synced.push({
+                  ...live,
+                  quantity: item.quantity || 1
+                });
+              }
+            }
+            return synced;
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('nsb_cart', JSON.stringify(cartItems));

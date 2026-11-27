@@ -177,3 +177,53 @@ export function getGroupedProductsSortedByCount(products = []) {
 
   return { groups, orderedProducts };
 }
+
+/**
+ * Determine whether a product price is in USD ($).
+ */
+export function isUsdProduct(price, productOrCurrency) {
+  const val = Number(price || 0);
+  const currency =
+    typeof productOrCurrency === 'string'
+      ? productOrCurrency
+      : productOrCurrency?.currency;
+  return currency === 'USD' || (val > 0 && val < 1000);
+}
+
+/**
+ * Format a single price (USD or UZS) cleanly.
+ */
+export function formatProductPrice(price, productOrCurrency, currencyLabel = 'so‘m') {
+  const val = Number(price || 0);
+  if (isUsdProduct(val, productOrCurrency)) {
+    return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+  }
+  const intStr = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return `${intStr} ${currencyLabel}`;
+}
+
+/**
+ * Format cart/order totals supporting USD, UZS, or mixed items.
+ */
+export function formatItemsTotal(items = [], currencyLabel = 'so‘m') {
+  let usdTotal = 0;
+  let uzsTotal = 0;
+  for (const item of items) {
+    const qty = Number(item.quantity || 1);
+    const price = Number(item.price || 0);
+    if (isUsdProduct(price, item)) {
+      usdTotal += price * qty;
+    } else {
+      uzsTotal += price * qty;
+    }
+  }
+  const parts = [];
+  if (usdTotal > 0) {
+    parts.push(`$${usdTotal.toLocaleString('en-US', { maximumFractionDigits: 2 })}`);
+  }
+  if (uzsTotal > 0 || parts.length === 0) {
+    const intStr = Math.round(uzsTotal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    parts.push(`${intStr} ${currencyLabel}`);
+  }
+  return parts.join(' + ');
+}

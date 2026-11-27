@@ -24,8 +24,14 @@ export default function ProductFeedbackModal({ isOpen, onClose, product, onRevie
     (product.images && product.images[0]) || product.image || fallbackImage;
 
   const currencyLabel = t('product.currency', 'so‘m');
-  const formatPrice = (num) =>
-    `${(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  const formatPrice = (num) => {
+    const val = Number(num || 0);
+    const isUsd = product?.currency === 'USD' || (val > 0 && val < 1000);
+    if (isUsd) {
+      return `$${val.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+    }
+    return `${Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${currencyLabel}`;
+  };
 
   const ratingDescriptions = {
     uz: {

@@ -4,6 +4,7 @@ import { Trash2, Plus, Minus, ArrowRight, ShoppingBag, Tag, Check } from 'lucide
 import { useCart } from '../../context/CartContext';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
+import { formatProductPrice, formatItemsTotal } from '../../utils/productGroups';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart, cartTotal } = useCart();
@@ -16,7 +17,8 @@ export default function CartPage() {
   const [couponError, setCouponError] = useState('');
 
   const currencyLabel = t('product.currency', 'so‘m');
-  const formatPrice = (n) => `${(n || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} ${currencyLabel}`;
+  const formatPrice = (n, item) => formatProductPrice(n, item, currencyLabel);
+  const formattedTotal = formatItemsTotal(cartItems, currencyLabel);
 
   const fallbackImage =
     'https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=600&auto=format&fit=crop&q=80';
@@ -108,7 +110,7 @@ export default function CartPage() {
                       {item.title}
                     </Link>
                     <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1">
-                      {formatPrice(item.price)}
+                      {formatPrice(item.price, item)}
                     </div>
                   </div>
                 </div>
@@ -139,7 +141,7 @@ export default function CartPage() {
 
                   <div className="text-right min-w-[110px]">
                     <div className="text-sm sm:text-base font-black text-slate-950 dark:text-white tracking-tight">
-                      {formatPrice(item.price * item.quantity)}
+                      {formatPrice(item.price * item.quantity, item)}
                     </div>
                   </div>
 
@@ -219,7 +221,7 @@ export default function CartPage() {
             <div className="space-y-2.5 text-xs">
               <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
                 <span>{t('cart.subtotal', 'Mahsulotlar qiymati')}:</span>
-                <span className="font-bold text-slate-950 dark:text-white">{formatPrice(cartTotal)}</span>
+                <span className="font-bold text-slate-950 dark:text-white">{formattedTotal}</span>
               </div>
               {couponDiscount > 0 && (
                 <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-semibold">
@@ -239,7 +241,7 @@ export default function CartPage() {
             <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-baseline">
               <span className="text-sm font-bold text-slate-900 dark:text-slate-200">{t('cart.total', 'Jami to‘lov')}:</span>
               <span className="text-2xl font-black text-slate-950 dark:text-white tracking-tight">
-                {formatPrice(finalTotal)}
+                {couponDiscount > 0 ? formatPrice(finalTotal) : formattedTotal}
               </span>
             </div>
 

@@ -4,7 +4,7 @@ import { Filter, SlidersHorizontal, ChevronRight, Check, X, RotateCcw } from 'lu
 import ProductCard from '../../components/storefront/ProductCard';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
-import { getProductMainGroup } from '../../utils/productGroups';
+import { getProductMainGroup, MAIN_GROUPS } from '../../utils/productGroups';
 
 export default function CatalogPage() {
   const { categorySlug } = useParams();
@@ -41,16 +41,19 @@ export default function CatalogPage() {
     setSelectedCategory(cat);
   }, [categorySlug, searchParams]);
 
-  const handleSelectCategory = (slug) => {
-    setSelectedCategory(slug);
+  const handleSelectGroup = (groupId) => {
+    setSelectedCategory('');
     const newParams = new URLSearchParams(searchParams);
-    if (slug) {
-      newParams.set('category', slug);
+    newParams.delete('category');
+    if (groupId) {
+      newParams.set('group', groupId);
     } else {
-      newParams.delete('category');
+      newParams.delete('group');
     }
     setSearchParams(newParams);
   };
+
+  const activeGroupObj = MAIN_GROUPS.find((g) => g.id === groupParam);
 
   useEffect(() => {
     fetchProducts();
@@ -106,7 +109,14 @@ export default function CatalogPage() {
         <Link to="/shop" className="hover:text-[var(--color-primary-600)] dark:hover:text-pink-400 transition-colors">
           {t('catalog.breadcrumbCatalog', 'Katalog')}
         </Link>
-        {selectedCategory && (
+        {activeGroupObj ? (
+          <>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+            <span className="text-slate-900 dark:text-white font-bold">
+              {activeGroupObj.label}
+            </span>
+          </>
+        ) : selectedCategory && (
           <>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             <span className="text-slate-900 dark:text-white font-bold capitalize">
@@ -122,6 +132,8 @@ export default function CatalogPage() {
           <h1 className="text-2xl md:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
             {searchQuery
               ? `"${searchQuery}" ${t('catalog.searchFor', 'bo‘yicha qidiruv')}`
+              : activeGroupObj
+              ? activeGroupObj.label
               : selectedCategory
               ? t(`cat.${selectedCategory}`, categories.find((c) => c.slug === selectedCategory)?.name || t('catalog.title', 'Barcha Mahsulotlar'))
               : t('catalog.title', 'Barcha Mahsulotlar')}
@@ -181,35 +193,35 @@ export default function CatalogPage() {
             )}
           </div>
 
-          {/* Categories Filter */}
+          {/* Categories Filter (3 Clean Main Groups) */}
           <div>
             <h4 className="font-bold text-xs uppercase tracking-wider text-slate-400 dark:text-slate-400 mb-2.5">
-              {t('catalog.categories', 'Kategoriyalar')}
+              {t('catalog.categories', 'Yo‘nalishlar')}
             </h4>
-            <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
+            <div className="space-y-1 pr-1">
               <button
                 type="button"
-                onClick={() => handleSelectCategory('')}
+                onClick={() => handleSelectGroup('')}
                 className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors cursor-pointer ${
-                  !selectedCategory
+                  !groupParam && !selectedCategory
                     ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
                     : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {t('catalog.all', 'Barchasi')}
               </button>
-              {categories.map((c) => (
+              {MAIN_GROUPS.map((g) => (
                 <button
-                  key={c._id || c.slug}
+                  key={g.id}
                   type="button"
-                  onClick={() => handleSelectCategory(c.slug)}
+                  onClick={() => handleSelectGroup(g.id)}
                   className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors truncate cursor-pointer ${
-                    selectedCategory === c.slug
+                    groupParam === g.id
                       ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
                       : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  {t(`cat.${c.slug}`, c.name)}
+                  {g.label}
                 </button>
               ))}
             </div>
@@ -334,38 +346,38 @@ export default function CatalogPage() {
                 {/* Categories */}
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-slate-400 mb-2.5">
-                    {t('catalog.categories', 'Kategoriyalar')}
+                    {t('catalog.categories', 'Yo‘nalishlar')}
                   </h4>
                   <div className="space-y-1">
                     <button
                       type="button"
                       onClick={() => {
-                        handleSelectCategory('');
+                        handleSelectGroup('');
                         setMobileFilterOpen(false);
                       }}
                       className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors ${
-                        !selectedCategory
+                        !groupParam && !selectedCategory
                           ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
                           : 'text-slate-700 dark:text-slate-300'
                       }`}
                     >
                       {t('catalog.all', 'Barchasi')}
                     </button>
-                    {categories.map((c) => (
+                    {MAIN_GROUPS.map((g) => (
                       <button
-                        key={c._id || c.slug}
+                        key={g.id}
                         type="button"
                         onClick={() => {
-                          handleSelectCategory(c.slug);
+                          handleSelectGroup(g.id);
                           setMobileFilterOpen(false);
                         }}
                         className={`w-full text-left text-xs font-semibold py-2 px-3 rounded-xl transition-colors ${
-                          selectedCategory === c.slug
+                          groupParam === g.id
                             ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold'
                             : 'text-slate-700 dark:text-slate-300'
                         }`}
                       >
-                        {t(`cat.${c.slug}`, c.name)}
+                        {g.label}
                       </button>
                     ))}
                   </div>
