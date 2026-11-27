@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MAIN_GROUPS, getCategoryMainGroup, getProductMainGroup } from '../../utils/productGroups';
 import {
   DollarSign,
   ShoppingBag,
@@ -61,6 +62,7 @@ export default function AdminDashboard() {
   const [productSearch, setProductSearch] = useState('');
   const [productView, setProductView] = useState('list'); // 'list' | 'form'
   const [editingProduct, setEditingProduct] = useState(null);
+  const [selectedMainGroup, setSelectedMainGroup] = useState('yol');
   const [productForm, setProductForm] = useState({
     title: '',
     sku: '',
@@ -461,6 +463,7 @@ export default function AdminDashboard() {
   const handleOpenProductForm = (product = null) => {
     if (product) {
       setEditingProduct(product);
+      setSelectedMainGroup(getProductMainGroup(product));
       setProductForm({
         title: product.title,
         sku: product.sku || '',
@@ -479,6 +482,7 @@ export default function AdminDashboard() {
       });
     } else {
       setEditingProduct(null);
+      setSelectedMainGroup('yol');
       setProductForm({
         title: '',
         sku: '',
@@ -1413,8 +1417,55 @@ export default function AdminDashboard() {
                     </div>
 
                     <div>
+                      <label className="font-bold text-slate-700 dark:text-slate-300 block mb-2">
+                        1. Mahsulot yo‘nalishini tanlang *
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-4">
+                        {MAIN_GROUPS.map((group) => {
+                          const isChecked = selectedMainGroup === group.id;
+                          return (
+                            <label
+                              key={group.id}
+                              className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer transition-all ${
+                                isChecked
+                                  ? 'border-slate-950 dark:border-white bg-slate-950/5 dark:bg-white/10 shadow-2xs'
+                                  : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 hover:border-slate-400'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name="product-main-group"
+                                value={group.id}
+                                checked={isChecked}
+                                onChange={() => {
+                                  setSelectedMainGroup(group.id);
+                                  const matchingCats = categories.filter(
+                                    (c) => getCategoryMainGroup(c) === group.id
+                                  );
+                                  const nextCat = matchingCats[0] || group.defaultCategory;
+                                  setProductForm((prev) => ({
+                                    ...prev,
+                                    category: nextCat.name,
+                                    categorySlug: nextCat.slug
+                                  }));
+                                }}
+                                className="mt-0.5 accent-slate-950 dark:accent-white cursor-pointer"
+                              />
+                              <div className="min-w-0">
+                                <div className="font-bold text-slate-900 dark:text-white leading-tight">
+                                  {group.label}
+                                </div>
+                                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                                  {group.shortLabel}
+                                </div>
+                              </div>
+                            </label>
+                          );
+                        })}
+                      </div>
+
                       <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
-                        Kategoriya
+                        2. Kategoriya *
                       </label>
                       <select
                         value={productForm.category}
@@ -1429,20 +1480,22 @@ export default function AdminDashboard() {
                         }}
                         className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-900 dark:text-white outline-none cursor-pointer"
                       >
-                        {categories.length > 0 ? (
-                          categories.map(c => (
-                            <option key={c._id || c.id || c.slug} value={c.name}>{c.name}</option>
-                          ))
-                        ) : (
-                          <>
-                            <option value="Yo‘l Xavfsizligi & Jihozlar">Yo‘l Xavfsizligi & Jihozlar</option>
-                            <option value="Drellar & Shurupovyortlar">Drellar & Shurupovyortlar</option>
-                            <option value="Asboblar To‘plamlari (Naborlar)">Asboblar To‘plamlari (Naborlar)</option>
-                            <option value="Arralar & Bog‘ Texnikasi">Arralar & Bog‘ Texnikasi</option>
-                            <option value="Balgarkalar & Silliqlash">Balgarkalar & Silliqlash</option>
-                            <option value="Isitgichlar & Texnik Fenlar">Isitgichlar & Texnik Fenlar</option>
-                          </>
-                        )}
+                        {(() => {
+                          const filteredCats = categories.filter(
+                            (c) => getCategoryMainGroup(c) === selectedMainGroup
+                          );
+                          const activeGroup = MAIN_GROUPS.find((g) => g.id === selectedMainGroup);
+                          const list = filteredCats.length > 0
+                            ? filteredCats
+                            : activeGroup
+                              ? [{ id: activeGroup.defaultCategory.slug, ...activeGroup.defaultCategory }]
+                              : categories;
+                          return list.map((c) => (
+                            <option key={c._id || c.id || c.slug} value={c.name}>
+                              {c.name}
+                            </option>
+                          ));
+                        })()}
                       </select>
                     </div>
 

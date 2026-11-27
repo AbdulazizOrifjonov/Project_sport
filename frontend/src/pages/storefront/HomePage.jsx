@@ -8,23 +8,14 @@ import PromoTiles from '../../components/storefront/PromoTiles';
 import ReviewsSection from '../../components/storefront/ReviewsSection';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
-
-const HOME_CATEGORIES = [
-  { id: 'all', label: 'Barcha Mahsulotlar' },
-  { id: 'yol-xavfsizligi', label: 'Yo‘l Xavfsizligi & Jihozlar' },
-  { id: 'drellar', label: 'Drellar & Shurupovyortlar' },
-  { id: 'asboblar-to-plami', label: 'Asboblar To‘plamlari (Naborlar)' },
-  { id: 'arralar', label: 'Arralar & Bog‘ Texnikasi' },
-  { id: 'balgarkalar', label: 'Balgarkalar & Silliqlash' },
-  { id: 'isitgichlar', label: 'Isitgichlar & Texnik Fenlar' },
-];
+import { getGroupedProductsSortedByCount, getProductMainGroup } from '../../utils/productGroups';
 
 export default function HomePage() {
   const { t } = useLanguage();
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCat, setSelectedCat] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(60);
+  const [visibleCount, setVisibleCount] = useState(100);
 
   useEffect(() => {
     api
@@ -33,104 +24,42 @@ export default function HomePage() {
         if (res.data.success) {
           const all = res.data.allProducts || [];
           setAllProducts(all);
-          setVisibleCount(all.length || 60);
+          setVisibleCount(all.length || 100);
         }
       })
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
 
-  // Filter products by selected category tab
+  // Dynamically group into 3 main types & sort ascending by product count (fewest -> middle -> most)
+  const { groups: orderedGroups, orderedProducts } = useMemo(
+    () => getGroupedProductsSortedByCount(allProducts),
+    [allProducts]
+  );
+
+  // Build HomePage tabs: "Barchasi" + the 3 main groups ordered fewest -> most
+  const homeTabs = useMemo(
+    () => [
+      { id: 'all', label: 'Barcha Mahsulotlar', count: orderedProducts.length },
+      ...orderedGroups.map((g) => ({
+        id: g.id,
+        label: g.label,
+        count: g.items.length
+      }))
+    ],
+    [orderedGroups, orderedProducts.length]
+  );
+
+  // Filter products by selected main group tab
   const filteredProducts = useMemo(() => {
-    if (selectedCat === 'all') return allProducts;
-    if (selectedCat === 'yol-xavfsizligi') {
-      return allProducts.filter(p =>
-        p.category?.includes('Yo‘l') ||
-        p.category_slug === 'yol-xavfsizligi' ||
-        p.category?.includes('To‘siq') ||
-        p.category?.includes('Ustun')
-      );
-    }
-    if (selectedCat === 'drellar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Drel') ||
-        p.category_slug === 'drellar-shurupovyortlar'
-      );
-    }
-    if (selectedCat === 'asboblar-to-plami') {
-      return allProducts.filter(p =>
-        p.category?.includes('To‘plam') ||
-        p.category_slug === 'asboblar-to-plami'
-      );
-    }
-    if (selectedCat === 'arralar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Arra') ||
-        p.category_slug === 'arralar-elektr-uskunalar'
-      );
-    }
-    if (selectedCat === 'balgarkalar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Balgarka') ||
-        p.category_slug === 'balgarka-shlifovka'
-      );
-    }
-    if (selectedCat === 'isitgichlar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Isitgich') ||
-        p.category_slug === 'isitgichlar-iqlim'
-      );
-    }
-    return allProducts;
-  }, [allProducts, selectedCat]);
+    if (selectedCat === 'all') return orderedProducts;
+    return orderedProducts.filter((p) => getProductMainGroup(p) === selectedCat);
+  }, [orderedProducts, selectedCat]);
 
   // Handle category change
   const handleCategoryChange = (catId) => {
     setSelectedCat(catId);
-    setVisibleCount(60);
-  };
-
-  const getCatCount = (catId) => {
-    if (catId === 'all') return allProducts.length;
-    if (catId === 'yol-xavfsizligi') {
-      return allProducts.filter(p =>
-        p.category?.includes('Yo‘l') ||
-        p.category_slug === 'yol-xavfsizligi' ||
-        p.category?.includes('To‘siq') ||
-        p.category?.includes('Ustun')
-      ).length;
-    }
-    if (catId === 'drellar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Drel') ||
-        p.category_slug === 'drellar-shurupovyortlar'
-      ).length;
-    }
-    if (catId === 'asboblar-to-plami') {
-      return allProducts.filter(p =>
-        p.category?.includes('To‘plam') ||
-        p.category_slug === 'asboblar-to-plami'
-      ).length;
-    }
-    if (catId === 'arralar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Arra') ||
-        p.category_slug === 'arralar-elektr-uskunalar'
-      ).length;
-    }
-    if (catId === 'balgarkalar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Balgarka') ||
-        p.category_slug === 'balgarka-shlifovka'
-      ).length;
-    }
-    if (catId === 'isitgichlar') {
-      return allProducts.filter(p =>
-        p.category?.includes('Isitgich') ||
-        p.category_slug === 'isitgichlar-iqlim'
-      ).length;
-    }
-    return allProducts.length;
+    setVisibleCount(100);
   };
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
@@ -168,7 +97,7 @@ export default function HomePage() {
           </a>
         </div>
 
-        {/* Top 10 Hit Products Grid */}
+        {/* 3 Main Groups Ordered by Product Count (Fewest -> Middle -> Most) */}
         {loading ? (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
             {[...Array(5)].map((_, i) => (
@@ -179,9 +108,31 @@ export default function HomePage() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {allProducts.map((p) => (
-              <ProductCard key={`featured-${p._id || p.id}`} product={p} />
+          <div className="space-y-10">
+            {orderedGroups.map((group, idx) => (
+              <div key={group.id} className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-2.5">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-black">
+                      {idx + 1}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-black text-slate-950 dark:text-white tracking-tight">
+                      {group.label}
+                    </h3>
+                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold">
+                      {group.items.length} ta mahsulot
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {group.description}
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+                  {group.items.map((p) => (
+                    <ProductCard key={`featured-${group.id}-${p._id || p.id}`} product={p} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -215,8 +166,7 @@ export default function HomePage() {
 
           {/* Interactive Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {HOME_CATEGORIES.map((cat) => {
-              const count = getCatCount(cat.id);
+            {homeTabs.map((cat) => {
               const isActive = selectedCat === cat.id;
 
               return (
@@ -237,7 +187,7 @@ export default function HomePage() {
                         : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
                     }`}
                   >
-                    {count}
+                    {cat.count}
                   </span>
                 </button>
               );
