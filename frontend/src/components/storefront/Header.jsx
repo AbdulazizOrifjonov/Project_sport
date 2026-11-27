@@ -531,13 +531,13 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
               );
             })()}
 
-            {/* 2. Yo'l Harakati Xavfsizligi */}
+            {/* 2. Yo'l qurilish mahsulotlari */}
             {(() => {
-              const isActive = currentCategory === 'yol-xavfsizligi' || currentCategory === 'yol-konuslari';
+              const isActive = currentParams.get('group') === 'yol' || currentCategory === 'yol-xavfsizligi' || currentCategory === 'yol-konuslari';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=yol-xavfsizligi"
+                  to="/shop?group=yol"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-orange-600 text-white shadow-md ring-2 ring-orange-500/30 font-black'
@@ -545,18 +545,37 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   }`}
                 >
                   <Cone className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-orange-500'}`} />
-                  <span>Yo‘l Xavfsizligi &amp; Jihozlar</span>
+                  <span>Yo‘l qurilish mahsulotlari</span>
                 </Link>
               );
             })()}
 
-            {/* 3. Drellar & Shurupovyortlar */}
+            {/* 3. Sportga oid mahsulotlar */}
             {(() => {
-              const isActive = currentCategory === 'drellar-shurupovyortlar' || currentCategory === 'drellar-shurupovyort';
+              const isActive = currentParams.get('group') === 'sport' || currentCategory === 'trenajorlar';
               return (
                 <Link
                   ref={isActive ? activeNavRef : null}
-                  to="/shop?category=drellar-shurupovyortlar"
+                  to="/shop?group=sport"
+                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-500/30 font-black'
+                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <Dumbbell className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-emerald-500'}`} />
+                  <span>Sportga oid mahsulotlar</span>
+                </Link>
+              );
+            })()}
+
+            {/* 4. Qurilish asbob-uskunalari */}
+            {(() => {
+              const isActive = currentParams.get('group') === 'qurilish' || currentCategory === 'drellar-shurupovyortlar';
+              return (
+                <Link
+                  ref={isActive ? activeNavRef : null}
+                  to="/shop?group=qurilish"
                   className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-500/30 font-black'
@@ -564,83 +583,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
                   }`}
                 >
                   <Wrench className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-500'}`} />
-                  <span>Drellar &amp; Shurupovyortlar</span>
-                </Link>
-              );
-            })()}
-
-            {/* 4. Asboblar To'plamlari (Naborlar) */}
-            {(() => {
-              const isActive = currentCategory === 'asboblar-to-plami';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=asboblar-to-plami"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-500/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Package className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-emerald-500'}`} />
-                  <span>Asboblar To‘plamlari (Naborlar)</span>
-                </Link>
-              );
-            })()}
-
-            {/* 5. Arralar & Bog' Texnikasi */}
-            {(() => {
-              const isActive = currentCategory === 'arralar-elektr-uskunalar';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=arralar-elektr-uskunalar"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-green-600 text-white shadow-md ring-2 ring-green-500/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Scissors className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-green-500'}`} />
-                  <span>Arralar &amp; Bog‘ Texnikasi</span>
-                </Link>
-              );
-            })()}
-
-            {/* 6. Balgarkalar & Silliqlash */}
-            {(() => {
-              const isActive = currentCategory === 'balgarka-shlifovka';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=balgarka-shlifovka"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-indigo-600 text-white shadow-md ring-2 ring-indigo-500/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Disc className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-indigo-500'}`} />
-                  <span>Balgarkalar &amp; Silliqlash</span>
-                </Link>
-              );
-            })()}
-
-            {/* 7. Isitgichlar & Texnik Fenlar */}
-            {(() => {
-              const isActive = currentCategory === 'isitgichlar-iqlim';
-              return (
-                <Link
-                  ref={isActive ? activeNavRef : null}
-                  to="/shop?category=isitgichlar-iqlim"
-                  className={`shrink-0 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-2xs hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? 'bg-amber-600 text-white shadow-md ring-2 ring-amber-500/30 font-black'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  <Flame className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-amber-500'}`} />
-                  <span>Isitgichlar &amp; Fenlar</span>
+                  <span>Qurilish asbob-uskunalari</span>
                 </Link>
               );
             })()}

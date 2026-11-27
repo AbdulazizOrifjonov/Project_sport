@@ -4,6 +4,7 @@ import { Filter, SlidersHorizontal, ChevronRight, Check, X, RotateCcw } from 'lu
 import ProductCard from '../../components/storefront/ProductCard';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
+import { getProductMainGroup } from '../../utils/productGroups';
 
 export default function CatalogPage() {
   const { categorySlug } = useParams();
@@ -13,6 +14,7 @@ export default function CatalogPage() {
   const searchQuery = searchParams.get('search') || '';
   const tagParam = searchParams.get('tag') || '';
   const categoryParam = searchParams.get('category') || '';
+  const groupParam = searchParams.get('group') || '';
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -52,12 +54,12 @@ export default function CatalogPage() {
 
   useEffect(() => {
     fetchProducts();
-  }, [selectedCategory, selectedBrand, minPrice, maxPrice, inStockOnly, sortBy, searchQuery, tagParam]);
+  }, [selectedCategory, selectedBrand, minPrice, maxPrice, inStockOnly, sortBy, searchQuery, tagParam, groupParam]);
 
   const fetchProducts = () => {
     setLoading(true);
     let url = `/products?limit=1000&sort=${sortBy}`;
-    if (selectedCategory) url += `&categorySlug=${selectedCategory}`;
+    if (selectedCategory && !groupParam) url += `&categorySlug=${selectedCategory}`;
     if (selectedBrand) url += `&brand=${selectedBrand}`;
     if (minPrice) url += `&minPrice=${minPrice}`;
     if (maxPrice) url += `&maxPrice=${maxPrice}`;
@@ -69,8 +71,12 @@ export default function CatalogPage() {
       .get(url)
       .then((res) => {
         if (res.data.success) {
-          setProducts(res.data.products);
-          setTotal(res.data.total);
+          let list = res.data.products || [];
+          if (groupParam) {
+            list = list.filter((p) => getProductMainGroup(p) === groupParam);
+          }
+          setProducts(list);
+          setTotal(groupParam ? list.length : (res.data.total || list.length));
         }
       })
       .catch(() => {})

@@ -269,6 +269,7 @@ export const dataService = {
   // ---------------- PRODUCTS ----------------
   async getAllProducts(params = {}) {
     let all = [];
+    let supabaseFetched = false;
     if (isSupabaseConfigured && supabase) {
       try {
         let query = supabase.from('products').select('*').order('created_at', { ascending: false });
@@ -283,7 +284,8 @@ export const dataService = {
           query = query.gt('discount_percent', 0);
         }
         const { data, error } = await query;
-        if (!error && data && data.length) {
+        if (!error && Array.isArray(data)) {
+          supabaseFetched = true;
           all = data.map(normalizeProduct);
         }
       } catch (e) {
@@ -291,7 +293,7 @@ export const dataService = {
       }
     }
 
-    if (!all.length) {
+    if (!supabaseFetched) {
       const local = getLocalCollection(KEYS.PRODUCTS, defaultProducts);
       all = local.map(normalizeProduct);
     }

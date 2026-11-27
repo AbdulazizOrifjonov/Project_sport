@@ -28,6 +28,13 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
+import { MAIN_GROUPS, getProductMainGroup } from '../../utils/productGroups';
+
+const GROUP_ICONS = {
+  yol: <Cone className="w-5 h-5 text-orange-500" />,
+  sport: <Dumbbell className="w-5 h-5 text-emerald-500" />,
+  qurilish: <Wrench className="w-5 h-5 text-blue-500" />
+};
 
 const iconMap = {
   Footprints: <Footprints className="w-5 h-5 text-amber-500" />,
@@ -53,9 +60,8 @@ export default function CategoryDrawer({ isOpen, onClose }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
-  const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [previewProducts, setPreviewProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [activeGroup, setActiveGroup] = useState(MAIN_GROUPS[0]);
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [catSearch, setCatSearch] = useState('');
   const [isDesktop, setIsDesktop] = useState(
@@ -113,17 +119,16 @@ export default function CategoryDrawer({ isOpen, onClose }) {
       };
       updateNavbarHeight();
 
+      setLoadingProducts(true);
       api
-        .get('/categories')
+        .get('/products/featured')
         .then((res) => {
-          if (res.data.success && res.data.categories && res.data.categories.length > 0) {
-            setCategories(res.data.categories);
-            if (!activeCategory) {
-              setActiveCategory(res.data.categories[0]);
-            }
+          if (res.data.success) {
+            setAllProducts(res.data.allProducts || []);
           }
         })
-        .catch(() => {});
+        .catch(() => {})
+        .finally(() => setLoadingProducts(false));
 
       return () => {
         document.body.style.overflow = originalBodyOverflow || '';
@@ -132,25 +137,9 @@ export default function CategoryDrawer({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
-  // Fetch preview products when activeCategory changes
-  useEffect(() => {
-    if (activeCategory && isOpen) {
-      setLoadingProducts(true);
-      api
-        .get(`/products?categorySlug=${activeCategory.slug}&limit=12`)
-        .then((res) => {
-          if (res.data.success) {
-            setPreviewProducts(res.data.products || []);
-          }
-        })
-        .catch(() => {})
-        .finally(() => setLoadingProducts(false));
-    }
-  }, [activeCategory, isOpen]);
-
-  const handleCategoryClick = (slug) => {
+  const handleGroupClick = (groupId) => {
     onClose();
-    navigate(`/shop/${slug}`);
+    navigate(`/shop?group=${groupId}`);
   };
 
   const handleProductClick = (slug) => {
@@ -158,14 +147,19 @@ export default function CategoryDrawer({ isOpen, onClose }) {
     navigate(`/product/${slug}`);
   };
 
-  const filteredCategories = categories.filter((cat) => {
+  const filteredGroups = MAIN_GROUPS.filter((g) => {
     if (!catSearch.trim()) return true;
     const q = catSearch.toLowerCase();
-    const name = (cat.name || '').toLowerCase();
-    const slug = (cat.slug || '').toLowerCase();
-    const sub = (cat.subcategories || []).some((s) => s.toLowerCase().includes(q));
-    return name.includes(q) || slug.includes(q) || sub;
+    return (
+      g.label.toLowerCase().includes(q) ||
+      g.shortLabel.toLowerCase().includes(q) ||
+      g.description.toLowerCase().includes(q)
+    );
   });
+
+  const previewProducts = activeGroup
+    ? allProducts.filter((p) => getProductMainGroup(p) === activeGroup.id)
+    : [];
 
   if (!isOpen) return null;
 
@@ -243,37 +237,39 @@ export default function CategoryDrawer({ isOpen, onClose }) {
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          {filteredCategories.length > 0 ? (
-            filteredCategories.map((cat) => {
-              const isSelected = activeCategory?._id === cat._id;
+          {filteredGroups.length > 0 ? (
+            filteredGroups.map((group) => {
+              const isSelected = activeGroup?.id === group.id;
+              const groupCount = allProducts.filter((p) => getProductMainGroup(p) === group.id).length;
               return (
                 <button
-                  key={cat._id}
-                  onMouseEnter={() => setActiveCategory(cat)}
+                  key={group.id}
+                  onMouseEnter={() => setActiveGroup(group)}
                   onClick={() => {
                     if (window.innerWidth < 768) {
-                      handleCategoryClick(cat.slug);
+                      handleGroupClick(group.id);
                     } else {
-                      setActiveCategory(cat);
+                      setActiveGroup(group);
                     }
                   }}
-                  className={`w-full flex items-center justify-between px-4 py-3 sm:py-3.5 rounded-xl text-left text-xs sm:text-sm transition-all cursor-pointer ${
+                  className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left text-xs sm:text-sm transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-xs border border-slate-200 dark:border-slate-700 font-bold'
                       : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-800/50 font-semibold'
                   }`}
                 >
-                  <div className="flex items-center gap-3 truncate">
-                    <span
-                      className={
-                        isSelected
-                          ? 'text-slate-950 dark:text-white font-bold'
-                          : 'text-slate-500 dark:text-slate-400'
-                      }
-                    >
-                      {iconMap[cat.icon] || <FileText className="w-4 h-4 sm:w-5 sm:h-5" />}
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="shrink-0">
+                      {GROUP_ICONS[group.id] || <FileText className="w-5 h-5" />}
                     </span>
-                    <span className="truncate">{t(`cat.${cat.slug}`, cat.name)}</span>
+                    <div className="min-w-0">
+                      <div className="truncate">{group.label}</div>
+                      {groupCount > 0 && (
+                        <div className="text-[11px] font-medium text-slate-400">
+                          {groupCount} ta mahsulot
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <ChevronRight
                     className={`w-4 h-4 shrink-0 transition-transform ${
@@ -287,23 +283,23 @@ export default function CategoryDrawer({ isOpen, onClose }) {
             })
           ) : (
             <div className="p-4 text-center text-xs text-slate-400">
-              Toifa topilmadi
+              Yo‘nalish topilmadi
             </div>
           )}
         </div>
 
         {/* Right Content Area: Stretches across all remaining screen width (Desktop only) */}
         <div className="hidden md:flex flex-1 min-w-0 overflow-y-auto p-6 lg:p-8 flex-col justify-between bg-white dark:bg-[#000000] overscroll-contain">
-          {activeCategory ? (
+          {activeGroup ? (
             <div className="space-y-6">
-              {/* Category Header Row */}
+              {/* Group Header Row */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
                 <div className="min-w-0">
                   <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight truncate">
-                    {t(`cat.${activeCategory.slug}`, activeCategory.name)}
+                    {activeGroup.label}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-                    {t('drawer.categoryBanner', "Toifaga tegishli barcha saralangan mahsulotlar")}
+                    {activeGroup.description}
                   </p>
                 </div>
                 <div className="flex items-center gap-2.5">
@@ -319,38 +315,18 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                     <span>Barcha mahsulotlar</span>
                   </button>
                   <button
-                    onClick={() => handleCategoryClick(activeCategory.slug)}
+                    onClick={() => handleGroupClick(activeGroup.id)}
                     className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
                   >
-                    {t('drawer.viewAll', "Ushbu toifaga o‘tish")} <ArrowRight className="w-4 h-4" />
+                    {t('drawer.viewAll', "Barchasini ko‘rish")} <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
 
-              {/* Subcategories Tags */}
-              {activeCategory.subcategories && activeCategory.subcategories.length > 0 && (
-                <div>
-                  <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-2.5">
-                    {t('drawer.subcategories', "Kichik toifalar")}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {activeCategory.subcategories.map((sub, i) => (
-                      <button
-                        key={i}
-                        onClick={() => handleCategoryClick(activeCategory.slug)}
-                        className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {sub}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Wide Top Products Preview Grid (2 to 6 columns) */}
+              {/* Products Preview Grid for Active Group */}
               <div>
                 <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-3">
-                  {t('drawer.popularItems', "Ommabop mahsulotlar")}
+                  {activeGroup.label} ({previewProducts.length} ta)
                 </h4>
                 {loadingProducts ? (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5">
