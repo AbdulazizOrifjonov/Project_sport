@@ -87,6 +87,67 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_bel-va-umortqa-masajori-0022",
+    "id": "prod_bel-va-umortqa-masajori-0022",
+    "title": "bel va umortqa masajori",
+    "slug": "bel-va-umortqa-masajori-0022",
+    "sku": "NSB-450022",
+    "price": 90,
+    "currency": "USD",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Trenajorlar & Kardio",
+    "category_slug": "trenajorlar",
+    "categorySlug": "trenajorlar",
+    "department": "sport",
+    "departmentName": "Sport & Fitnes",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-447074_1.png"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "bel va umortqa masajori - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Sport & Fitnes"
+      },
+      {
+        "label": "Toifa",
+        "value": "Trenajorlar & Kardio"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      },
+      {
+        "label": "Valyuta",
+        "value": "USD ($)"
+      }
+    ],
+    "created_at": "2026-11-27T14:40:50.022Z"
+  },
+  {
     "_id": "prod_yosh-bolalar-va-katta-bolalar-uchun-samakatlar-4605",
     "id": "prod_yosh-bolalar-va-katta-bolalar-uchun-samakatlar-4605",
     "title": "Yosh bolalar va katta bolalar uchun samakatlar",
