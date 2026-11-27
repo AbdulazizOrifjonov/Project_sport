@@ -26,6 +26,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import ProductCard from '../../components/storefront/ProductCard';
 import ProductFeedbackModal from '../../components/storefront/ProductFeedbackModal';
 import api from '../../services/api';
+import { translateProductText } from '../../utils/i18nProduct';
 
 export default function ProductDetailPage() {
   const { slug } = useParams();
@@ -33,7 +34,7 @@ export default function ProductDetailPage() {
   const { addToCart, cartItems } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
   const { toggleCompare, isInCompare } = useCompare();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const [product, setProduct] = useState(null);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
@@ -599,7 +600,7 @@ export default function ProductDetailPage() {
             </div>
 
             <h1 className="text-xl md:text-3xl font-black text-slate-950 dark:text-white leading-snug tracking-tight">
-              {product.title}
+              {translateProductText(product.title, lang)}
             </h1>
 
             {/* Rating Stars & Feedback Trigger */}
@@ -848,7 +849,7 @@ export default function ProductDetailPage() {
           <div>
             <h3 className="font-bold text-sm text-slate-900 dark:text-white mb-3">{t('detail.description', 'Mahsulot tavsifi')}</h3>
             <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
-              {product.description ||
+              {translateProductText(product.description, lang) ||
                 'Ushbu mahsulot NSB do‘koni tomonidan sifat kafolati bilan taklif etiladi. Ofis va uy sharoitida foydalanish uchun qulay.'}
             </p>
           </div>

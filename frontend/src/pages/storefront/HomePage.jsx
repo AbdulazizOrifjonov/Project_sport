@@ -9,9 +9,10 @@ import ReviewsSection from '../../components/storefront/ReviewsSection';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 import { getGroupedProductsSortedByCount, getProductMainGroup } from '../../utils/productGroups';
+import { translateProductText } from '../../utils/i18nProduct';
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCat, setSelectedCat] = useState('all');
@@ -117,14 +118,14 @@ export default function HomePage() {
                       {idx + 1}
                     </span>
                     <h3 className="text-base sm:text-lg font-black text-slate-950 dark:text-white tracking-tight">
-                      {group.label}
+                      {translateProductText(group.label, lang)}
                     </h3>
                     <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold">
-                      {group.items.length} ta mahsulot
+                      {group.items.length} {translateProductText('ta mahsulot', lang)}
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {group.description}
+                    {translateProductText(group.description, lang)}
                   </p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
@@ -179,7 +180,7 @@ export default function HomePage() {
                       : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
                 >
-                  <span>{cat.label}</span>
+                  <span>{translateProductText(cat.label, lang)}</span>
                   <span
                     className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold ${
                       isActive

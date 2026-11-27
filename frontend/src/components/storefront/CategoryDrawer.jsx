@@ -29,6 +29,7 @@ import {
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 import { MAIN_GROUPS, getProductMainGroup } from '../../utils/productGroups';
+import { translateProductText } from '../../utils/i18nProduct';
 
 const GROUP_ICONS = {
   yol: <Cone className="w-5 h-5 text-orange-500" />,
@@ -59,7 +60,7 @@ const iconMap = {
 export default function CategoryDrawer({ isOpen, onClose }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [allProducts, setAllProducts] = useState([]);
   const [activeGroup, setActiveGroup] = useState(MAIN_GROUPS[0]);
   const [loadingProducts, setLoadingProducts] = useState(false);
@@ -263,10 +264,10 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                       {GROUP_ICONS[group.id] || <FileText className="w-5 h-5" />}
                     </span>
                     <div className="min-w-0">
-                      <div className="truncate">{group.label}</div>
+                      <div className="truncate">{translateProductText(group.label, lang)}</div>
                       {groupCount > 0 && (
                         <div className="text-[11px] font-medium text-slate-400">
-                          {groupCount} ta mahsulot
+                          {groupCount} {translateProductText('ta mahsulot', lang)}
                         </div>
                       )}
                     </div>
@@ -296,10 +297,10 @@ export default function CategoryDrawer({ isOpen, onClose }) {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
                 <div className="min-w-0">
                   <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight truncate">
-                    {activeGroup.label}
+                    {translateProductText(activeGroup.label, lang)}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-                    {activeGroup.description}
+                    {translateProductText(activeGroup.description, lang)}
                   </p>
                 </div>
                 <div className="flex items-center gap-2.5">
@@ -356,7 +357,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
                           />
                         </div>
                         <h5 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-slate-950 dark:group-hover:text-white transition-colors">
-                          {p.title}
+                          {translateProductText(p.title, lang)}
                         </h5>
                         <p className="text-xs font-black text-slate-950 dark:text-white mt-1">
                           {(() => {

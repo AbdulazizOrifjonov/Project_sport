@@ -5,6 +5,7 @@ import ProductCard from '../../components/storefront/ProductCard';
 import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 import { getProductMainGroup, MAIN_GROUPS } from '../../utils/productGroups';
+import { translateProductText } from '../../utils/i18nProduct';
 
 export default function CatalogPage() {
   const { categorySlug } = useParams();
@@ -113,7 +114,7 @@ export default function CatalogPage() {
           <>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             <span className="text-slate-900 dark:text-white font-bold">
-              {activeGroupObj.label}
+              {activeGroupObj.label ? translateProductText(activeGroupObj.label, lang) : ''}
             </span>
           </>
         ) : selectedCategory && (
@@ -133,7 +134,7 @@ export default function CatalogPage() {
             {searchQuery
               ? `"${searchQuery}" ${t('catalog.searchFor', 'bo‘yicha qidiruv')}`
               : activeGroupObj
-              ? activeGroupObj.label
+              ? translateProductText(activeGroupObj.label, lang)
               : selectedCategory
               ? t(`cat.${selectedCategory}`, categories.find((c) => c.slug === selectedCategory)?.name || t('catalog.title', 'Barcha Mahsulotlar'))
               : t('catalog.title', 'Barcha Mahsulotlar')}
@@ -221,7 +222,7 @@ export default function CatalogPage() {
                       : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  {g.label}
+                  {translateProductText(g.label, lang)}
                 </button>
               ))}
             </div>

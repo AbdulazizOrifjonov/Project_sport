@@ -5,12 +5,14 @@ import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import { useLanguage } from '../../context/LanguageContext';
 import ProductFeedbackModal from './ProductFeedbackModal';
+import { getLocalizedProduct, translateProductText } from '../../utils/i18nProduct';
 
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart, updateQuantity, cartItems } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const localizedProduct = getLocalizedProduct(product, lang);
 
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [currentRating, setCurrentRating] = useState(product.rating || 5.0);
@@ -276,7 +278,7 @@ export default function ProductCard({ product }) {
       <div className="flex flex-col flex-1 p-2.5 sm:p-3 bg-white dark:bg-[#0a0a0c] transition-colors duration-200">
         {/* Toifa (Kategoriya) - Ixcham */}
         <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider truncate mb-0.5 block">
-          {categoryName}
+          {translateProductText(categoryName, lang)}
         </span>
 
         {/* Mahsulot nomi - 2 qatorda tekis */}
@@ -285,7 +287,7 @@ export default function ProductCard({ product }) {
             to={productUrl}
             className="hover:text-slate-950 dark:hover:text-white transition-colors"
           >
-            {product.title}
+            {localizedProduct.title}
           </Link>
         </h3>
 

@@ -37,6 +37,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import api from '../../services/api';
+import { translateProductText } from '../../utils/i18nProduct';
 
 export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen = false }) {
   const { cartItems, cartTotal, cartCount } = useCart();
@@ -564,7 +565,7 @@ export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen 
                   }`}
                 >
                   <Cone className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-orange-500'}`} />
-                  <span>Yo‘l qurilish mahsulotlari</span>
+                  <span>{translateProductText('Yo‘l qurilish mahsulotlari', lang)}</span>
                 </Link>
               );
             })()}
@@ -583,7 +584,7 @@ export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen 
                   }`}
                 >
                   <Dumbbell className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-emerald-500'}`} />
-                  <span>Sportga oid mahsulotlar</span>
+                  <span>{translateProductText('Sportga oid mahsulotlar', lang)}</span>
                 </Link>
               );
             })()}
@@ -602,7 +603,7 @@ export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen 
                   }`}
                 >
                   <Wrench className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-blue-500'}`} />
-                  <span>Qurilish asbob-uskunalari</span>
+                  <span>{translateProductText('Qurilish asbob-uskunalari', lang)}</span>
                 </Link>
               );
             })()}
