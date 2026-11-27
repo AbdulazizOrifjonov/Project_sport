@@ -87,6 +87,120 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-6770",
+    "id": "prod_4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-6770",
+    "title": "4&1 Professional Akkumulyatorli Asboblar To‘plami (Gaykavyort, Balgarka, Drel, Perforator)",
+    "slug": "4-1-professional-akkumulyatorli-asboblar-to-plami-gaykavyort-balgarka-drel-perforator-6770",
+    "sku": "NSB-016770",
+    "price": 895000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Universal Pro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-998312_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Qurilish, montaj va ta'mirlash uchun 4 ta eng zarur elektr asboblar to‘plami: Kuchli zarbli gaykavyort, 125 mm burchakli shlifovka (balgarka), drel-shurupovyort va zarbli perforator. Barchasi bitta qulay mustahkam keysda, katta sig‘imli Li-Ion akkumulyatorlar bilan birga taqdim etiladi.",
+    "specifications": [
+      {
+        "label": "To‘plam tarkibi",
+        "value": "Gaykavyort, Balgarka (USH-M), Drel-shurupovyort, Perforator"
+      },
+      {
+        "label": "Dvigatel turi",
+        "value": "Beshchetochniy (Brushless / Cho‘tkasiz) yuqori resursli"
+      },
+      {
+        "label": "Batareya",
+        "value": "Yuqori sig‘imli universal Li-Ion akkumulyatorlar"
+      },
+      {
+        "label": "Komplektatsiya",
+        "value": "4 ta uskuna, 2x batareya, tezkor zaryadlovchi, mustahkam keys"
+      },
+      {
+        "label": "Kafolat",
+        "value": "1 yil rasmiy kafolat"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:36.770Z"
+  },
+  {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-6747",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-6747",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-6747",
+    "sku": "NSB-016747",
+    "price": 169000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-999150_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:36.747Z"
+  },
+  {
     "_id": "prod_drellar-shurupovyortlar-mahsuloti-7538",
     "id": "prod_drellar-shurupovyortlar-mahsuloti-7538",
     "title": "Drellar & Shurupovyortlar Mahsuloti",
