@@ -87,6 +87,328 @@ export const defaultCategories = [
 
 export const defaultProducts = [
   {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-7538",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-7538",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-7538",
+    "sku": "NSB-007538",
+    "price": 339000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-000289_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:27.538Z"
+  },
+  {
+    "_id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-5636",
+    "id": "prod_turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-5636",
+    "title": "Turbo Texnik Fen 2000W (Haroratni rostlagichli sanoat feni)",
+    "slug": "turbo-texnik-fen-2000w-haroratni-rostlagichli-sanoat-feni-5636",
+    "sku": "NSB-005636",
+    "price": 92000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Lazer Uroven & Asbob Naborlari",
+    "category_slug": "lazer-qol-asboblari",
+    "categorySlug": "lazer-qol-asboblari",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "TurboPro",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-000056_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Plastik quvurlarni bukish, payvandlash, bo‘yoq va lakni tozalash, avtomobil oynalariga plyonka tortish va quritish ishlari uchun 2000 Vt quvvatli professional texnik fen.",
+    "specifications": [
+      {
+        "label": "Quvvati",
+        "value": "2000 Vt"
+      },
+      {
+        "label": "Harorat diapazoni",
+        "value": "50°C - 600°C gacha rostlanadi"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:25.637Z"
+  },
+  {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-4774",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-4774",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-4774",
+    "sku": "NSB-004774",
+    "price": 460000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-000286_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:24.774Z"
+  },
+  {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-3925",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-3925",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-3925",
+    "sku": "NSB-003925",
+    "price": 130000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-999120_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:23.926Z"
+  },
+  {
+    "_id": "prod_drellar-shurupovyortlar-mahsuloti-3810",
+    "id": "prod_drellar-shurupovyortlar-mahsuloti-3810",
+    "title": "Drellar & Shurupovyortlar Mahsuloti",
+    "slug": "drellar-shurupovyortlar-mahsuloti-3810",
+    "sku": "NSB-003810",
+    "price": 130000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Drellar & Shurupovyortlar",
+    "category_slug": "drellar-shurupovyort",
+    "categorySlug": "drellar-shurupovyort",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "Original Brand",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-000296_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Drellar & Shurupovyortlar Mahsuloti - sertifikatlangan, yuqori chidamli va sifatli mahsulot. Buxoro va butun O‘zbekiston bo‘ylab tezkor yetkazib berish xizmati mavjud.",
+    "specifications": [
+      {
+        "label": "Yo‘nalish",
+        "value": "Asbob-Uskunalar & Qurilish"
+      },
+      {
+        "label": "Toifa",
+        "value": "Drellar & Shurupovyortlar"
+      },
+      {
+        "label": "Brend",
+        "value": "Original Brand"
+      },
+      {
+        "label": "Holati",
+        "value": "Yangi / Kafolatli"
+      },
+      {
+        "label": "Yetkazib berish",
+        "value": "Buxoro va O‘zbekiston bo‘ylab tezkor"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:23.810Z"
+  },
+  {
+    "_id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-2961",
+    "id": "prod_universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-2961",
+    "title": "Universal Akkumulyatorli Maysa O‘radigan Trimmer (G‘ildirakli va diskli)",
+    "slug": "universal-akkumulyatorli-maysa-o-radigan-trimmer-g-ildirakli-va-diskli-2961",
+    "sku": "NSB-002961",
+    "price": 440000,
+    "currency": "UZS",
+    "oldPrice": 0,
+    "old_price": 0,
+    "discountPercent": 0,
+    "discount_percent": 0,
+    "category": "Arralar & Elektr Uskunalar",
+    "category_slug": "arralar-uskunalar",
+    "categorySlug": "arralar-uskunalar",
+    "department": "uskunalar",
+    "departmentName": "Asbob-Uskunalar & Qurilish",
+    "subcategory": "",
+    "brand": "GreenGarden",
+    "stock": 25,
+    "inStock": true,
+    "in_stock": true,
+    "rating": 5,
+    "reviews_count": 0,
+    "images": [
+      "/uploads/prod-998363_1.jpg"
+    ],
+    "is_bestseller": false,
+    "is_new_arrival": true,
+    "is_weekly_deal": false,
+    "variantLabel": "",
+    "variants": [],
+    "description": "Bog‘, hovli va maysazorlarni toza saqlash uchun akkumulyatorli qulay trimmer. Metall disk, arra tishi va plastik pichoqlar to‘plamda beriladi. Balandligini bo‘yga moslab sozlash mumkin.",
+    "specifications": [
+      {
+        "label": "Teleskopik shtanga",
+        "value": "Bo‘yga moslab 90-125 sm gacha uzayadi"
+      },
+      {
+        "label": "Pichoqlar",
+        "value": "Metall pichoq, arra diski va plastik pichoqlar"
+      },
+      {
+        "label": "Batareya",
+        "value": "2x Li-Ion akkumulyator"
+      }
+    ],
+    "created_at": "2026-11-27T06:13:22.961Z"
+  },
+  {
     "_id": "prod_siapo-9420-model-vazn-kotarish-110-kg-tezlik-14-6031",
     "id": "prod_siapo-9420-model-vazn-kotarish-110-kg-tezlik-14-6031",
     "title": "Siapo 9420 model Vazn kotarish 110 kg Tezlik 14",
