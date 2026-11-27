@@ -162,11 +162,17 @@ export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen 
     }
   };
 
-  const handleLogoClick = () => {
-    onCloseCatalog?.();
+  const handleLogoClick = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (onCloseCatalog) {
+      onCloseCatalog();
+    } else if (isCatalogOpen && onToggleCatalog) {
+      onToggleCatalog();
+    }
     setMobileMenuOpen(false);
     setShowSuggestions(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const currencyLabel = t('product.currency', 'so‘m');
@@ -519,7 +525,12 @@ export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen 
         {/* Sub-Navigation Strip (Kategoriyalar tasmagichi - chiziqlarsiz toza ko'rinish) */}
         <div className="bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
           <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
-            <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
+            <nav
+              onClick={(e) => {
+                if (e.target.closest('a')) onCloseCatalog?.();
+              }}
+              className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5"
+            >
             {/* 1. Aksiyalar kuni */}
             {(() => {
               const isActive = currentTag === 'sale';
