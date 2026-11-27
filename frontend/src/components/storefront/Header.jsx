@@ -38,7 +38,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import api from '../../services/api';
 
-export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
+export default function Header({ onToggleCatalog, onCloseCatalog, isCatalogOpen = false }) {
   const { cartItems, cartTotal, cartCount } = useCart();
   const { wishlist } = useWishlist();
   const { compareList } = useCompare();
@@ -157,8 +157,16 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
     e.preventDefault();
     if (searchQuery.trim()) {
       setShowSuggestions(false);
+      onCloseCatalog?.();
       navigate(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
     }
+  };
+
+  const handleLogoClick = () => {
+    onCloseCatalog?.();
+    setMobileMenuOpen(false);
+    setShowSuggestions(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const currencyLabel = t('product.currency', 'so‘m');
@@ -177,7 +185,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
       {/* Fixed Active Navbar Header (Topbar + Main Header + Kategoriyalar tasmagichi) */}
       <header
         ref={headerRef}
-        className="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors duration-200"
+        className="fixed top-0 inset-x-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-xs transition-colors duration-200"
       >
         {/* 1. Top Utility Contact Bar */}
         <div className="hidden md:block bg-white dark:bg-black text-[12px] text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800/80 py-1.5 transition-colors duration-200">
@@ -266,7 +274,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           <div className="hidden md:flex items-center justify-between md:justify-start gap-3 lg:gap-4 h-18 md:h-20">
             {/* Brand Logo & Catalog Button */}
             <div className="flex items-center gap-3 md:gap-4">
-              <Link to="/" className="flex items-center group h-12 shrink-0">
+              <Link to="/" onClick={handleLogoClick} className="flex items-center group h-12 shrink-0">
                 <div className="flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform bg-transparent border-none shadow-none">
                   <img src="/wyue-logo-clean.png?v=30" alt="WYUE" className="h-9 w-auto max-w-[140px] object-contain dark:hidden shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
                   <img src="/wyue-logo-clean-dark.png?v=30" alt="WYUE" className="h-9 w-auto max-w-[140px] object-contain hidden dark:block shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
@@ -425,7 +433,7 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
           {/* 2. MOBILE CLEAN 1-ROW NAVBAR (< md) — [LOGO] + [INPUT] + [= BUTTON] */}
           <div className="flex md:hidden items-center gap-2 h-14 w-full">
             {/* Logo (chapda) */}
-            <Link to="/" className="flex items-center shrink-0 pr-1">
+            <Link to="/" onClick={handleLogoClick} className="flex items-center shrink-0 pr-1">
               <div className="flex items-center justify-center shrink-0 active:scale-95 transition-transform bg-transparent border-none shadow-none">
                 <img src="/wyue-logo-clean.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain dark:hidden shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
                 <img src="/wyue-logo-clean-dark.png?v=30" alt="WYUE" className="h-7 w-auto max-w-[95px] object-contain hidden dark:block shadow-none border-none" onError={(e) => { e.target.style.display = 'none'; }} />
@@ -508,8 +516,8 @@ export default function Header({ onToggleCatalog, isCatalogOpen = false }) {
             </button>
           </div>
         </div>
-        {/* Sub-Navigation Strip (Kategoriyalar tasmagichi - o'z joyiga qaytarildi) */}
-        <div className="border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
+        {/* Sub-Navigation Strip (Kategoriyalar tasmagichi - chiziqlarsiz toza ko'rinish) */}
+        <div className="bg-white dark:bg-black transition-colors duration-200 py-2 sm:py-2.5">
           <div className="mx-auto max-w-[1820px] px-4 sm:px-6 lg:px-8 xl:px-10">
             <nav className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none py-0.5">
             {/* 1. Aksiyalar kuni */}

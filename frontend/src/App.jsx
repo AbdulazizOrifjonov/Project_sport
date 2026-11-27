@@ -60,6 +60,7 @@ function AppContent() {
       {!isAdminRoute && (
         <Header
           onToggleCatalog={() => setCatalogOpen((prev) => !prev)}
+          onCloseCatalog={() => setCatalogOpen(false)}
           isCatalogOpen={catalogOpen}
         />
       )}

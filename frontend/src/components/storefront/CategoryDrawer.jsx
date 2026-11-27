@@ -165,7 +165,7 @@ export default function CategoryDrawer({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-x-0 z-40 bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn border-t border-slate-200/80 dark:border-slate-800/80"
+      className="fixed inset-x-0 z-40 bg-white dark:bg-[#0b0f19] flex flex-col overflow-hidden animate-fadeIn"
       style={{
         top: 'var(--nsb-navbar-height, 104px)',
         bottom: isDesktop
